@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Rise of the Benevolent Documentation Dictator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cds-interactive-01: #0f62fe;
+            --cds-interactive-02: #8a3ffc;
+            --cds-ui-01: #f4f4f4;
+            --cds-ui-02: #ffffff;
+            --cds-ui-03: #e0e0e0;
+            --cds-text-01: #161616;
+            --cds-text-02: #525252;
+            --imperial-red: #ba1b1b;
+            --imperial-gold: #c59b27;
+            --imperial-dark-gold: #946f0f;
+            --imperial-jade: #0f6257;
+            --imperial-navy: #12213d;
+            --waterfall-blue: #0043ce;
+            --silk-bg: #fbf9f5;
+            --card-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            --drama-shadow: 0 8px 24px rgba(186, 27, 27, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f0ede6;
+            background-image: radial-gradient(#dfd9cd 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: var(--cds-text-01);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            background-color: var(--cds-ui-02);
+            padding: 56px 64px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+            border-top: 8px solid var(--imperial-red);
+            border-bottom: 4px solid var(--imperial-gold);
+            position: relative;
+        }
+
+        /* Atmospheric decor */
+        .blossom-banner {
+            position: absolute;
+            top: 16px;
+            right: 24px;
+            font-size: 1.5rem;
+            opacity: 0.85;
+            letter-spacing: 4px;
+        }
+
+        /* Header / Meta */
+        .post-header {
+            margin-bottom: 36px;
+            border-bottom: 2px solid #ede7db;
+            padding-bottom: 28px;
+            text-align: center;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #ba1b1b 0%, #8c1010 100%);
+            color: #ffffff;
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 6px 14px;
+            border-radius: 3px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 6px rgba(186, 27, 27, 0.3);
+        }
+
+        .hanzi-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            color: var(--imperial-gold);
+            letter-spacing: 6px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-family: 'Cinzel', 'IBM Plex Sans', Georgia, serif;
+            font-size: 2.35rem;
+            font-weight: 800;
+            line-height: 1.25;
+            color: var(--imperial-navy);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #634832;
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.875rem;
+            color: var(--cds-text-02);
+            background-color: var(--silk-bg);
+            padding: 12px 20px;
+            border-radius: 4px;
+            border: 1px dashed #dcd3c1;
+        }
+
+        .post-meta span strong {
+            color: var(--imperial-navy);
+        }
+
+        /* Typography */
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 42px;
+            margin-bottom: 20px;
+            color: var(--imperial-navy);
+            position: relative;
+            padding-left: 14px;
+            border-left: 5px solid var(--imperial-red);
+            letter-spacing: -0.3px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--imperial-navy);
+        }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 1.025rem;
+            color: #262626;
+        }
+
+        /* Cast Character Cards Grid */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 24px;
+            margin: 28px 0;
+        }
+
+        .character-card {
+            background-color: #ffffff;
+            border: 1px solid #e5dec9;
+            border-top: 4px solid var(--imperial-gold);
+            border-radius: 6px;
+            padding: 24px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .character-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--drama-shadow);
+        }
+
+        .character-card.protagonist {
+            border-top-color: var(--cds-interactive-01);
+            background: linear-gradient(180deg, #f7faff 0%, #ffffff 100%);
+        }
+
+        .character-card.heroine {
+            border-top-color: var(--cds-interactive-02);
+            background: linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
+        }
+
+        .character-card.rival {
+            border-top-color: var(--imperial-gold);
+            background: linear-gradient(180deg, #fffcf4 0%, #ffffff 100%);
+        }
+
+        .character-card.nemesis {
+            border-top-color: var(--imperial-red);
+            background: linear-gradient(180deg, #fff7f7 0%, #ffffff 100%);
+        }
+
+        .char-img-container {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .char-img {
+            max-width: 100%;
+            height: 280px;
+            object-fit: contain;
+            border-radius: 6px;
+            background: radial-gradient(circle, #f9f6f0 0%, #ece5d8 100%);
+            padding: 6px;
+            border: 1px solid #ded6c5;
+        }
+
+        .char-header {
+            margin-bottom: 12px;
+        }
+
+        .char-chinese-name {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--imperial-red);
+            margin-bottom: 2px;
+        }
+
+        .char-english-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--imperial-navy);
+            line-height: 1.3;
+        }
+
+        .char-role-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 8px;
+            border-radius: 2px;
+            margin-top: 6px;
+        }
+
+        .badge-blue { background: #edf5ff; color: #0043ce; }
+        .badge-purple { background: #f6f2ff; color: #6929c4; }
+        .badge-gold { background: #fdf3d8; color: #8e6200; }
+        .badge-red { background: #fff1f1; color: #ba1b1b; }
+
+        .char-quote {
+            font-style: italic;
+            background: var(--silk-bg);
+            border-left: 3px solid var(--imperial-gold);
+            padding: 10px 14px;
+            margin: 12px 0;
+            font-size: 0.925rem;
+            color: #4a3828;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .char-traits {
+            font-size: 0.9rem;
+            padding-left: 18px;
+            color: #393939;
+            margin-bottom: 0;
+        }
+
+        .char-traits li {
+            margin-bottom: 6px;
+        }
+
+        /* Villain Special Banner */
+        .villain-card {
+            background: linear-gradient(135deg, #1c1c1c 0%, #2e1c1c 100%);
+            color: #ffffff;
+            border: 2px solid #8c2020;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin: 32px 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .villain-card h3 {
+            color: #ff8389;
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .villain-card .hanzi {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.6rem;
+            color: #f1c21b;
+            letter-spacing: 4px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .villain-card p {
+            color: #e0e0e0;
+        }
+
+        .villain-card ul {
+            padding-left: 20px;
+            color: #f4f4f4;
+        }
+
+        .villain-card li {
+            margin-bottom: 6px;
+        }
+
+        /* Drama Tropes Box */
+        .trope-box {
+            background: #fff8f8;
+            border: 1px solid #ffd7d9;
+            border-left: 5px solid var(--imperial-red);
+            padding: 22px 28px;
+            margin: 28px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .trope-box h4 {
+            color: var(--imperial-red);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .trope-box p {
+            margin-bottom: 0;
+            color: #4f2d2d;
+            font-size: 0.975rem;
+        }
+
+        /* Waterfall Special Theme Box */
+        .waterfall-card {
+            background: linear-gradient(135deg, #091b38 0%, #102d5e 100%);
+            color: #edf5ff;
+            border: 2px solid #4589ff;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin: 32px 0;
+            box-shadow: 0 8px 24px rgba(0, 67, 206, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .waterfall-card::before {
+            content: "💧 ⛰️ 💧";
+            position: absolute;
+            top: 16px;
+            right: 24px;
+            font-size: 1.4rem;
+            opacity: 0.6;
+        }
+
+        .waterfall-card h3 {
+            color: #78a9ff;
+            font-size: 1.45rem;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .waterfall-card p {
+            color: #d0e2ff;
+        }
+
+        /* Fandom Table */
+        .fandom-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0 20px 0;
+            background: #ffffff;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+
+        .fandom-table th {
+            background: var(--imperial-navy);
+            color: #ffffff;
+            font-weight: 600;
+            text-align: left;
+            padding: 10px 16px;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .fandom-table td {
+            padding: 10px 16px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 0.925rem;
+            color: #262626;
+        }
+
+        .fandom-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .fandom-table tr:nth-child(even) {
+            background-color: #fbf9f5;
+        }
+
+        /* Episode Accordion / Table / Timeline */
+        .episode-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .episode-card {
+            background: #ffffff;
+            border: 1px solid #e0d8c8;
+            border-left: 5px solid var(--imperial-gold);
+            border-radius: 4px;
+            padding: 18px 22px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .episode-card.climax {
+            border-left-color: var(--imperial-red);
+            background: #fffafa;
+        }
+
+        .episode-card.special {
+            border-left-color: var(--cds-interactive-02);
+            background: #fbf9ff;
+        }
+
+        .episode-card.waterfall-ep {
+            border-left-color: var(--waterfall-blue);
+            background: #f8fbff;
+        }
+
+        .ep-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .ep-number {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--imperial-navy);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ep-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            background: #f4efe4;
+            color: #69523b;
+            border-radius: 2px;
+        }
+
+        .ep-synopsis {
+            font-size: 0.975rem;
+            color: #333333;
+            line-height: 1.55;
+            margin-bottom: 0;
+        }
+
+        .ep-subtext {
+            font-size: 0.85rem;
+            color: #8a6d4b;
+            font-style: italic;
+            border-top: 1px dashed #ede5d5;
+            padding-top: 6px;
+            margin-top: 4px;
+        }
+
+        /* Script Dialogue Blocks */
+        .script-box {
+            background-color: #1a202c;
+            color: #f4f7fb;
+            border-radius: 6px;
+            padding: 24px 28px;
+            margin: 24px 0;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.92rem;
+            border-left: 4px solid var(--imperial-gold);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+        }
+
+        .script-box.waterfall-script {
+            border-left-color: #4589ff;
+            background-color: #0f172a;
+        }
+
+        .script-speaker {
+            color: #78a9ff;
+            font-weight: 600;
+            display: block;
+            margin-top: 12px;
+            font-size: 0.95rem;
+        }
+
+        .script-speaker:first-child {
+            margin-top: 0;
+        }
+
+        .script-speaker.bob { color: #78a9ff; }
+        .script-speaker.yun { color: #d4bbff; }
+        .script-speaker.gu { color: #f1c21b; }
+        .script-speaker.ling { color: #ff8389; }
+        .script-speaker.council { color: #6fdc8c; }
+        .script-speaker.official { color: #a8c0ff; }
+        .script-speaker.keeper { color: #6ee7b7; }
+
+        .script-line {
+            color: #ffffff;
+            padding-left: 16px;
+            border-left: 2px solid #455066;
+            margin: 4px 0 8px 4px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .stage-direction {
+            color: #94a3b8;
+            font-style: italic;
+            font-size: 0.85rem;
+            margin: 8px 0;
+            padding-left: 16px;
+        }
+
+        /* Romance Arc Box */
+        .romance-box {
+            background: linear-gradient(135deg, #fff5f8 0%, #fcf0f5 100%);
+            border: 1px solid #ffd6e5;
+            border-left: 5px solid #d12771;
+            padding: 24px 28px;
+            border-radius: 0 6px 6px 0;
+            margin: 28px 0;
+        }
+
+        .romance-box h3 {
+            color: #9f1853;
+            margin-top: 0;
+        }
+
+        .romance-step {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .romance-ep {
+            font-weight: 700;
+            color: #d12771;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            background: #ffe3ee;
+            padding: 2px 8px;
+            border-radius: 2px;
+            margin-top: 2px;
+        }
+
+        .romance-text {
+            font-size: 0.95rem;
+            color: #3f1025;
+        }
+
+        /* Second Lead Law Callout */
+        .second-lead-box {
+            background: #fffcf2;
+            border: 1px solid #fae29c;
+            border-left: 5px solid var(--imperial-gold);
+            padding: 22px 28px;
+            margin: 28px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .second-lead-box h4 {
+            color: #875e00;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+
+        .second-lead-box p {
+            margin-bottom: 10px;
+            font-size: 0.975rem;
+            color: #4b3700;
+        }
+
+        .second-lead-box ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+            color: #574100;
+            font-size: 0.925rem;
+        }
+
+        /* Fandom Wiki Box */
+        .wiki-box {
+            background: #fdfbf7;
+            border: 1px solid #e4dcc9;
+            border-left: 5px solid var(--cds-interactive-02);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.935rem;
+        }
+
+        .wiki-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #6929c4;
+            background: #f6f2ff;
+            padding: 3px 8px;
+            border-radius: 2px;
+            margin-bottom: 8px;
+        }
+
+        .wiki-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--imperial-navy);
+            margin-bottom: 8px;
+        }
+
+        .wiki-box p {
+            font-size: 0.95rem;
+            color: #333333;
+            margin-bottom: 8px;
+        }
+
+        .wiki-box ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: #444444;
+            font-size: 0.925rem;
+        }
+
+        .wiki-box li {
+            margin-bottom: 4px;
+        }
+
+        .wiki-footer {
+            font-size: 0.835rem;
+            font-style: italic;
+            color: #756a5c;
+            border-top: 1px dashed #e5dec9;
+            padding-top: 6px;
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .post-footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 2px solid #ede7db;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--cds-text-02);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 32px 20px;
+            }
+            .character-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="blossom-banner">🌸 📜 ⛰️ 💧</div>
+
+    <header class="post-header">
+        <span class="category-tag">🎬 Screenplay &amp; Drama Special</span>
+        <div class="hanzi-title">文献帝国风云录 · 专栏特别篇</div>
+        <h1>The Rise of the Benevolent Documentation Dictator</h1>
+        <p class="subtitle">A Tale of Scrolls, Storage, Unsupported Configurations, and Moving Release Dates</p>
+
+        <div class="post-meta">
+            <span><strong>Screenplay &amp; Concept:</strong> Viktoria Muirhead</span>
+            <span><strong>Starring:</strong> 博先生 (Master Bob) &amp; 云姑娘 (Lady Yun)</span>
+            <span><strong>Genre:</strong> Imperial C-Drama / Technical Satire / Romantic Bureaucracy</span>
+            <span><strong>Seasons:</strong> 4 Epic Seasons + Holiday Special</span>
+        </div>
+    </header>
+
+    <div class="trope-box">
+        <h4>🌸 The Essential C-Drama Mandate</h4>
+        <p>Because it is a C-drama, every simple relationship must inevitably evolve into a twelve-layer misunderstanding involving professional rivalry, ministry politics, and accidental eye contact. There must be romance, unnecessary bloodshed, and at least one pivotal scene where two characters stare at each other six feet apart for exactly 47 seconds while cherry blossom petals descend in slow motion.</p>
+    </div>
+
+    <h2>The Cast</h2>
+    <p>Meet the scholars, ministers, nemeses, and shadow councils that rule the Imperial Storage Bureau.</p>
+
+    <div class="character-grid">
+        <!-- Master Bob -->
+        <div class="character-card protagonist">
+            <div class="char-img-container">
+                <img src="funny/MasterBob.png" alt="博先生 Master Bob" class="char-img">
+            </div>
+            <div class="char-header">
+                <div class="char-chinese-name">博先生 (Bó Xiānsheng)</div>
+                <div class="char-english-title">Master Bob, Sage of the Scroll Repository</div>
+                <span class="char-role-badge badge-blue">Protagonist · Dictator-in-Training</span>
+            </div>
+            <div class="char-quote">
+                "No ministry functions this efficiently. What are your true intentions?"
+            </div>
+            <ul class="char-traits">
+                <li><strong>Origins:</strong> Lowly archive keeper who uncovers ancient documentation methodologies.</li>
+                <li><strong>Superpower:</strong> Relentless scroll rigor; immune to hand-waving and unverified assumptions.</li>
+                <li><strong>Chosen Coping Mechanism:</strong> Whenever faced with undocumented requirements, unresolved dependencies, or shifting roadmaps: <em>🚶 walks into the mountains to meditate beneath a waterfall.</em></li>
+            </ul>
+        </div>
+
+        <!-- Lady Yun -->
+        <div class="character-card heroine">
+            <div class="char-img-container">
+                <img src="funny/LadyYun.png" alt="云姑娘 Lady Yun" class="char-img">
+            </div>
+            <div class="char-header">
+                <div class="char-chinese-name">云姑娘 (Yún Gūniang)</div>
+                <div class="char-english-title">Lady Yun, Keeper of the Cloud Scrolls</div>
+                <span class="char-role-badge badge-purple">Brilliant Scholar · Rival Ministry</span>
+            </div>
+            <div class="char-quote">
+                "Writing flawless documentation on the first draft is not witchcraft; it is vigilance."
+            </div>
+            <ul class="char-traits">
+                <li><strong>Origins:</strong> High scholar from the rival Ministry of Infrastructure.</li>
+                <li><strong>Secret Duty:</strong> Sole guardian of the kingdom's ancient Storage Archives.</li>
+                <li><strong>Reputation:</strong> Writes flawless documentation on the first draft, making Master Bob deeply suspicious.</li>
+            </ul>
+        </div>
+
+        <!-- Lord Gu -->
+        <div class="character-card rival">
+            <div class="char-img-container">
+                <img src="funny/LordGu.png" alt="顾公子 Lord Gu" class="char-img">
+            </div>
+            <div class="char-header">
+                <div class="char-chinese-name">顾公子 (Gù Gōngzǐ)</div>
+                <div class="char-english-title">Lord Gu, Minister of Requirements</div>
+                <span class="char-role-badge badge-gold">The Impeccable Rival · 2nd Lead Syndrome</span>
+            </div>
+            <div class="char-quote">
+                "...I documented them in the requirements."
+            </div>
+            <ul class="char-traits">
+                <li><strong>Profile:</strong> Handsome, brilliant, impeccably dressed; can recite every policy scroll from memory.</li>
+                <li><strong>The Red Flag:</strong> Delivers requirements <em>before</em> development starts (a practice completely alien to the realm).</li>
+                <li><strong>The Plot Twist:</strong> Secretly leaves clues in old scrolls to guide Master Bob and protect Lady Yun.</li>
+            </ul>
+        </div>
+
+        <!-- Marquis Ling -->
+        <div class="character-card nemesis">
+            <div class="char-img-container">
+                <img src="funny/MarquisLing.png" alt="凌大人 Marquis Ling" class="char-img">
+            </div>
+            <div class="char-header">
+                <div class="char-chinese-name">凌大人 (Líng Dàrén)</div>
+                <div class="char-english-title">Lord Ling, Keeper of Future Roadmaps</div>
+                <span class="char-role-badge badge-red">Professional Nemesis · Tragic Visionary</span>
+            </div>
+            <div class="char-quote">
+                "Excellent. We've changed the architecture. Also the timeline. Also the feature scope."
+            </div>
+            <ul class="char-traits">
+                <li><strong>Nature:</strong> Master Bob's eternal professional nemesis.</li>
+                <li><strong>Weapon of Choice:</strong> Announcing strategic realignment immediately following final sign-off.</li>
+                <li><strong>Tragic Backstory:</strong> Carries the burden of kingdom-wide storage crises alone beneath midnight waterfalls.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- The True Villain Card -->
+    <div class="villain-card">
+        <span class="hanzi">无名长老会</span>
+        <h3>The Villain: The Council of Forty-Seven Elders</h3>
+        <p>A mysterious, all-powerful body whose members materialize instantly whenever progress threatens to occur. They answer only to the Left and Right Chancellors, and there is always exactly one elder sitting firmly on the fence.</p>
+        <p><strong>Formidable Martial Arts &amp; Bureaucratic Abilities:</strong></p>
+        <ul>
+            <li><strong>The Endless Echo:</strong> Asking questions already thoroughly answered in previous scrolls.</li>
+            <li><strong>Temporal Unraveling:</strong> Reopening settled architectural decisions forty-eight hours before launch.</li>
+            <li><strong>Summoning Jutsu:</strong> Convening daily high-focus emergency assemblies dedicated strictly to nothing.</li>
+            <li><strong>Scroll Multiplication:</strong> Requesting additional peer reviews without having read the System Requirements Brief.</li>
+        </ul>
+    </div>
+
+    <!-- Second Lead Syndrome Law -->
+    <div class="second-lead-box">
+        <h4>📜 The Immutable C-Drama Law of Lord Gu</h4>
+        <p>Lord Gu stands before the court holding everything an engineer or technical writer could ever dream of:</p>
+        <ul>
+            <li>✅ Complete, unambiguous functional requirements</li>
+            <li>✅ Full upstream and downstream dependency mapping</li>
+            <li>✅ Signed stakeholder approvals from all four ministries</li>
+            <li>✅ Quantitative risk assessment matrix</li>
+            <li>✅ Realistic, achievable implementation plan</li>
+        </ul>
+        <p>...and he is <strong>still losing the girl</strong> to a man who periodically disappears into the mountains..</p>
+        <p>Because C-drama universal law dictates: <strong>Most Qualified Candidate ≠ Successful Romantic Outcome</strong>. It is written in the stars. It cannot be changed. Not even Lord Ling can rewrite that roadmap.</p>
+    </div>
+
+    <!-- Fandom Wiki Entry -->
+    <div class="wiki-box">
+        <span class="wiki-badge">📖 Fandom Wiki · Lore Archive</span>
+        <div class="wiki-title">Fan Theory #3: Did Lord Gu Know?</div>
+        <p>Some viewers believe Lord Gu secretly knew the location of the Ancient Storage Archives years before Master Bob and Lady Yun discovered them.</p>
+        <p><strong>Evidence includes:</strong></p>
+        <ul>
+            <li>His unusual knowledge of forgotten requirements.</li>
+            <li>The preservation of numerous lost scrolls.</li>
+            <li>His habit of appearing whenever critical documentation is needed.</li>
+        </ul>
+        <p class="wiki-footer">Producers have neither confirmed nor denied the theory.</p>
+    </div>
+
+    <h2>The Waterfall Chronicles (The Proven Methodology)</h2>
+    <p>Everyone assumes Master Bob is the sensible, grounded protagonist. Then, the audience slowly discovers that Master Bob is, in fact, the most dramatic character in the seven realms.</p>
+
+    <p>Whenever faced with:</p>
+    <ul style="padding-left: 24px; margin-bottom: 20px;">
+        <li>Undocumented requirements</li>
+        <li>Unresolved cross-team dependencies</li>
+        <li>Sudden architecture changes</li>
+        <li>Release date movement</li>
+        <li>Executive ambiguity</li>
+    </ul>
+
+    <p>His chosen coping mechanism is apparently: <strong>🚶 Walk into the mountains and stand under a waterfall.</strong></p>
+
+    <div class="waterfall-card">
+        <h3>⛰️ The Official Waterfall Tracker (Fandom Lore)</h3>
+        <p>The running tally tracked religiously by viewers across four seasons:</p>
+
+        <table class="fandom-table">
+            <thead>
+                <tr>
+                    <th>Season</th>
+                    <th>Waterfall Count</th>
+                    <th>Primary Trigger Event</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Season 1</strong></td>
+                    <td>3</td>
+                    <td>First architecture refactor; missing SRB; rogue PR</td>
+                </tr>
+                <tr>
+                    <td><strong>Season 2</strong></td>
+                    <td>7</td>
+                    <td>Cross-region snapshot discrepancy; 4 emergency meetings</td>
+                </tr>
+                <tr>
+                    <td><strong>Season 3</strong></td>
+                    <td>12</td>
+                    <td>Backend database migration announced 2 days before GA</td>
+                </tr>
+                <tr>
+                    <td><strong>Season 4</strong></td>
+                    <td>18</td>
+                    <td>Complete portfolio rebrand; 47-elder review loop</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p style="margin-bottom: 0; font-style: italic; color: #a6c8ff;">
+            By Season 4, the Waterfall Keeper greets him by name:<br>
+            <em>"Master Bob. Requirements trouble again?"</em><br>
+            <em>"Requirements trouble again."</em><br>
+            <em>"Your usual meditation rock is available."</em><br>
+            <em>"Thank you."</em>
+        </p>
+    </div>
+
+    <h2>The Romance &amp; Tension Arc: Master Bob &amp; Lady Yun</h2>
+    <div class="romance-box">
+        <h3>🌸 The Path to Mutual Enlightenment</h3>
+
+        <div class="romance-step">
+            <span class="romance-ep">Episode 3</span>
+            <div class="romance-text"><strong>The Spark of Hostility:</strong> Master Bob encounters Lady Yun during a heated ministerial debate over ownership of an unassigned feature proposal.</div>
+        </div>
+
+        <div class="romance-step">
+            <span class="romance-ep">Episode 5</span>
+            <div class="romance-text"><strong>The Midnight Rescue:</strong> Lady Yun saves Master Bob from disaster by intercepting outdated release dates minutes before he presents to the Imperial Review Board.</div>
+        </div>
+
+        <div class="romance-step">
+            <span class="romance-ep">Episode 7</span>
+            <div class="romance-text"><strong>The Thread of Destiny:</strong> While searching for ancient requirements buried in a comment thread from three moons ago, they discover they have both been investigating the same hidden dependency.</div>
+        </div>
+
+        <div class="romance-step">
+            <span class="romance-ep">Episode 8</span>
+            <div class="romance-text"><strong>Beneath the Lanterns:</strong> They spend an entire night comparing scroll revisions beneath the warm glow of the Lanterns of Version Control.</div>
+        </div>
+
+        <div class="romance-step">
+            <span class="romance-ep">Episode 36</span>
+            <div class="romance-text"><strong>The Legendary Scroll Exchange:</strong> Lady Yun hands Master Bob a weathered parchment. Master Bob whispers: <em>"You preserved this all these years?"</em> Lady Yun replies: <em>"Some requirements are worth keeping."</em> Social media collapses; 3 million fan edits emerge overnight.</div>
+        </div>
+
+        <div class="romance-step">
+            <span class="romance-ep">Season Finale</span>
+            <div class="romance-text"><strong>The Touch:</strong> Their hands briefly touch while reaching simultaneously for the same System Requirements Brief (SRB). <em>(The kingdom and the audience lose their collective mind).</em></div>
+        </div>
+
+    </div>
+
+    <h2>Complete Episode Highlights</h2>
+
+    <div class="episode-list">
+        <div class="episode-card">
+            <div class="ep-header">
+                <span class="ep-number">Episode 1 · The Scroll in the Vault</span>
+                <span class="ep-tag">Origins</span>
+            </div>
+            <p class="ep-synopsis">A lowly archive keeper discovers ancient documentation techniques and rises through the ranks of the Imperial Storage Bureau.</p>
+            <div class="ep-subtext">Key moment: Bob rejects a draft written entirely in colloquial folklore.</div>
+        </div>
+
+        <div class="episode-card">
+            <div class="ep-header">
+                <span class="ep-number">Episode 2 · The Snapshot Heresy</span>
+                <span class="ep-tag">Political Intrigue</span>
+            </div>
+            <p class="ep-synopsis">The Documentation Dictator faces court intrigue after discovering the kingdom's snapshots restore differently depending on hidden backend architecture.</p>
+            <div class="ep-subtext">Key moment: Bob demands backend parity before the imperial seal is applied.</div>
+        </div>
+
+        <div class="episode-card">
+            <div class="ep-header">
+                <span class="ep-number">Episode 3 · The Rogue Pull Request</span>
+                <span class="ep-tag">Rivalry</span>
+            </div>
+            <p class="ep-synopsis">A rival faction creates a pull request before requirements have been finalized. Master Bob and Lady Yun clash across the conference courtyard.</p>
+            <div class="ep-subtext">Key moment: A 47-second silent stare as cherry blossom petals drift between them.</div>
+        </div>
+
+        <div class="episode-card">
+            <div class="ep-header">
+                <span class="ep-number">Episode 4 · The Unread Brief</span>
+                <span class="ep-tag">Bureaucracy</span>
+            </div>
+            <p class="ep-synopsis">Forty-seven elders convene an emergency review board. Not a single elder has actually read the System Requirements Brief (SRB).</p>
+            <div class="ep-subtext">Key moment: 24 minutes spent debating font color while the deployment gate remains locked.</div>
+        </div>
+
+        <div class="episode-card">
+            <div class="ep-header">
+                <span class="ep-number">Episode 5 · The Decree of the Void</span>
+                <span class="ep-tag">Crisis</span>
+            </div>
+            <p class="ep-synopsis">An imperial decree announces a feature release to the entire realm. The decree contains no implementation details whatsoever. Lady Yun covertly intervenes.</p>
+            <div class="ep-subtext">Key moment: Lady Yun replaces the flawed scroll moments before it is presented to the Emperor.</div>
+        </div>
+
+        <div class="episode-card">
+            <div class="ep-header">
+                <span class="ep-number">Episode 6 · The Four Ministries of Discord</span>
+                <span class="ep-tag">Impasse</span>
+            </div>
+            <p class="ep-synopsis">Four ministries fiercely debate component ownership while the documentation scrolls remain completely unwritten.</p>
+            <div class="ep-subtext">Key moment: The discovery that each ministry believed the other was drafting the user guide.</div>
+        </div>
+
+        <div class="episode-card">
+            <div class="ep-header">
+                <span class="ep-number">Episode 7 · The Thread of Three Moons</span>
+                <span class="ep-tag">Investigation</span>
+            </div>
+            <p class="ep-synopsis">The Sage Bob uncovers critical functional requirements buried within an unresolved comment thread dating back three moons.</p>
+            <div class="ep-subtext">Key moment: Master Bob and Lady Yun's lanterns illuminate the same ancient Slack thread.</div>
+        </div>
+
+        <div class="episode-card">
+            <div class="ep-header">
+                <span class="ep-number">Episode 8 · The Sea of VERIFY</span>
+                <span class="ep-tag">Suspense</span>
+            </div>
+            <p class="ep-synopsis">A breathless messenger arrives proclaiming, <em>"The draft is complete!"</em> Upon unrolling the parchment, it consists entirely of <code>[VERIFY]</code> statements.</p>
+            <div class="ep-subtext">Key moment: Master Bob reaches for his meditation mat.</div>
+        </div>
+
+        <div class="episode-card waterfall-ep">
+            <div class="ep-header">
+                <span class="ep-number">Episode 12 · The Waterfall of Unresolved Dependencies</span>
+                <span class="ep-tag">Masterpiece</span>
+            </div>
+            <p class="ep-synopsis">Master Bob vanishes into the high peaks for three days following another roadmap decree. Lady Yun organizes a search party, only to find Lord Gu completely unfazed.</p>
+            <div class="ep-subtext">Key moment: Master Bob in flowing robes beneath the cascading falls, watching a scroll drift downstream.</div>
+        </div>
+
+        <div class="episode-card waterfall-ep">
+            <div class="ep-header">
+                <span class="ep-number">Episode 18 · The Midnight Waterfall Revelation</span>
+                <span class="ep-tag">Plot Twist</span>
+            </div>
+            <p class="ep-synopsis">The audience discovers why Lord Ling stands alone beneath a midnight waterfall. A 5-year-old scroll reveals he foresaw the Storage Crisis all along and shouldered the kingdom's burden alone.</p>
+            <div class="ep-subtext">Key moment: Six-minute flashback montage with cinematic guzheng soundtrack. Viewers declare him their favorite character.</div>
+        </div>
+
+        <div class="episode-card waterfall-ep">
+            <div class="ep-header">
+                <span class="ep-number">Episode 24 · The Waterfall of Strategic Realignment</span>
+                <span class="ep-tag">Philosophy</span>
+            </div>
+            <p class="ep-synopsis">Master Bob follows Lord Ling into the misty mountains. Beneath the Falls of Revised Priorities, Lord Ling reveals: <em>"The roadmap was merely a roadmap."</em></p>
+            <div class="ep-subtext">Key moment: Viewers spend the next week writing philosophical essays trying to decipher what it means.</div>
+        </div>
+
+        <div class="episode-card climax">
+            <div class="ep-header">
+                <span class="ep-number">Episode 36 · Some Requirements Are Worth Keeping</span>
+                <span class="ep-tag">Fandom Meltdown</span>
+            </div>
+            <p class="ep-synopsis">Lady Yun presents Master Bob with the ancient scroll preserved across ten thousand revisions. The single highest-rated episode in television history.</p>
+            <div class="ep-subtext">Key moment: 10/10 drama. Fandom explodes. Lord Gu fans enter mourning.</div>
+        </div>
+
+        <div class="episode-card special">
+            <div class="ep-header">
+                <span class="ep-number">Special Holiday Episode · The Post-GA Decree</span>
+                <span class="ep-tag">Holiday Special</span>
+            </div>
+            <p class="ep-synopsis">The Imperial Review Board convenes to request architectural redesigns after the release has already reached General Availability (GA).</p>
+            <div class="ep-subtext">Key moment: Master Bob is seen packing his bags for a remote mountain monastery.</div>
+        </div>
+    </div>
+
+    <h2>Iconic Screenplay Excerpts</h2>
+
+    <!-- Excerpt 1: Lord Gu -->
+    <div class="script-box">
+        <div class="stage-direction">[Scene: The Grand Courtyard of Requirements. Lord Gu approaches, impeccably groomed, bearing a spotless silk scroll.]</div>
+
+        <span class="script-speaker bob">MASTER BOB</span>
+        <div class="script-line">No ministry functions this efficiently. What are your true intentions?</div>
+
+        <span class="script-speaker gu">LORD GU</span>
+        <div class="script-line">...I documented them in the requirements.</div>
+
+        <span class="script-speaker bob">MASTER BOB</span>
+        <div class="script-line">Exactly. Nobody does that.</div>
+
+        <div class="stage-direction">[Lord Gu smiles enigmatically and adjusts his embroidered silk sleeve. The audience swoons.]</div>
+    </div>
+
+    <!-- Excerpt 2: Episode 12 Waterfall -->
+    <div class="script-box waterfall-script">
+        <div class="stage-direction">[Scene: Episode 12. Lady Yun rushes into the Imperial Storage Bureau. Master Bob has been missing for three days.]</div>
+
+        <span class="script-speaker official">JUNIOR OFFICIAL</span>
+        <div class="script-line">Master Bob received another decree from Lord Ling.</div>
+
+        <span class="script-speaker yun">LADY YUN</span>
+        <div class="script-line">And?</div>
+
+        <span class="script-speaker official">JUNIOR OFFICIAL</span>
+        <div class="script-line">The feature changed.</div>
+
+        <span class="script-speaker yun">LADY YUN</span>
+        <div class="script-line">Again?</div>
+
+        <span class="script-speaker official">JUNIOR OFFICIAL</span>
+        <div class="script-line">Again.</div>
+
+        <span class="script-speaker yun">LADY YUN</span>
+        <div class="script-line">Where is Master Bob?</div>
+
+        <span class="script-speaker official">JUNIOR OFFICIAL</span>
+        <div class="script-line">...the waterfall.</div>
+
+        <span class="script-speaker yun">LADY YUN</span>
+        <div class="script-line">...of course.</div>
+
+        <div class="stage-direction">[Lady Yun turns to Lord Gu, who is calmly reviewing an immaculate risk matrix.]</div>
+
+        <span class="script-speaker yun">LADY YUN</span>
+        <div class="script-line">Should we go after him?</div>
+
+        <span class="script-speaker gu">LORD GU</span>
+        <div class="script-line">This is the third time this quarter.</div>
+
+        <span class="script-speaker yun">LADY YUN</span>
+        <div class="script-line">The third time?</div>
+
+        <span class="script-speaker gu">LORD GU</span>
+        <div class="script-line">The architecture review was the second.</div>
+
+        <div class="stage-direction">[Cut to scenic wide shot: Master Bob standing beneath a raging waterfall in flowing azure robes. Cherry blossoms drift by. A single scroll floats peacefully downstream.]</div>
+
+        <span class="script-speaker bob">MASTER BOB (VOICE-OVER)</span>
+        <div class="script-line">"Requirements come and go. Architectures rise and fall. Release dates drift like leaves in the wind."</div>
+
+        <div class="stage-direction">[Cut to Marquis Ling's chambers.]</div>
+
+        <span class="script-speaker official">MESSENGER</span>
+        <div class="script-line">My Lord, Master Bob has vanished.</div>
+
+        <span class="script-speaker ling">LORD LING</span>
+        <div class="script-line">Check the waterfall.</div>
+
+        <span class="script-speaker official">MESSENGER</span>
+        <div class="script-line">How did you know?</div>
+
+        <span class="script-speaker ling">LORD LING</span>
+        <div class="script-line">I changed the roadmap.</div>
+
+        <span class="script-speaker official">MESSENGER</span>
+        <div class="script-line">Ah.</div>
+    </div>
+
+    <!-- Excerpt 3: Episode 18 / 24 Philosophical Waterfall -->
+    <div class="script-box waterfall-script">
+        <div class="stage-direction">[Scene: Episode 24 — The Falls of Revised Priorities. Mist curls around the rocks. Master Bob finds Lord Ling staring into the abyss.]</div>
+
+        <span class="script-speaker ling">LORD LING</span>
+        <div class="script-line">If the people hate me, so be it. Better they curse my name than watch the kingdom's architecture fail.</div>
+
+        <span class="script-speaker bob">MASTER BOB</span>
+        <div class="script-line">Why did you never tell us?</div>
+
+        <span class="script-speaker ling">LORD LING</span>
+        <div class="script-line">You never asked.</div>
+
+        <div class="stage-direction">[Waterfall intensifies. Dramatic guzheng solo swells.]</div>
+
+        <span class="script-speaker ling">LORD LING</span>
+        <div class="script-line">The roadmap was never the goal.</div>
+
+        <span class="script-speaker bob">MASTER BOB</span>
+        <div class="script-line">Then what was?</div>
+
+        <span class="script-speaker ling">LORD LING</span>
+        <div class="script-line">The roadmap was merely a roadmap.</div>
+
+        <span class="script-speaker bob">MASTER BOB</span>
+        <div class="script-line">... profound.</div>
+
+        <div class="stage-direction">[Viewers spend the next seven days on discussion forums trying to explain what this meant. Nobody succeeds. 10/10 television.]</div>
+    </div>
+
+    <!-- Excerpt 4: Episode 36 The Legendary Scene -->
+    <div class="script-box">
+        <div class="stage-direction">[Scene: Episode 36 — The Grand Pavilion of Version Control. Midnight lanterns sway gently in the breeze. Lady Yun withdraws an ancient, pristine scroll from her sleeve.]</div>
+
+        <span class="script-speaker bob">MASTER BOB</span>
+        <div class="script-line">You preserved this all these years? Through 47 review boards and 18 waterfall retreats?</div>
+
+        <span class="script-speaker yun">LADY YUN</span>
+        <div class="script-line">Some requirements are worth keeping.</div>
+
+        <div class="stage-direction">[Their eyes meet across a distance of exactly six feet. Petals descend for 47 consecutive seconds. The audience immediately forgets how human language works. Social media crashes worldwide.]</div>
+    </div>
+
+    <!-- Excerpt 5: Final Council Battle -->
+    <div class="script-box">
+        <div class="stage-direction">[Scene: The Final Imperial Assembly. Forty-seven Elders gather around the Great Jade Table as the deployment bell tolls.]</div>
+
+        <span class="script-speaker council">COUNCIL ELDER #34</span>
+        <div class="script-line">We have one final comment before the kingdom can deploy.</div>
+
+        <span class="script-speaker bob">MASTER BOB</span>
+        <div class="script-line">What is it?</div>
+
+        <span class="script-speaker council">COUNCIL ELDER #34</span>
+        <div class="script-line">Have we considered the impact on documentation?</div>
+
+        <div class="stage-direction">[A deafening silence falls across the entire imperial court. Every official, scholar, minister, and general turns in unison to stare directly at Master Bob. Petals freeze in mid-air. Fade to black.]</div>
+    </div>
+
+    <footer class="post-footer">
+        <p><em>The Rise of the Benevolent Documentation Dictator</em> is a serialized drama originating from the Storage Information Development chronicles.</p>
+        <p>© Imperial Storage Bureau · Written by Viktoria Muirhead · All Rights Reserved across the Seven Cloud Realms.</p>
+    </footer>
+</div>
+
+</body>
+</html>
