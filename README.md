@@ -22,7 +22,7 @@ Featuring:
 ## 🚀 Live Demo / GitHub Pages
 
 Once published to GitHub Pages, the site is accessible at:
-`https://<your-username>.github.io/benevolent-documentation-dictator/`
+https://vickmuir.github.io/benevolent-documentation-dictator/
 
 ---
 
