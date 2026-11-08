@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Bob and the Monster in the Seoul Data Center | Makjang K-Drama Special</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Serif+KR:wght@500;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --seoul-midnight: #0b1120;
+            --seoul-dark-slate: #0f172a;
+            --seoul-navy: #1e293b;
+            --cyber-blue: #0062ff;
+            --neon-cyan: #00d2ff;
+            --kdrama-purple: #8a3ffc;
+            --kdrama-violet: #6929c4;
+            --mystic-purple: #a56eff;
+            --aura-glow: rgba(138, 63, 252, 0.25);
+            --cherry-pink: #ff1493;
+            --sunset-rose: #fa4d56;
+            --seoul-gold: #f1c21b;
+            --card-bg: #ffffff;
+            --surface-subtle: #f8f9fa;
+            --surface-muted: #edf2f7;
+            --border-light: #e2e8f0;
+            --border-kdrama: #d0bfff;
+            --text-primary: #161616;
+            --text-secondary: #525252;
+            --text-muted: #6f6f6f;
+            --drama-shadow: 0 10px 30px rgba(105, 41, 196, 0.12);
+            --card-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+            --neon-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #0d1322;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(138, 63, 252, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(0, 98, 255, 0.12) 0%, transparent 40%),
+                linear-gradient(180deg, #090e1a 0%, #101828 50%, #0d1322 100%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 32px 16px;
+        }
+
+        /* Nav switcher between dramas */
+        .drama-nav {
+            max-width: 1040px;
+            margin: 0 auto 24px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: 1px solid rgba(138, 63, 252, 0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .drama-nav-brand {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: #d0bfff;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+        }
+
+        .drama-nav-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.825rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn.cdrama {
+            background: rgba(186, 27, 27, 0.2);
+            color: #ffb3b8;
+            border: 1px solid rgba(186, 27, 27, 0.5);
+        }
+
+        .nav-btn.cdrama:hover {
+            background: rgba(186, 27, 27, 0.4);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.kdrama-active {
+            background: linear-gradient(135deg, #8a3ffc 0%, #0f62fe 100%);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 2px 10px rgba(138, 63, 252, 0.5);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 56px 64px;
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(138, 63, 252, 0.2);
+            border-top: 8px solid var(--kdrama-purple);
+            border-bottom: 4px solid var(--cyber-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .decor-glow-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff1493, #8a3ffc, #00d2ff, #8a3ffc, #ff1493);
+            background-size: 200% 100%;
+        }
+
+        /* Banner & Header */
+        .kdrama-badge-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        .kdrama-pill {
+            display: inline-block;
+            background: linear-gradient(135deg, #6929c4 0%, #8a3ffc 100%);
+            color: #ffffff;
+            font-size: 0.775rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 6px 14px;
+            border-radius: 30px;
+            box-shadow: 0 2px 8px rgba(105, 41, 196, 0.35);
+        }
+
+        .makjang-pill {
+            display: inline-block;
+            background: linear-gradient(135deg, #da1e28 0%, #fa4d56 100%);
+            color: #ffffff;
+            font-size: 0.775rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 6px 14px;
+            border-radius: 30px;
+            box-shadow: 0 2px 8px rgba(218, 30, 40, 0.35);
+        }
+
+        .hangul-title {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--kdrama-violet);
+            letter-spacing: 4px;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .post-header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 32px;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Cinzel', 'Noto Serif KR', Georgia, serif;
+            font-size: 2.45rem;
+            font-weight: 900;
+            line-height: 1.25;
+            color: var(--seoul-midnight);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #4b5563;
+            font-style: italic;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            background: linear-gradient(135deg, #f8f5ff 0%, #f0f4ff 100%);
+            padding: 16px 24px;
+            border-radius: 8px;
+            border: 1px solid #e0d4fc;
+        }
+
+        .post-meta span strong {
+            color: var(--seoul-midnight);
+        }
+
+        /* Typography */
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-top: 48px;
+            margin-bottom: 20px;
+            color: var(--seoul-midnight);
+            position: relative;
+            padding-left: 16px;
+            border-left: 6px solid var(--kdrama-purple);
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--seoul-midnight);
+        }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 1.025rem;
+            color: #2d3748;
+        }
+
+        /* Posters Gallery Section */
+        .posters-section {
+            margin: 36px 0 48px 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid #4338ca;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+            color: #ffffff;
+        }
+
+        .posters-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .posters-header h3 {
+            color: #e0e7ff;
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 6px;
+        }
+
+        .posters-header p {
+            color: #a5b4fc;
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .posters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .poster-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(165, 180, 252, 0.3);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .poster-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(138, 63, 252, 0.3);
+            border-color: #a56eff;
+        }
+
+        .poster-img-wrap {
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            background: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .poster-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .poster-card:hover .poster-img {
+            transform: scale(1.03);
+        }
+
+        .poster-caption {
+            padding: 16px;
+            background: rgba(15, 23, 42, 0.9);
+            flex: 1;
+        }
+
+        .poster-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #38bdf8;
+            margin-bottom: 4px;
+        }
+
+        .poster-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .poster-desc {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            line-height: 1.45;
+            margin-bottom: 0;
+        }
+
+        /* Makjang Trope Alert Box */
+        .makjang-alert {
+            background: linear-gradient(135deg, #fff5f5 0%, #fff0f6 100%);
+            border: 1px solid #ffd6e7;
+            border-left: 6px solid #e11d48;
+            border-radius: 0 8px 8px 0;
+            padding: 24px 28px;
+            margin: 32px 0;
+            box-shadow: 0 4px 14px rgba(225, 29, 72, 0.08);
+        }
+
+        .makjang-alert h4 {
+            color: #be123c;
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .makjang-alert p {
+            color: #4c0519;
+            font-size: 0.985rem;
+            margin-bottom: 8px;
+        }
+
+        .makjang-alert ul {
+            padding-left: 20px;
+            color: #701a35;
+            font-size: 0.925rem;
+        }
+
+        .makjang-alert li {
+            margin-bottom: 4px;
+        }
+
+        /* Cast Character Cards Grid */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+            gap: 28px;
+            margin: 32px 0;
+        }
+
+        .character-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-top: 5px solid var(--kdrama-purple);
+            border-radius: 8px;
+            padding: 28px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .character-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--drama-shadow);
+        }
+
+        .character-card.bob-card {
+            border-top-color: #0062ff;
+            background: linear-gradient(180deg, #f8faff 0%, #ffffff 100%);
+        }
+
+        .character-card.yun-card {
+            border-top-color: #8a3ffc;
+            background: linear-gradient(180deg, #faf7ff 0%, #ffffff 100%);
+        }
+
+        .character-card.witch-card {
+            border-top-color: #0f6257;
+            background: linear-gradient(180deg, #f4faf8 0%, #ffffff 100%);
+        }
+
+        .character-card.cat-card {
+            border-top-color: #e65100;
+            background: linear-gradient(180deg, #fffaf4 0%, #ffffff 100%);
+        }
+
+        .character-card.monster-card {
+            border-top-color: #da1e28;
+            background: linear-gradient(180deg, #fff5f5 0%, #ffffff 100%);
+            grid-column: 1 / -1;
+        }
+
+        .character-card.council-card {
+            border-top-color: #475569;
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+            grid-column: 1 / -1;
+        }
+
+        /* Cast Card Image Placeholder Component */
+        .cast-img-placeholder {
+            width: 100%;
+            height: 240px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 2px dashed #64748b;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cast-img-placeholder::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            animation: placeholderShimmer 3s infinite;
+        }
+
+        @keyframes placeholderShimmer {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        .placeholder-icon {
+            font-size: 3rem;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .placeholder-badge {
+            display: inline-block;
+            font-size: 0.725rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            margin-bottom: 6px;
+        }
+
+        .placeholder-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #e2e8f0;
+        }
+
+        .placeholder-note {
+            font-size: 0.75rem;
+            color: #64748b;
+            font-style: italic;
+            margin-top: 4px;
+        }
+
+        /* Char Header & Badges */
+        .char-header {
+            margin-bottom: 12px;
+        }
+
+        .char-hangul-name {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--kdrama-violet);
+            margin-bottom: 2px;
+        }
+
+        .char-english-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--seoul-midnight);
+            line-height: 1.3;
+        }
+
+        .char-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 0.725rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+
+        .badge-blue { background: #edf5ff; color: #0043ce; border: 1px solid #d0e2ff; }
+        .badge-purple { background: #f6f2ff; color: #6929c4; border: 1px solid #e8daff; }
+        .badge-teal { background: #e6f6f4; color: #005d5d; border: 1px solid #9ef0f0; }
+        .badge-orange { background: #fff2e8; color: #b24000; border: 1px solid #ffd8bf; }
+        .badge-red { background: #fff1f1; color: #ba1b1b; border: 1px solid #ffd7d9; }
+        .badge-gray { background: #f2f4f8; color: #475569; border: 1px solid #cbd5e1; }
+
+        .char-quote {
+            font-style: italic;
+            background: #f8f7fc;
+            border-left: 3px solid var(--kdrama-purple);
+            padding: 10px 14px;
+            margin: 14px 0;
+            font-size: 0.95rem;
+            color: #3b2857;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .char-quote.bob-quote {
+            border-left-color: #0062ff;
+            background: #f4f8ff;
+            color: #0b2559;
+        }
+
+        .char-quote.witch-quote {
+            border-left-color: #0f6257;
+            background: #f0f9f7;
+            color: #033832;
+        }
+
+        .char-traits {
+            font-size: 0.915rem;
+            padding-left: 18px;
+            color: #334155;
+            margin-bottom: 0;
+        }
+
+        .char-traits li {
+            margin-bottom: 6px;
+        }
+
+        /* Identity Revelation Banner */
+        .revelation-box {
+            background: linear-gradient(135deg, #240b36 0%, #1e1035 50%, #0c081e 100%);
+            color: #ffffff;
+            border: 2px solid #a855f7;
+            border-radius: 10px;
+            padding: 32px 36px;
+            margin: 36px 0;
+            box-shadow: 0 8px 32px rgba(168, 85, 247, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .revelation-box::after {
+            content: "🔮 📜 🐱";
+            position: absolute;
+            top: 20px;
+            right: 28px;
+            font-size: 1.6rem;
+            opacity: 0.4;
+        }
+
+        .revelation-box h3 {
+            color: #f3e8ff;
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .revelation-tagline {
+            font-family: 'Noto Serif KR', serif;
+            color: #d8b4fe;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            border-bottom: 1px dashed rgba(216, 180, 254, 0.4);
+            padding-bottom: 8px;
+        }
+
+        .revelation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .revelation-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(168, 85, 247, 0.4);
+            border-radius: 6px;
+            padding: 16px;
+        }
+
+        .revelation-card h4 {
+            color: #c084fc;
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+        }
+
+        .revelation-card p {
+            color: #e9d5ff;
+            font-size: 0.875rem;
+            margin-bottom: 0;
+            line-height: 1.45;
+        }
+
+        /* Relationship Chart */
+        .relationship-container {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin: 28px 0;
+        }
+
+        .tree-diagram {
+            font-family: 'IBM Plex Mono', monospace;
+            background: #0f172a;
+            color: #38bdf8;
+            padding: 20px 24px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            border: 1px solid #334155;
+            margin-top: 12px;
+        }
+
+        /* Laws of the Seoul Cloud Realm */
+        .laws-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .law-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid var(--cyber-blue);
+            border-radius: 0 6px 6px 0;
+            padding: 16px 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .law-num {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--cyber-blue);
+            margin-bottom: 4px;
+        }
+
+        .law-text {
+            font-weight: 600;
+            color: var(--seoul-midnight);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* Episode List (16 episodes) */
+        .episode-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .episode-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-left: 5px solid var(--kdrama-purple);
+            border-radius: 6px;
+            padding: 20px 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            transition: transform 0.2s ease, border-left-color 0.2s ease;
+        }
+
+        .episode-card:hover {
+            transform: translateX(4px);
+        }
+
+        .episode-card.ghost-ep {
+            border-left-color: #00d2ff;
+            background: #f8fdff;
+        }
+
+        .episode-card.climax-ep {
+            border-left-color: #e11d48;
+            background: #fff9fa;
+        }
+
+        .episode-card.reveal-ep {
+            border-left-color: #a855f7;
+            background: #faf5ff;
+        }
+
+        .episode-card.finale-ep {
+            border-left-color: #f59e0b;
+            background: #fffdf5;
+        }
+
+        .ep-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .ep-number {
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: var(--seoul-midnight);
+            letter-spacing: -0.2px;
+        }
+
+        .ep-badge {
+            font-size: 0.725rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            background: #ede9fe;
+            color: #6d28d9;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        .ep-synopsis {
+            font-size: 0.985rem;
+            color: #334155;
+            line-height: 1.55;
+            margin-bottom: 0;
+        }
+
+        .ep-quote {
+            font-size: 0.875rem;
+            color: #64748b;
+            font-style: italic;
+            border-top: 1px dashed #e2e8f0;
+            padding-top: 8px;
+            margin-top: 4px;
+        }
+
+        /* Script Dialogue Blocks */
+        .script-box {
+            background-color: #0f172a;
+            color: #f8fafc;
+            border-radius: 8px;
+            padding: 24px 28px;
+            margin: 24px 0;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.92rem;
+            border-left: 5px solid var(--kdrama-purple);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+        }
+
+        .script-box.waterfall-script {
+            border-left-color: #00d2ff;
+            background: linear-gradient(135deg, #091e3a 0%, #0f172a 100%);
+        }
+
+        .script-speaker {
+            font-weight: 700;
+            display: block;
+            margin-top: 14px;
+            font-size: 0.95rem;
+        }
+
+        .script-speaker:first-child {
+            margin-top: 0;
+        }
+
+        .script-speaker.bob { color: #38bdf8; }
+        .script-speaker.yun { color: #d8b4fe; }
+        .script-speaker.witch { color: #6ee7b7; }
+        .script-speaker.cat { color: #fdba74; }
+        .script-speaker.monster { color: #f87171; }
+        .script-speaker.council { color: #cbd5e1; }
+        .script-speaker.engineer { color: #fef08a; }
+
+        .script-line {
+            color: #ffffff;
+            padding-left: 16px;
+            border-left: 2px solid #334155;
+            margin: 4px 0 8px 4px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.965rem;
+            line-height: 1.5;
+        }
+
+        .stage-direction {
+            color: #94a3b8;
+            font-style: italic;
+            font-size: 0.865rem;
+            margin: 8px 0;
+            padding-left: 16px;
+        }
+
+        /* Soundtrack Section */
+        .soundtrack-card {
+            background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin: 32px 0;
+            border: 1px solid #3f3f46;
+        }
+
+        .soundtrack-card h3 {
+            color: #f43f5e;
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ost-track-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .ost-track {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 14px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .ost-track-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ost-artist {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #fb7185;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ost-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .ost-note {
+            font-size: 0.85rem;
+            color: #a1a1aa;
+        }
+
+        .ost-vibe {
+            font-size: 0.775rem;
+            background: rgba(244, 63, 94, 0.2);
+            color: #fda4af;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(244, 63, 94, 0.4);
+        }
+
+        /* The Thesis / Why The Monster Exists */
+        .thesis-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+            border: 1px solid #c7d2fe;
+            border-left: 6px solid #4f46e5;
+            border-radius: 0 8px 8px 0;
+            padding: 28px 32px;
+            margin: 36px 0;
+        }
+
+        .thesis-box h3 {
+            color: #3730a3;
+            margin-top: 0;
+            font-size: 1.35rem;
+        }
+
+        .thesis-box p {
+            color: #1e1b4b;
+            font-size: 1.025rem;
+            line-height: 1.65;
+        }
+
+        .thesis-box blockquote {
+            font-style: italic;
+            border-left: 3px solid #6366f1;
+            padding-left: 16px;
+            margin: 16px 0;
+            color: #4338ca;
+            font-size: 1.05rem;
+        }
+
+        /* Post-Credit Teaser */
+        .post-credit-card {
+            background: #090d16;
+            color: #f8fafc;
+            border: 2px dashed #f59e0b;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin: 36px 0;
+            text-align: center;
+        }
+
+        .post-credit-badge {
+            display: inline-block;
+            background: #b45309;
+            color: #fef3c7;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .post-credit-card h3 {
+            color: #fbbf24;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .post-credit-card p {
+            color: #cbd5e1;
+            font-size: 0.975rem;
+        }
+
+        /* Footer */
+        .post-footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 2px solid #edf2f7;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-nav {
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 32px 20px;
+            }
+            .character-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 1.85rem;
+            }
+            .revelation-box {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Drama Universe Navigation -->
+<nav class="drama-nav">
+    <div class="drama-nav-brand">
+        <span>🎬 BDD Drama Universe</span>
+    </div>
+    <div class="drama-nav-links">
+        <a href="index.html" class="nav-btn cdrama">
+            <span>📜 Imperial C-Drama</span>
+        </a>
+        <a href="monster-in-data-center.html" class="nav-btn kdrama-active">
+            <span>🇰🇷 Seoul K-Drama (Makjang)</span>
+        </a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="decor-glow-top"></div>
+
+    <header class="post-header">
+        <div class="kdrama-badge-container">
+            <span class="kdrama-pill">🇰🇷 Makjang K-Drama Special</span>
+            <span class="makjang-pill">🔥 16-Episode Miniseries</span>
+        </div>
+        
+        <div class="hangul-title">서울 데이터센터의 밥 도사와 괴물</div>
+        <h1>Master Bob and the Monster in the Seoul Data Center</h1>
+        <p class="subtitle">A 16-Episode Makjang K-Drama of Knowledge, Memory, and Documentation</p>
+
+        <div class="post-meta">
+            <span><strong>Screenplay &amp; Concept:</strong> Viktoria Muirhead</span>
+            <span><strong>Starring:</strong> 밥 도사 (Master Bob) &amp; 윤 아키텍트 (Lady Yun)</span>
+            <span><strong>Genre:</strong> Makjang K-Drama / Cloud Data Center Satire / Knowledge Mystery</span>
+            <span><strong>Setting:</strong> Seoul Cloud Realm &amp; Ancient Vaults Beneath the Data Center</span>
+        </div>
+    </header>
+
+    <!-- Makjang Trope Alert -->
+    <div class="makjang-alert">
+        <h4>⚡ Essential Makjang K-Drama Mandate</h4>
+        <p>Unlike standard technical documentation, a <strong>Makjang K-drama</strong> requires relentless plot twists, multiple secret identities, ghosts spawned from unclosed pull requests, a mysterious mythical creature living beneath server racks, dramatic rain-and-waterfall showdowns, and the greatest villain in enterprise software: <em>"We'll document it later."</em></p>
+        <ul>
+            <li><strong>The Triple Identity:</strong> A heroine who operates as three completely separate entities across centuries.</li>
+            <li><strong>The Living Archive:</strong> A terrifying data center beast formed exclusively from forgotten requirements.</li>
+            <li><strong>The 47-Second Stare:</strong> Every technical debate culminates in prolonged eye contact over the Seoul neon skyline.</li>
+        </ul>
+    </div>
+
+    <!-- Official Key Art / Posters Section -->
+    <section class="posters-section">
+        <div class="posters-header">
+            <h3>🎬 Official Drama Key Art &amp; Promotional Posters</h3>
+            <p>Exclusive promotional artwork for the Seoul Cloud Realm broadcast release.</p>
+        </div>
+
+        <div class="posters-grid">
+            <!-- Poster 1: Kdrama Bob -->
+            <div class="poster-card">
+                <div class="poster-img-wrap">
+                    <img src="funny/Kdrama-Bob.png" alt="Kdrama Bob Poster" class="poster-img">
+                </div>
+                <div class="poster-caption">
+                    <div class="poster-tag">Official Teaser Poster</div>
+                    <div class="poster-title">Master Bob: The Seoul Data Center Chronicles</div>
+                    <p class="poster-desc">Key (SHINee) energy personified. Standing dramatic and unbothered before the glowing server racks of the Seoul Cloud Realm.</p>
+                </div>
+            </div>
+
+            <!-- Poster 2: Guardians Under Moonlight -->
+            <div class="poster-card">
+                <div class="poster-img-wrap">
+                    <img src="funny/Guardians of Knowledge Under Moonlight.png" alt="Guardians of Knowledge Under Moonlight" class="poster-img">
+                </div>
+                <div class="poster-caption">
+                    <div class="poster-tag">Character Concept Art</div>
+                    <div class="poster-title">Guardians of Knowledge Under Moonlight</div>
+                    <p class="poster-desc">Lady Yun, the mysterious Bog Witch, and Documentation Cat under a violet lunar glow. Three reflections, one eternal guardian.</p>
+                </div>
+            </div>
+
+            <!-- Poster 3: Knowledge Storm -->
+            <div class="poster-card">
+                <div class="poster-img-wrap">
+                    <img src="funny/Master Bob and Lady Yun Face the Knowledge Storm.png" alt="Master Bob and Lady Yun Face the Knowledge Storm" class="poster-img">
+                </div>
+                <div class="poster-caption">
+                    <div class="poster-tag">Climax Key Art</div>
+                    <div class="poster-title">Facing the Knowledge Storm</div>
+                    <p class="poster-desc">Master Bob and Lady Yun confront the raging storm of unmigrated data at the sacred Waterfall of Forgotten Knowledge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Premise -->
+    <h2>The Core Premise</h2>
+    <p>The Seoul Cloud Realm is preparing for the largest knowledge migration in its history. <strong>Lady Yun</strong>, Architect of Knowledge Futures, has spent years building a new repository designed to replace a sprawling, undocumented ancient wiki buried deep beneath the data center.</p>
+
+    <p>As the migration begins, the digital underworld unravels:</p>
+    <ul style="padding-left: 24px; margin-bottom: 20px;">
+        <li>👻 <strong>Unanswered questions</strong> manifest as apparitions floating through server halls.</li>
+        <li>📐 <strong>Forgotten architecture diagrams</strong> reappear on locked monitors.</li>
+        <li>🏷️ <strong>Ownership records</strong> spontaneously disintegrate into dust.</li>
+        <li>👾 <strong>A legendary Monster</strong> awakens in the abandoned sub-basements.</li>
+        <li>🧙‍♀️ <strong>The mysterious Bog Witch</strong> emerges from the forgotten archive stacks.</li>
+        <li>🐱 <strong>Documentation Cat</strong> begins appearing wherever lost knowledge is buried.</li>
+    </ul>
+    <p>The Council believes these anomalies are isolated technical glitches. <strong>Master Bob knows better.</strong></p>
+
+    <!-- Main Cast Section (With Cast Photo Placeholders) -->
+    <h2>Dramatis Personae: The Cast</h2>
+    <p>Meet the repository sages, secret guardians, cloud architects, and mythical creatures of the Seoul Data Center.</p>
+
+    <div class="character-grid">
+        <!-- Master Bob -->
+        <div class="character-card bob-card">
+            <div class="cast-img-placeholder">
+                <div class="placeholder-icon">🧘‍♂️⚡</div>
+                <span class="placeholder-badge">[ Cast Still · Production Pending ]</span>
+                <div class="placeholder-name">Master Bob (밥 도사)</div>
+                <div class="placeholder-note">Standing beside the Waterfall of Forgotten Knowledge with fan closed</div>
+            </div>
+            <div class="char-header">
+                <div class="char-hangul-name">밥 도사 (Master Bob)</div>
+                <div class="char-english-title">Master Bob, Sage of the Scroll Repository</div>
+                <div class="char-badges">
+                    <span class="badge badge-blue">Protagonist</span>
+                    <span class="badge badge-gray">Waterfall Resident</span>
+                    <span class="badge badge-purple">OST: KEY (SHINee)</span>
+                </div>
+            </div>
+            <div class="char-quote bob-quote">
+                "The issue is not the issue."
+            </div>
+            <ul class="char-traits">
+                <li><strong>Role:</strong> Keeper of ancient runbooks; relentless seeker of the Single Source of Truth.</li>
+                <li><strong>Abode:</strong> Resides near a sacred waterfall where knowledge cascades endlessly through the mountains.</li>
+                <li><strong>Signature Move:</strong> Arriving dramatically in impeccable silk robes, dropping cryptic one-liners, and walking away before follow-up questions can be asked.</li>
+                <li><strong>Greatest Fear:</strong> A migration plan without governance.</li>
+            </ul>
+        </div>
+
+        <!-- Lady Yun -->
+        <div class="character-card yun-card">
+            <div class="cast-img-placeholder">
+                <div class="placeholder-icon">👩‍💻✨</div>
+                <span class="placeholder-badge">[ Cast Still · Production Pending ]</span>
+                <div class="placeholder-name">Lady Yun (윤 아키텍트)</div>
+                <div class="placeholder-note">Holding the Cloud-Sealed Migration Ledger in the Grand Hall</div>
+            </div>
+            <div class="char-header">
+                <div class="char-hangul-name">윤 아키텍트 (Lady Yun)</div>
+                <div class="char-english-title">Lady Yun, Architect of Knowledge Futures</div>
+                <div class="char-badges">
+                    <span class="badge badge-purple">Lead Architect</span>
+                    <span class="badge badge-blue">Secret Guardian</span>
+                    <span class="badge badge-red">OST: Taeyeon</span>
+                </div>
+            </div>
+            <div class="char-quote">
+                "Writing flawless documentation on the first draft is not witchcraft; it is vigilance."
+            </div>
+            <ul class="char-traits">
+                <li><strong>Role:</strong> Designer of the New Knowledge Repository; holder of the cloud-sealed migration ledger.</li>
+                <li><strong>Reputation:</strong> Deeply respected by the Council; profoundly feared by those who thrive in unmanaged chaos.</li>
+                <li><strong>Secret Burden:</strong> She alone has guarded the realm's institutional memory for centuries when all others sought only to deploy and forget.</li>
+                <li><strong>Greatest Secret:</strong> Classified (See Episode 12 Reveal).</li>
+            </ul>
+        </div>
+
+        <!-- The Bog Witch -->
+        <div class="character-card witch-card">
+            <div class="cast-img-placeholder">
+                <div class="placeholder-icon">🧙‍♀️📜</div>
+                <span class="placeholder-badge">[ Cast Still · Production Pending ]</span>
+                <div class="placeholder-name">The Bog Witch (늪지의 마녀)</div>
+                <div class="placeholder-note">Veiled figure lurking among towering stacks of obsolete runbooks</div>
+            </div>
+            <div class="char-header">
+                <div class="char-hangul-name">늪지의 마녀 (The Bog Witch)</div>
+                <div class="char-english-title">The Bog Witch, Guardian of the Forgotten</div>
+                <div class="char-badges">
+                    <span class="badge badge-teal">Ancient Guardian</span>
+                    <span class="badge badge-gray">Forgotten Stacks</span>
+                    <span class="badge badge-purple">OST: Aespa</span>
+                </div>
+            </div>
+            <div class="char-quote witch-quote">
+                "Delete memory, and memory will find another way to survive."
+            </div>
+            <ul class="char-traits">
+                <li><strong>Domain:</strong> The Forgotten Stacks deep in the sub-basement of the ancient wiki.</li>
+                <li><strong>Trigger:</strong> Materializes out of purple mist whenever someone recklessly asks: <em>"Why was it built that way?"</em></li>
+                <li><strong>Arsenal:</strong> Runbooks for burning hard drives, 2016 floppy attachment guides, and canceled meeting notes.</li>
+                <li><strong>Philosophy:</strong> What engineers call obsolete today is the compliance salvation of tomorrow.</li>
+            </ul>
+        </div>
+
+        <!-- Documentation Cat -->
+        <div class="character-card cat-card">
+            <div class="cast-img-placeholder">
+                <div class="placeholder-icon">🐱📦</div>
+                <span class="placeholder-badge">[ Cast Still · Production Pending ]</span>
+                <div class="placeholder-name">Documentation Cat (문서냥이)</div>
+                <div class="placeholder-note">Tiny cloaked feline sitting atop dusty archive boxes with glowing purple eyes</div>
+            </div>
+            <div class="char-header">
+                <div class="char-hangul-name">문서냥이 (Documentation Cat)</div>
+                <div class="char-english-title">Documentation Cat, Finder of Missing Knowledge</div>
+                <div class="char-badges">
+                    <span class="badge badge-orange">Mystic Scout</span>
+                    <span class="badge badge-teal">Archive Explorer</span>
+                    <span class="badge badge-purple">OST: Red Velvet</span>
+                </div>
+            </div>
+            <div class="char-quote">
+                "Meow. (Translation: Found buried in git commit message from 2014: 'Fixed stuff, do not touch.')"
+            </div>
+            <ul class="char-traits">
+                <li><strong>Superpower:</strong> Can magically locate forgotten requirements, undocumented decisions, and missing component owners.</li>
+                <li><strong>Notable Weakness:</strong> Cannot locate the Single Source of Truth (because it does not exist).</li>
+                <li><strong>Behavior:</strong> Sits peacefully on archive boxes right before major historical revelations occur.</li>
+            </ul>
+        </div>
+
+        <!-- The Monster in the Seoul Data Center -->
+        <div class="character-card monster-card">
+            <div class="cast-img-placeholder" style="height: 200px;">
+                <div class="placeholder-icon">👾📚💾</div>
+                <span class="placeholder-badge">[ Cast Still · Production Pending ]</span>
+                <div class="placeholder-name">The Monster (서울 데이터센터의 괴물)</div>
+                <div class="placeholder-note">Massive sentient entity constructed entirely of orphaned documents, tapes, and forgotten code</div>
+            </div>
+            <div class="char-header">
+                <div class="char-hangul-name">서울 데이터센터의 괴물 (The Living Archive)</div>
+                <div class="char-english-title">The Monster, Keeper of Organizational Memory</div>
+                <div class="char-badges">
+                    <span class="badge badge-red">Sentient Entity</span>
+                    <span class="badge badge-gray">Data Center Sub-Basement</span>
+                    <span class="badge badge-blue">OST: TVXQ</span>
+                </div>
+            </div>
+            <div class="char-quote">
+                "I remember."
+            </div>
+            <ul class="char-traits">
+                <li><strong>True Nature:</strong> Not a monster of malice or technical debt, but a living vessel created from every time someone said <em>"We'll document it later."</em></li>
+                <li><strong>Composition:</strong> Built from thousands of abandoned projects, unmaintained APIs, forgotten architecture decisions, and orphaned ownership chains.</li>
+                <li><strong>Redemption:</strong> In Episode 16, promoted to the official <em>Keeper of Organizational Memory</em> for the entire Seoul Cloud Realm.</li>
+            </ul>
+        </div>
+
+        <!-- The Council -->
+        <div class="character-card council-card">
+            <div class="char-header">
+                <div class="char-hangul-name">서울 클라우드 평의회 (The Seoul Cloud Council)</div>
+                <div class="char-english-title">The Bureaucratic Hierarchy</div>
+                <div class="char-badges">
+                    <span class="badge badge-gray">Governance Bureau</span>
+                    <span class="badge badge-red">Recurring Obstacle</span>
+                </div>
+            </div>
+            <ul class="char-traits" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+                <li><strong>Lord Compliance:</strong> Believes nothing should ever be deleted under any circumstances.</li>
+                <li><strong>Minister Architecture:</strong> Insists every outdated diagram is currently in production.</li>
+                <li><strong>High Chancellor Governance:</strong> Approves every process; understands none of them.</li>
+                <li><strong>Keeper of SharePoint:</strong> Has not been seen in the physical realm since 2018.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- The Climax Revelation Box -->
+    <div class="revelation-box">
+        <h3>🔮 Episode 12 Climax: Same Essence, Different Forms</h3>
+        <div class="revelation-tagline">"There were never three guardians. There was only one."</div>
+        <p>In the dramatic high point of the series, Master Bob places three ancient artifacts upon the Council table: Lady Yun's cloud seal, the Bog Witch's grimoire, and Documentation Cat's cloak clasp. All bear the exact same celestial emblem.</p>
+
+        <div class="revelation-grid">
+            <div class="revelation-card">
+                <h4>👩‍💻 Lady Yun</h4>
+                <p>The Architect facing forward to build the future repository and lead the migration.</p>
+            </div>
+            <div class="revelation-card">
+                <h4>🧙‍♀️ The Bog Witch</h4>
+                <p>The Guardian looking backward into the depths to protect what others discarded.</p>
+            </div>
+            <div class="revelation-card">
+                <h4>🐱 Documentation Cat</h4>
+                <p>The Scout operating in the present shadows to find what was lost.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Rules of the World -->
+    <h2>The 5 Immutable Laws of the Seoul Cloud Realm</h2>
+    <div class="laws-grid">
+        <div class="law-item">
+            <div class="law-num">First Law</div>
+            <div class="law-text">Knowledge never truly disappears; it merely changes formats and relocates to the sub-basement.</div>
+        </div>
+        <div class="law-item">
+            <div class="law-num">Second Law</div>
+            <div class="law-text">Every unanswered engineering question eventually manifests as a digital ghost.</div>
+        </div>
+        <div class="law-item">
+            <div class="law-num">Third Law</div>
+            <div class="law-text">All forgotten knowledge gathers beneath the Seoul Data Center until it awakens.</div>
+        </div>
+        <div class="law-item">
+            <div class="law-num">Fourth Law</div>
+            <div class="law-text">The Single Source of Truth does not exist; only varying degrees of consensus.</div>
+        </div>
+        <div class="law-item">
+            <div class="law-num">Fifth Law</div>
+            <div class="law-text">Documentation Cat is always sitting exactly where missing knowledge will soon be discovered.</div>
+        </div>
+    </div>
+
+    <!-- Relationship Tree Map -->
+    <h2>Character &amp; Knowledge Relationship Map</h2>
+    <div class="relationship-container">
+        <p>Official Guidebook Entity Graph as cataloged in the Seoul Cloud Archives:</p>
+        <pre class="tree-diagram">
+Master Bob (Sage of the Scroll Repository)
+│
+├── Suspects Lady Yun's true tri-fold identity
+├── Understands the Monster is a vessel, not an enemy
+└── Delivers cryptic wisdom from the sacred waterfall
+ 
+Lady Yun (The Tri-Guardian Entity)
+│
+├── [Public Face] Architect of Knowledge Futures
+├── [Shadow Form] The Bog Witch (Protector of Obsolete Systems)
+└── [Scout Form]  Documentation Cat (Finder of Missing Records)
+ 
+The Monster (The Living Archive)
+│
+├── Born from: "We'll document it later"
+├── Remembers every orphaned project and missing owner
+└── Promoted in Ep 16: Keeper of Organizational Memory
+ 
+The Council (Seoul Cloud Governance)
+│
+├── Demands instant migration without reading briefs
+├── Terrified of historical questions
+└── Frequently faints during Master Bob's philosophical declarations
+        </pre>
+    </div>
+
+    <!-- Complete 16-Episode Guide -->
+    <h2>Complete 16-Episode Guide</h2>
+    <div class="episode-list">
+        <!-- Ep 1 -->
+        <div class="episode-card ghost-ep">
+            <div class="ep-header">
+                <span class="ep-number">Episode 1 · The Ghost in the Wiki</span>
+                <span class="ep-badge">Inciting Incident</span>
+            </div>
+            <p class="ep-synopsis">The great migration begins. An analyst opens an abandoned wiki page and a glowing phantom message appears: <code>WHO APPROVED THIS DESIGN?</code> The page vanishes, and midnight apparitions spread across the server halls.</p>
+            <div class="ep-quote">Iconic line: "When no one answers a question for seven years, it learns how to ask itself."</div>
+        </div>
+
+        <!-- Ep 2 -->
+        <div class="episode-card">
+            <div class="ep-header">
+                <span class="ep-number">Episode 2 · The Repository Beneath the Repository</span>
+                <span class="ep-badge">Discovery</span>
+            </div>
+            <p class="ep-synopsis">Archivists uncover thousands of forgotten wiki pages, abandoned runbooks, and ancient meeting notes. The Council votes to delete everything immediately. The Bog Witch appears from the shadows.</p>
+            <div class="ep-quote">Iconic line: "Delete memory, and memory will find another way to survive."</div>
+        </div>
+
+        <!-- Ep 3 -->
+        <div class="episode-card ghost-ep">
+            <div class="ep-header">
+                <span class="ep-number">Episode 3 · The Monster Awakens</span>
+                <span class="ep-badge">Menace</span>
+            </div>
+            <p class="ep-synopsis">Seismic sensors detect movement beneath the data center. Security cameras capture a towering shadow drifting through cold aisles. Master Bob arrives from the mountains, inspects the server racks, and leaves without a word.</p>
+            <div class="ep-quote">Iconic line: "Master Bob closed his fan. This is bad."</div>
+        </div>
+
+        <!-- Ep 4 -->
+        <div class="episode-card">
+            <div class="ep-header">
+                <span class="ep-number">Episode 4 · The Floppy Disk</span>
+                <span class="ep-badge">Mystery</span>
+            </div>
+            <p class="ep-synopsis">Documentation Cat unearths a runbook titled <em>"External Floppy Drive Procedure - Revised 2016."</em> The Council laughs at its obsolescence until a critical compliance audit demands access to data stored only on those legacy drives.</p>
+            <div class="ep-quote">Iconic line: "And what replaced it? ...Nobody knows."</div>
+        </div>
+
+        <!-- Ep 5 -->
+        <div class="episode-card">
+            <div class="ep-header">
+                <span class="ep-number">Episode 5 · The Burning Drive</span>
+                <span class="ep-badge">The Ancient Lore</span>
+            </div>
+            <p class="ep-synopsis">A legendary emergency procedure is uncovered: <em>"Procedure for Handling a Drive During Active Combustion."</em> The Bog Witch physically blocks the deletion queue.</p>
+            <div class="ep-quote">Iconic line: "Knowledge does not become useless merely because it becomes unusual."</div>
+        </div>
+
+        <!-- Ep 6 -->
+        <div class="episode-card ghost-ep">
+            <div class="ep-header">
+                <span class="ep-number">Episode 6 · The Ghosts Grow Stronger</span>
+                <span class="ep-badge">Escalation</span>
+            </div>
+            <p class="ep-synopsis">Ghostly apparitions manifest everywhere: <em>Where are the requirements? Which diagram is current? Who owns this API?</em> Each unanswered question adds mass to the creature in the basement.</p>
+            <div class="ep-quote">Iconic line: "The server room isn't cold because of air conditioning. It's cold because nobody documented the dependencies."</div>
+        </div>
+
+        <!-- Ep 7 -->
+        <div class="episode-card reveal-ep">
+            <div class="ep-header">
+                <span class="ep-number">Episode 7 · The Three Guardians</span>
+                <span class="ep-badge">Suspicion</span>
+            </div>
+            <p class="ep-synopsis">The Council notices a bizarre mathematical impossibility: whenever Lady Yun enters a room, the Bog Witch is absent. Whenever the Bog Witch appears, Documentation Cat cannot be found. Master Bob observes silently.</p>
+            <div class="ep-quote">Iconic line: "Three places at once is impossible. Unless you never were three."</div>
+        </div>
+
+        <!-- Ep 8 -->
+        <div class="episode-card climax-ep">
+            <div class="ep-header">
+                <span class="ep-number">Episode 8 · The First Accusation</span>
+                <span class="ep-badge">Betrayal &amp; Crisis</span>
+            </div>
+            <p class="ep-synopsis">Corrupted logs suggest Lady Yun intentionally created the Monster. The Council votes to revoke her credentials. Migration governance collapses, and ghost activity doubles overnight.</p>
+            <div class="ep-quote">Iconic line: "You accuse the architect of arson while you are holding the match."</div>
+        </div>
+
+        <!-- Ep 9 -->
+        <div class="episode-card">
+            <div class="ep-header">
+                <span class="ep-number">Episode 9 · The Registry of Owners</span>
+                <span class="ep-badge">Lost Artifact</span>
+            </div>
+            <p class="ep-synopsis">Documentation Cat leads engineers to the sacred Registry of Service Owners. As they open the final page, it reads <code>OWNER: UNKNOWN</code> and the parchment instantly disintegrates into pixels.</p>
+            <div class="ep-quote">Iconic line: "The owner did not leave. The owner was never assigned."</div>
+        </div>
+
+        <!-- Ep 10 -->
+        <div class="episode-card reveal-ep">
+            <div class="ep-header">
+                <span class="ep-number">Episode 10 · The Waterfall of Forgotten Knowledge</span>
+                <span class="ep-badge">Confrontation</span>
+            </div>
+            <p class="ep-synopsis">Master Bob confronts Lady Yun beside the sacred mountain waterfall. He shows her matching seals, identical handwriting, and chronologically impossible task completions. For the first time, Lady Yun does not deny it.</p>
+            <div class="ep-quote">Iconic line: "The question was never who you were. The question was why."</div>
+        </div>
+
+        <!-- Ep 11 -->
+        <div class="episode-card climax-ep">
+            <div class="ep-header">
+                <span class="ep-number">Episode 11 · The First Undocumented Decision</span>
+                <span class="ep-badge">The Root Cause</span>
+            </div>
+            <p class="ep-synopsis">The Bog Witch descends to the foundational stratum of the data center and retrieves a single page: <code>We'll document it later.</code> No date, no author, no approval. The patient zero of technical debt.</p>
+            <div class="ep-quote">Iconic line: "Later has arrived."</div>
+        </div>
+
+        <!-- Ep 12 -->
+        <div class="episode-card climax-ep">
+            <div class="ep-header">
+                <span class="ep-number">Episode 12 · Same Essence, Different Forms</span>
+                <span class="ep-badge">Grand Reveal</span>
+            </div>
+            <p class="ep-synopsis">Master Bob reveals the truth to the Council. Lady Yun, the Bog Witch, and Documentation Cat are the same eternal being. The television ratings break all recorded records across the peninsula.</p>
+            <div class="ep-quote">Iconic line: "One to build the future. One to protect the past. One to search the present."</div>
+        </div>
+
+        <!-- Ep 13 -->
+        <div class="episode-card">
+            <div class="ep-header">
+                <span class="ep-number">Episode 13 · The Monster Speaks</span>
+                <span class="ep-badge">The Beast Unveiled</span>
+            </div>
+            <p class="ep-synopsis">Armed with migration scripts, the Council corners the Monster. But the creature does not roar—it whispers: <em>"I remember."</em> It is revealed as a living repository of everything the realm threw away.</p>
+            <div class="ep-quote">Iconic line: "You call it a monster because it remembers what you promised and failed to deliver."</div>
+        </div>
+
+        <!-- Ep 14 -->
+        <div class="episode-card reveal-ep">
+            <div class="ep-header">
+                <span class="ep-number">Episode 14 · What the Realm Chose to Forget</span>
+                <span class="ep-badge">Emotional Peak</span>
+            </div>
+            <p class="ep-synopsis">Lady Yun explains her centuries-long burden. Architects protect systems. Engineers protect services. Executives protect roadmaps. Nobody protected memory. So she did.</p>
+            <div class="ep-quote">Iconic line: "The Monster is not technical debt. The Monster is love for what was abandoned."</div>
+        </div>
+
+        <!-- Ep 15 -->
+        <div class="episode-card">
+            <div class="ep-header">
+                <span class="ep-number">Episode 15 · The Great Migration</span>
+                <span class="ep-badge">Transformation</span>
+            </div>
+            <p class="ep-synopsis">The migration begins in earnest. Some knowledge is moved; some is respectfully archived; some is permitted to rest. Master Bob shocks the Council with a revolutionary decree.</p>
+            <div class="ep-quote">Iconic line: "Not everything deserves migration." (Three elders immediately faint).</div>
+        </div>
+
+        <!-- Ep 16 -->
+        <div class="episode-card finale-ep">
+            <div class="ep-header">
+                <span class="ep-number">Episode 16 · Knowledge Democracy</span>
+                <span class="ep-badge">Grand Finale</span>
+            </div>
+            <p class="ep-synopsis">The final ghost asks: <em>"Who owns the customer explanation?"</em> Lady Yun replies: <em>"All of us."</em> The New Repository opens, the Monster becomes the honored Keeper of Organizational Memory, and the three guardians unite.</p>
+            <div class="ep-quote">Iconic line: "The purpose was never documentation. The purpose was preserving knowledge."</div>
+        </div>
+    </div>
+
+    <!-- Iconic Screenplay Excerpts -->
+    <h2>Iconic Screenplay Excerpts</h2>
+
+    <!-- Script Excerpt 1: Burning Drive -->
+    <div class="script-box">
+        <div class="stage-direction">[Scene: Episode 5 — The Sub-Basement Archive. A young engineer holds a scorched binder with trembling hands.]</div>
+
+        <span class="script-speaker engineer">JUNIOR ENGINEER</span>
+        <div class="script-line">Master Bob... I found a runbook titled "Procedure for Managing a Hard Drive During Active Combustion." Surely this has no relevance in the modern Cloud Native Era?</div>
+
+        <div class="stage-direction">[Master Bob appears silently from behind a server rack. He slowly takes the binder, turns a single page, and looks upward.]</div>
+
+        <span class="script-speaker bob">MASTER BOB</span>
+        <div class="script-line">Archive nothing. Keep it in the top drawer.</div>
+
+        <span class="script-speaker engineer">JUNIOR ENGINEER</span>
+        <div class="script-line">Why? Cloud servers don't catch fire!</div>
+
+        <span class="script-speaker bob">MASTER BOB</span>
+        <div class="script-line">Fire is merely an unsupported state change. When it occurs, you will not have time to read the API specification.</div>
+    </div>
+
+    <!-- Script Excerpt 2: The Waterfall Confrontation -->
+    <div class="script-box waterfall-script">
+        <div class="stage-direction">[Scene: Episode 14 — The Waterfall of Forgotten Knowledge. Twilight over Seoul. Cherry blossoms spiral across the thundering water. Master Bob steps forward; his fan remains firmly closed.]</div>
+
+        <span class="script-speaker bob">MASTER BOB</span>
+        <div class="script-line">You hid the truth.</div>
+
+        <span class="script-speaker yun">LADY YUN</span>
+        <div class="script-line">I preserved it.</div>
+
+        <span class="script-speaker bob">MASTER BOB</span>
+        <div class="script-line">You became three people.</div>
+
+        <span class="script-speaker yun">LADY YUN</span>
+        <div class="script-line">Because one was never enough. The architects protect systems. The engineers protect services. The executives protect strategy. Nobody protected memory. So I did.</div>
+
+        <div class="stage-direction">[Purple mist swirls across the falls. The reflections in the water flicker: Lady Yun, the Bog Witch, and Documentation Cat all visible in one continuous ripple.]</div>
+
+        <span class="script-speaker bob">MASTER BOB</span>
+        <div class="script-line">And the Monster?</div>
+
+        <span class="script-speaker yun">LADY YUN</span>
+        <div class="script-line">The Monster remembers everything they wished to forget. That is why they fear it.</div>
+
+        <div class="stage-direction">[Camera pulls back into an aerial shot over the Seoul skyline. The OST swells to deafening heights. Fade to black.]</div>
+    </div>
+
+    <!-- Script Excerpt 3: The Monster Speaks -->
+    <div class="script-box">
+        <div class="stage-direction">[Scene: Episode 13 — Beneath the Server Halls. The Council raises their termination scripts against the shadowy behemoth.]</div>
+
+        <span class="script-speaker council">CHANCELLOR GOVERNANCE</span>
+        <div class="script-line">Delete the anomalous entity! Purge the cache!</div>
+
+        <div class="stage-direction">[The Monster slowly steps into the flashing blue LED light of the server racks. Its voice reverberates through the subflooring.]</div>
+
+        <span class="script-speaker monster">THE MONSTER</span>
+        <div class="script-line">I remember the project canceled in 2017. I remember the database password stored in a screenshot. I remember the developer who said 'I will write the test tomorrow' and left the company three days later.</div>
+
+        <div class="stage-direction">[Silence fills the entire facility. Chancellor Governance slowly lowers his stylus.]</div>
+
+        <span class="script-speaker council">CHANCELLOR GOVERNANCE</span>
+        <div class="script-line">...He really does know everything.</div>
+    </div>
+
+    <!-- The Real Knowledge Management Thesis -->
+    <div class="thesis-box">
+        <h3>🧠 Why the Monster Exists: The Real Enterprise Philosophy</h3>
+        <p>Underneath the makjang tropes, magical felines, and haunted wikis lies a profound enterprise truth: <strong>Nobody is good at predicting the future value of information.</strong></p>
+        <blockquote>
+            "The Monster was never created by malice. It was created every time someone said: 'We'll document it later.' The Monster became the memory no one else wished to keep."
+        </blockquote>
+        <p>Engineers often believe that anything unused today is waste and should be purged. Knowledge managers know that while the probability of needing legacy information is low, the catastrophic impact of lacking it when disaster strikes is immeasurable. The Monster is not evil—it is simply the keeper of what we were too hurried to preserve.</p>
+    </div>
+
+    <!-- Official OST Section -->
+    <div class="soundtrack-card">
+        <h3>🎵 Original Soundtrack (OST) Official Tracklist</h3>
+        <div class="ost-track-list">
+            <div class="ost-track">
+                <div class="ost-track-info">
+                    <span class="ost-artist">IU (아이유)</span>
+                    <span class="ost-title">Track 1 · "Forgotten Knowledge" (잊혀진 지식)</span>
+                    <span class="ost-note">Official Opening Theme &amp; End Credits Ballad</span>
+                </div>
+                <span class="ost-vibe">Chart-Topping Melancholy</span>
+            </div>
+
+            <div class="ost-track">
+                <div class="ost-track-info">
+                    <span class="ost-artist">Taeyeon (태연)</span>
+                    <span class="ost-title">Track 2 · "No One Protects Memory" (아무도 기억을 지키지 않아)</span>
+                    <span class="ost-note">Lady Yun's Heartbreaking Episode 14 Waterfall Solo</span>
+                </div>
+                <span class="ost-vibe">Vocal Masterpiece</span>
+            </div>
+
+            <div class="ost-track">
+                <div class="ost-track-info">
+                    <span class="ost-artist">TVXQ (동방신기)</span>
+                    <span class="ost-title">Track 3 · "I Remember" (기억하고 있다)</span>
+                    <span class="ost-note">The Monster's Awakening &amp; Climax Theme (Think Mirotic energy)</span>
+                </div>
+                <span class="ost-vibe">Intense &amp; Dramatic</span>
+            </div>
+
+            <div class="ost-track">
+                <div class="ost-track-info">
+                    <span class="ost-artist">KEY (SHINee) (키)</span>
+                    <span class="ost-title">Track 4 · "The Issue Is Not The Issue" (문제는 문제가 아니다)</span>
+                    <span class="ost-note">Master Bob's Cryptic &amp; Theatrical Anthem</span>
+                </div>
+                <span class="ost-vibe">Peak Key Behavior</span>
+            </div>
+
+            <div class="ost-track">
+                <div class="ost-track-info">
+                    <span class="ost-artist">Aespa (에스파)</span>
+                    <span class="ost-title">Track 5 · "Forgotten Stacks" (잊혀진 서고)</span>
+                    <span class="ost-note">The Bog Witch's Dark Archive Hyper-Pop Anthem</span>
+                </div>
+                <span class="ost-vibe">Cyber Mystic</span>
+            </div>
+
+            <div class="ost-track">
+                <div class="ost-track-info">
+                    <span class="ost-artist">Red Velvet (레드벨벳)</span>
+                    <span class="ost-title">Track 6 · "Repository Moonlight" (달빛 저장소)</span>
+                    <span class="ost-note">Documentation Cat's Whimsical &amp; Spooky Explorer Theme</span>
+                </div>
+                <span class="ost-vibe">Whimsical Velvet</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post-Credit Scene Setup for Season 2 -->
+    <div class="post-credit-card">
+        <span class="post-credit-badge">Post-Credits Stinger</span>
+        <h3>🎬 Season 2 Teaser: The Second Repository</h3>
+        <p>A junior engineer opens a freshly migrated cloud document. The screen appears pristine and modern. Then, at the very bottom, a faint grey timestamp flickers:</p>
+        <p><code style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: #f59e0b;">LAST UPDATED: 2009 · STATUS: ARCHIVED IN SECRET</code></p>
+        <p>A single prompt appears: <em>"There is another repository."</em></p>
+        <p>Miles away in the mist-shrouded peaks of Bukhansan, Master Bob snaps his fan shut. Fade to black.</p>
+        <p style="margin-top: 12px; font-weight: 700; color: #f59e0b;">Season 2 Confirmed.</p>
+    </div>
+
+    <footer class="post-footer">
+        <p><em>Master Bob and the Monster in the Seoul Data Center</em> is a makjang technical satire screenplay originating from the Storage Information Development chronicles.</p>
+        <p>© Seoul Cloud Realm · Written by Viktoria Muirhead · All Rights Reserved across all Repositories.</p>
+        
+        <div class="footer-nav">
+            <a href="index.html" class="nav-btn cdrama">← Return to C-Drama: The Rise of the Benevolent Documentation Dictator</a>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

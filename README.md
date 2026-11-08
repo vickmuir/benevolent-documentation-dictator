@@ -1,27 +1,34 @@
-# 🎬 The Rise of the Benevolent Documentation Dictator
+# 🎬 The Benevolent Documentation Dictator Universe
 
-> **A Tale of Scrolls, Storage, Unsupported Configurations, and Moving Release Dates**  
-> *Starring 博先生 (Master Bob) & 云姑娘 (Lady Yun)*  
+> **A Saga of Scrolls, Storage, Unsupported Configurations, Makjang Mysteries, and Moving Release Dates**  
+> *Starring Master Bob (博先生 / 밥 도사) & Lady Yun (云姑娘 / 윤 아키텍트)*  
 > *Screenplay & Concept by Viktoria Muirhead*
 
 ---
 
-## 🌸 About the Story
+## 🎭 The Drama Universe
 
-An imperial technical satire / C-drama screenplay chronicling the trials and triumphs of the **Imperial Storage Bureau**. 
+### 1. 🌸 [The Rise of the Benevolent Documentation Dictator](index.html) (Imperial C-Drama)
+An imperial technical satire chronicling the trials and triumphs of the **Imperial Storage Bureau**.
+- **博先生 (Master Bob)** — Sage of the Scroll Repository who meditates beneath waterfalls whenever requirements drift.
+- **云姑娘 (Lady Yun)** — Keeper of the Cloud Scrolls, legendary for writing flawless documentation on the first draft.
+- **顾公子 (Lord Gu)** — Minister of Requirements, impeccably groomed, suffering from terminal Second Lead Syndrome.
+- **凌大人 (Lord Ling)** — Keeper of Future Roadmaps and professional nemesis carrying kingdom-wide architecture alone.
+- **无名长老会 (Council of Forty-Seven Elders)** — The eternal bureaucratic review committee.
 
-Featuring:
-- **博先生 (Master Bob)** — Sage of the Scroll Repository & Benevolent Dictator-in-training whose primary coping mechanism is meditating beneath waterfalls whenever requirements drift.
-- **云姑娘 (Lady Yun)** — Keeper of the Cloud Scrolls from the rival Ministry of Infrastructure, renowned for writing flawless documentation on the first draft.
-- **顾公子 (Lord Gu)** — Minister of Requirements, impeccably groomed, delivering complete requirements *before* development starts (deeply unsettling to the realm).
-- **凌大人 (Lord Ling)** — Keeper of Future Roadmaps, professional nemesis and tragic visionary carrying kingdom-wide architecture burdens alone.
-- **无名长老会 (The Council of Forty-Seven Elders)** — The true villains, materializing whenever progress threatens to occur.
+### 2. 🇰🇷 [Master Bob and the Monster in the Seoul Data Center](monster-in-data-center.html) (Makjang K-Drama)
+A 16-episode makjang K-drama satire of knowledge, memory, and repository migrations in the **Seoul Cloud Realm**.
+- **밥 도사 (Master Bob)** — Arrives dramatically from the mountain waterfall with Key (SHINee) energy: *"The issue is not the issue."*
+- **윤 아키텍트 (Lady Yun)** — Architect of Knowledge Futures, carrying the cloud-sealed migration ledger and a centuries-old secret.
+- **늪지의 마녀 (The Bog Witch)** — Guardian of the Forgotten, protecting burning drive runbooks and 2016 floppy procedures.
+- **문서냥이 (Documentation Cat)** — Finder of missing requirements and lost diagrams (cannot find the Single Source of Truth).
+- **서울 데이터센터의 괴물 (The Monster)** — Sentient Living Archive born from every time someone said *"We'll document it later."*
 
 ---
 
 ## 🚀 Live Demo / GitHub Pages
 
-Once published to GitHub Pages, the site is accessible at:
+Once published to GitHub Pages, the site is accessible at:  
 https://vickmuir.github.io/benevolent-documentation-dictator/
 
 ---
@@ -29,12 +36,16 @@ https://vickmuir.github.io/benevolent-documentation-dictator/
 ## 📁 Repository Structure
 
 ```text
-├── index.html        # Main standalone interactive story & screenplay page
-├── funny/            # High-resolution character portraits
+├── index.html                  # Imperial C-Drama story & screenplay page
+├── monster-in-data-center.html      # Makjang K-Drama story & screenplay page
+├── funny/                      # High-resolution drama posters & character portraits
+│   ├── Guardians of Knowledge Under Moonlight.png
+│   ├── Kdrama-Bob.png
+│   ├── Master Bob and Lady Yun Face the Knowledge Storm.png
+│   ├── MasterBob.png
 │   ├── LadyYun.png
 │   ├── LordGu.png
-│   ├── MarquisLing.png
-│   └── MasterBob.png
-├── .nojekyll         # Disables Jekyll processing for pure static serving
+│   └── MarquisLing.png
+├── .nojekyll                   # Disables Jekyll processing for pure static serving
 └── README.md
 ```
