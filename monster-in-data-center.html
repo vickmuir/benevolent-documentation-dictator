@@ -303,15 +303,27 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             cursor: pointer;
             position: relative;
+            text-align: left;
+            font-family: inherit;
+            color: inherit;
+            padding: 0;
+            width: 100%;
         }
 
         .poster-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 28px rgba(138, 63, 252, 0.4);
             border-color: #a56eff;
+        }
+
+        .poster-card:focus-visible {
+            outline: 3px solid #00d2ff;
+            outline-offset: 4px;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+            border-color: #00d2ff;
         }
 
         .poster-img-wrap {
@@ -1413,10 +1425,10 @@
 
         <div class="posters-grid">
             <!-- Poster 1: Kdrama Bob -->
-            <div class="poster-card">
+            <div class="poster-card" role="button" tabindex="0" aria-label="Open enlarged version of Master Bob: The Seoul Data Center Chronicles poster">
                 <div class="poster-img-wrap">
-                    <img src="funny/Kdrama-Bob.png" alt="Kdrama Bob Poster" class="poster-img">
-                    <div class="poster-zoom-hint">🔍 Click to zoom</div>
+                    <img src="funny/Kdrama-Bob.png" alt="Master Bob in dramatic modern robes before glowing server racks" class="poster-img">
+                    <div class="poster-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
                 </div>
                 <div class="poster-caption">
                     <div class="poster-tag">Official Teaser Poster</div>
@@ -1426,10 +1438,10 @@
             </div>
 
             <!-- Poster 2: Guardians Under Moonlight -->
-            <div class="poster-card">
+            <div class="poster-card" role="button" tabindex="0" aria-label="Open enlarged version of Guardians of Knowledge Under Moonlight concept art">
                 <div class="poster-img-wrap">
-                    <img src="funny/Guardians of Knowledge Under Moonlight.png" alt="Guardians of Knowledge Under Moonlight" class="poster-img">
-                    <div class="poster-zoom-hint">🔍 Click to zoom</div>
+                    <img src="funny/Guardians of Knowledge Under Moonlight.png" alt="Lady Yun, the Bog Witch, and Documentation Cat beneath purple moonlight" class="poster-img">
+                    <div class="poster-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
                 </div>
                 <div class="poster-caption">
                     <div class="poster-tag">Character Concept Art</div>
@@ -1439,10 +1451,10 @@
             </div>
 
             <!-- Poster 3: Knowledge Storm -->
-            <div class="poster-card">
+            <div class="poster-card" role="button" tabindex="0" aria-label="Open enlarged version of Facing the Knowledge Storm climax poster">
                 <div class="poster-img-wrap">
-                    <img src="funny/Master Bob and Lady Yun Face the Knowledge Storm.png" alt="Master Bob and Lady Yun Face the Knowledge Storm" class="poster-img">
-                    <div class="poster-zoom-hint">🔍 Click to zoom</div>
+                    <img src="funny/Master Bob and Lady Yun Face the Knowledge Storm.png" alt="Master Bob and Lady Yun confronting the knowledge storm at the waterfall" class="poster-img">
+                    <div class="poster-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
                 </div>
                 <div class="poster-caption">
                     <div class="poster-tag">Climax Key Art</div>
@@ -2162,8 +2174,10 @@ The Council (Seoul Cloud Governance)
     const lightboxTitle = document.getElementById('lightboxTitle');
     const lightboxDesc = document.getElementById('lightboxDesc');
     const lightboxClose = document.getElementById('lightboxClose');
+    let lastFocusedElement = null;
 
-    function openLightbox(src, alt, title, desc) {
+    function openLightbox(src, alt, title, desc, triggerElement) {
+        lastFocusedElement = triggerElement || document.activeElement;
         lightboxImg.src = src;
         lightboxImg.alt = alt || 'Promotional Poster';
         lightboxTitle.textContent = title;
@@ -2171,6 +2185,7 @@ The Council (Seoul Cloud Governance)
         lightbox.classList.add('active');
         lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+        lightboxClose.focus();
     }
 
     function closeLightbox() {
@@ -2180,15 +2195,29 @@ The Council (Seoul Cloud Governance)
         setTimeout(() => {
             lightboxImg.src = '';
         }, 250);
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+        }
+    }
+
+    function triggerCardOpen(card) {
+        const img = card.querySelector('.poster-img');
+        const title = card.querySelector('.poster-title')?.textContent || '';
+        const desc = card.querySelector('.poster-desc')?.textContent || '';
+        if (img) {
+            openLightbox(img.src, img.alt, title, desc, card);
+        }
     }
 
     document.querySelectorAll('.poster-card').forEach(card => {
         card.addEventListener('click', () => {
-            const img = card.querySelector('.poster-img');
-            const title = card.querySelector('.poster-title')?.textContent || '';
-            const desc = card.querySelector('.poster-desc')?.textContent || '';
-            if (img) {
-                openLightbox(img.src, img.alt, title, desc);
+            triggerCardOpen(card);
+        });
+
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                triggerCardOpen(card);
             }
         });
     });
