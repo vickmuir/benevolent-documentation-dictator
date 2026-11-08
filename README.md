@@ -1,7 +1,7 @@
 # 🎬 The Benevolent Documentation Dictator Universe
 
-> **A Saga of Scrolls, Storage, Unsupported Configurations, Makjang Mysteries, and Moving Release Dates**  
-> *Starring Master Bob (博先生 / 밥 도사) & Lady Yun (云姑娘 / 윤 아키텍트)*  
+> **A Saga of Scrolls, Storage, Unsupported Configurations, Makjang Mysteries, and Moving Release Dates**
+> *Starring Master Bob (博先生 / 밥 도사) & Lady Yun (云姑娘 / 윤 아키텍트)*
 > *Screenplay & Concept by Viktoria Muirhead*
 
 ---
@@ -16,19 +16,19 @@ An imperial technical satire chronicling the trials and triumphs of the **Imperi
 - **凌大人 (Lord Ling)** — Keeper of Future Roadmaps and professional nemesis carrying kingdom-wide architecture alone.
 - **无名长老会 (Council of Forty-Seven Elders)** — The eternal bureaucratic review committee.
 
-### 2. 🇰🇷 [Master Bob and the Monster in the Seoul Data Center](monster-in-data-center.html) (Makjang K-Drama)
-A 16-episode makjang K-drama satire of knowledge, memory, and repository migrations in the **Seoul Cloud Realm**.
+### 2. 🇰🇷 [Master Bob and the Monster in the Data Center](monster-in-data-center.html) (Makjang K-Drama)
+A 16-episode makjang K-drama satire of knowledge, memory, and repository migrations in the **Cloud Realm**.
 - **밥 도사 (Master Bob)** — Arrives dramatically from the mountain waterfall with Key (SHINee) energy: *"The issue is not the issue."*
 - **윤 아키텍트 (Lady Yun)** — Architect of Knowledge Futures, carrying the cloud-sealed migration ledger and a centuries-old secret.
 - **늪지의 마녀 (The Bog Witch)** — Guardian of the Forgotten, protecting burning drive runbooks and 2016 floppy procedures.
 - **문서냥이 (Documentation Cat)** — Finder of missing requirements and lost diagrams (cannot find the Single Source of Truth).
-- **서울 데이터센터의 괴물 (The Monster)** — Sentient Living Archive born from every time someone said *"We'll document it later."*
+- **데이터센터의 괴물 (The Monster)** — Sentient Living Archive born from every time someone said *"We'll document it later."*
 
 ---
 
 ## 🚀 Live Demo / GitHub Pages
 
-Once published to GitHub Pages, the site is accessible at:  
+Once published to GitHub Pages, the site is accessible at:
 https://vickmuir.github.io/benevolent-documentation-dictator/
 
 ---
