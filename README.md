@@ -24,6 +24,16 @@ A 16-episode makjang K-drama satire of knowledge, memory, and repository migrati
 - **문서냥이 (Munseo Nyangi / Documentation Cat)** — Finder of missing requirements and lost diagrams (cannot find the Single Source of Truth).
 - **데이터센터의 괴물 (Deiteo Senteoui Goemul / The Monster)** — Sentient Living Archive born from every time someone said *"We'll document it later."*
 
+### 3. 🦚 [Master Bob and the Festival of Validation](festival-of-validation.html) (Bobbywood Musical Spectacle)
+A 2½-hour song-and-dance cinematic spectacle celebrating the eternal golden rule: ***Documentation is Trust***.
+- **मास्टर बॉब (Master Bob)** — Wandering Repository Auditor & Keeper of the Golden Validation Seal (*"Documentation is trust written down."*).
+- **लेडी युन (Lady Yun)** — High Priestess of Validation & Keeper of the Sacred Red Pen of Review (*"Show me the evidence."*).
+- **लॉर्ड गु (Lord Gu Prakash Anand Malhotra)** — Herald of Readiness & Voice of the Festival (*"We are ready!"*).
+- **लॉर्ड लिंग (Lord Ling Govind Tiwari Malhotra / L.G.T.M.)** — Minister of Accelerated Approvals & Patron Saint of Rubber-Stamp Reviews (*"Looks Good To Me."*).
+- **राजकुमारी पूर्वधारणा (Princess Assumption)** — Believer in Tribal Knowledge (*"Nobody needs documentation."*).
+- **अदृश्य समीक्षक (The Phantom Reviewer)** — The Invisible Approver (*"Calendar invite pending."*).
+- **सत्यापन शून्यता (The Verification Void)** — The Great Antagonist born from skipped reviews and missing evidence.
+
 ---
 
 ## 🚀 Live Demo / GitHub Pages
@@ -36,16 +46,19 @@ https://vickmuir.github.io/benevolent-documentation-dictator/
 ## 📁 Repository Structure
 
 ```text
-├── index.html                  # Imperial C-Drama story & screenplay page
+├── index.html                       # Imperial C-Drama story & screenplay page
 ├── monster-in-data-center.html      # Makjang K-Drama story & screenplay page
-├── funny/                      # High-resolution drama posters & character portraits
+├── festival-of-validation.html       # Bobbywood Musical story & screenplay page
+├── funny/                           # High-resolution drama posters & character portraits
 │   ├── Guardians of Knowledge Under Moonlight.png
 │   ├── Kdrama-Bob.png
 │   ├── Master Bob and Lady Yun Face the Knowledge Storm.png
+│   ├── Master Bob’s Divine Palace Triumph.png
+│   ├── Lady Yun, Divine Documentation Guardian.png
 │   ├── MasterBob.png
 │   ├── LadyYun.png
 │   ├── LordGu.png
 │   └── MarquisLing.png
-├── .nojekyll                   # Disables Jekyll processing for pure static serving
+├── .nojekyll                        # Disables Jekyll processing for pure static serving
 └── README.md
 ```
