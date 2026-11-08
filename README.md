@@ -26,13 +26,13 @@ A 16-episode makjang K-drama satire of knowledge, memory, and repository migrati
 
 ### 3. 🦚 [Master Bob and the Festival of Validation](festival-of-validation.html) (Bobbywood Musical Spectacle)
 A 2½-hour song-and-dance cinematic spectacle celebrating the eternal golden rule: ***Documentation is Trust***.
-- **मास्टर बॉब (Master Bob)** — Wandering Repository Auditor & Keeper of the Golden Validation Seal (*"Documentation is trust written down."*).
-- **लेडी युन (Lady Yun)** — High Priestess of Validation & Keeper of the Sacred Red Pen of Review (*"Show me the evidence."*).
-- **लॉर्ड गु (Lord Gu Prakash Anand Malhotra)** — Herald of Readiness & Voice of the Festival (*"We are ready!"*).
-- **लॉर्ड लिंग (Lord Ling Govind Tiwari Malhotra / L.G.T.M.)** — Minister of Accelerated Approvals & Patron Saint of Rubber-Stamp Reviews (*"Looks Good To Me."*).
-- **राजकुमारी पूर्वधारणा (Princess Assumption)** — Believer in Tribal Knowledge (*"Nobody needs documentation."*).
-- **अदृश्य समीक्षक (The Phantom Reviewer)** — The Invisible Approver (*"Calendar invite pending."*).
-- **सत्यापन शून्यता (The Verification Void)** — The Great Antagonist born from skipped reviews and missing evidence.
+- **गुरु बॉब (Guru Bob / Master Bob)** — Keeper of the Golden Validation Seal (*"Documentation is trust written down."*).
+- **देवी युन (Devi Yun / Lady Yun)** — High Priestess of Validation & Keeper of the Sacred Red Pen of Review (*"Show me the evidence."*).
+- **लॉर्ड प्रीमेच्योर अनाउंसमेंट (Lord Primachyor Anaunsment / Lord Gu Prakash Anand Malhotra)** — Herald of Readiness & Voice of the Festival (*"We are ready!"*).
+- **लॉर्ड एलजीटीएम (Lord Eljitiem / Lord Ling Govind Tiwari Malhotra)** — Minister of Accelerated Approvals & Patron Saint of Rubber-Stamp Reviews (*"Looks Good To Me."*).
+- **राजकुमारी पूर्वधारणा (Rajkumari Purvadharana / Princess Assumption)** — Believer in Tribal Knowledge (*"Nobody needs documentation."*).
+- **भूतिया समीक्षक (Bhutiya Samikshak / The Phantom Reviewer)** — The Invisible Approver (*"Calendar invite pending."*).
+- **सत्यापन शून्य (Satyapan Shunya / The Verification Void)** — The Great Antagonist born from skipped reviews and missing evidence.
 
 ---
 
