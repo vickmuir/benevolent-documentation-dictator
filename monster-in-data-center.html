@@ -43,7 +43,7 @@
         body {
             font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background-color: #0d1322;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 15% 20%, rgba(138, 63, 252, 0.15) 0%, transparent 40%),
                 radial-gradient(circle at 85% 80%, rgba(0, 98, 255, 0.12) 0%, transparent 40%),
                 linear-gradient(180deg, #090e1a 0%, #101828 50%, #0d1322 100%);
@@ -975,6 +975,185 @@
             font-size: 1.05rem;
         }
 
+        /* Awards & Reception Section */
+        .awards-section {
+            background: linear-gradient(135deg, #13112c 0%, #1e1b4b 50%, #0f172a 100%);
+            border: 2px solid #a855f7;
+            border-radius: 12px;
+            padding: 36px 40px;
+            margin: 40px 0;
+            color: #ffffff;
+            box-shadow: 0 10px 36px rgba(168, 85, 247, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .awards-section::before {
+            content: "🏆 ✨ 🎖️";
+            position: absolute;
+            top: 24px;
+            right: 28px;
+            font-size: 1.6rem;
+            opacity: 0.35;
+        }
+
+        .awards-header {
+            margin-bottom: 24px;
+            border-bottom: 1px dashed rgba(216, 180, 254, 0.3);
+            padding-bottom: 16px;
+        }
+
+        .awards-header h3 {
+            color: #f3e8ff;
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .awards-header p {
+            color: #c4b5fd;
+            font-size: 0.975rem;
+            margin-bottom: 0;
+        }
+
+        .awards-subheading {
+            color: #fef08a;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 24px 0 14px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .award-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            border-radius: 8px;
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-2px);
+            border-color: #fbbf24;
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .award-category {
+            font-size: 0.775rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fbbf24;
+        }
+
+        .award-winner {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .award-note {
+            font-size: 0.85rem;
+            color: #cbd5e1;
+            line-height: 1.4;
+        }
+
+        /* Audience Poll */
+        .poll-container {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(165, 180, 252, 0.25);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 16px 0 28px 0;
+        }
+
+        .poll-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .poll-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .poll-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.925rem;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        .poll-bar-bg {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .poll-bar-fill {
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .poll-bar-fill.cat { width: 42.8%; background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%); }
+        .poll-bar-fill.bob { width: 28.4%; background: linear-gradient(90deg, #0062ff 0%, #38bdf8 100%); }
+        .poll-bar-fill.monster { width: 16.2%; background: linear-gradient(90deg, #e11d48 0%, #fb7185 100%); }
+        .poll-bar-fill.yun { width: 10.1%; background: linear-gradient(90deg, #8a3ffc 0%, #c084fc 100%); }
+        .poll-bar-fill.governance { width: 2.5%; background: linear-gradient(90deg, #64748b 0%, #94a3b8 100%); }
+
+        /* Quotes Grid */
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+            margin-top: 12px;
+        }
+
+        .quoted-line-card {
+            background: rgba(255, 255, 255, 0.06);
+            border-left: 4px solid #38bdf8;
+            border-radius: 0 6px 6px 0;
+            padding: 14px 18px;
+        }
+
+        .quoted-line-text {
+            color: #f8fafc;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 0.975rem;
+            margin-bottom: 4px;
+        }
+
+        .quoted-line-source {
+            font-size: 0.775rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         /* Post-Credit Teaser */
         .post-credit-card {
             background: #090d16;
@@ -1068,7 +1247,7 @@
             <span class="kdrama-pill">🇰🇷 Makjang K-Drama Special</span>
             <span class="makjang-pill">🔥 16-Episode Miniseries</span>
         </div>
-        
+
         <div class="hangul-title">서울 데이터센터의 밥 도사와 괴물</div>
         <h1>Master Bob and the Monster in the Seoul Data Center</h1>
         <p class="subtitle">A 16-Episode Makjang K-Drama of Knowledge, Memory, and Documentation</p>
@@ -1671,7 +1850,7 @@ The Council (Seoul Cloud Governance)
                     <span class="ost-title">Track 4 · "The Issue Is Not The Issue" (문제는 문제가 아니다)</span>
                     <span class="ost-note">Master Bob's Cryptic &amp; Theatrical Anthem</span>
                 </div>
-                <span class="ost-vibe">Peak Key Behavior</span>
+                <span class="ost-vibe">Iconic & Unbothered</span>
             </div>
 
             <div class="ost-track">
@@ -1689,10 +1868,124 @@ The Council (Seoul Cloud Governance)
                     <span class="ost-title">Track 6 · "Repository Moonlight" (달빛 저장소)</span>
                     <span class="ost-note">Documentation Cat's Whimsical &amp; Spooky Explorer Theme</span>
                 </div>
-                <span class="ost-vibe">Whimsical Velvet</span>
+                <span class="ost-vibe">Whimsical & Unsettling</span>
             </div>
         </div>
     </div>
+
+    <!-- Awards & Reception Section -->
+    <section class="awards-section">
+        <div class="awards-header">
+            <h3>🏆 Awards &amp; Critical Reception</h3>
+            <p>Accolades, audience polling data, and cultural impact across the Seoul Cloud Realm.</p>
+        </div>
+
+        <div class="awards-subheading">🎖️ 2027 Seoul Cloud Arts Awards (서울 클라우드 예술대상)</div>
+        <div class="awards-grid">
+            <div class="award-card">
+                <span class="award-category">Best Supporting Feline</span>
+                <span class="award-winner">Documentation Cat (문서냥이)</span>
+                <p class="award-note">Awarded for masterclass stealth navigation of unmaintained sub-basements and locating 47 missing owner records.</p>
+            </div>
+
+            <div class="award-card">
+                <span class="award-category">Best One-Line Performance</span>
+                <span class="award-winner">"I remember." — The Monster</span>
+                <p class="award-note">Delivered with earth-shattering gravitas across three server halls in Episode 13, instantly turning a villain into an icon.</p>
+            </div>
+
+            <div class="award-card">
+                <span class="award-category">Most Emotional Waterfall Scene</span>
+                <span class="award-winner">Master Bob &amp; Lady Yun (Episode 14)</span>
+                <p class="award-note">47 seconds of unresolved architecture tension beneath cascading mountain waters with cherry blossoms freezing in mid-air.</p>
+            </div>
+
+            <div class="award-card">
+                <span class="award-category">Grand Prize (Daesang / 대상)</span>
+                <span class="award-winner">Best Use of Legacy Media Preservation In A Fantasy Narrative</span>
+                <p class="award-note">Honoring the <em>Procedure for Managing a Drive During Active Combustion</em> and the <em>2016 External Floppy Runbook</em>.</p>
+            </div>
+        </div>
+
+        <div class="awards-subheading">📊 Official Audience Poll (시청자 인기 투표)</div>
+        <div class="poll-container">
+            <p style="color: #cbd5e1; font-size: 0.9rem; margin-bottom: 8px;"><strong>Question:</strong> Who is your favorite character in the Seoul Cloud Realm?</p>
+            <div class="poll-list">
+                <div class="poll-row">
+                    <div class="poll-info">
+                        <span>🥇 #1 Documentation Cat (문서냥이)</span>
+                        <span>42.8%</span>
+                    </div>
+                    <div class="poll-bar-bg">
+                        <div class="poll-bar-fill cat"></div>
+                    </div>
+                </div>
+
+                <div class="poll-row">
+                    <div class="poll-info">
+                        <span>🥈 #2 Master Bob (밥 도사)</span>
+                        <span>28.4%</span>
+                    </div>
+                    <div class="poll-bar-bg">
+                        <div class="poll-bar-fill bob"></div>
+                    </div>
+                </div>
+
+                <div class="poll-row">
+                    <div class="poll-info">
+                        <span>🥉 #3 The Monster (서울 데이터센터의 괴물)</span>
+                        <span>16.2%</span>
+                    </div>
+                    <div class="poll-bar-bg">
+                        <div class="poll-bar-fill monster"></div>
+                    </div>
+                </div>
+
+                <div class="poll-row">
+                    <div class="poll-info">
+                        <span>4th Lady Yun (윤 아키텍트)</span>
+                        <span>10.1%</span>
+                    </div>
+                    <div class="poll-bar-bg">
+                        <div class="poll-bar-fill yun"></div>
+                    </div>
+                </div>
+
+                <div class="poll-row">
+                    <div class="poll-info">
+                        <span>5th Chancellor Governance (거버넌스 총리)</span>
+                        <span>2.5%</span>
+                    </div>
+                    <div class="poll-bar-bg">
+                        <div class="poll-bar-fill governance"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="awards-subheading">💬 Most Quoted Lines (유행어 명대사)</div>
+        <div class="quotes-grid">
+            <div class="quoted-line-card">
+                <div class="quoted-line-text">"The issue is not the issue."</div>
+                <div class="quoted-line-source">— Master Bob (밥 도사)</div>
+            </div>
+
+            <div class="quoted-line-card">
+                <div class="quoted-line-text">"Later has arrived."</div>
+                <div class="quoted-line-source">— The Bog Witch (늪지의 마녀)</div>
+            </div>
+
+            <div class="quoted-line-card">
+                <div class="quoted-line-text">"Not everything deserves migration."</div>
+                <div class="quoted-line-source">— Master Bob (Episode 15)</div>
+            </div>
+
+            <div class="quoted-line-card">
+                <div class="quoted-line-text">"The purpose was never documentation. The purpose was preserving knowledge."</div>
+                <div class="quoted-line-source">— Series Thesis Statement</div>
+            </div>
+        </div>
+    </section>
 
     <!-- Post-Credit Scene Setup for Season 2 -->
     <div class="post-credit-card">
@@ -1708,7 +2001,7 @@ The Council (Seoul Cloud Governance)
     <footer class="post-footer">
         <p><em>Master Bob and the Monster in the Seoul Data Center</em> is a makjang technical satire screenplay originating from the Storage Information Development chronicles.</p>
         <p>© Seoul Cloud Realm · Written by Viktoria Muirhead · All Rights Reserved across all Repositories.</p>
-        
+
         <div class="footer-nav">
             <a href="index.html" class="nav-btn cdrama">← Return to C-Drama: The Rise of the Benevolent Documentation Dictator</a>
         </div>
