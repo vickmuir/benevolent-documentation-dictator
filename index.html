@@ -207,6 +207,34 @@
         .char-img-container {
             text-align: center;
             margin-bottom: 16px;
+            position: relative;
+        }
+
+        .char-img-wrap {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            width: 100%;
+            text-align: center;
+            font-family: inherit;
+            color: inherit;
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        .char-img-wrap:hover {
+            transform: translateY(-2px);
+        }
+
+        .char-img-wrap:focus-visible {
+            outline: 3px solid var(--imperial-gold);
+            outline-offset: 4px;
+            box-shadow: 0 0 16px rgba(197, 155, 39, 0.5);
+            border-radius: 6px;
         }
 
         .char-img {
@@ -217,6 +245,146 @@
             background: radial-gradient(circle, #f9f6f0 0%, #ece5d8 100%);
             padding: 6px;
             border: 1px solid #ded6c5;
+            transition: transform 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .char-img-wrap:hover .char-img {
+            transform: scale(1.02);
+        }
+
+        .char-zoom-hint {
+            position: absolute;
+            bottom: 10px;
+            right: 12px;
+            background: rgba(18, 33, 61, 0.85);
+            color: #ffffff;
+            font-size: 0.725rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            opacity: 0.85;
+            transition: all 0.2s ease;
+        }
+
+        .char-img-wrap:hover .char-zoom-hint {
+            opacity: 1;
+            transform: scale(1.05);
+            background: var(--imperial-red);
+            border-color: var(--imperial-gold);
+            box-shadow: 0 2px 8px rgba(186, 27, 27, 0.4);
+        }
+
+        /* Lightbox Modal */
+        .lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(10, 16, 26, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+            padding: 24px;
+        }
+
+        .lightbox-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 92vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: scale(0.92);
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .lightbox-modal.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-img {
+            max-width: 90vw;
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 0 2px var(--imperial-gold);
+            background: #ffffff;
+            padding: 8px;
+        }
+
+        .lightbox-caption {
+            margin-top: 14px;
+            background: #ffffff;
+            border: 2px solid var(--imperial-gold);
+            border-radius: 8px;
+            padding: 12px 24px;
+            color: var(--imperial-navy);
+            text-align: center;
+            max-width: 680px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+
+        .lightbox-title {
+            font-family: 'Noto Serif SC', 'Cinzel', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--imperial-red);
+            margin-bottom: 4px;
+        }
+
+        .lightbox-desc {
+            font-size: 0.9rem;
+            color: var(--cds-text-02);
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -16px;
+            right: -16px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--imperial-red);
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.6);
+            transition: all 0.2s ease;
+            z-index: 10000;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover {
+            background: var(--imperial-gold);
+            transform: scale(1.1);
         }
 
         .char-header {
@@ -803,7 +971,10 @@
         <!-- Master Bob -->
         <div class="character-card protagonist">
             <div class="char-img-container">
-                <img src="funny/MasterBob.png" alt="博先生 Master Bob" class="char-img">
+                <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of 博先生 Master Bob, Sage of the Scroll Repository">
+                    <img src="funny/MasterBob.png" alt="Master Bob in flowing azure robes holding an ancient scroll" class="char-img">
+                    <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
+                </div>
             </div>
             <div class="char-header">
                 <div class="char-chinese-name">博先生 (Bó Xiānsheng)</div>
@@ -823,7 +994,10 @@
         <!-- Lady Yun -->
         <div class="character-card heroine">
             <div class="char-img-container">
-                <img src="funny/LadyYun.png" alt="云姑娘 Lady Yun" class="char-img">
+                <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of 云姑娘 Lady Yun, Keeper of the Cloud Scrolls">
+                    <img src="funny/LadyYun.png" alt="Lady Yun in elegant lavender robes holding a cloud ledger" class="char-img">
+                    <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
+                </div>
             </div>
             <div class="char-header">
                 <div class="char-chinese-name">云姑娘 (Yún Gūniang)</div>
@@ -843,7 +1017,10 @@
         <!-- Lord Gu -->
         <div class="character-card rival">
             <div class="char-img-container">
-                <img src="funny/LordGu.png" alt="顾公子 Lord Gu" class="char-img">
+                <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of 顾公子 Lord Gu, Minister of Requirements">
+                    <img src="funny/LordGu.png" alt="Lord Gu in immaculate gold embroidered silk robes holding a risk matrix" class="char-img">
+                    <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
+                </div>
             </div>
             <div class="char-header">
                 <div class="char-chinese-name">顾公子 (Gù Gōngzǐ)</div>
@@ -863,7 +1040,10 @@
         <!-- Marquis Ling -->
         <div class="character-card nemesis">
             <div class="char-img-container">
-                <img src="funny/MarquisLing.png" alt="凌大人 Marquis Ling" class="char-img">
+                <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of 凌大人 Marquis Ling, Keeper of Future Roadmaps">
+                    <img src="funny/MarquisLing.png" alt="Lord Ling in crimson imperial robes standing before strategic roadmaps" class="char-img">
+                    <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
+                </div>
             </div>
             <div class="char-header">
                 <div class="char-chinese-name">凌大人 (Líng Dàrén)</div>
@@ -1290,6 +1470,89 @@
         </div>
     </footer>
 </div>
+
+<!-- Lightbox Modal Container -->
+<div id="lightbox" class="lightbox-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="lightbox-content">
+        <button class="lightbox-close" aria-label="Close image popup" id="lightboxClose">&times;</button>
+        <img id="lightboxImg" class="lightbox-img" src="" alt="Expanded Character Portrait">
+        <div class="lightbox-caption">
+            <div id="lightboxTitle" class="lightbox-title"></div>
+            <p id="lightboxDesc" class="lightbox-desc"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDesc = document.getElementById('lightboxDesc');
+    const lightboxClose = document.getElementById('lightboxClose');
+    let lastFocusedElement = null;
+
+    function openLightbox(src, alt, title, desc, triggerElement) {
+        lastFocusedElement = triggerElement || document.activeElement;
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || 'Character Portrait';
+        lightboxTitle.textContent = title;
+        lightboxDesc.textContent = desc;
+        lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        lightboxClose.focus();
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+            lightboxImg.src = '';
+        }, 250);
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+        }
+    }
+
+    function triggerCardOpen(wrap) {
+        const card = wrap.closest('.character-card');
+        const img = wrap.querySelector('.char-img');
+        const chineseName = card?.querySelector('.char-chinese-name')?.textContent || '';
+        const englishTitle = card?.querySelector('.char-english-title')?.textContent || '';
+        const quote = card?.querySelector('.char-quote')?.textContent?.trim() || '';
+        const title = chineseName ? `${chineseName} · ${englishTitle}` : englishTitle;
+        if (img) {
+            openLightbox(img.src, img.alt, title, quote, wrap);
+        }
+    }
+
+    document.querySelectorAll('.char-img-wrap').forEach(wrap => {
+        wrap.addEventListener('click', () => {
+            triggerCardOpen(wrap);
+        });
+
+        wrap.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                triggerCardOpen(wrap);
+            }
+        });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+</script>
 
 </body>
 </html>
