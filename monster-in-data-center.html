@@ -304,8 +304,25 @@
 
         .posters-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 24px;
+        }
+
+        /* Odd final card: center it under the pair above */
+        .posters-grid > .poster-card:last-child:nth-child(odd) {
+            grid-column: 1 / -1;
+            justify-self: center;
+            width: calc(50% - 12px);
+        }
+
+        @media (max-width: 640px) {
+            .posters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .posters-grid > .poster-card:last-child:nth-child(odd) {
+                width: 100%;
+            }
         }
 
         .poster-card {
@@ -509,6 +526,43 @@
             border-top-color: #475569;
             background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
             grid-column: 1 / -1;
+        }
+
+        /* Cast Profile Images */
+        .cast-img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            max-height: 380px;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 8px;
+            border: 2px solid var(--kdrama-purple);
+            margin-bottom: 20px;
+            background: #0f172a;
+        }
+
+        /* Wide cards: image in left third, text in right two thirds */
+        .character-card.monster-card,
+        .character-card.council-card {
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 28px;
+        }
+
+        .character-card.monster-card > .cast-img,
+        .character-card.council-card > .cast-img {
+            flex: 0 0 calc((100% - 28px) / 3);
+            width: calc((100% - 28px) / 3);
+            max-height: none;
+            margin-bottom: 0;
+        }
+
+        .char-body {
+            flex: 1 1 0;
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Cast Card Image Placeholder Component */
@@ -1363,7 +1417,42 @@
             gap: 16px;
         }
 
+        /* Footer buttons sit on a light background, so override the dark-nav colors */
+        .footer-nav .nav-btn.cdrama {
+            background: #fde8e8;
+            color: #7f1d1d;
+            border: 1px solid #b91c1c;
+        }
+
+        .footer-nav .nav-btn.cdrama:hover {
+            background: #9b1c1c;
+            color: #ffffff;
+        }
+
+        .footer-nav .nav-btn.bobbywood {
+            background: #fce7f3;
+            color: #831843;
+            border: 1px solid #be185d;
+        }
+
+        .footer-nav .nav-btn.bobbywood:hover {
+            background: #9d174d;
+            color: #ffffff;
+        }
+
         @media (max-width: 768px) {
+            .character-card.monster-card,
+            .character-card.council-card {
+                flex-direction: column;
+            }
+
+            .character-card.monster-card > .cast-img,
+            .character-card.council-card > .cast-img {
+                flex: none;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
             .container {
                 padding: 32px 20px;
             }
@@ -1375,6 +1464,23 @@
             }
             .revelation-box {
                 padding: 24px 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+
+            .poster-card:hover,
+            .poster-card:hover .poster-img,
+            .poster-card:hover .poster-zoom-hint,
+            .cast-img:hover {
+                transform: none !important;
             }
         }
     </style>
@@ -1502,12 +1608,7 @@
     <div class="character-grid">
         <!-- Master Bob -->
         <div class="character-card bob-card">
-            <div class="cast-img-placeholder">
-                <div class="placeholder-icon">🧘‍♂️⚡</div>
-                <span class="placeholder-badge">[ Cast Still · Production Pending ]</span>
-                <div class="placeholder-name">Master Bob (밥 도사 / Bob Dosa)</div>
-                <div class="placeholder-note">Standing beside the Waterfall of Forgotten Knowledge with fan closed</div>
-            </div>
+            <img src="funny/Kdrama-bob-profile.png" alt="Master Bob as a robot sage in a black gat hat and indigo-and-gold robes before a glowing pagoda" class="cast-img" loading="lazy">
             <div class="char-header">
                 <div class="char-hangul-name">밥 도사 (Bob Dosa)</div>
                 <div class="char-english-title">Master Bob, Sage of the Scroll Repository</div>
@@ -1530,12 +1631,7 @@
 
         <!-- Lady Yun -->
         <div class="character-card yun-card">
-            <div class="cast-img-placeholder">
-                <div class="placeholder-icon">👩‍💻✨</div>
-                <span class="placeholder-badge">[ Cast Still · Production Pending ]</span>
-                <div class="placeholder-name">Lady Yun (윤 아키텍트 / Yun Akitekteu)</div>
-                <div class="placeholder-note">Holding the Cloud-Sealed Migration Ledger in the Grand Hall</div>
-            </div>
+            <img src="funny/kdrama-lady-yun-profile.png" alt="Lady Yun in a violet hanbok with ornate hair ornaments before a glowing pagoda among cherry blossoms" class="cast-img" loading="lazy">
             <div class="char-header">
                 <div class="char-hangul-name">윤 아키텍트 (Yun Akitekteu)</div>
                 <div class="char-english-title">Lady Yun, Architect of Knowledge Futures</div>
@@ -1558,12 +1654,7 @@
 
         <!-- The Bog Witch -->
         <div class="character-card witch-card">
-            <div class="cast-img-placeholder">
-                <div class="placeholder-icon">🧙‍♀️📜</div>
-                <span class="placeholder-badge">[ Cast Still · Production Pending ]</span>
-                <div class="placeholder-name">The Bog Witch (늪지의 마녀 / Neupji-ui Manyeo)</div>
-                <div class="placeholder-note">Veiled figure lurking among towering stacks of obsolete runbooks</div>
-            </div>
+            <img src="funny/kdrama-bog-witch-profile.png" alt="The Bog Witch in a purple veiled hood holding an ornate grimoire beneath glowing runes" class="cast-img" loading="lazy">
             <div class="char-header">
                 <div class="char-hangul-name">늪지의 마녀 (Neupji-ui Manyeo)</div>
                 <div class="char-english-title">The Bog Witch, Guardian of the Forgotten</div>
@@ -1586,12 +1677,7 @@
 
         <!-- Documentation Cat -->
         <div class="character-card cat-card">
-            <div class="cast-img-placeholder">
-                <div class="placeholder-icon">🐱📦</div>
-                <span class="placeholder-badge">[ Cast Still · Production Pending ]</span>
-                <div class="placeholder-name">Documentation Cat (문서냥이 / Munseo Nyangi)</div>
-                <div class="placeholder-note">Tiny cloaked feline sitting atop dusty archive boxes with glowing purple eyes</div>
-            </div>
+            <img src="funny/kdrama-docs-cat-profile.png" alt="Documentation Cat in a purple cloak with a gold clasp sitting on a stack of ancient books" class="cast-img" loading="lazy">
             <div class="char-header">
                 <div class="char-hangul-name">문서냥이 (Munseo Nyangi)</div>
                 <div class="char-english-title">Documentation Cat, Finder of Missing Knowledge</div>
@@ -1613,47 +1699,47 @@
 
         <!-- The Monster in the Data Center -->
         <div class="character-card monster-card">
-            <div class="cast-img-placeholder" style="height: 200px;">
-                <div class="placeholder-icon">👾📚💾</div>
-                <span class="placeholder-badge">[ Cast Still · Production Pending ]</span>
-                <div class="placeholder-name">The Monster (데이터센터의 괴물 / Deiteo Senteoui Goemul)</div>
-                <div class="placeholder-note">Massive sentient entity constructed entirely of orphaned documents, tapes, and forgotten code</div>
-            </div>
-            <div class="char-header">
-                <div class="char-hangul-name">데이터센터의 괴물 (Deiteo Senteoui Goemul)</div>
-                <div class="char-english-title">The Monster, Keeper of Organizational Memory</div>
-                <div class="char-badges">
-                    <span class="badge badge-red">Sentient Entity</span>
-                    <span class="badge badge-gray">Data Center Sub-Basement</span>
-                    <span class="badge badge-blue">OST: TVXQ</span>
+            <img src="funny/kdrama-monster-profile.png" alt="The Monster, a glowing purple entity with a cloud emblem in its chest, surrounded by floating documents" class="cast-img" loading="lazy">
+            <div class="char-body">
+                <div class="char-header">
+                    <div class="char-hangul-name">데이터센터의 괴물 (Deiteo Senteoui Goemul)</div>
+                    <div class="char-english-title">The Monster, Keeper of Organizational Memory</div>
+                    <div class="char-badges">
+                        <span class="badge badge-red">Sentient Entity</span>
+                        <span class="badge badge-gray">Data Center Sub-Basement</span>
+                        <span class="badge badge-blue">OST: TVXQ</span>
+                    </div>
                 </div>
+                <div class="char-quote">
+                    "I remember."
+                </div>
+                <ul class="char-traits">
+                    <li><strong>True Nature:</strong> Not a monster of malice or technical debt, but a living vessel created from every time someone said <em>"We'll document it later."</em></li>
+                    <li><strong>Composition:</strong> Built from thousands of abandoned projects, unmaintained APIs, forgotten architecture decisions, and orphaned ownership chains.</li>
+                    <li><strong>Redemption:</strong> In Episode 16, promoted to the official <em>Keeper of Organizational Memory</em> for the entire K-Drama Cloud Realm.</li>
+                </ul>
             </div>
-            <div class="char-quote">
-                "I remember."
-            </div>
-            <ul class="char-traits">
-                <li><strong>True Nature:</strong> Not a monster of malice or technical debt, but a living vessel created from every time someone said <em>"We'll document it later."</em></li>
-                <li><strong>Composition:</strong> Built from thousands of abandoned projects, unmaintained APIs, forgotten architecture decisions, and orphaned ownership chains.</li>
-                <li><strong>Redemption:</strong> In Episode 16, promoted to the official <em>Keeper of Organizational Memory</em> for the entire K-Drama Cloud Realm.</li>
-            </ul>
         </div>
 
         <!-- The Council -->
         <div class="character-card council-card">
-            <div class="char-header">
-                <div class="char-hangul-name">클라우드 평의회 (Keullaudeu Pyeong-uihoe)</div>
-                <div class="char-english-title">The Bureaucratic Hierarchy</div>
-                <div class="char-badges">
-                    <span class="badge badge-gray">Governance Bureau</span>
-                    <span class="badge badge-red">Recurring Obstacle</span>
+            <img src="funny/kdrama-chancellor-profile.png" alt="High Chancellor Governance in black and purple court robes holding a sealed scroll before the assembled Council" class="cast-img" loading="lazy">
+            <div class="char-body">
+                <div class="char-header">
+                    <div class="char-hangul-name">클라우드 평의회 (Keullaudeu Pyeong-uihoe)</div>
+                    <div class="char-english-title">The Bureaucratic Hierarchy</div>
+                    <div class="char-badges">
+                        <span class="badge badge-gray">Governance Bureau</span>
+                        <span class="badge badge-red">Recurring Obstacle</span>
+                    </div>
                 </div>
+                <ul class="char-traits" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+                    <li><strong>Lord Compliance:</strong> Believes nothing should ever be deleted under any circumstances.</li>
+                    <li><strong>Minister Architecture:</strong> Insists every outdated diagram is currently in production.</li>
+                    <li><strong>High Chancellor Governance:</strong> Approves every process; understands none of them.</li>
+                    <li><strong>Keeper of SharePoint:</strong> Has not been seen in the physical realm since 2018.</li>
+                </ul>
             </div>
-            <ul class="char-traits" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
-                <li><strong>Lord Compliance:</strong> Believes nothing should ever be deleted under any circumstances.</li>
-                <li><strong>Minister Architecture:</strong> Insists every outdated diagram is currently in production.</li>
-                <li><strong>High Chancellor Governance:</strong> Approves every process; understands none of them.</li>
-                <li><strong>Keeper of SharePoint:</strong> Has not been seen in the physical realm since 2018.</li>
-            </ul>
         </div>
     </div>
 
@@ -2238,6 +2324,23 @@ The Council · 클라우드 평의회 (Keullaudeu Pyeong-uihoe)
         });
     });
 
+    // Cast profile images: click or keyboard to zoom
+    document.querySelectorAll('.cast-img').forEach(img => {
+        const card = img.closest('.character-card');
+        const title = card.querySelector('.char-hangul-name')?.textContent || '';
+        const desc = card.querySelector('.char-english-title')?.textContent || '';
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+        img.setAttribute('aria-label', 'Open enlarged version of ' + desc + ' portrait');
+        img.addEventListener('click', () => openLightbox(img.src, img.alt, title, desc, img));
+        img.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openLightbox(img.src, img.alt, title, desc, img);
+            }
+        });
+    });
+
     lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
@@ -2246,8 +2349,30 @@ The Council · 클라우드 평의회 (Keullaudeu Pyeong-uihoe)
     });
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') {
             closeLightbox();
+            return;
+        }
+        // Focus trap: keep Tab / Shift+Tab inside the dialog
+        if (e.key === 'Tab') {
+            const focusable = lightbox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            if (focusable.length === 0) {
+                e.preventDefault();
+                return;
+            }
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (!lightbox.contains(document.activeElement)) {
+                e.preventDefault();
+                first.focus();
+            } else if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
         }
     });
 </script>
