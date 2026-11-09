@@ -52,7 +52,7 @@ https://vickmuir.github.io/benevolent-documentation-dictator/
 ├── funny/                           # High-resolution drama posters & character portraits
 │   ├── Guardians of Knowledge Under Moonlight.png
 │   ├── Kdrama-Bob.png
-│   ├── Master Bob and Lady Yun Face the Knowledge Storm.png
+│   ├── The Knowledge Vortex Over Seoul.png
 │   ├── Master Bob’s Divine Palace Triumph.png
 │   ├── Lady Yun, Divine Documentation Guardian.png
 │   ├── MasterBob.png
