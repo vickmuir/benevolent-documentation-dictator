@@ -43,22 +43,32 @@ https://vickmuir.github.io/benevolent-documentation-dictator/
 
 ---
 
+## ✨ Site Features
+
+- Click-to-zoom cast portraits with an accessible lightbox (focus trap, reduced-motion support)
+- Open Graph and Twitter Card meta tags for social sharing thumbnails on all three pages
+- Footer navigation linking the three dramas
+- Embedded trailer video on the C-Drama page
+
+---
+
 ## 📁 Repository Structure
 
 ```text
 ├── index.html                       # Imperial C-Drama story & screenplay page
 ├── monster-in-data-center.html      # Makjang K-Drama story & screenplay page
-├── festival-of-validation.html       # Bobbywood Musical story & screenplay page
-├── funny/                           # High-resolution drama posters & character portraits
+├── festival-of-validation.html      # Bobbywood Musical story & screenplay page
+├── funny/                           # Posters, cast portraits & trailer media
+│   ├── Bobbywood-*.png              # Bobbywood cast portraits, festival art & Seal of Validation
+│   ├── Kdrama-Bob.png, Kdrama-bob-profile.png
+│   ├── kdrama-*-profile.png         # K-Drama cast profiles (bog witch, chancellor, docs cat, Lady Yun, monster)
 │   ├── Guardians of Knowledge Under Moonlight.png
-│   ├── Kdrama-Bob.png
 │   ├── The Knowledge Vortex Over Seoul.png
 │   ├── Master Bob’s Divine Palace Triumph.png
 │   ├── Lady Yun, Divine Documentation Guardian.png
-│   ├── MasterBob.png
-│   ├── LadyYun.png
-│   ├── LordGu.png
-│   └── MarquisLing.png
+│   ├── Six Portraits of a Mystic Joseon Future.png
+│   ├── MasterBob.png, LadyYun.png, LordGu.png, MarquisLing.png
+│   └── video/                       # C-Drama trailer (.mp4) and preview GIF
 ├── .nojekyll                        # Disables Jekyll processing for pure static serving
 └── README.md
 ```
