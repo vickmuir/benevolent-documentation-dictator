@@ -650,6 +650,12 @@
             height: auto;
             border-radius: 6px;
             margin: 0 auto 16px;
+            cursor: zoom-in;
+            transition: opacity 0.2s ease;
+        }
+
+        .char-portrait:hover {
+            opacity: 0.88;
         }
 
         .character-card.bob {
@@ -2391,6 +2397,23 @@
         });
     });
 
+    // Cast portrait images: click or keyboard to zoom
+    document.querySelectorAll('.char-portrait').forEach(img => {
+        const card = img.closest('.character-card');
+        const title = card.querySelector('.char-hindi-name')?.textContent || '';
+        const desc = card.querySelector('.char-english-title')?.textContent || '';
+        img.setAttribute('tabindex', '0');
+        img.setAttribute('role', 'button');
+        img.setAttribute('aria-label', 'Open enlarged version of ' + desc + ' portrait');
+        img.addEventListener('click', () => openLightbox(img.src, img.alt, title, desc, img));
+        img.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openLightbox(img.src, img.alt, title, desc, img);
+            }
+        });
+    });
+
     lightboxClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
@@ -2399,8 +2422,24 @@
     });
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') {
             closeLightbox();
+            return;
+        }
+        // Focus trap: keep Tab / Shift+Tab inside the dialog
+        if (e.key === 'Tab') {
+            const focusable = lightbox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            if (focusable.length === 0) { e.preventDefault(); return; }
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (!lightbox.contains(document.activeElement)) {
+                e.preventDefault(); first.focus();
+            } else if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault(); last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault(); first.focus();
+            }
         }
     });
 </script>
