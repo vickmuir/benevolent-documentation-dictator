@@ -95,6 +95,7 @@
 
         .drama-nav-links {
             display: flex;
+            flex-wrap: wrap;
             gap: 10px;
         }
 
@@ -137,6 +138,18 @@
 
         .nav-btn.bobbywood:hover {
             background: rgba(219, 39, 119, 0.45);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.trek {
+            background: rgba(69, 137, 255, 0.2);
+            color: #a6c8ff;
+            border: 1px solid rgba(69, 137, 255, 0.5);
+        }
+
+        .nav-btn.trek:hover {
+            background: rgba(69, 137, 255, 0.45);
             color: #ffffff;
             transform: translateY(-1px);
         }
@@ -1513,6 +1526,9 @@
         </a>
         <a href="festival-of-validation.html" class="nav-btn bobbywood">
             <span>🦚 Bobbywood Musical</span>
+        </a>
+        <a href="star-trek-lost-repository.html" class="nav-btn trek">
+            <span>🖖 Star Trek Teaser</span>
         </a>
     </div>
 </nav>
