@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Trek: Master Bob and the Lost Repository</title>
+    <!-- Open Graph / Social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vickmuir.github.io/benevolent-documentation-dictator/star-trek-lost-repository.html">
+    <meta property="og:title" content="Star Trek: Master Bob and the Lost Repository">
+    <meta property="og:description" content="A Star Trek / Red Dwarf inspired satire. The USS Clarity boldly documents what no one has documented before.">
+    <meta property="og:image" content="https://vickmuir.github.io/benevolent-documentation-dictator/funny/USS%20Clarity_%20Exploring%20New%20Frontiers.png">
+    <meta property="og:image:alt" content="The starship USS Clarity flying past a spiral galaxy">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Star Trek: Master Bob and the Lost Repository">
+    <meta name="twitter:description" content="A Star Trek / Red Dwarf inspired satire. The USS Clarity boldly documents what no one has documented before.">
+    <meta name="twitter:image" content="https://vickmuir.github.io/benevolent-documentation-dictator/funny/USS%20Clarity_%20Exploring%20New%20Frontiers.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cds-interactive-01: #0f62fe;
+            --cds-interactive-02: #8a3ffc;
+            --cds-ui-02: #ffffff;
+            --cds-text-01: #161616;
+            --cds-text-02: #525252;
+            --fleet-gold: #c59b27;
+            --fleet-navy: #0b1a3a;
+            --fleet-blue: #4589ff;
+            --fleet-red: #ba1b1b;
+            --console-bg: #0a1224;
+            --card-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #e9ecf3;
+            background-image: radial-gradient(#cfd5e3 1px, transparent 1px);
+            background-size: 24px 24px;
+            color: var(--cds-text-01);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            background-color: var(--cds-ui-02);
+            padding: 56px 64px;
+            box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+            border-top: 8px solid var(--fleet-blue);
+            border-bottom: 4px solid var(--fleet-gold);
+            position: relative;
+        }
+
+        /* Header / Meta */
+        .post-header {
+            margin-bottom: 36px;
+            border-bottom: 2px solid #e1e5ee;
+            padding-bottom: 28px;
+            text-align: center;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #0f62fe 0%, #0043ce 100%);
+            color: #ffffff;
+            font-size: 0.8125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 6px 14px;
+            border-radius: 3px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 6px rgba(15, 98, 254, 0.3);
+        }
+
+        .stardate-title {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--fleet-gold);
+            letter-spacing: 4px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-family: 'Orbitron', 'IBM Plex Sans', sans-serif;
+            font-size: 2.1rem;
+            font-weight: 800;
+            line-height: 1.3;
+            color: var(--fleet-navy);
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #3d4a6b;
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.875rem;
+            color: var(--cds-text-02);
+            background-color: #f4f6fb;
+            padding: 12px 20px;
+            border-radius: 4px;
+            border: 1px dashed #c5cde0;
+        }
+
+        .post-meta span strong {
+            color: var(--fleet-navy);
+        }
+
+        /* Typography */
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 42px;
+            margin-bottom: 20px;
+            color: var(--fleet-navy);
+            padding-left: 14px;
+            border-left: 5px solid var(--fleet-blue);
+            letter-spacing: -0.3px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            font-size: 1.025rem;
+            color: #262626;
+        }
+
+        /* Teaser image */
+        .teaser-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            border: 2px solid var(--fleet-gold);
+            background: #000;
+            box-shadow: 0 8px 24px rgba(15, 98, 254, 0.2);
+        }
+
+        /* Captain's Log */
+        .captains-log {
+            background-color: var(--console-bg);
+            color: #f4f7fb;
+            border-radius: 6px;
+            border-left: 4px solid var(--fleet-gold);
+            padding: 28px 32px;
+            margin: 24px 0;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+        }
+
+        .captains-log h2 {
+            color: #78a9ff;
+            font-family: 'Orbitron', 'IBM Plex Sans', sans-serif;
+            font-size: 1.25rem;
+            border-left: none;
+            padding-left: 0;
+            margin: 0 0 4px 0;
+            letter-spacing: 1px;
+        }
+
+        .log-stardate {
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--fleet-gold);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #263556;
+        }
+
+        .captains-log p {
+            color: #e6ecf7;
+            font-size: 1rem;
+            margin-bottom: 14px;
+        }
+
+        .captains-log .log-mission {
+            font-style: italic;
+            color: #d0e2ff;
+        }
+
+        .captains-log .log-pivot {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-top: 1px dashed #263556;
+            border-bottom: 1px dashed #263556;
+            padding: 12px 0;
+            margin: 18px 0;
+        }
+
+        .captains-log .log-close {
+            color: var(--fleet-gold);
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        /* Navigation between dramas */
+        .drama-nav {
+            max-width: 980px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: #ffffff;
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: 1px solid #c5cde0;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        }
+
+        .drama-nav-brand {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--fleet-navy);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .drama-nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.825rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn.cdrama {
+            background: #fff1f1;
+            color: #ba1b1b;
+            border: 1px solid #ffd7d9;
+        }
+
+        .nav-btn.cdrama:hover {
+            background: #ba1b1b;
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.kdrama {
+            background: #f6f2ff;
+            color: #6929c4;
+            border: 1px solid #d0bfff;
+        }
+
+        .nav-btn.kdrama:hover {
+            background: #6929c4;
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.bobbywood {
+            background: #fdf2f8;
+            color: #be185d;
+            border: 1px solid #fbcfe8;
+        }
+
+        .nav-btn.bobbywood:hover {
+            background: #be185d;
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        .nav-btn.trek-active {
+            background: linear-gradient(135deg, #0f62fe 0%, #0043ce 100%);
+            color: #ffffff;
+            box-shadow: 0 2px 8px rgba(15, 98, 254, 0.3);
+        }
+
+        /* Footer */
+        .post-footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 2px solid #e1e5ee;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--cds-text-02);
+        }
+
+        .footer-nav {
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 32px 20px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            .captains-log {
+                padding: 22px 20px;
+            }
+            .drama-nav {
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Drama Universe Navigation -->
+<nav class="drama-nav">
+    <div class="drama-nav-brand">
+        <span>🎬 BDD Drama Universe</span>
+    </div>
+    <div class="drama-nav-links">
+        <a href="index.html" class="nav-btn cdrama">
+            <span>🇨🇳 Imperial C-Drama</span>
+        </a>
+        <a href="monster-in-data-center.html" class="nav-btn kdrama">
+            <span>🇰🇷 Makjang K-Drama</span>
+        </a>
+        <a href="festival-of-validation.html" class="nav-btn bobbywood">
+            <span>🦚 Bobbywood Musical</span>
+        </a>
+        <a href="star-trek-lost-repository.html" class="nav-btn trek-active" aria-current="page">
+            <span>🖖 Star Trek Teaser</span>
+        </a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <header class="post-header">
+        <span class="category-tag">🖖 Teaser · Coming Soon</span>
+        <div class="stardate-title">STARDATE 47.047</div>
+        <h1>Star Trek: Master Bob and the Lost Repository</h1>
+        <p class="subtitle">A Voyage to Explore Strange New Workflows and Seek Out Undocumented Dependencies</p>
+
+        <div class="post-meta">
+            <span><strong>Screenplay &amp; Concept:</strong> Viktoria Muirhead</span>
+            <span><strong>Vessel:</strong> USS Clarity</span>
+            <span><strong>Genre:</strong> Star Trek / Red Dwarf Inspired Technical Satire</span>
+            <span><strong>Status:</strong> Teaser</span>
+        </div>
+    </header>
+
+    <section class="teaser" aria-labelledby="teaser-title" style="margin: 0 0 2rem;">
+        <h2 id="teaser-title" style="margin-top: 0;">🚀 The USS Clarity</h2>
+        <img src="funny/USS%20Clarity_%20Exploring%20New%20Frontiers.png"
+             alt="The starship USS Clarity flying past a spiral galaxy, with the caption: To explore strange new workflows. To seek out new knowledge. To boldly document what no one has documented before."
+             class="teaser-image">
+    </section>
+
+    <section class="captains-log" aria-labelledby="log-title">
+        <h2 id="log-title">Captain's Log</h2>
+        <div class="log-stardate">Stardate 47.047</div>
+
+        <p>The USS Clarity continues its mission across the known systems of the Federation.</p>
+
+        <p class="log-mission">
+            To explore strange new workflows.<br>
+            To seek out new knowledge.<br>
+            To boldly document what no one has documented before.
+        </p>
+
+        <p>Most people believe documentation follows understanding.</p>
+
+        <p>
+            They believe requirements come first.<br>
+            Architecture second.<br>
+            Documentation last.
+        </p>
+
+        <p>After years commanding this vessel, I have reached a different conclusion.</p>
+
+        <p class="log-pivot">
+            Documentation does not follow discovery.<br>
+            Documentation is discovery.
+        </p>
+
+        <p>The moment someone asks, "Can you document this?", we know we have found a mystery.</p>
+
+        <p>
+            Somewhere there is a missing decision.<br>
+            A forgotten owner.<br>
+            An undocumented dependency.<br>
+            A repository everyone uses and nobody understands.
+        </p>
+
+        <p class="log-close">And that is where our real mission begins.</p>
+    </section>
+
+    <footer class="post-footer">
+        <p><em>Star Trek: Master Bob and the Lost Repository</em> is a teaser for an upcoming episode of the Storage Information Development chronicles. Full page coming soon.</p>
+        <p>Written by Viktoria Muirhead · All Rights Reserved across the Known Systems of the Federation.</p>
+        <div class="footer-nav">
+            <a href="index.html" class="nav-btn cdrama">🇨🇳 The Rise of the Benevolent Documentation Dictator</a>
+            <a href="monster-in-data-center.html" class="nav-btn kdrama">🇰🇷 Master Bob &amp; The Monster in the Data Center</a>
+            <a href="festival-of-validation.html" class="nav-btn bobbywood">🦚 Master Bob &amp; The Festival of Validation</a>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>
