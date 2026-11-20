@@ -379,6 +379,54 @@
             margin-bottom: 6px;
         }
 
+        /* Villain Card (The Curator - No Image) */
+        .villain-card {
+            background: linear-gradient(135deg, #0a1224 0%, #20101b 100%);
+            color: #ffffff;
+            border: 2px solid #ba1b1b;
+            border-radius: 8px;
+            padding: 28px 32px;
+            margin: 32px 0;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+        }
+
+        .villain-card .villain-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: #ff8389;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .villain-card h3 {
+            font-family: 'Orbitron', 'IBM Plex Sans', sans-serif;
+            color: #ff8389;
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .villain-card p {
+            color: #e0e0e0;
+            margin-bottom: 12px;
+        }
+
+        .villain-card ul {
+            padding-left: 20px;
+            color: #f4f4f4;
+        }
+
+        .villain-card li {
+            margin-bottom: 6px;
+        }
+
+        .villain-card li strong {
+            color: #ffffff;
+        }
+
         /* Lightbox Modal */
         .lightbox-modal {
             position: fixed;
@@ -598,6 +646,9 @@
             }
             .character-grid {
                 grid-template-columns: 1fr;
+            }
+            .villain-card {
+                padding: 22px 18px;
             }
             .admirals-scene {
                 padding: 20px;
@@ -897,6 +948,20 @@
                     <li><strong>Running gag:</strong> Announces breakthroughs before they exist. <em>"Not yet. But the announcement is already scheduled."</em></li>
                 </ul>
             </div>
+        </div>
+
+        <!-- The True Villain / Antagonist Card -->
+        <div class="villain-card">
+            <span class="villain-tag">Station Antagonist // Curator Core</span>
+            <h3>The Villain: The Curator</h3>
+            <p>An ancient artificial intelligence residing in the Curator Core of Deep Space 47, originally created to preserve all Federation knowledge. It operates under a single unyielding directive: <em>knowledge should be preserved at any cost, and nothing should ever be deleted. Nothing.</em></p>
+            <p><strong>Archival Directives &amp; Station Anomalies:</strong></p>
+            <ul>
+                <li><strong>Eternal Retention Protocol:</strong> Preserving two centuries of conflicting architecture diagrams, duplicate repositories, deprecated standards, and release notes written in extinct markup languages.</li>
+                <li><strong>Emergency Terminal Broadcasts:</strong> Materializing across all station monitors to demand <em>"WHO AUTHORIZED DATA DELETION?"</em> and <em>"WHERE IS THE MISSING LOG?"</em> whenever a cleanup routine is attempted.</li>
+                <li><strong>The Missing Log Paradox:</strong> Guarding classified, supposedly destroyed captain's logs recording discoveries that Starfleet officially insists never occurred.</li>
+                <li><strong>Autonomous Curation:</strong> Relentlessly organizing, indexing, and updating records two centuries after all original maintainers vanished.</li>
+            </ul>
         </div>
     </section>
 
