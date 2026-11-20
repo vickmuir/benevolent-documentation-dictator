@@ -372,12 +372,37 @@
             font-size: 0.9rem;
             padding-left: 18px;
             color: #393939;
-            margin-bottom: 0;
+            margin-bottom: 12px;
         }
 
         .char-traits li {
             margin-bottom: 6px;
         }
+
+        .char-classification {
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px dashed #d0d7de;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.75px;
+            text-transform: uppercase;
+            color: #57606a;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .char-classification::before {
+            content: "■";
+            font-size: 0.65rem;
+        }
+
+        .card-blue .char-classification::before { color: #0043ce; }
+        .card-purple .char-classification::before { color: #6929c4; }
+        .card-gold .char-classification::before { color: #8e6200; }
+        .card-red .char-classification::before { color: #ba1b1b; }
 
         /* Villain Card (The Curator - No Image) */
         .villain-card {
@@ -794,96 +819,11 @@
                     "This sounded straightforward."
                 </div>
                 <ul class="char-traits">
-                    <li><strong>Role:</strong> Captain, investigator, and professional discoverer of bigger problems.</li>
-                    <li><strong>Belief:</strong> Every mystery can be solved through curiosity, collaboration, and an alarming number of stakeholder meetings.</li>
-                    <li><strong>Bridge catchphrase:</strong> "The issue is not the issue." <em>The bridge crew groans.</em></li>
+                    <li><strong>Role:</strong> Captain, lead investigator, and professional discoverer of much larger problems.</li>
+                    <li><strong>Operational Belief:</strong> Every mystery can be solved through curiosity, collaboration, and an alarming number of stakeholder syncs.</li>
+                    <li><strong>Bridge Catchphrase:</strong> "The issue is not the issue." <em>(The bridge crew groans in unison.)</em></li>
                 </ul>
-            </div>
-
-            <!-- Lt Cmdr Yun -->
-            <div class="character-card card-purple">
-                <div class="char-img-container">
-                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Lieutenant Commander Yun, Chief Knowledge Architect">
-                        <img src="funny/LtCmdrYun.png" alt="Lieutenant Commander Yun, a poised woman with pointed ears and an elegant updo, in a purple-trimmed uniform" class="char-img">
-                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
-                    </div>
-                </div>
-                <div class="char-header">
-                    <div class="char-english-title">Lieutenant Commander Yun</div>
-                    <span class="char-role-badge badge-purple">Chief Knowledge Architect · Information Advisor</span>
-                </div>
-                <div class="char-quote">
-                    "What will the customer believe this means?"
-                </div>
-                <ul class="char-traits">
-                    <li><strong>Creator of:</strong> The Unified Federation Knowledge Repository.</li>
-                    <li><strong>Ability:</strong> Can detect an undocumented requirement at twenty light-years.</li>
-                    <li><strong>Running gag:</strong> She identifies problems months early. The crew mostly ignores her until disaster strikes.</li>
-                </ul>
-            </div>
-
-            <!-- Lt Sze Vick -->
-            <div class="character-card card-purple">
-                <div class="char-img-container">
-                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Lieutenant SzeVick, Operations Officer">
-                        <img src="funny/LtSzeVick.png" alt="Lieutenant SzeVick, a smiling woman with auburn hair and glasses, in a purple-trimmed uniform with purple crystal earrings" class="char-img">
-                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
-                    </div>
-                </div>
-                <div class="char-header">
-                    <div class="char-english-title">Lieutenant SzeVick</div>
-                    <span class="char-role-badge badge-purple">Operations Officer · Operations &amp; Governance</span>
-                </div>
-                <div class="char-quote">
-                    "Nobody informed the station."
-                </div>
-                <ul class="char-traits">
-                    <li><strong>Role:</strong> Operations officer. Finder of missing owners and unwilling bearer of bad news.</li>
-                    <li><strong>Special talent:</strong> discovering nobody is actually in charge. If the process is broken, SzeVick will find it. If nobody owns it, things get awkward.</li>
-                </ul>
-            </div>
-
-            <!-- Lt Cmdr Daxara -->
-            <div class="character-card card-gold">
-                <div class="char-img-container">
-                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Lieutenant Commander Daxara Fluffari, Joined Archivist">
-                        <img src="funny/Lt.Daxara.png" alt="Lieutenant Commander Daxara Fluffari, a fluffy grey Felinari cat with green eyes, in a navy uniform with gold trim" class="char-img">
-                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
-                    </div>
-                </div>
-                <div class="char-header">
-                    <div class="char-english-title">Lieutenant Commander Daxara Fluffari</div>
-                    <span class="char-role-badge badge-gold">Joined Archivist · Institutional Memory</span>
-                </div>
-                <div class="char-quote">
-                    "A database remembers facts. A lifetime remembers context."
-                </div>
-                <ul class="char-traits">
-                    <li><strong>Species:</strong> Felinari, a long-lived, furry, Trill-like species. The crew calls them very knowledgeable space cats.</li>
-                    <li><strong>Symbiont:</strong> Archivus, carrying the memories of past hosts: repository architects, historians, librarians, and metadata specialists.</li>
-                    <li><strong>Ability:</strong> When the documentation is missing, Daxara checks a previous lifetime. <em>"Host Four was present."</em></li>
-                </ul>
-            </div>
-
-            <!-- Chief Engineer Git -->
-            <div class="character-card card-gold">
-                <div class="char-img-container">
-                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Chief Engineer Git">
-                        <img src="funny/ChiefEngGit.png" alt="Chief Engineer Git, a young curly-haired man in a gold-trimmed uniform holding a glowing tablet and looking slightly alarmed" class="char-img">
-                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
-                    </div>
-                </div>
-                <div class="char-header">
-                    <div class="char-english-title">Chief Engineer Git</div>
-                    <span class="char-role-badge badge-gold">Chief Engineer · Documentation Engines</span>
-                </div>
-                <div class="char-quote">
-                    "The migration plan appears to have been written by three different civilizations."
-                </div>
-                <ul class="char-traits">
-                    <li><strong>Role:</strong> Keeps the ship running despite active opposition from the repositories.</li>
-                    <li><strong>Quirk:</strong> Speaks to repositories as though they are sentient. Suspects they might be.</li>
-                </ul>
+                <div class="char-classification">Classification: Curiosity-Driven</div>
             </div>
 
             <!-- Commander Dr. Meridian Vale -->
@@ -902,9 +842,103 @@
                     "Interesting. The data disagrees."
                 </div>
                 <ul class="char-traits">
-                    <li><strong>Specialty:</strong> Xenoinformatics and Cognitive Systems.</li>
-                    <li><strong>Function:</strong> Professional skeptic. Trusted by science. Feared by theories.</li>
+                    <li><strong>Specialty:</strong> Xenoinformatics, Cognitive Systems, and empirical anomaly analysis.</li>
+                    <li><strong>Core Function:</strong> Professional skeptic. Trusted by science; feared by optimistic architectures.</li>
+                    <li><strong>Scientific Assessment:</strong> Dissects unverified assumptions at sub-atomic resolution. Will halt warp drive to peer-review the telemetry.</li>
                 </ul>
+                <div class="char-classification">Classification: Evidence-Required</div>
+            </div>
+
+            <!-- Lt Cmdr Yun -->
+            <div class="character-card card-purple">
+                <div class="char-img-container">
+                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Lieutenant Commander Yun, Chief Knowledge Architect">
+                        <img src="funny/LtCmdrYun.png" alt="Lieutenant Commander Yun, a poised woman with pointed ears and an elegant updo, in a purple-trimmed uniform" class="char-img">
+                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
+                    </div>
+                </div>
+                <div class="char-header">
+                    <div class="char-english-title">Lieutenant Commander Yun</div>
+                    <span class="char-role-badge badge-purple">Chief Knowledge Architect · Information Advisor</span>
+                </div>
+                <div class="char-quote">
+                    "What will the customer believe this means?"
+                </div>
+                <ul class="char-traits">
+                    <li><strong>Creator Of:</strong> The Unified Federation Knowledge Repository.</li>
+                    <li><strong>Special Ability:</strong> Detects undocumented dependencies and ambiguous requirements at twenty light-years.</li>
+                    <li><strong>Chronic Condition:</strong> Identifies structural disasters months early; the crew nods politely and ignores her until red alert sounds.</li>
+                </ul>
+                <div class="char-classification">Classification: Strategic-Foresight</div>
+            </div>
+
+            <!-- Lt Sze Vick -->
+            <div class="character-card card-purple">
+                <div class="char-img-container">
+                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Lieutenant SzeVick, Operations Officer">
+                        <img src="funny/LtSzeVick.png" alt="Lieutenant SzeVick, a smiling woman with auburn hair and glasses, in a purple-trimmed uniform with purple crystal earrings" class="char-img">
+                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
+                    </div>
+                </div>
+                <div class="char-header">
+                    <div class="char-english-title">Lieutenant SzeVick</div>
+                    <span class="char-role-badge badge-purple">Operations Officer · Operations &amp; Governance</span>
+                </div>
+                <div class="char-quote">
+                    "Nobody informed the station."
+                </div>
+                <ul class="char-traits">
+                    <li><strong>Role:</strong> Operations Officer, tracker of orphaned workflows, and unwilling bearer of governance reality.</li>
+                    <li><strong>Special Talent:</strong> Pinpoints broken processes and ownership gaps with forensic precision.</li>
+                    <li><strong>Operational Finding:</strong> Discovers that nobody informed the station because nobody was ever officially assigned as owner.</li>
+                </ul>
+                <div class="char-classification">Classification: Governance-Critical</div>
+            </div>
+
+            <!-- Lt Cmdr Daxara -->
+            <div class="character-card card-gold">
+                <div class="char-img-container">
+                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Lieutenant Commander Daxara Fluffari, Joined Archivist">
+                        <img src="funny/Lt.Daxara.png" alt="Lieutenant Commander Daxara Fluffari, a fluffy grey Felinari cat with green eyes, in a navy uniform with gold trim" class="char-img">
+                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
+                    </div>
+                </div>
+                <div class="char-header">
+                    <div class="char-english-title">Lieutenant Commander Daxara Fluffari</div>
+                    <span class="char-role-badge badge-gold">Joined Archivist · Institutional Memory</span>
+                </div>
+                <div class="char-quote">
+                    "A database remembers facts. A lifetime remembers context."
+                </div>
+                <ul class="char-traits">
+                    <li><strong>Species &amp; Symbiont:</strong> Felinari (a knowledgeable space cat) joined with <em>Archivus</em>, host to eight lifetimes of repository architects.</li>
+                    <li><strong>Archival Capability:</strong> Recalls the unspoken rationale, deprecated decisions, and political compromises behind ancient systems.</li>
+                    <li><strong>Historical Precedent:</strong> When documentation is missing, checks a previous host's memory (<em>"Host Four was present when this broke"</em>).</li>
+                </ul>
+                <div class="char-classification">Classification: Institutional-Memory</div>
+            </div>
+
+            <!-- Chief Engineer Git -->
+            <div class="character-card card-gold">
+                <div class="char-img-container">
+                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Chief Engineer Git">
+                        <img src="funny/ChiefEngGit.png" alt="Chief Engineer Git, a young curly-haired man in a gold-trimmed uniform holding a glowing tablet and looking slightly alarmed" class="char-img">
+                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
+                    </div>
+                </div>
+                <div class="char-header">
+                    <div class="char-english-title">Chief Engineer Git</div>
+                    <span class="char-role-badge badge-gold">Chief Engineer · Documentation Engines</span>
+                </div>
+                <div class="char-quote">
+                    "The migration plan appears to have been written by three different civilizations."
+                </div>
+                <ul class="char-traits">
+                    <li><strong>Role:</strong> Keeps warp drives and documentation engines running despite active resistance from the repositories.</li>
+                    <li><strong>Engineering Quirk:</strong> Speaks to legacy codebases as though they are sentient beings. Suspects they might be listening.</li>
+                    <li><strong>Diagnostic Assessment:</strong> Has traced three separate core failures to merge conflicts that occurred before the Federation was founded.</li>
+                </ul>
+                <div class="char-classification">Classification: Repository-Containment</div>
             </div>
 
             <!-- Admiral Al G'Tiem -->
@@ -923,9 +957,11 @@
                     "I understand there's a risk, but it need not be a blocker."
                 </div>
                 <ul class="char-traits">
-                    <li><strong>Role:</strong> Approves missions faster than anyone can explain them.</li>
-                    <li><strong>Artifact:</strong> Wields the Infinite Authorization Stamp. Side effects remain under investigation.</li>
+                    <li><strong>Role:</strong> Fleet Admiral and Supreme Director of the Galactic Office of Unquestioned Approvals.</li>
+                    <li><strong>Cosmic Artifact:</strong> Wields the Infinite Authorization Stamp. Side effects on the space-time continuum remain under investigation.</li>
+                    <li><strong>Approval Philosophy:</strong> Approves multi-quadrant expeditions before the briefing team has reached slide two.</li>
                 </ul>
+                <div class="char-classification">Classification: Approval-Authorized</div>
             </div>
 
             <!-- Admiral Gu -->
@@ -944,9 +980,11 @@
                     "Starfleet deserves to know immediately!"
                 </div>
                 <ul class="char-traits">
-                    <li><strong>Role:</strong> Announces breakthroughs before they happen. Usually by minutes. Occasionally by weeks.</li>
-                    <li><strong>Running gag:</strong> Announces breakthroughs before they exist. <em>"Not yet. But the announcement is already scheduled."</em></li>
+                    <li><strong>Role:</strong> Director of Exploration Communications and chief broadcaster of Starfleet milestones.</li>
+                    <li><strong>Communications Directive:</strong> Transforms theoretical hypotheses into fleet-wide victory announcements in record time.</li>
+                    <li><strong>Running Gag:</strong> Broadcasts mission success before discoveries exist (<em>"It hasn't happened yet, but the press release is already in staging."</em>).</li>
                 </ul>
+                <div class="char-classification">Classification: Announcement-Pending</div>
             </div>
         </div>
 
