@@ -1425,19 +1425,76 @@
             font-size: 0.975rem;
         }
 
-        /* Author Card */
-        .author-section {
-            margin: 48px 0 24px;
+        /* Author Modal Dialog */
+        .author-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(10, 16, 26, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+            padding: 20px;
         }
 
-        .author-card {
+        .author-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .author-modal-card {
+            position: relative;
+            max-width: 680px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
             background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
             border: 1px solid #334155;
             border-left: 5px solid #f59e0b;
-            border-radius: 12px;
-            padding: 32px 36px;
+            border-radius: 14px;
+            padding: 36px 40px;
             color: #e2e8f0;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+            transform: scale(0.94);
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .author-modal.active .author-modal-card {
+            transform: scale(1);
+        }
+
+        .author-modal-close {
+            position: absolute;
+            top: 14px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.2);
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            line-height: 1;
+        }
+
+        .author-modal-close:hover {
+            background: #f59e0b;
+            color: #ffffff;
+            transform: scale(1.1);
         }
 
         .author-tag {
@@ -1453,8 +1510,8 @@
             margin-bottom: 12px;
         }
 
-        .author-card h3 {
-            font-size: 1.6rem;
+        .author-modal-card h2 {
+            font-size: 1.7rem;
             color: #ffffff;
             margin: 0 0 6px 0;
             font-family: 'Cinzel', 'Noto Serif KR', serif;
@@ -1467,14 +1524,14 @@
             margin-bottom: 18px;
         }
 
-        .author-card p {
+        .author-modal-card p {
             font-size: 1rem;
             line-height: 1.7;
             color: #cbd5e1;
             margin-bottom: 14px;
         }
 
-        .author-card blockquote.author-quote {
+        .author-modal-card blockquote.author-quote {
             border-left: 3px solid #f59e0b;
             background: rgba(245, 158, 11, 0.1);
             margin: 20px 0 4px;
@@ -1486,15 +1543,21 @@
             line-height: 1.6;
         }
 
-        .author-link {
+        .author-trigger-btn, .author-footer-link {
+            background: none;
+            border: none;
+            padding: 0;
+            font: inherit;
             color: inherit;
             text-decoration: underline;
             text-decoration-style: dotted;
             text-underline-offset: 3px;
+            cursor: pointer;
+            display: inline;
             transition: color 0.2s ease;
         }
 
-        .author-link:hover {
+        .author-trigger-btn:hover, .author-footer-link:hover {
             color: #f59e0b;
         }
 
@@ -1632,7 +1695,7 @@
         <p class="subtitle">A 16-Episode Makjang K-Drama of Knowledge, Memory, and Documentation</p>
 
         <div class="post-meta">
-            <span><strong>Screenplay &amp; Concept:</strong> <a href="#about-the-author" class="author-link" title="Read About the Author">Viktoria Muirhead ✍️</a></span>
+            <span><strong>Screenplay &amp; Concept:</strong> <button type="button" class="author-trigger-btn" aria-haspopup="dialog" aria-controls="authorModal" title="Read About the Author">Viktoria Muirhead ✍️</button></span>
             <span><strong>Starring:</strong> 밥 도사 (Bob Dosa) &amp; 윤 아키텍트 (Yun Akitekteu)</span>
             <span><strong>Genre:</strong> Makjang K-Drama / Cloud Data Center Satire / Knowledge Mystery</span>
             <span><strong>Setting:</strong> K-Drama Cloud Realm &amp; Ancient Vaults Beneath the Data Center</span>
@@ -2360,24 +2423,9 @@ The Council · 클라우드 평의회 (Keullaudeu Pyeong-uihoe)
         <p style="margin-top: 12px; font-weight: 700; color: #f59e0b;">Season 2 Confirmed.</p>
     </div>
 
-    <!-- About the Author Section -->
-    <section class="author-section" id="about-the-author" aria-labelledby="author-title">
-        <div class="author-card">
-            <span class="author-tag">✍️ About the Author &amp; Creator</span>
-            <h3 id="author-title">Viktoria Muirhead</h3>
-            <p class="author-role">Information Development Leader &middot; IBM Cloud Storage Services</p>
-            <p>Viktoria Muirhead leads Information Development for IBM Cloud Storage Services, working at the intersection of knowledge management, accessibility, governance, quality, and release readiness.</p>
-            <p>Across more than two decades in technology operations and information development, she has seen how organizations create, lose, preserve, validate, and sometimes misunderstand their own knowledge.</p>
-            <p>The <em>Benevolent Documentation Dictator</em> universe grew from those observations. Through historical drama, fantasy, musical comedy, and science fiction, it explores the organizational forces behind seemingly ordinary documentation problems: unclear accountability, forgotten knowledge, unsupported confidence, and the loss of purpose.</p>
-            <blockquote class="author-quote">
-                &ldquo;The stories are fictional. The patterns may be familiar. Because sometimes the best way to understand an enterprise problem is to give it a costume, a dramatic soundtrack, and a toaster.&rdquo;
-            </blockquote>
-        </div>
-    </section>
-
     <footer class="post-footer">
         <p><em>Master Bob and the Monster in the Data Center</em> is a makjang technical satire screenplay originating from the Storage Information Development chronicles.</p>
-        <p>© K-Drama Cloud Realm · Written by Viktoria Muirhead · All Rights Reserved across all Repositories.</p>
+        <p>© K-Drama Cloud Realm · Written by <button type="button" class="author-footer-link" aria-haspopup="dialog" aria-controls="authorModal" title="Read About the Author">Viktoria Muirhead</button> · All Rights Reserved across all Repositories.</p>
 
         <div class="footer-nav">
             <a href="index.html" class="nav-btn cdrama">🇨🇳 The Rise of the Benevolent Documentation Dictator</a>
@@ -2396,6 +2444,22 @@ The Council · 클라우드 평의회 (Keullaudeu Pyeong-uihoe)
             <div id="lightboxTitle" class="lightbox-title"></div>
             <p id="lightboxDesc" class="lightbox-desc"></p>
         </div>
+    </div>
+</div>
+
+<!-- Author Modal Container -->
+<div id="authorModal" class="author-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="authorModalTitle">
+    <div class="author-modal-card">
+        <button class="author-modal-close" aria-label="Close author info" id="authorModalClose">&times;</button>
+        <span class="author-tag">✍️ About the Author &amp; Creator</span>
+        <h2 id="authorModalTitle">Viktoria Muirhead</h2>
+        <p class="author-role">Information Development Leader &middot; IBM Cloud Storage Services</p>
+        <p>Viktoria Muirhead leads Information Development for IBM Cloud Storage Services, working at the intersection of knowledge management, accessibility, governance, quality, and release readiness.</p>
+        <p>Across more than two decades in technology operations and information development, she has seen how organizations create, lose, preserve, validate, and sometimes misunderstand their own knowledge.</p>
+        <p>The <em>Benevolent Documentation Dictator</em> universe grew from those observations. Through historical drama, fantasy, musical comedy, and science fiction, it explores the organizational forces behind seemingly ordinary documentation problems: unclear accountability, forgotten knowledge, unsupported confidence, and the loss of purpose.</p>
+        <blockquote class="author-quote">
+            &ldquo;The stories are fictional. The patterns may be familiar. Because sometimes the best way to understand an enterprise problem is to give it a costume, a dramatic soundtrack, and a toaster.&rdquo;
+        </blockquote>
     </div>
 </div>
 
@@ -2477,12 +2541,54 @@ The Council · 클라우드 평의회 (Keullaudeu Pyeong-uihoe)
         }
     });
 
-    document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') {
-            closeLightbox();
-            return;
+    // Author Modal
+    const authorModal = document.getElementById('authorModal');
+    const authorModalClose = document.getElementById('authorModalClose');
+    let lastAuthorFocusedElement = null;
+
+    function openAuthorModal(triggerElement) {
+        lastAuthorFocusedElement = triggerElement || document.activeElement;
+        authorModal.classList.add('active');
+        authorModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        authorModalClose.focus();
+    }
+
+    function closeAuthorModal() {
+        authorModal.classList.remove('active');
+        authorModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastAuthorFocusedElement && typeof lastAuthorFocusedElement.focus === 'function') {
+            lastAuthorFocusedElement.focus();
         }
+    }
+
+    document.querySelectorAll('.author-trigger-btn, .author-footer-link').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openAuthorModal(btn);
+        });
+    });
+
+    authorModalClose?.addEventListener('click', closeAuthorModal);
+    authorModal?.addEventListener('click', (e) => {
+        if (e.target === authorModal) {
+            closeAuthorModal();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (authorModal && authorModal.classList.contains('active')) {
+                closeAuthorModal();
+                return;
+            }
+            if (lightbox.classList.contains('active')) {
+                closeLightbox();
+                return;
+            }
+        }
+        if (!lightbox.classList.contains('active')) return;
         // Focus trap: keep Tab / Shift+Tab inside the dialog
         if (e.key === 'Tab') {
             const focusable = lightbox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
