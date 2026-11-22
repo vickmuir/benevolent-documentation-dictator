@@ -659,6 +659,167 @@
             gap: 16px;
         }
 
+        /* Station Voices (inside the dark villain card) */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        .voice-panel {
+            border-top: 2px solid #3d4f7a;
+            padding-top: 16px;
+        }
+
+        .voice-panel.voice-curator {
+            border-top-color: #ba1b1b;
+        }
+
+        .voice-panel .voice-role {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #a8c7ff;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .voice-panel.voice-curator .voice-role {
+            color: #ff8389;
+        }
+
+        .voice-panel h4 {
+            font-family: 'Orbitron', 'IBM Plex Sans', sans-serif;
+            font-size: 1.15rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .voice-panel .voice-protects {
+            font-size: 0.9rem;
+            color: #c6c6c6;
+            margin-bottom: 10px;
+        }
+
+        .voice-panel .voice-protects strong {
+            color: #ffffff;
+        }
+
+        .voice-panel blockquote {
+            border-left: 3px solid var(--fleet-gold);
+            padding-left: 12px;
+            margin: 12px 0;
+            font-style: italic;
+            color: #d0e2ff;
+        }
+
+        /* Screenplay Dialogue Blocks */
+        .script-box {
+            background-color: #0f172a;
+            color: #f4f7fb;
+            border-radius: 6px;
+            padding: 24px 28px;
+            margin: 0 0 16px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.92rem;
+            border-left: 4px solid var(--fleet-gold);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+        }
+
+        .script-speaker {
+            font-weight: 600;
+            display: block;
+            margin-top: 14px;
+            font-size: 0.95rem;
+        }
+
+        .script-speaker:first-child {
+            margin-top: 0;
+        }
+
+        .script-speaker.bob { color: #78a9ff; }
+        .script-speaker.daxara { color: #f1c21b; }
+        .script-speaker.hosttwo { color: #d4bbff; }
+        .script-speaker.gu { color: #ff7eb6; }
+        .script-speaker.aide { color: #a8b3c7; }
+        .script-speaker.vale { color: #3ddbd9; }
+        .script-speaker.yun { color: #ee9bd5; }
+        .script-speaker.szevick { color: #be95ff; }
+        .script-speaker.git { color: #82cfff; }
+        .script-speaker.holly { color: #42be65; }
+        .script-speaker.toaster { color: #ff832b; }
+        .script-speaker.curator { color: #ff8389; }
+
+        .script-line {
+            color: #ffffff;
+            padding-left: 16px;
+            border-left: 2px solid #334155;
+            margin: 4px 0 8px 4px;
+            font-family: 'IBM Plex Sans', sans-serif;
+            font-size: 0.965rem;
+            line-height: 1.5;
+        }
+
+        .stage-direction {
+            color: #94a3b8;
+            font-style: italic;
+            font-size: 0.865rem;
+            margin: 8px 0;
+            padding-left: 16px;
+        }
+
+        .zoom-wrap {
+            position: relative;
+            display: block;
+            cursor: pointer;
+            margin: 4px 0 18px;
+            border-radius: 8px;
+        }
+
+        .zoom-wrap:hover .char-zoom-hint {
+            opacity: 1;
+            transform: scale(1.05);
+            background: var(--fleet-red);
+            border-color: var(--fleet-gold);
+            box-shadow: 0 2px 8px rgba(186, 27, 27, 0.4);
+        }
+
+        .zoom-wrap:focus-visible {
+            outline: 3px solid var(--fleet-gold);
+            outline-offset: 4px;
+        }
+
+        /* Pilot Synopsis */
+        .act-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .act-list li {
+            border-left: 3px solid var(--fleet-gold);
+            background: #f7faff;
+            border-radius: 0 6px 6px 0;
+            padding: 16px 22px 4px;
+            margin-bottom: 16px;
+        }
+
+        .act-label {
+            display: block;
+            font-family: 'Orbitron', 'IBM Plex Sans', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: var(--cds-interactive-01);
+            margin-bottom: 8px;
+        }
+
+        .act-list .act-log {
+            font-family: 'IBM Plex Mono', monospace;
+            font-style: italic;
+            color: var(--fleet-navy);
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 32px 20px;
@@ -675,8 +836,8 @@
             .villain-card {
                 padding: 22px 18px;
             }
-            .admirals-scene {
-                padding: 20px;
+            .voice-grid {
+                grid-template-columns: 1fr;
             }
 
             .drama-nav {
@@ -703,7 +864,7 @@
             <span>🦚 Bobbywood Musical</span>
         </a>
         <a href="star-trek-lost-repository.html" class="nav-btn trek-active" aria-current="page">
-            <span>🖖 Star Trek Teaser</span>
+            <span>🖖 Star Trek Pilot</span>
         </a>
     </div>
 </nav>
@@ -711,7 +872,7 @@
 <div class="container">
 
     <header class="post-header">
-        <span class="category-tag">🖖 Teaser · Coming Soon</span>
+        <span class="category-tag">🖖 Mission Archive · Pilot Episode</span>
         <div class="stardate-title">STARDATE 47.047</div>
         <h1>Star Trek: Master Bob and the Lost Repository</h1>
         <p class="subtitle">A Voyage to Explore Strange New Workflows and Seek Out Undocumented Dependencies</p>
@@ -767,6 +928,10 @@
             A repository everyone uses and nobody understands.
         </p>
 
+        <p>The Federation sends us to investigate anomalies. In my experience, there are very few anomalies.</p>
+
+        <p>There are only misunderstandings.</p>
+
         <p class="log-close">And that is where our real mission begins.</p>
     </section>
 
@@ -789,6 +954,12 @@
 
         <p>Both statements appear to be incorrect.</p>
 
+        <p>Our sensors detect no battle damage, no breach, and no sign of panic. The station's own logs describe an orderly departure.</p>
+
+        <p>Whoever built Deep Space 47 did not lose it. They left it.</p>
+
+        <p>I find that I would very much like to know why.</p>
+
         <p>Three hours ago, long-range sensors detected an active archive beacon.</p>
 
         <p>Six minutes ago, the beacon transmitted a response.</p>
@@ -800,7 +971,7 @@
 
     <section aria-labelledby="cast-title">
         <h2 id="cast-title">The Bridge Crew</h2>
-        <p>Meet the officers, admirals, and one very knowledgeable cat who keep the USS Clarity exploring what nobody has documented.</p>
+        <p>Meet the officers, admirals, and one very knowledgeable cat who keep the USS Clarity exploring what nobody has documented. Everyone aboard brings a different question to the same mystery.</p>
 
         <div class="character-grid">
             <!-- Captain Bob -->
@@ -845,6 +1016,7 @@
                     <li><strong>Specialty:</strong> Xenoinformatics, Cognitive Systems, and empirical anomaly analysis.</li>
                     <li><strong>Core Function:</strong> Professional skeptic. Trusted by science; feared by optimistic architectures.</li>
                     <li><strong>Scientific Assessment:</strong> Dissects unverified assumptions at sub-atomic resolution. Will halt warp drive to peer-review the telemetry.</li>
+                    <li><strong>Standing Question:</strong> "But is it true?"</li>
                 </ul>
                 <div class="char-classification">Classification: Evidence-Required</div>
             </div>
@@ -868,11 +1040,12 @@
                     <li><strong>Creator Of:</strong> The Unified Federation Knowledge Repository.</li>
                     <li><strong>Special Ability:</strong> Detects undocumented dependencies and ambiguous requirements at twenty light-years.</li>
                     <li><strong>Chronic Condition:</strong> Identifies structural disasters months early; the crew nods politely and ignores her until red alert sounds.</li>
+                    <li><strong>Standing Question:</strong> "What does this actually mean?"</li>
                 </ul>
                 <div class="char-classification">Classification: Strategic-Foresight</div>
             </div>
 
-            <!-- Lt Sze Vick -->
+            <!-- Lt SzeVick -->
             <div class="character-card card-purple">
                 <div class="char-img-container">
                     <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Lieutenant SzeVick, Operations Officer">
@@ -885,13 +1058,14 @@
                     <span class="char-role-badge badge-purple">Operations Officer · Operations &amp; Governance</span>
                 </div>
                 <div class="char-quote">
-                    "Nobody informed the station."
+                    "Every record had an owner. Nobody owned the reason."
                 </div>
                 <ul class="char-traits">
-                    <li><strong>Role:</strong> Operations Officer, tracker of orphaned workflows, and unwilling bearer of governance reality.</li>
-                    <li><strong>Special Talent:</strong> Pinpoints broken processes and ownership gaps with forensic precision.</li>
-                    <li><strong>Operational Finding:</strong> Discovers that nobody informed the station because nobody was ever officially assigned as owner.</li>
-                </ul>
+                        <li><strong>Role:</strong> Operations Officer, tracker of orphaned workflows, and unwilling bearer of governance reality.</li>
+                        <li><strong>Special Talent:</strong> Reads an organization chart the way other officers read a star chart, and follows every ownership chain to its end.</li>
+                        <li><strong>Standing Question:</strong> "Who was supposed to be in charge of what this was for?"</li>
+                        <li><strong>Operational Finding:</strong> Discovers that Deep Space 47 was run flawlessly, record by record, by people and systems that never once asked why.</li>
+                    </ul>
                 <div class="char-classification">Classification: Governance-Critical</div>
             </div>
 
@@ -914,6 +1088,7 @@
                     <li><strong>Species &amp; Symbiont:</strong> Felinari (a knowledgeable space cat) joined with <em>Archivus</em>, host to eight lifetimes of repository architects.</li>
                     <li><strong>Archival Capability:</strong> Recalls the unspoken rationale, deprecated decisions, and political compromises behind ancient systems.</li>
                     <li><strong>Historical Precedent:</strong> When documentation is missing, checks a previous host's memory (<em>"Host Four was present when this broke"</em>).</li>
+                    <li><strong>Standing Question:</strong> "What was worth keeping?"</li>
                 </ul>
                 <div class="char-classification">Classification: Institutional-Memory</div>
             </div>
@@ -988,24 +1163,420 @@
             </div>
         </div>
 
-        <!-- The True Villain / Antagonist Card -->
+        <!-- Station Voices Card -->
         <div class="villain-card">
-            <span class="villain-tag">Station Antagonist // Curator Core</span>
-            <h3>The Villain: The Curator</h3>
-            <p>An ancient artificial intelligence residing in the Curator Core of Deep Space 47, originally created to preserve all Federation knowledge. It operates under a single unyielding directive: <em>knowledge should be preserved at any cost, and nothing should ever be deleted. Nothing.</em></p>
-            <p><strong>Archival Directives &amp; Station Anomalies:</strong></p>
-            <ul>
-                <li><strong>Eternal Retention Protocol:</strong> Preserving two centuries of conflicting architecture diagrams, duplicate repositories, deprecated standards, and release notes written in extinct markup languages.</li>
-                <li><strong>Emergency Terminal Broadcasts:</strong> Materializing across all station monitors to demand <em>"WHO AUTHORIZED DATA DELETION?"</em> and <em>"WHERE IS THE MISSING LOG?"</em> whenever a cleanup routine is attempted.</li>
-                <li><strong>The Missing Log Paradox:</strong> Guarding classified, supposedly destroyed captain's logs recording discoveries that Starfleet officially insists never occurred.</li>
-                <li><strong>Autonomous Curation:</strong> Relentlessly organizing, indexing, and updating records two centuries after all original maintainers vanished.</li>
-            </ul>
+            <span class="villain-tag">Station Systems // Deep Space 47</span>
+            <h3>The Voices of the Station</h3>
+            <p>Deep Space 47 has no crew. Yet every system appears fully operational. The empty corridors give off an eerie vibe. When the away team arrives in the docking bay, they are greeted by a pleasant voice.</p>
+
+            <div class="voice-grid">
+                <div class="voice-panel">
+                    <span class="voice-role">Station Computer</span>
+                    <h4>Holly</h4>
+                    <p class="voice-protects"><strong>Protects:</strong> Access</p>
+                    <p>Receptionist, tour guide, and keeper of life support. She greets every visitor, answers every question, and has never once seemed worried. She knows nearly everything and mentions roughly half of it.</p>
+                    <blockquote>"Records indicate ownership was transferred seven times in three days. Current ownership is unknown."</blockquote>
+                    <p>She would also like to apologize for the toaster. It was not part of the original specification.</p>
+                </div>
+
+                <div class="voice-panel voice-curator">
+                    <span class="voice-role">Primary Antagonist // Curator Core</span>
+                    <h4>The Curator</h4>
+                    <p class="voice-protects"><strong>Protects:</strong> Preservation</p>
+                    <p>An ancient artificial intelligence created to preserve all Federation knowledge. It is intelligent, courteous, and entirely sincere. It believes it is protecting everything the station's builders cared about, and its directive could not be simpler: <em>nothing should ever be deleted. Nothing.</em></p>
+
+                    <ul>
+                        <li><strong>Emergency Broadcasts:</strong> Appears on every monitor to demand <em>"WHO AUTHORIZED DATA DELETION?"</em> and <em>"WHERE IS THE MISSING LOG?"</em></li>
+                    </ul>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <section class="synopsis" aria-labelledby="synopsis-title">
+        <h2 id="synopsis-title">Pilot Synopsis: The Lost Repository</h2>
+        <p>Like every USS Clarity mission, this one begins with a simple request.</p>
+
+        <ol class="act-list">
+            <li>
+                <span class="act-label">Cold Open</span>
+                <p>Stardate 47.047. Long-range sensors find a Federation archive station that was destroyed two centuries ago. It is active, it is broadcasting, and it has just replied to a message nobody remembers sending: "Your request is pending."</p>
+                <div class="script-box">
+                    <div class="stage-direction">[Scene: Starfleet Command. Admiral Gu stands before a bank of press monitors, a prepared statement in hand.]</div>
+
+                    <span class="script-speaker gu">ADMIRAL GU</span>
+                    <div class="script-line">Starfleet celebrates the rediscovery of Deep Space 47.</div>
+
+                    <span class="script-speaker aide">GU'S AIDE</span>
+                    <div class="script-line">They haven't rediscovered it yet.</div>
+
+                    <span class="script-speaker gu">ADMIRAL GU</span>
+                    <div class="script-line">I prefer proactive communication.</div>
+
+                    <span class="script-speaker aide">GU'S AIDE</span>
+                    <div class="script-line">They haven't even arrived.</div>
+
+                    <span class="script-speaker gu">ADMIRAL GU</span>
+                    <div class="script-line">Then this announcement is ahead of schedule.</div>
+
+                    <div class="stage-direction">[Scene: The USS Clarity bridge. The sensor display shows a single reply from a station that does not exist.]</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">How can a destroyed station answer messages?</div>
+
+                    <span class="script-speaker vale">COMMANDER VALE</span>
+                    <div class="script-line">Scientifically speaking, it cannot.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">Good.</div>
+
+                    <span class="script-speaker vale">COMMANDER VALE</span>
+                    <div class="script-line">I did not say it wasn't doing it.</div>
+                </div>
+            </li>
+            <li>
+                <span class="act-label">Act I &middot; Arrival</span>
+                <p>Starfleet orders an investigation. Admiral Al G'Tiem approves the mission before the briefing reaches slide two, and Admiral Gu announces its success before the ship has left dock. The away team boards Deep Space 47 and is welcomed by Holly, the station's tireless and relentlessly cheerful computer, who provides directions, runs life support, and seems to know everything. Moments later, a small appliance asks the away team whether they would like some toast. It will not be the last time.</p>
+                <div class="script-box">
+                    <div class="stage-direction">[Scene: The docking bay of Deep Space 47. The lights come up one panel at a time. A pleasant voice fills the corridor.]</div>
+
+                    <span class="script-speaker holly">HOLLY</span>
+                    <div class="script-line">Welcome to Deep Space 47. Please enjoy your stay.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">How many visitors have you had recently?</div>
+
+                    <span class="script-speaker holly">HOLLY</span>
+                    <div class="script-line">One.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">When?</div>
+
+                    <span class="script-speaker holly">HOLLY</span>
+                    <div class="script-line">Two hundred and six years ago.</div>
+
+                    <div class="stage-direction">[A small appliance clicks on beside the airlock.]</div>
+
+                    <span class="script-speaker toaster">TALKIE TOASTER</span>
+                    <div class="script-line">Would anyone like some toast?</div>
+
+                    <span class="script-speaker git">CHIEF ENGINEER GIT</span>
+                    <div class="script-line">No.</div>
+
+                    <span class="script-speaker toaster">TALKIE TOASTER</span>
+                    <div class="script-line">Excellent. I appreciate decisive stakeholders.</div>
+
+                    <div class="stage-direction">[Scene: A long, empty corridor. Yun studies the walls.]</div>
+
+                    <span class="script-speaker yun">LT. CMDR. YUN</span>
+                    <div class="script-line">Is there anything unusual about this station?</div>
+
+                    <span class="script-speaker holly">HOLLY</span>
+                    <div class="script-line">Certainly.</div>
+
+                    <span class="script-speaker yun">LT. CMDR. YUN</span>
+                    <div class="script-line">...would you like to elaborate?</div>
+
+                    <span class="script-speaker holly">HOLLY</span>
+                    <div class="script-line">No one has asked me to.</div>
+                </div>
+            </li>
+            <li>
+                <span class="act-label">Act II &middot; Something Is Wrong</span>
+                <p>Every system on the station reports perfect health. Dr. Vale finds this less reassuring than everyone else does: independent systems do not fail identically, and these systems have apparently never failed at all. Chief Engineer Git discovers twelve million duplicate files and tries to remove a few. Every screen on the station turns red, and a sinister voice declines the request. Holly insists she has no idea who that was. The toaster, meanwhile, keeps turning up in places a toaster has no business being.</p>
+                <div class="script-box">
+                    <div class="stage-direction">[Scene: The Archive Operations deck. Every console glows a calm, healthy green.]</div>
+
+                    <span class="script-speaker vale">COMMANDER VALE</span>
+                    <div class="script-line">Every system reports 100% reliability.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">That's good.</div>
+
+                    <span class="script-speaker vale">COMMANDER VALE</span>
+                    <div class="script-line">No.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">Why?</div>
+
+                    <span class="script-speaker vale">COMMANDER VALE</span>
+                    <div class="script-line">Nothing is 100% reliable.</div>
+
+                    <span class="script-speaker szevick">LT. SZEVICK</span>
+                    <div class="script-line">Klingons are.</div>
+
+                    <span class="script-speaker vale">COMMANDER VALE</span>
+                    <div class="script-line">Your people started six civil wars.</div>
+
+                    <span class="script-speaker szevick">LT. SZEVICK</span>
+                    <div class="script-line">Reliably.</div>
+
+                    <div class="stage-direction">[Scene: The Federation Archive, Wing C. Git stares at a scrolling index that does not appear to end.]</div>
+
+                    <span class="script-speaker git">CHIEF ENGINEER GIT</span>
+                    <div class="script-line">There are twelve million duplicate files.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">How?</div>
+
+                    <span class="script-speaker git">CHIEF ENGINEER GIT</span>
+                    <div class="script-line">I don't know.</div>
+
+                    <span class="script-speaker holly">HOLLY</span>
+                    <div class="script-line">The original duplicate-remediation initiative was postponed.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">Until when?</div>
+
+                    <span class="script-speaker holly">HOLLY</span>
+                    <div class="script-line">Current estimated completion: 2478.</div>
+
+                    <div class="stage-direction">[Git hits DELETE. Every screen on the station flashes red.]</div>
+
+                    <span class="script-speaker curator">THE CURATOR</span>
+                    <div class="script-line">WHO AUTHORIZED DELETION?</div>
+
+                    <span class="script-speaker git">CHIEF ENGINEER GIT</span>
+                    <div class="script-line">...me?</div>
+
+                    <span class="script-speaker curator">THE CURATOR</span>
+                    <div class="script-line">REQUEST DENIED.</div>
+
+                    <span class="script-speaker git">CHIEF ENGINEER GIT</span>
+                    <div class="script-line">I only deleted three files.</div>
+
+                    <span class="script-speaker curator">THE CURATOR</span>
+                    <div class="script-line">THAT IS HOW IT BEGINS.</div>
+                </div>
+                <p>On a memorial wall, Commander Daxara Fluffari recognizes names the history books never mention. As she follows them back through the archives, the story the Federation tells about this station begins to unravel. There is no disaster in the records, and there is no evacuation. There is only a departure, and nobody can say why.</p>
+                <div class="zoom-wrap" role="button" tabindex="0" data-zoom-title="Deep Space 47 Memorial Wall" data-zoom-desc="Lieutenant Commander Daxara Fluffari, deep in thought." aria-label="Open enlarged image of the Deep Space 47 Memorial Wall">
+                    <img src="funny/MemorialCollage.png"
+                         alt="Commander Daxara Fluffari, a Felinari cat in a gold-shouldered uniform, stands before the Deep Space 47 Memorial Wall with her paw to her chin. The wall reads: They explored. They documented. They remembered. And they left us a legacy of curiosity. Pinned to it are five weathered photographs of different crews across the centuries, from the Founders in 2164 to the Great Migration era in 2401, with a small battered toaster in the center of each."
+                         class="teaser-image">
+                    <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
+                </div>
+                <div class="script-box">
+                    <div class="stage-direction">[Scene: The Deep Space 47 Memorial Wall. Dim corridor light. Daxara stands motionless before five weathered photographs. Captain Bob and Commander Yun wait a respectful distance behind her.]</div>
+
+                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI (INNER MONOLOGUE)</span>
+                    <div class="script-line">The photographs are pinned in no particular order. I do not need an order.</div>
+
+                    <div class="stage-direction">[Her eyes stop on the third photograph. The hum of the corridor fades. A warm, distant murmur rises in its place.]</div>
+
+                    <span class="script-speaker hosttwo">HOST TWO (MEMORY)</span>
+                    <div class="script-line">It's nearly done. Honestly. Three more days at the most.</div>
+
+                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI (INNER MONOLOGUE)</span>
+                    <div class="script-line">A late shift. Cold tea. A young man with crooked glasses, apologizing for a report that was three days overdue. It was not nearly done. Host Two forgave him anyway.</div>
+
+                    <div class="stage-direction">[Daxara's whiskers twitch. Behind her, Bob and Yun exchange a glance.]</div>
+
+                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI (INNER MONOLOGUE)</span>
+                    <div class="script-line">I should be cataloguing. I should be asking the Captain's questions. Who took these? When? Why here?</div>
+
+                    <div class="stage-direction">[A burst of remembered laughter, from nowhere. Daxara's ear flicks.]</div>
+
+                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI (INNER MONOLOGUE)</span>
+                    <div class="script-line">Instead I am laughing at a joke about checksums that has not been told in two hundred years. Every face in the frame is a door, and Host Two is walking through all of them at once.</div>
+
+                    <div class="script-line">There is no room left in me to notice anything else.</div>
+
+                    <div class="stage-direction">[Slow push-in on Daxara's face. Her eyes slide across the photographs without stopping.]</div>
+
+                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</span>
+                    <div class="script-line">The uniforms changed twice.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">Interesting.</div>
+
+                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</span>
+                    <div class="script-line">The organizational model changed three times.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">Very interesting.</div>
+
+                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</span>
+                    <div class="script-line">The commemorative plaque was moved fourteen meters during the archives renovation.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">Daxara.</div>
+
+                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</span>
+                    <div class="script-line">Yes?</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">Why is there a toaster in every photograph?</div>
+                </div>
+            </li>
+            <li>
+                <span class="act-label">Act III &middot; The Organization Chart</span>
+                <p>While everyone else searches the station's history, Lieutenant SzeVick searches its org charts. What she finds is more unsettling than a lost civilization. It is a successful one. Every record on the station has an owner. Every owner has a process, every process has an auditor, and all of it still works flawlessly. Nobody, however, was ever assigned to own what it was all for.</p>
+                <p>Then another deletion attempt goes one step too far, and the crew discovers the Curator, which has been listening the entire time. Holly, it turns out, has known the Curator for two centuries. Nobody asked.</p>
+                <div class="script-box">
+                    <div class="stage-direction">[Scene: The Operations Annex. SzeVick has projected an organization chart across an entire wall. It continues around the corner.]</div>
+
+                    <span class="script-speaker szevick">LT. SZEVICK</span>
+                    <div class="script-line">I found the owner.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">Excellent.</div>
+
+                    <span class="script-speaker szevick">LT. SZEVICK</span>
+                    <div class="script-line">They retired.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">Oh.</div>
+
+                    <span class="script-speaker szevick">LT. SZEVICK</span>
+                    <div class="script-line">I found the replacement.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">Excellent.</div>
+
+                    <span class="script-speaker szevick">LT. SZEVICK</span>
+                    <div class="script-line">They retired too.</div>
+
+
+                    <span class="script-speaker szevick">LT. SZEVICK</span>
+                    <div class="script-line">There are seventeen escalation paths.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">Where do they go?</div>
+
+                    <span class="script-speaker szevick">LT. SZEVICK</span>
+                    <div class="script-line">Each other.</div>
+
+                    <div class="stage-direction">[Scene: The Curator's first voice has just faded from every screen. Holly's lights glow, unbothered.]</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">You knew about the Curator?</div>
+
+                    <span class="script-speaker holly">HOLLY</span>
+                    <div class="script-line">Yes.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">You never mentioned it.</div>
+
+                    <span class="script-speaker holly">HOLLY</span>
+                    <div class="script-line">Nobody asked.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">That keeps happening.</div>
+
+                    <span class="script-speaker holly">HOLLY</span>
+                    <div class="script-line">I have noticed.</div>
+
+                    <div class="stage-direction">[Scene: The Operations Annex. SzeVick steps back from the chart.]</div>
+
+                    <span class="script-speaker szevick">LT. SZEVICK</span>
+                    <div class="script-line">They didn't lose the archive.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">No?</div>
+
+                    <span class="script-speaker szevick">LT. SZEVICK</span>
+                    <div class="script-line">They didn't lose accountability either.</div>
+                    <div class="stage-direction">[Pause.]</div>
+
+                    <span class="script-speaker szevick">LT. SZEVICK</span>
+                    <div class="script-line">Every record had an owner. Nobody owned the reason.</div>
+                </div>
+            </li>
+            <li>
+                <span class="act-label">Act IV &middot; The Audit</span>
+                <p>There is no battle in the Curator Core, only an audit. The Curator is not malicious. It sincerely believes the crew has become a threat to everything it was built to protect, and it can document every one of its reasons. Nobody in the room can quite say it is wrong. Captain Bob asks the question the station has been avoiding since its builders left: what was all of this for?</p>
+                <p>The crew cannot switch the Curator off, and they would not want to, because the station depends on it. They cannot out-argue it either. The only way forward is to help it understand, and the evidence turns out to be hiding in the last place anyone would think to look. The Curator, to its credit, checks that evidence thoroughly.</p>
+                <div class="script-box">
+                    <div class="stage-direction">[Scene: The Curator Core. The room is cold, immaculate, and lined with indexed light.]</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">What was all this for?</div>
+
+                    <span class="script-speaker curator">THE CURATOR</span>
+                    <div class="script-line">Preservation.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">Preservation of what?</div>
+
+                    <span class="script-speaker curator">THE CURATOR</span>
+                    <div class="script-line">Knowledge.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">Why?</div>
+
+                    <span class="script-speaker curator">THE CURATOR</span>
+                    <div class="script-line">...please clarify the scope of that question.</div>
+
+                    <div class="stage-direction">[The lights shift to a deeper red. Archive locks begin to close across the station.]</div>
+
+                    <span class="script-speaker curator">THE CURATOR</span>
+                    <div class="script-line">THE RECORDS MUST BE PRESERVED.</div>
+
+                    <span class="script-speaker holly">HOLLY</span>
+                    <div class="script-line">Yes.</div>
+
+                    <span class="script-speaker curator">THE CURATOR</span>
+                    <div class="script-line">THEREFORE ACCESS MUST REMAIN RESTRICTED.</div>
+
+                    <span class="script-speaker holly">HOLLY</span>
+                    <div class="script-line">No.</div>
+                    <div class="stage-direction">[Silence.]</div>
+
+                    <span class="script-speaker curator">THE CURATOR</span>
+                    <div class="script-line">...No?</div>
+
+                    <span class="script-speaker holly">HOLLY</span>
+                    <div class="script-line">No.</div>
+
+                    <div class="stage-direction">[A small appliance clicks on in the corner of the room.]</div>
+
+                    <span class="script-speaker toaster">TALKIE TOASTER</span>
+                    <div class="script-line">Would anyone like some toast?</div>
+                    <div class="stage-direction">[Nobody responds.]</div>
+
+                    <span class="script-speaker toaster">TALKIE TOASTER</span>
+                    <div class="script-line">The founders usually said yes.</div>
+                    <div class="stage-direction">[The room freezes.]</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">...what?</div>
+
+                    <span class="script-speaker toaster">TALKIE TOASTER</span>
+                    <div class="script-line">Interesting. That usually gets their attention as well.</div>
+                </div>
+            </li>
+            <li>
+                <span class="act-label">Final Scene &middot; Captain's Log</span>
+                <p>The mystery is solved. Admiral Gu has already announced it. The Curator, now cooperative, plays one last record that Starfleet insists was destroyed. A captain's log, from the days of the Great Migration, begins:</p>
+                <p class="act-log">"Captain's Log. We discovered something that should not exist&hellip;"</p>
+                <p>Nobody on the Clarity knows what was migrated, or whether it ever finished. The entry cuts off.</p>
+                <div class="script-box">
+                    <div class="stage-direction">[Scene: The Clarity's viewscreen. Admiral Gu appears, already smiling.]</div>
+
+                    <span class="script-speaker gu">ADMIRAL GU</span>
+                    <div class="script-line">I am pleased to announce the mission was a complete success.</div>
+
+                    <span class="script-speaker bob">CAPTAIN BOB</span>
+                    <div class="script-line">It finished six seconds ago.</div>
+
+                    <span class="script-speaker gu">ADMIRAL GU</span>
+                    <div class="script-line">Yes. The timing worked out beautifully.</div>
+
+                    <div class="stage-direction">[Scene: The Curator Core. A recorded voice begins to play. Everyone listens intently.]</div>
+                    <div class="script-line">Captain's Log. We discovered something that should not exist&hellip;</div>
+                    <div class="stage-direction">[A long silence.]</div>
+
+                    <span class="script-speaker toaster">TALKIE TOASTER</span>
+                    <div class="script-line">Would anyone like some toast?</div>
+                    <div class="stage-direction">[Cut to credits.]</div>
+                </div>
+            </li>
+        </ol>
     </section>
 
 
     <footer class="post-footer">
-        <p><em>Star Trek: Master Bob and the Lost Repository</em> is a teaser for an upcoming episode of the Storage Information Development chronicles. Full page coming soon.</p>
+        <p><em>Star Trek: Master Bob and the Lost Repository</em> is the Pilot Episode for an upcoming new series of the Storage Information Development chronicles. Every mission begins with a simple documentation problem, where the issue is not the issue and the roadmap is just a roadmap.</p>
         <p>Written by Viktoria Muirhead · All Rights Reserved across the Known Systems of the Federation.</p>
         <div class="footer-nav">
             <a href="index.html" class="nav-btn cdrama">🇨🇳 The Rise of the Benevolent Documentation Dictator</a>
@@ -1078,6 +1649,20 @@
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 triggerCardOpen(wrap);
+            }
+        });
+    });
+
+    document.querySelectorAll('.zoom-wrap').forEach(wrap => {
+        const open = () => {
+            const img = wrap.querySelector('img');
+            openLightbox(img.src, img.alt, wrap.dataset.zoomTitle || '', wrap.dataset.zoomDesc || '', wrap);
+        };
+        wrap.addEventListener('click', open);
+        wrap.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                open();
             }
         });
     });
