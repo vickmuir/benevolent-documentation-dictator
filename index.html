@@ -932,6 +932,79 @@
             transform: translateY(-1px);
         }
 
+        /* Author Card */
+        .author-section {
+            margin: 48px 0 24px;
+        }
+
+        .author-card {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+            border-left: 5px solid #d97706;
+            border-radius: 12px;
+            padding: 32px 36px;
+            color: #e2e8f0;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .author-tag {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #fbbf24;
+            background: rgba(251, 191, 36, 0.12);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .author-card h3 {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin: 0 0 6px 0;
+            font-family: 'Cinzel', 'Noto Serif SC', serif;
+        }
+
+        .author-role {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .author-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+            margin-bottom: 14px;
+        }
+
+        .author-card blockquote.author-quote {
+            border-left: 3px solid #d97706;
+            background: rgba(217, 119, 6, 0.1);
+            margin: 20px 0 4px;
+            padding: 14px 20px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #fde68a;
+            font-size: 1.02rem;
+            line-height: 1.6;
+        }
+
+        .author-link {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+
+        .author-link:hover {
+            color: var(--imperial-gold);
+        }
+
         /* Footer */
         .post-footer {
             margin-top: 48px;
@@ -946,10 +1019,11 @@
             margin-top: 16px;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 16px;
         }
 
-        /* Footer buttons: same palette as the other two dramas */
+        /* Footer buttons */
         .footer-nav .nav-btn.kdrama {
             background: #f6f2ff;
             color: #4c1d95;
@@ -964,6 +1038,17 @@
 
         .footer-nav .nav-btn.bobbywood:hover {
             background: #9d174d;
+            color: #ffffff;
+        }
+
+        .footer-nav .nav-btn.trek {
+            background: #edf5ff;
+            color: #0043ce;
+            border: 1px solid #a6c8ff;
+        }
+
+        .footer-nav .nav-btn.trek:hover {
+            background: #0f62fe;
             color: #ffffff;
         }
 
@@ -998,7 +1083,7 @@
             <span>🦚 Bobbywood Musical</span>
         </a>
         <a href="star-trek-lost-repository.html" class="nav-btn trek">
-            <span>🖖 Star Trek Teaser</span>
+            <span>🖖 Star Trek Pilot</span>
         </a>
     </div>
 </nav>
@@ -1013,7 +1098,7 @@
         <p class="subtitle">A Tale of Scrolls, Storage, Unsupported Configurations, and Moving Release Dates</p>
 
         <div class="post-meta">
-            <span><strong>Screenplay &amp; Concept:</strong> Viktoria Muirhead</span>
+            <span><strong>Screenplay &amp; Concept:</strong> <a href="#about-the-author" class="author-link" title="Read About the Author">Viktoria Muirhead ✍️</a></span>
             <span><strong>Starring:</strong> 博先生 (Master Bob) &amp; 云姑娘 (Lady Yun)</span>
             <span><strong>Genre:</strong> Imperial C-Drama / Technical Satire / Romantic Bureaucracy</span>
             <span><strong>Seasons:</strong> 4 Epic Seasons + Holiday Special</span>
@@ -1533,12 +1618,28 @@
         <div class="stage-direction">[A deafening silence falls across the entire imperial court. Every official, scholar, minister, and general turns in unison to stare directly at Master Bob. Petals freeze in mid-air. Fade to black.]</div>
     </div>
 
+    <!-- About the Author Section -->
+    <section class="author-section" id="about-the-author" aria-labelledby="author-title">
+        <div class="author-card">
+            <span class="author-tag">✍️ About the Author &amp; Creator</span>
+            <h3 id="author-title">Viktoria Muirhead</h3>
+            <p class="author-role">Information Development Leader &middot; IBM Cloud Storage Services</p>
+            <p>Viktoria Muirhead leads Information Development for IBM Cloud Storage Services, working at the intersection of knowledge management, accessibility, governance, quality, and release readiness.</p>
+            <p>Across more than two decades in technology operations and information development, she has seen how organizations create, lose, preserve, validate, and sometimes misunderstand their own knowledge.</p>
+            <p>The <em>Benevolent Documentation Dictator</em> universe grew from those observations. Through historical drama, fantasy, musical comedy, and science fiction, it explores the organizational forces behind seemingly ordinary documentation problems: unclear accountability, forgotten knowledge, unsupported confidence, and the loss of purpose.</p>
+            <blockquote class="author-quote">
+                &ldquo;The stories are fictional. The patterns may be familiar. Because sometimes the best way to understand an enterprise problem is to give it a costume, a dramatic soundtrack, and a toaster.&rdquo;
+            </blockquote>
+        </div>
+    </section>
+
     <footer class="post-footer">
         <p><em>The Rise of the Benevolent Documentation Dictator</em> is a serialized drama originating from the Storage Information Development chronicles.</p>
         <p>© Imperial Storage Bureau · Written by Viktoria Muirhead · All Rights Reserved across the Seven Cloud Realms.</p>
         <div class="footer-nav">
-            <a href="monster-in-data-center.html" class="nav-btn kdrama">🇰🇷 Discover Next: Master Bob &amp; The Monster in the Data Center →</a>
-            <a href="festival-of-validation.html" class="nav-btn bobbywood">🦚 Experience: Master Bob &amp; The Festival of Validation →</a>
+            <a href="monster-in-data-center.html" class="nav-btn kdrama">🇰🇷 Master Bob &amp; The Monster in the Data Center</a>
+            <a href="festival-of-validation.html" class="nav-btn bobbywood">🦚 Master Bob &amp; The Festival of Validation</a>
+            <a href="star-trek-lost-repository.html" class="nav-btn trek">🖖 Star Trek: Master Bob and the Lost Repository</a>
         </div>
     </footer>
 </div>

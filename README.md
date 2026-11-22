@@ -34,6 +34,34 @@ A 2½-hour song-and-dance cinematic spectacle celebrating the eternal golden rul
 - **भूतिया समीक्षक (Bhutiya Samikshak / The Phantom Reviewer)** — The Invisible Approver (*"Calendar invite pending."*).
 - **सत्यापन शून्य (Satyapan Shunya / The Verification Void)** — The Great Antagonist born from skipped reviews and missing evidence.
 
+### 4. 🖖 [Star Trek: Master Bob and the Lost Repository](star-trek-lost-repository.html) (Sci-Fi Technical Satire Pilot)
+A Star Trek & Red Dwarf inspired sci-fi pilot exploring an abandoned Federation archive station, forgotten directives, and an appliance that asks too many questions.
+- **Captain Bob** — Commander of the USS Clarity (*"The issue is not the issue."*).
+- **Commander Vale** — Chief Science Officer & Empirical Skeptic (*"Scientifically speaking, it cannot."*).
+- **Lt. Commander Yun** — First Officer & Knowledge Architect (*"What does this actually mean?"*).
+- **Lieutenant SzeVick** — Operations Officer & Tracker of Orphaned Workflows (*"Every record had an owner. Nobody owned the reason."*).
+- **Lt. Commander Daxara Fluffari** — Joined Archivist (*"Host Two watched them calibrate the heating coil."*).
+- **Chief Engineer Git** — Systems Engineer (*"I only deleted three files."*).
+- **Holly** — Station Computer (*"Archive unlocked. Also, I made tea."*).
+- **The Curator** — Ancient Artificial Intelligence (*"Access is required for preservation."*).
+- **Talkie Toaster** — Appliance (*"Would anyone like some toast?"*).
+
+---
+
+## ✍️ About the Author
+
+**Viktoria Muirhead** leads Information Development for IBM Cloud Storage Services, working at the intersection of knowledge management, accessibility, governance, quality, and release readiness.
+
+Across more than two decades in technology operations and information development, she has seen how organizations create, lose, preserve, validate, and sometimes misunderstand their own knowledge.
+
+The Benevolent Documentation Dictator universe grew from those observations.
+
+Through historical drama, fantasy, musical comedy, and science fiction, it explores the organizational forces behind seemingly ordinary documentation problems: unclear accountability, forgotten knowledge, unsupported confidence, and the loss of purpose.
+
+The stories are fictional. The patterns may be familiar.
+
+Because sometimes the best way to understand an enterprise problem is to give it a costume, a dramatic soundtrack, and a toaster.
+
 ---
 
 ## 🚀 Live Demo / GitHub Pages
@@ -46,8 +74,8 @@ https://vickmuir.github.io/benevolent-documentation-dictator/
 ## ✨ Site Features
 
 - Click-to-zoom cast portraits with an accessible lightbox (focus trap, reduced-motion support)
-- Open Graph and Twitter Card meta tags for social sharing thumbnails on all three pages
-- Footer navigation linking the three dramas
+- Open Graph and Twitter Card meta tags for social sharing thumbnails across all pages
+- Global navigation bar and footer navigation linking the four dramas
 - Embedded trailer video on the C-Drama page
 
 ---
@@ -58,6 +86,7 @@ https://vickmuir.github.io/benevolent-documentation-dictator/
 ├── index.html                       # Imperial C-Drama story & screenplay page
 ├── monster-in-data-center.html      # Makjang K-Drama story & screenplay page
 ├── festival-of-validation.html      # Bobbywood Musical story & screenplay page
+├── star-trek-lost-repository.html   # Star Trek Sci-Fi Pilot screenplay page
 ├── funny/                           # Posters, cast portraits & trailer media
 │   ├── Bobbywood-*.png              # Bobbywood cast portraits, festival art & Seal of Validation
 │   ├── Kdrama-Bob.png, Kdrama-bob-profile.png
@@ -68,6 +97,7 @@ https://vickmuir.github.io/benevolent-documentation-dictator/
 │   ├── Lady Yun, Divine Documentation Guardian.png
 │   ├── Six Portraits of a Mystic Joseon Future.png
 │   ├── MasterBob.png, LadyYun.png, LordGu.png, MarquisLing.png
+│   ├── Lt.Daxara.png, LtSzeVick.png, MemorialCollage.png, USS Clarity_*.png
 │   └── video/                       # C-Drama trailer (.mp4) and preview GIF
 ├── .nojekyll                        # Disables Jekyll processing for pure static serving
 └── README.md

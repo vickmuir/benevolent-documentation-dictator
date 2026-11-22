@@ -1425,6 +1425,79 @@
             font-size: 0.975rem;
         }
 
+        /* Author Card */
+        .author-section {
+            margin: 48px 0 24px;
+        }
+
+        .author-card {
+            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+            border-left: 5px solid #f59e0b;
+            border-radius: 12px;
+            padding: 32px 36px;
+            color: #e2e8f0;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .author-tag {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.12);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .author-card h3 {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin: 0 0 6px 0;
+            font-family: 'Cinzel', 'Noto Serif KR', serif;
+        }
+
+        .author-role {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .author-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+            margin-bottom: 14px;
+        }
+
+        .author-card blockquote.author-quote {
+            border-left: 3px solid #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+            margin: 20px 0 4px;
+            padding: 14px 20px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #fde68a;
+            font-size: 1.02rem;
+            line-height: 1.6;
+        }
+
+        .author-link {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+
+        .author-link:hover {
+            color: #f59e0b;
+        }
+
         /* Footer */
         .post-footer {
             margin-top: 48px;
@@ -1439,6 +1512,7 @@
             margin-top: 16px;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 16px;
         }
 
@@ -1462,6 +1536,17 @@
 
         .footer-nav .nav-btn.bobbywood:hover {
             background: #9d174d;
+            color: #ffffff;
+        }
+
+        .footer-nav .nav-btn.trek {
+            background: #edf5ff;
+            color: #0043ce;
+            border: 1px solid #a6c8ff;
+        }
+
+        .footer-nav .nav-btn.trek:hover {
+            background: #0f62fe;
             color: #ffffff;
         }
 
@@ -1528,7 +1613,7 @@
             <span>🦚 Bobbywood Musical</span>
         </a>
         <a href="star-trek-lost-repository.html" class="nav-btn trek">
-            <span>🖖 Star Trek Teaser</span>
+            <span>🖖 Star Trek Pilot</span>
         </a>
     </div>
 </nav>
@@ -1547,7 +1632,7 @@
         <p class="subtitle">A 16-Episode Makjang K-Drama of Knowledge, Memory, and Documentation</p>
 
         <div class="post-meta">
-            <span><strong>Screenplay &amp; Concept:</strong> Viktoria Muirhead</span>
+            <span><strong>Screenplay &amp; Concept:</strong> <a href="#about-the-author" class="author-link" title="Read About the Author">Viktoria Muirhead ✍️</a></span>
             <span><strong>Starring:</strong> 밥 도사 (Bob Dosa) &amp; 윤 아키텍트 (Yun Akitekteu)</span>
             <span><strong>Genre:</strong> Makjang K-Drama / Cloud Data Center Satire / Knowledge Mystery</span>
             <span><strong>Setting:</strong> K-Drama Cloud Realm &amp; Ancient Vaults Beneath the Data Center</span>
@@ -2275,13 +2360,29 @@ The Council · 클라우드 평의회 (Keullaudeu Pyeong-uihoe)
         <p style="margin-top: 12px; font-weight: 700; color: #f59e0b;">Season 2 Confirmed.</p>
     </div>
 
+    <!-- About the Author Section -->
+    <section class="author-section" id="about-the-author" aria-labelledby="author-title">
+        <div class="author-card">
+            <span class="author-tag">✍️ About the Author &amp; Creator</span>
+            <h3 id="author-title">Viktoria Muirhead</h3>
+            <p class="author-role">Information Development Leader &middot; IBM Cloud Storage Services</p>
+            <p>Viktoria Muirhead leads Information Development for IBM Cloud Storage Services, working at the intersection of knowledge management, accessibility, governance, quality, and release readiness.</p>
+            <p>Across more than two decades in technology operations and information development, she has seen how organizations create, lose, preserve, validate, and sometimes misunderstand their own knowledge.</p>
+            <p>The <em>Benevolent Documentation Dictator</em> universe grew from those observations. Through historical drama, fantasy, musical comedy, and science fiction, it explores the organizational forces behind seemingly ordinary documentation problems: unclear accountability, forgotten knowledge, unsupported confidence, and the loss of purpose.</p>
+            <blockquote class="author-quote">
+                &ldquo;The stories are fictional. The patterns may be familiar. Because sometimes the best way to understand an enterprise problem is to give it a costume, a dramatic soundtrack, and a toaster.&rdquo;
+            </blockquote>
+        </div>
+    </section>
+
     <footer class="post-footer">
         <p><em>Master Bob and the Monster in the Data Center</em> is a makjang technical satire screenplay originating from the Storage Information Development chronicles.</p>
         <p>© K-Drama Cloud Realm · Written by Viktoria Muirhead · All Rights Reserved across all Repositories.</p>
 
         <div class="footer-nav">
-            <a href="index.html" class="nav-btn cdrama">← 🇨🇳 Return to C-Drama: The Rise of the Benevolent Documentation Dictator</a>
-            <a href="festival-of-validation.html" class="nav-btn bobbywood">🦚 Experience Next: Master Bob &amp; The Festival of Validation →</a>
+            <a href="index.html" class="nav-btn cdrama">🇨🇳 The Rise of the Benevolent Documentation Dictator</a>
+            <a href="festival-of-validation.html" class="nav-btn bobbywood">🦚 Master Bob &amp; The Festival of Validation</a>
+            <a href="star-trek-lost-repository.html" class="nav-btn trek">🖖 Star Trek: Master Bob and the Lost Repository</a>
         </div>
     </footer>
 </div>

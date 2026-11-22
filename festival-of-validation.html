@@ -1393,6 +1393,79 @@
             font-size: 0.95rem;
         }
 
+        /* Author Card */
+        .author-section {
+            margin: 48px 0 24px;
+        }
+
+        .author-card {
+            background: linear-gradient(135deg, #0b1d16 0%, #1e112a 100%);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-left: 5px solid var(--bobbywood-bright-gold);
+            border-radius: 12px;
+            padding: 32px 36px;
+            color: #e2e8f0;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .author-tag {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--bobbywood-bright-gold);
+            background: rgba(245, 158, 11, 0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .author-card h3 {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin: 0 0 6px 0;
+            font-family: 'Cinzel', 'Rozha One', 'Noto Serif Devanagari', serif;
+        }
+
+        .author-role {
+            font-size: 0.95rem;
+            color: #d1d5db;
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .author-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #cbd5e1;
+            margin-bottom: 14px;
+        }
+
+        .author-card blockquote.author-quote {
+            border-left: 3px solid var(--bobbywood-marigold);
+            background: rgba(249, 115, 22, 0.1);
+            margin: 20px 0 4px;
+            padding: 14px 20px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #fde68a;
+            font-size: 1.02rem;
+            line-height: 1.6;
+        }
+
+        .author-link {
+            color: inherit;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+
+        .author-link:hover {
+            color: var(--bobbywood-bright-gold);
+        }
+
         /* Footer */
         .post-footer {
             margin-top: 48px;
@@ -1431,6 +1504,17 @@
 
         .footer-nav .nav-btn.kdrama:hover {
             background: #6929c4;
+            color: #ffffff;
+        }
+
+        .footer-nav .nav-btn.trek {
+            background: #edf5ff;
+            color: #0043ce;
+            border: 1px solid #a6c8ff;
+        }
+
+        .footer-nav .nav-btn.trek:hover {
+            background: #0f62fe;
             color: #ffffff;
         }
 
@@ -1580,7 +1664,7 @@
             <span>🦚 Bobbywood Musical</span>
         </a>
         <a href="star-trek-lost-repository.html" class="nav-btn trek">
-            <span>🖖 Star Trek Teaser</span>
+            <span>🖖 Star Trek Pilot</span>
         </a>
     </div>
 </nav>
@@ -1599,7 +1683,7 @@
         <p class="subtitle">A Bobbywood Documentation Musical · Theme: Documentation is Trust</p>
 
         <div class="post-meta">
-            <span><strong>Screenplay &amp; Concept:</strong> Viktoria Muirhead</span>
+            <span><strong>Screenplay &amp; Concept:</strong> <a href="#about-the-author" class="author-link" title="Read About the Author">Viktoria Muirhead ✍️</a></span>
             <span><strong>Starring:</strong> गुरु बॉब (Guru Bob) &amp; देवी युन (Devi Yun)</span>
             <span><strong>Genre:</strong> Bobbywood Musical Spectacle / Technical Validation Satire / Epic Romance</span>
             <span><strong>Setting:</strong> The Kingdom of Release Readiness &amp; The Sacred Hall of Evidence</span>
@@ -2346,13 +2430,29 @@
         <p style="margin-top: 12px; font-weight: 700; color: var(--bobbywood-bright-gold);">Master Bob and Lady Yun Will Return.</p>
     </div>
 
+    <!-- About the Author Section -->
+    <section class="author-section" id="about-the-author" aria-labelledby="author-title">
+        <div class="author-card">
+            <span class="author-tag">✍️ About the Author &amp; Creator</span>
+            <h3 id="author-title">Viktoria Muirhead</h3>
+            <p class="author-role">Information Development Leader &middot; IBM Cloud Storage Services</p>
+            <p>Viktoria Muirhead leads Information Development for IBM Cloud Storage Services, working at the intersection of knowledge management, accessibility, governance, quality, and release readiness.</p>
+            <p>Across more than two decades in technology operations and information development, she has seen how organizations create, lose, preserve, validate, and sometimes misunderstand their own knowledge.</p>
+            <p>The <em>Benevolent Documentation Dictator</em> universe grew from those observations. Through historical drama, fantasy, musical comedy, and science fiction, it explores the organizational forces behind seemingly ordinary documentation problems: unclear accountability, forgotten knowledge, unsupported confidence, and the loss of purpose.</p>
+            <blockquote class="author-quote">
+                &ldquo;The stories are fictional. The patterns may be familiar. Because sometimes the best way to understand an enterprise problem is to give it a costume, a dramatic soundtrack, and a toaster.&rdquo;
+            </blockquote>
+        </div>
+    </section>
+
     <footer class="post-footer">
         <p><em>Master Bob and the Festival of Validation</em> is a Bobbywood technical satire musical screenplay originating from the Storage Information Development chronicles.</p>
         <p>© Bobbywood Universe · Written by Viktoria Muirhead · All Rights Reserved across all Repositories.</p>
 
         <div class="footer-nav">
-            <a href="index.html" class="nav-btn cdrama">← 🇨🇳 C-Drama: The Rise of the Benevolent Documentation Dictator</a>
-            <a href="monster-in-data-center.html" class="nav-btn kdrama">← 🇰🇷 K-Drama: Master Bob and the Monster in the Data Center</a>
+            <a href="index.html" class="nav-btn cdrama">🇨🇳 The Rise of the Benevolent Documentation Dictator</a>
+            <a href="monster-in-data-center.html" class="nav-btn kdrama">🇰🇷 Master Bob &amp; The Monster in the Data Center</a>
+            <a href="star-trek-lost-repository.html" class="nav-btn trek">🖖 Star Trek: Master Bob and the Lost Repository</a>
         </div>
     </footer>
 </div>
