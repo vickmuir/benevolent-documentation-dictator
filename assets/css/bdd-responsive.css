@@ -1,0 +1,136 @@
+/*
+ * BDD responsive rules — shared breakpoints, reflow and table behaviour.
+ * Loaded after bdd-accessibility.css. See docs/design-system.md for the breakpoint table.
+ */
+
+/* Never let media or long strings force horizontal scrolling. */
+img,
+video,
+canvas {
+    max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, li, td, th, blockquote,
+.script-line, .stage-direction, .script-speaker {
+    overflow-wrap: break-word;
+}
+
+pre {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Tables: wrap in .bdd-table-wrap (see docs/design-system.md). The wrapper is a
+   focusable, labelled region so keyboard users can scroll it when it overflows. */
+.bdd-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.bdd-table-wrap > table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table caption {
+    text-align: left;
+    font-weight: 700;
+    padding: var(--bdd-space-2, 8px) 0;
+}
+
+/* Responsive grids: let cards shrink below their preferred minimum. */
+.bdd-grid {
+    display: grid;
+    gap: var(--bdd-space-4, 16px);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+/* ------------------------------------------------------------------ */
+/* Navigation collapses to a menu button on narrow screens or when      */
+/* text is enlarged (the breakpoint is in em-equivalent px of 860).     */
+/* ------------------------------------------------------------------ */
+@media (max-width: 860px) {
+    .bdd-nav {
+        border-radius: var(--bdd-radius-lg, 12px);
+        padding: var(--bdd-space-3, 12px) var(--bdd-space-4, 16px);
+    }
+
+    .bdd-js .bdd-nav__toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: var(--bdd-target-min, 44px);
+        padding: 8px 16px;
+        border: 2px solid var(--bdd-nav-border);
+        border-radius: var(--bdd-radius-pill, 999px);
+        background: transparent;
+        color: var(--bdd-nav-fg);
+        font: 700 var(--bdd-text-sm, 0.875rem)/1.2 var(--bdd-font-body, sans-serif);
+        cursor: pointer;
+    }
+
+    .bdd-js .bdd-nav__toggle-bars,
+    .bdd-js .bdd-nav__toggle-bars::before,
+    .bdd-js .bdd-nav__toggle-bars::after {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: currentColor;
+        content: "";
+        position: relative;
+    }
+
+    .bdd-js .bdd-nav__toggle-bars::before { position: absolute; top: -6px; }
+    .bdd-js .bdd-nav__toggle-bars::after { position: absolute; top: 6px; }
+
+    /* Hidden by the `hidden` attribute that bdd-components.js manages; without
+       JavaScript the list stays visible (progressive enhancement). */
+    .bdd-nav__list[hidden] {
+        display: none;
+    }
+
+    .bdd-nav__list {
+        flex-basis: 100%;
+        flex-direction: column;
+    }
+
+    .bdd-nav__link {
+        width: 100%;
+        min-height: var(--bdd-target-min, 44px);
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: var(--bdd-space-4, 16px) var(--bdd-space-3, 12px);
+    }
+
+    .container {
+        padding: var(--bdd-space-6, 32px) var(--bdd-space-4, 16px);
+    }
+
+    dialog.bdd-dialog {
+        padding: var(--bdd-space-3, 12px);
+    }
+}
+
+@media (max-width: 520px) {
+    .bdd-dialog__caption {
+        padding: var(--bdd-space-3, 12px);
+    }
+
+    .bdd-footer__list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Short landscape screens and 400% zoom (~320 CSS px wide): keep the dialog
+   scrollable and keep the close control reachable. */
+@media (max-height: 520px) {
+    .bdd-dialog__img {
+        max-height: 60vh;
+    }
+}

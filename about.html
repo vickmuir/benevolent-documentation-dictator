@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Creator, the Project and the Accessibility Charter | Benevolent Documentation Dictator</title>
+    <meta name="description" content="About Viktoria Muirhead, the philosophy behind the Benevolent Documentation Dictator universe, how AI-assisted creative development is used, and the project's Accessibility Charter.">
+    <!-- Open Graph / Social sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vickmuir.github.io/benevolent-documentation-dictator/about.html">
+    <meta property="og:title" content="About the Benevolent Documentation Dictator">
+    <meta property="og:description" content="The creator, the philosophy, the productions and the Accessibility Charter behind the Benevolent Documentation Dictator universe.">
+    <meta property="og:image" content="https://vickmuir.github.io/benevolent-documentation-dictator/funny/Six%20Portraits%20of%20a%20Mystic%20Joseon%20Future.png">
+    <meta property="og:image:alt" content="Six portraits of the cast of The Rise of the Benevolent Documentation Dictator">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bdd-design-system.css">
+    <link rel="stylesheet" href="assets/css/bdd-accessibility.css">
+    <link rel="stylesheet" href="assets/css/bdd-responsive.css">
+    <style>
+        :root {
+            --bdd-ink: #1b1030;
+            --bdd-violet: #4c1d95;
+            --bdd-gold-text: #f2d27a;
+            --bdd-parchment: #fbf8f1;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--bdd-font-body);
+            line-height: var(--bdd-leading-body);
+            color: var(--bdd-text);
+            background-color: #130a24;
+            background-image:
+                radial-gradient(circle at 12% 18%, rgba(124, 58, 237, 0.22) 0%, transparent 42%),
+                radial-gradient(circle at 88% 82%, rgba(197, 155, 39, 0.16) 0%, transparent 42%),
+                linear-gradient(180deg, #130a24 0%, #1f1238 50%, #130a24 100%);
+            background-attachment: fixed;
+            padding: 32px 16px;
+        }
+
+        .container {
+            max-width: var(--bdd-content-width);
+            margin: 0 auto;
+            background: var(--bdd-parchment);
+            border-radius: var(--bdd-radius-lg);
+            padding: 56px 64px;
+            border-top: 8px solid var(--bdd-violet);
+            border-bottom: 4px solid #c59b27;
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(197, 155, 39, 0.3);
+        }
+
+        h1, h2, h3 { line-height: var(--bdd-leading-tight); color: var(--bdd-ink); }
+
+        h1 {
+            font-family: 'Cinzel', Georgia, serif;
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin: 56px 0 20px;
+            padding-left: 16px;
+            border-left: 6px solid #c59b27;
+        }
+
+        h3 { font-size: 1.25rem; margin: 28px 0 10px; }
+
+        main p { margin-bottom: 16px; font-size: 1.025rem; max-width: var(--bdd-prose-width); }
+
+        main ul, main ol { margin: 0 0 16px 1.4rem; max-width: var(--bdd-prose-width); }
+        main li { margin-bottom: 8px; }
+
+        .about-hero {
+            text-align: center;
+            padding-bottom: 32px;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #e6dfd0;
+        }
+
+        .about-hero p { margin: 0 auto 12px; color: #374151; }
+        .about-hero__tag {
+            display: inline-block;
+            padding: 4px 14px;
+            margin-bottom: 14px;
+            border-radius: var(--bdd-radius-pill);
+            background: var(--bdd-ink);
+            color: var(--bdd-gold-text);
+            font-size: var(--bdd-text-sm);
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .creator-card {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 24px 28px;
+            margin: 0 0 24px;
+            background: linear-gradient(135deg, #1b1030 0%, #3b1d6e 100%);
+            border-radius: var(--bdd-radius-lg);
+            border: 1px solid #c59b27;
+            color: #ffffff;
+        }
+
+        .creator-card h3 {
+            margin: 0;
+            font-family: 'Cinzel', Georgia, serif;
+            font-size: 1.7rem;
+            color: #ffffff;
+        }
+
+        .creator-card .creator-role { margin: 0; color: var(--bdd-gold-text); font-weight: 600; }
+        .creator-card .creator-sub { margin: 0 0 12px; color: #e9e1fb; }
+        .creator-card .bdd-button { align-self: flex-start; background: #ffffff; border-color: #ffffff; color: #1b1030; }
+        .creator-card .bdd-button:hover { background: #f2d27a; border-color: #f2d27a; color: #1b1030; }
+
+        blockquote.creator-quote {
+            margin: 24px 0;
+            padding: 20px 24px;
+            max-width: var(--bdd-prose-width);
+            font-style: italic;
+            background: #ffffff;
+            border-left: 5px solid var(--bdd-violet);
+            border-radius: 0 var(--bdd-radius-md) var(--bdd-radius-md) 0;
+            color: #1f2328;
+        }
+
+        .productions {
+            list-style: none;
+            margin: 24px 0 0;
+            padding: 0;
+            max-width: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: 20px;
+        }
+
+        .production-card {
+            margin: 0;
+            padding: 22px 24px;
+            background: #ffffff;
+            border: 1px solid #e5e0d4;
+            border-top: 6px solid var(--accent);
+            border-radius: var(--bdd-radius-md);
+        }
+
+        .production-card h3 { margin: 0 0 4px; font-size: 1.15rem; }
+        .production-card h3 a { color: var(--accent-text); }
+        .production-card .production-genre { margin: 0 0 10px; font-size: var(--bdd-text-sm); font-weight: 700; color: #4b5563; text-transform: uppercase; letter-spacing: 0.05em; }
+        .production-card p:last-child { margin-bottom: 0; }
+
+        .production-card--cdrama { --accent: #ba1b1b; --accent-text: #9b1c1c; }
+        .production-card--kdrama { --accent: #8a3ffc; --accent-text: #6929c4; }
+        .production-card--bobbywood { --accent: #db2777; --accent-text: #9d174d; }
+        .production-card--trek { --accent: #0f62fe; --accent-text: #0043ce; }
+
+        .charter {
+            margin-top: 56px;
+            padding: 32px 36px;
+            background: #ffffff;
+            border: 2px solid #c59b27;
+            border-radius: var(--bdd-radius-lg);
+        }
+
+        .charter > h2 { margin-top: 0; }
+
+        .charter-note {
+            padding: 16px 20px;
+            max-width: var(--bdd-prose-width);
+            background: #f3effb;
+            border-left: 5px solid var(--bdd-violet);
+            border-radius: 0 var(--bdd-radius-md) var(--bdd-radius-md) 0;
+        }
+
+        .charter-note p:last-child { margin-bottom: 0; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.85rem; }
+            .container { padding: 32px 20px; }
+            .charter { padding: 24px 18px; }
+        }
+
+        @media (max-width: 400px) {
+            h1 { font-size: 1.45rem; overflow-wrap: break-word; }
+        }
+    </style>
+</head>
+<body data-bdd-theme="bdd">
+<a class="bdd-skip-link" href="#main-content">Skip to main content</a>
+
+<header class="bdd-site-header">
+    <nav class="bdd-nav" aria-label="Site">
+        <a class="bdd-nav__brand" href="about.html" aria-current="page"><span aria-hidden="true">🎬</span> BDD Drama Universe<span class="bdd-sr-only"> – about the project</span></a>
+        <button type="button" class="bdd-nav__toggle" aria-expanded="false" aria-controls="bdd-nav-list"><span class="bdd-nav__toggle-bars" aria-hidden="true"></span>Menu</button>
+        <ul class="bdd-nav__list" id="bdd-nav-list">
+            <li><a class="bdd-nav__link bdd-nav__link--cdrama" href="index.html"><span class="bdd-nav__icon" aria-hidden="true">🇨🇳</span> Imperial C-Drama</a></li>
+            <li><a class="bdd-nav__link bdd-nav__link--kdrama" href="monster-in-data-center.html"><span class="bdd-nav__icon" aria-hidden="true">🇰🇷</span> Makjang K-Drama</a></li>
+            <li><a class="bdd-nav__link bdd-nav__link--bobbywood" href="festival-of-validation.html"><span class="bdd-nav__icon" aria-hidden="true">🦚</span> Bobbywood Musical</a></li>
+            <li><a class="bdd-nav__link bdd-nav__link--trek" href="star-trek-lost-repository.html"><span class="bdd-nav__icon" aria-hidden="true">🖖</span> Star Trek Pilot</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+<main id="main-content" tabindex="-1">
+
+    <div class="about-hero">
+        <span class="about-hero__tag">About the project</span>
+        <h1>The Benevolent Documentation Dictator, and the Person Behind It</h1>
+        <p>A universe of dramas, a creator, a philosophy about how organizations remember, and a charter for making all of it accessible.</p>
+    </div>
+
+    <section aria-labelledby="creator-heading">
+        <h2 id="creator-heading">About the Creator</h2>
+
+        <div class="creator-card">
+            <h3>Viktoria Muirhead</h3>
+            <p class="creator-role">Information Development Leader &middot; IBM Cloud Storage Services</p>
+            <p class="creator-sub">Creator of the Benevolent Documentation Dictator.</p>
+            <a class="bdd-button bdd-linkedin bdd-external" href="https://www.linkedin.com/in/viktoria-muirhead-255a285a/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>Connect with me on LinkedIn</span><span class="bdd-sr-only"> (opens in a new tab)</span></a>
+        </div>
+
+        <p>Viktoria Muirhead leads Information Development for IBM Cloud Storage Services, working at the intersection of knowledge management, accessibility, governance, quality, and release readiness.</p>
+
+        <p>Across more than two decades in technology operations and information development, she has seen how organizations create, lose, preserve, validate, and sometimes misunderstand their own knowledge.</p>
+
+        <p>The <em>Benevolent Documentation Dictator</em> universe grew from those observations. Through historical drama, fantasy, musical comedy, and science fiction, it explores the organizational forces behind seemingly ordinary documentation problems: unclear accountability, forgotten knowledge, unsupported confidence, and the loss of purpose.</p>
+
+        <blockquote class="creator-quote">
+            &ldquo;The stories are fictional. The patterns may be familiar. Because sometimes the best way to understand an enterprise problem is to give it a costume, a dramatic soundtrack, and a toaster.&rdquo;
+        </blockquote>
+    </section>
+
+    <section aria-labelledby="philosophy-heading">
+        <h2 id="philosophy-heading">The Philosophy Behind BDD</h2>
+
+        <p>The Benevolent Documentation Dictator is a body of narrative work. It uses storytelling, fictional characters, and the conventions of familiar genres to explore real organizational challenges.</p>
+
+        <p>The stories are not simply documentation examples. A fictional situation makes a complex organizational or systems-thinking idea easier to recognize, and easier to talk about, than a policy document would. When a monster made of forgotten wiki pages wakes up in a data center, a team can discuss organizational memory without anyone having to admit that it is their wiki.</p>
+
+        <h3>Themes the productions return to</h3>
+        <ul>
+            <li>Knowledge management, and what happens to knowledge nobody owns.</li>
+            <li>Documentation and information architecture.</li>
+            <li>Governance and ownership: who was supposed to be in charge of what this was for.</li>
+            <li>Accessibility and inclusive information design.</li>
+            <li>Organizational memory, and the cost of forgetting.</li>
+            <li>Validation and operational excellence: readiness is demonstrated, not declared.</li>
+            <li>The relationship between organizational structure and communication.</li>
+        </ul>
+
+        <p>The humor, the mythology, and the creative excess are part of the method. A dramatic soundtrack, a waterfall of forgotten knowledge, and a talking toaster are there because they make the patterns memorable.</p>
+    </section>
+
+    <section aria-labelledby="ai-heading">
+        <h2 id="ai-heading">AI-Assisted Creative Development</h2>
+
+        <p>This project is an example of AI-assisted creative development and human-directed information design.</p>
+
+        <p>AI tools act as creative and technical collaborators. Viktoria Muirhead remains responsible for the project's direction, editorial decisions, design, and final content. The ideas, the universe, the themes, and the decisions about what is published are hers.</p>
+
+        <p>AI did not independently create this project, and it did not validate it. Review, accuracy, and accessibility remain human responsibilities, which is why the Accessibility Charter below describes ongoing work rather than a finished result.</p>
+    </section>
+
+    <section aria-labelledby="productions-heading">
+        <h2 id="productions-heading">The Productions</h2>
+
+        <p>Four productions share one universe and one set of accessibility commitments. Each keeps its own genre and visual identity.</p>
+
+        <ul class="productions">
+            <li class="production-card production-card--cdrama">
+                <h3><a href="index.html">The Rise of the Benevolent Documentation Dictator</a></h3>
+                <p class="production-genre">Imperial C-Drama</p>
+                <p>An imperial technical satire chronicling the trials and triumphs of the Imperial Storage Bureau, where documentation is destiny and every scroll must be validated.</p>
+            </li>
+            <li class="production-card production-card--kdrama">
+                <h3><a href="monster-in-data-center.html">Master Bob and the Monster in the Data Center</a></h3>
+                <p class="production-genre">Makjang K-Drama</p>
+                <p>A 16-episode satire of knowledge, memory, and repository migrations in the Cloud Realm. Will the migration ledger survive? Will the documentation?</p>
+            </li>
+            <li class="production-card production-card--bobbywood">
+                <h3><a href="festival-of-validation.html">Master Bob and the Festival of Validation</a></h3>
+                <p class="production-genre">Bobbywood Musical</p>
+                <p>A musical extravaganza where documentation validation meets Bollywood spectacle. One golden seal, zero rubber stamps, and a firm belief that readiness is demonstrated rather than declared.</p>
+            </li>
+            <li class="production-card production-card--trek">
+                <h3><a href="star-trek-lost-repository.html">Star Trek: Master Bob and the Lost Repository</a></h3>
+                <p class="production-genre">Science-fiction pilot</p>
+                <p>A sci-fi satire in which the USS Clarity boldly documents what no one has documented before, and discovers that the issue is not the issue.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="charter" id="accessibility-charter" aria-labelledby="accessibility-charter-heading">
+        <h2 id="accessibility-charter-heading">The BDD Accessibility Charter</h2>
+
+        <p>This charter describes the project's commitment to accessible information and inclusive design. These are design commitments and ongoing work. They are not a claim of formal certification or conformance.</p>
+
+        <h3>Our commitments</h3>
+        <ol>
+            <li><strong>Accessibility is part of information design.</strong> It is considered from the first draft, not added afterwards.</li>
+            <li><strong>Essential information is never only in an image or a visual effect.</strong> Images have text alternatives, and diagrams have a text equivalent.</li>
+            <li><strong>Content is understandable through its structure.</strong> Pages use landmarks, a logical heading hierarchy, lists, and tables with headers, so the story can be followed without seeing the layout.</li>
+            <li><strong>Everything can be used with a keyboard.</strong> Navigation, image viewers, and expandable content work without a mouse, and keyboard focus is always visible.</li>
+            <li><strong>Interactive elements have accessible names and predictable behavior.</strong> Buttons look and act like buttons, links look and act like links, and a dialog moves focus in, keeps it in, and returns it when closed.</li>
+            <li><strong>Text stays readable across devices and zoom levels.</strong> Pages are designed to reflow on small screens and when text is enlarged, without hiding content.</li>
+            <li><strong>Color is never the only way to communicate meaning.</strong> Current page, links, and status are also shown with text, shape, or underline.</li>
+            <li><strong>Multimedia has alternatives.</strong> Video provides captions and a transcript.</li>
+            <li><strong>Reduced-motion preferences are respected.</strong> Animation and transitions are removed for visitors who ask for less motion.</li>
+            <li><strong>Accessibility is revisited during creation, review, and maintenance.</strong> New stories follow a shared template and checklist so improvements are not lost.</li>
+        </ol>
+
+        <h3>Writing in other languages</h3>
+        <p>Some stories include Chinese, Korean, and Hindi names and phrases. These are marked with the appropriate language so that screen readers can pronounce them correctly.</p>
+
+        <div class="charter-note">
+            <h3>What this charter is, and is not</h3>
+            <p>Our target is WCAG 2.2 Level AA. Automated checks and a first round of keyboard review have been done, but manual testing with screen readers, at high zoom, and with real users is still in progress. Until the relevant criteria have been fully evaluated, we do not claim conformance.</p>
+            <p>If something here does not work for you, please tell us. You can reach Viktoria Muirhead through <a class="bdd-external" href="https://www.linkedin.com/in/viktoria-muirhead-255a285a/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="bdd-sr-only"> (opens in a new tab)</span></a>.</p>
+        </div>
+    </section>
+
+</main>
+
+<footer class="bdd-footer">
+    <p><em>The Benevolent Documentation Dictator</em> is a collection of fictional productions originating from the Storage Information Development chronicles.</p>
+    <p>Created by <a href="about.html" aria-current="page">Viktoria Muirhead</a>.</p>
+    <nav class="bdd-footer__nav" aria-label="Footer">
+        <ul class="bdd-footer__list">
+            <li><a href="index.html">The Rise of the Benevolent Documentation Dictator</a></li>
+            <li><a href="monster-in-data-center.html">Master Bob and the Monster in the Data Center</a></li>
+            <li><a href="festival-of-validation.html">Master Bob and the Festival of Validation</a></li>
+            <li><a href="star-trek-lost-repository.html">Star Trek: Master Bob and the Lost Repository</a></li>
+            <li><a href="about.html#accessibility-charter">Accessibility Charter</a></li>
+        </ul>
+    </nav>
+</footer>
+</div>
+
+<script src="assets/js/bdd-accessibility.js" defer></script>
+<script src="assets/js/bdd-components.js" defer></script>
+</body>
+</html>

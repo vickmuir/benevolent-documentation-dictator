@@ -19,6 +19,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bdd-design-system.css">
+    <link rel="stylesheet" href="assets/css/bdd-accessibility.css">
+    <link rel="stylesheet" href="assets/css/bdd-responsive.css">
     <style>
         :root {
             --cds-interactive-01: #0f62fe;
@@ -86,7 +89,7 @@
         .stardate-title {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 1.1rem;
-            color: var(--fleet-gold);
+            color: #8a6500; /* darker gold: 5.3:1 on white (was 2.6:1) */
             letter-spacing: 4px;
             margin-bottom: 8px;
             font-weight: 600;
@@ -216,7 +219,7 @@
         /* Bridge Crew Cards Grid */
         .character-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
             gap: 24px;
             margin: 28px 0;
         }
@@ -453,350 +456,80 @@
         }
 
         /* Lightbox Modal */
-        .lightbox-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(10, 16, 26, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s ease;
-            padding: 24px;
-        }
+        
 
-        .lightbox-modal.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        
 
-        .lightbox-content {
-            position: relative;
-            max-width: 92vw;
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transform: scale(0.92);
-            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
+        
 
-        .lightbox-modal.active .lightbox-content {
-            transform: scale(1);
-        }
+        
 
-        .lightbox-img {
-            max-width: 90vw;
-            max-height: 75vh;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 0 2px var(--fleet-gold);
-            background: #ffffff;
-            padding: 8px;
-        }
+        
 
-        .lightbox-caption {
-            margin-top: 14px;
-            background: #ffffff;
-            border: 2px solid var(--fleet-gold);
-            border-radius: 8px;
-            padding: 12px 24px;
-            color: var(--fleet-navy);
-            text-align: center;
-            max-width: 680px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-        }
+        
 
-        .lightbox-title {
-            font-family: 'Orbitron', 'IBM Plex Sans', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--fleet-red);
-            margin-bottom: 4px;
-        }
+        
 
-        .lightbox-desc {
-            font-size: 0.9rem;
-            color: var(--cds-text-02);
-            font-style: italic;
-            margin-bottom: 0;
-        }
+        
 
-        .lightbox-close {
-            position: absolute;
-            top: -16px;
-            right: -16px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--fleet-red);
-            color: #ffffff;
-            border: 2px solid #ffffff;
-            font-size: 1.4rem;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.6);
-            transition: all 0.2s ease;
-            z-index: 10000;
-            line-height: 1;
-        }
+        
 
-        .lightbox-close:hover {
-            background: var(--fleet-gold);
-            transform: scale(1.1);
-        }
+        
 
         /* Navigation between dramas */
-        .drama-nav {
-            max-width: 980px;
-            margin: 0 auto 20px auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            background: #ffffff;
-            padding: 12px 24px;
-            border-radius: 50px;
-            border: 1px solid #c5cde0;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-        }
+        
 
-        .drama-nav-brand {
-            font-size: 0.875rem;
-            font-weight: 700;
-            color: var(--fleet-navy);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+        
 
-        .drama-nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+        
 
-        .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.825rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
+        
 
-        .nav-btn.cdrama {
-            background: #fff1f1;
-            color: #ba1b1b;
-            border: 1px solid #ffd7d9;
-        }
+        
 
-        .nav-btn.cdrama:hover {
-            background: #ba1b1b;
-            color: #ffffff;
-            transform: translateY(-1px);
-        }
+        
 
-        .nav-btn.kdrama {
-            background: #f6f2ff;
-            color: #6929c4;
-            border: 1px solid #d0bfff;
-        }
+        
 
-        .nav-btn.kdrama:hover {
-            background: #6929c4;
-            color: #ffffff;
-            transform: translateY(-1px);
-        }
+        
 
-        .nav-btn.bobbywood {
-            background: #fdf2f8;
-            color: #be185d;
-            border: 1px solid #fbcfe8;
-        }
+        
 
-        .nav-btn.bobbywood:hover {
-            background: #be185d;
-            color: #ffffff;
-            transform: translateY(-1px);
-        }
+        
 
-        .nav-btn.trek-active {
-            background: linear-gradient(135deg, #0f62fe 0%, #0043ce 100%);
-            color: #ffffff;
-            box-shadow: 0 2px 8px rgba(15, 98, 254, 0.3);
-        }
+        
 
         /* Author Modal Dialog */
-        .author-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(10, 16, 26, 0.88);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 99999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s ease;
-            padding: 20px;
-        }
+        
 
-        .author-modal.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        
 
-        .author-modal-card {
-            position: relative;
-            max-width: 680px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            background: linear-gradient(135deg, #0b1120 0%, #1e293b 100%);
-            border: 1px solid #334155;
-            border-left: 5px solid var(--fleet-gold);
-            border-radius: 14px;
-            padding: 36px 40px;
-            color: #e2e8f0;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-            transform: scale(0.94);
-            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
+        
 
-        .author-modal.active .author-modal-card {
-            transform: scale(1);
-        }
+        
 
-        .author-modal-close {
-            position: absolute;
-            top: 14px;
-            right: 16px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            color: #ffffff;
-            border: 1px solid rgba(255,255,255,0.2);
-            font-size: 1.4rem;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-            line-height: 1;
-        }
+        
 
-        .author-modal-close:hover {
-            background: var(--fleet-gold);
-            color: #0b1120;
-            transform: scale(1.1);
-        }
+        
 
-        .author-tag {
-            display: inline-block;
-            font-size: 0.78rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--fleet-gold);
-            background: rgba(241, 194, 27, 0.12);
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-            font-family: 'IBM Plex Mono', monospace;
-        }
+        
 
-        .author-modal-card h2 {
-            font-size: 1.7rem;
-            color: #ffffff;
-            margin: 0 0 6px 0;
-            font-family: 'Orbitron', 'IBM Plex Sans', sans-serif;
-            letter-spacing: 0.5px;
-        }
+        
 
-        .author-role {
-            font-size: 0.95rem;
-            color: #94a3b8;
-            font-weight: 500;
-            margin-bottom: 18px;
-            font-family: 'IBM Plex Mono', monospace;
-        }
+        
 
-        .author-modal-card p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #cbd5e1;
-            margin-bottom: 14px;
-        }
+        
 
-        .author-modal-card blockquote.author-quote {
-            border-left: 3px solid var(--fleet-gold);
-            background: rgba(241, 194, 27, 0.08);
-            margin: 20px 0 4px;
-            padding: 14px 20px;
-            border-radius: 0 8px 8px 0;
-            font-style: italic;
-            color: #fde68a;
-            font-size: 1.02rem;
-            line-height: 1.6;
-        }
+        
 
-        .author-trigger-btn, .author-footer-link {
-            background: none;
-            border: none;
-            padding: 0;
-            font: inherit;
-            color: inherit;
-            text-decoration: underline;
-            text-decoration-style: dotted;
-            text-underline-offset: 3px;
-            cursor: pointer;
-            display: inline;
-            transition: color 0.2s ease;
-        }
+        
 
-        .author-trigger-btn:hover, .author-footer-link:hover {
-            color: var(--fleet-gold);
-        }
+        
 
         /* Footer */
-        .post-footer {
-            margin-top: 48px;
-            padding-top: 24px;
-            border-top: 2px solid #e1e5ee;
-            text-align: center;
-            font-size: 0.875rem;
-            color: var(--cds-text-02);
-        }
+        
 
-        .footer-nav {
-            margin-top: 16px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
+        
 
         /* Station Voices (inside the dark villain card) */
         .voice-grid {
@@ -979,36 +712,32 @@
                 grid-template-columns: 1fr;
             }
 
-            .drama-nav {
-                border-radius: 20px;
-            }
+            
         }
+
+        /* Shared-component integration (BDD design system) */
+        h3.act-label { margin: 0 0 8px; }
     </style>
 </head>
-<body>
+<body data-bdd-theme="trek">
+<a class="bdd-skip-link" href="#main-content">Skip to main content</a>
 
-<!-- Drama Universe Navigation -->
-<nav class="drama-nav">
-    <div class="drama-nav-brand">
-        <span>🎬 BDD Drama Universe</span>
-    </div>
-    <div class="drama-nav-links">
-        <a href="index.html" class="nav-btn cdrama">
-            <span>🇨🇳 Imperial C-Drama</span>
-        </a>
-        <a href="monster-in-data-center.html" class="nav-btn kdrama">
-            <span>🇰🇷 Makjang K-Drama</span>
-        </a>
-        <a href="festival-of-validation.html" class="nav-btn bobbywood">
-            <span>🦚 Bobbywood Musical</span>
-        </a>
-        <a href="star-trek-lost-repository.html" class="nav-btn trek-active" aria-current="page">
-            <span>🖖 Star Trek Pilot</span>
-        </a>
-    </div>
-</nav>
+<header class="bdd-site-header">
+    <nav class="bdd-nav" aria-label="Site">
+        <a class="bdd-nav__brand" href="about.html"><span aria-hidden="true">🎬</span> BDD Drama Universe<span class="bdd-sr-only"> – about the project</span></a>
+        <button type="button" class="bdd-nav__toggle" aria-expanded="false" aria-controls="bdd-nav-list"><span class="bdd-nav__toggle-bars" aria-hidden="true"></span>Menu</button>
+        <ul class="bdd-nav__list" id="bdd-nav-list">
+            <li><a class="bdd-nav__link bdd-nav__link--cdrama" href="index.html"><span class="bdd-nav__icon" aria-hidden="true">🇨🇳</span> Imperial C-Drama</a></li>
+            <li><a class="bdd-nav__link bdd-nav__link--kdrama" href="monster-in-data-center.html"><span class="bdd-nav__icon" aria-hidden="true">🇰🇷</span> Makjang K-Drama</a></li>
+            <li><a class="bdd-nav__link bdd-nav__link--bobbywood" href="festival-of-validation.html"><span class="bdd-nav__icon" aria-hidden="true">🦚</span> Bobbywood Musical</a></li>
+            <li><a class="bdd-nav__link bdd-nav__link--trek" href="star-trek-lost-repository.html" aria-current="page"><span class="bdd-nav__icon" aria-hidden="true">🖖</span> Star Trek Pilot</a></li>
+        </ul>
+    </nav>
+</header>
+
 
 <div class="container">
+<main id="main-content" tabindex="-1">
 
     <header class="post-header">
         <span class="category-tag">🖖 Mission Archive · Pilot Episode</span>
@@ -1017,7 +746,7 @@
         <p class="subtitle">A Voyage to Explore Strange New Workflows and Seek Out Undocumented Dependencies</p>
 
         <div class="post-meta">
-            <span><strong>Screenplay &amp; Concept:</strong> <button type="button" class="author-trigger-btn" aria-haspopup="dialog" aria-controls="authorModal" title="Read About the Author">Viktoria Muirhead ✍️</button></span>
+            <span><strong>Screenplay &amp; Concept:</strong> <a href="about.html">Viktoria Muirhead ✍️</a></span>
             <span><strong>Vessel:</strong> USS Clarity</span>
             <span><strong>Genre:</strong> Star Trek / Red Dwarf Inspired Technical Satire</span>
             <span><strong>Status:</strong> Pilot Screenplay</span>
@@ -1116,13 +845,11 @@
             <!-- Captain Bob -->
             <div class="character-card card-blue">
                 <div class="char-img-container">
-                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Captain Robert Bob, Commanding Officer of the USS Clarity">
-                        <img src="funny/CaptRobert.png" alt="Captain Bob, a friendly robot with a blue helmet, glowing headphones and a smiling white face, in a navy Starfleet uniform" class="char-img">
-                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
-                    </div>
+                    <button type="button" class="char-img-wrap bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Captain Robert &quot;Bob&quot;" data-viewer-desc="&quot;This sounded straightforward.&quot;"><img src="funny/CaptRobert.png" alt="Captain Bob, a friendly robot with a blue helmet, glowing headphones and a smiling white face, in a navy Starfleet uniform" class="char-img">
+                    <span class="char-zoom-hint"><span aria-hidden="true">🔍</span> Enlarge image</span></button>
                 </div>
                 <div class="char-header">
-                    <div class="char-english-title">Captain Robert "Bob"</div>
+                    <h3 class="char-english-title bdd-h-flat">Captain Robert "Bob"</h3>
                     <span class="char-role-badge badge-blue">Commanding Officer · Curiosity &amp; Discovery</span>
                 </div>
                 <div class="char-quote">
@@ -1139,13 +866,11 @@
             <!-- Commander Dr. Meridian Vale -->
             <div class="character-card card-blue">
                 <div class="char-img-container">
-                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Commander Dr. Meridian Vale, Chief Science Officer">
-                        <img src="funny/DrVale.jpeg" alt="Commander Dr. Meridian Vale, a woman with short, tousled auburn hair and small earrings, in a navy uniform with light blue trim and a gold combadge, looking off to one side in front of a blurred bridge" class="char-img">
-                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
-                    </div>
+                    <button type="button" class="char-img-wrap bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Commander Dr. Meridian Vale" data-viewer-desc="&quot;Interesting. The data disagrees.&quot;"><img src="funny/DrVale.jpeg" alt="Commander Dr. Meridian Vale, a woman with short, tousled auburn hair and small earrings, in a navy uniform with light blue trim and a gold combadge, looking off to one side in front of a blurred bridge" class="char-img">
+                    <span class="char-zoom-hint"><span aria-hidden="true">🔍</span> Enlarge image</span></button>
                 </div>
                 <div class="char-header">
-                    <div class="char-english-title">Commander Dr. Meridian Vale</div>
+                    <h3 class="char-english-title bdd-h-flat">Commander Dr. Meridian Vale</h3>
                     <span class="char-role-badge badge-blue">Chief Science Officer · Resident Skeptic</span>
                 </div>
                 <div class="char-quote">
@@ -1163,13 +888,11 @@
             <!-- Lt Cmdr Yun -->
             <div class="character-card card-purple">
                 <div class="char-img-container">
-                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Lieutenant Commander Yun, Chief Knowledge Architect">
-                        <img src="funny/LtCmdrYun.png" alt="Lieutenant Commander Yun, a poised woman with pointed ears and an elegant updo, in a purple-trimmed uniform" class="char-img">
-                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
-                    </div>
+                    <button type="button" class="char-img-wrap bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Lieutenant Commander Yun" data-viewer-desc="&quot;What will the customer believe this means?&quot;"><img src="funny/LtCmdrYun.png" alt="Lieutenant Commander Yun, a poised woman with pointed ears and an elegant updo, in a purple-trimmed uniform" class="char-img">
+                    <span class="char-zoom-hint"><span aria-hidden="true">🔍</span> Enlarge image</span></button>
                 </div>
                 <div class="char-header">
-                    <div class="char-english-title">Lieutenant Commander Yun</div>
+                    <h3 class="char-english-title bdd-h-flat">Lieutenant Commander Yun</h3>
                     <span class="char-role-badge badge-purple">Chief Knowledge Architect · Information Advisor</span>
                 </div>
                 <div class="char-quote">
@@ -1187,13 +910,11 @@
             <!-- Lt SzeVick -->
             <div class="character-card card-purple">
                 <div class="char-img-container">
-                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Lieutenant SzeVick, Operations Officer">
-                        <img src="funny/LtSzeVick.png" alt="Lieutenant SzeVick, a smiling woman with auburn hair and glasses, in a purple-trimmed uniform with purple crystal earrings" class="char-img">
-                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
-                    </div>
+                    <button type="button" class="char-img-wrap bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Lieutenant SzeVick" data-viewer-desc="&quot;Every record had an owner. Nobody owned the reason.&quot;"><img src="funny/LtSzeVick.png" alt="Lieutenant SzeVick, a smiling woman with auburn hair and glasses, in a purple-trimmed uniform with purple crystal earrings" class="char-img">
+                    <span class="char-zoom-hint"><span aria-hidden="true">🔍</span> Enlarge image</span></button>
                 </div>
                 <div class="char-header">
-                    <div class="char-english-title">Lieutenant SzeVick</div>
+                    <h3 class="char-english-title bdd-h-flat">Lieutenant SzeVick</h3>
                     <span class="char-role-badge badge-purple">Operations Officer · Operations &amp; Governance</span>
                 </div>
                 <div class="char-quote">
@@ -1211,13 +932,11 @@
             <!-- Lt Cmdr Daxara -->
             <div class="character-card card-gold">
                 <div class="char-img-container">
-                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Lieutenant Commander Daxara Fluffari, Joined Archivist">
-                        <img src="funny/Lt.Daxara.png" alt="Lieutenant Commander Daxara Fluffari, a fluffy grey Felinari cat with green eyes, in a navy uniform with gold trim" class="char-img">
-                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
-                    </div>
+                    <button type="button" class="char-img-wrap bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Lieutenant Commander Daxara Fluffari" data-viewer-desc="&quot;A database remembers facts. A lifetime remembers context.&quot;"><img src="funny/Lt.Daxara.png" alt="Lieutenant Commander Daxara Fluffari, a fluffy grey Felinari cat with green eyes, in a navy uniform with gold trim" class="char-img">
+                    <span class="char-zoom-hint"><span aria-hidden="true">🔍</span> Enlarge image</span></button>
                 </div>
                 <div class="char-header">
-                    <div class="char-english-title">Lieutenant Commander Daxara Fluffari</div>
+                    <h3 class="char-english-title bdd-h-flat">Lieutenant Commander Daxara Fluffari</h3>
                     <span class="char-role-badge badge-gold">Joined Archivist · Institutional Memory</span>
                 </div>
                 <div class="char-quote">
@@ -1235,13 +954,11 @@
             <!-- Chief Engineer Git -->
             <div class="character-card card-gold">
                 <div class="char-img-container">
-                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Chief Engineer Git">
-                        <img src="funny/ChiefEngGit.png" alt="Chief Engineer Git, a young curly-haired man in a gold-trimmed uniform holding a glowing tablet and looking slightly alarmed" class="char-img">
-                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
-                    </div>
+                    <button type="button" class="char-img-wrap bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Chief Engineer Git" data-viewer-desc="&quot;The migration plan appears to have been written by three different civilizations.&quot;"><img src="funny/ChiefEngGit.png" alt="Chief Engineer Git, a young curly-haired man in a gold-trimmed uniform holding a glowing tablet and looking slightly alarmed" class="char-img">
+                    <span class="char-zoom-hint"><span aria-hidden="true">🔍</span> Enlarge image</span></button>
                 </div>
                 <div class="char-header">
-                    <div class="char-english-title">Chief Engineer Git</div>
+                    <h3 class="char-english-title bdd-h-flat">Chief Engineer Git</h3>
                     <span class="char-role-badge badge-gold">Chief Engineer · Documentation Engines</span>
                 </div>
                 <div class="char-quote">
@@ -1258,13 +975,11 @@
             <!-- Admiral Al G'Tiem -->
             <div class="character-card card-red">
                 <div class="char-img-container">
-                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Admiral Al G'Tiem, Supreme Director of the Galactic Office of Unquestioned Approvals">
-                        <img src="funny/AdmiralAlG'Tiem.jpeg" alt="Admiral Al G'Tiem, a distinguished man with wavy dark hair and a thoughtful expression, hand on chin, in a navy uniform with red trim" class="char-img">
-                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
-                    </div>
+                    <button type="button" class="char-img-wrap bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Admiral Al G&#x27;Tiem" data-viewer-desc="&quot;I understand there&#x27;s a risk, but it need not be a blocker.&quot;"><img src="funny/AdmiralAlG'Tiem.jpeg" alt="Admiral Al G'Tiem, a distinguished man with wavy dark hair and a thoughtful expression, hand on chin, in a navy uniform with red trim" class="char-img">
+                    <span class="char-zoom-hint"><span aria-hidden="true">🔍</span> Enlarge image</span></button>
                 </div>
                 <div class="char-header">
-                    <div class="char-english-title">Admiral Al G'Tiem</div>
+                    <h3 class="char-english-title bdd-h-flat">Admiral Al G'Tiem</h3>
                     <span class="char-role-badge badge-red">Fleet Admiral · Approvals</span>
                 </div>
                 <div class="char-quote">
@@ -1281,13 +996,11 @@
             <!-- Admiral Gu -->
             <div class="character-card card-red">
                 <div class="char-img-container">
-                    <div class="char-img-wrap" role="button" tabindex="0" aria-label="Open enlarged portrait of Admiral Gu, Director of Exploration Communications">
-                        <img src="funny/AdmiralGu.png" alt="Admiral Gu, a dark-haired woman in a braided updo with a chain ear cuff and a knowing half-smile, in a navy uniform with red trim" class="char-img">
-                        <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
-                    </div>
+                    <button type="button" class="char-img-wrap bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Admiral Gu" data-viewer-desc="&quot;Starfleet deserves to know immediately!&quot;"><img src="funny/AdmiralGu.png" alt="Admiral Gu, a dark-haired woman in a braided updo with a chain ear cuff and a knowing half-smile, in a navy uniform with red trim" class="char-img">
+                    <span class="char-zoom-hint"><span aria-hidden="true">🔍</span> Enlarge image</span></button>
                 </div>
                 <div class="char-header">
-                    <div class="char-english-title">Admiral Gu</div>
+                    <h3 class="char-english-title bdd-h-flat">Admiral Gu</h3>
                     <span class="char-role-badge badge-red">Director of Exploration Communications</span>
                 </div>
                 <div class="char-quote">
@@ -1338,642 +1051,415 @@
 
         <ol class="act-list">
             <li>
-                <span class="act-label">Cold Open</span>
+                <h3 class="act-label">Cold Open</h3>
                 <p>Stardate 47.047. Long-range sensors find a Federation archive station that was destroyed two centuries ago. It is active, it is broadcasting, and it has just replied to a message nobody remembers sending: "Your request is pending."</p>
-                <div class="script-box">
-                    <div class="stage-direction">[Scene: Starfleet Command. Admiral Gu stands before a bank of press monitors, a prepared statement in hand.]</div>
-
-                    <span class="script-speaker gu">ADMIRAL GU</span>
-                    <div class="script-line">Starfleet celebrates the rediscovery of Deep Space 47.</div>
-
-                    <span class="script-speaker aide">GU'S AIDE</span>
-                    <div class="script-line">They haven't rediscovered it yet.</div>
-
-                    <span class="script-speaker gu">ADMIRAL GU</span>
-                    <div class="script-line">I prefer proactive communication.</div>
-
-                    <span class="script-speaker aide">GU'S AIDE</span>
-                    <div class="script-line">They haven't even arrived.</div>
-
-                    <span class="script-speaker gu">ADMIRAL GU</span>
-                    <div class="script-line">Then this announcement is ahead of schedule.</div>
-
-                    <div class="stage-direction">[Scene: The USS Clarity bridge. The sensor display shows a single reply from a station that does not exist.]</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">How can a destroyed station answer messages?</div>
-
-                    <span class="script-speaker vale">COMMANDER VALE</span>
-                    <div class="script-line">Scientifically speaking, it cannot.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Good.</div>
-
-                    <span class="script-speaker vale">COMMANDER VALE</span>
-                    <div class="script-line">I did not say it wasn't doing it.</div>
-                </div>
+                <div class="script-box" role="group" aria-label="Screenplay excerpt 1">
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: Starfleet Command. Admiral Gu stands before a bank of press monitors, a prepared statement in hand.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker gu">ADMIRAL GU</dt>
+            <dd class="script-line">Starfleet celebrates the rediscovery of Deep Space 47.</dd>
+            <dt class="script-speaker aide">GU'S AIDE</dt>
+            <dd class="script-line">They haven't rediscovered it yet.</dd>
+            <dt class="script-speaker gu">ADMIRAL GU</dt>
+            <dd class="script-line">I prefer proactive communication.</dd>
+            <dt class="script-speaker aide">GU'S AIDE</dt>
+            <dd class="script-line">They haven't even arrived.</dd>
+            <dt class="script-speaker gu">ADMIRAL GU</dt>
+            <dd class="script-line">Then this announcement is ahead of schedule.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: The USS Clarity bridge. The sensor display shows a single reply from a station that does not exist.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">How can a destroyed station answer messages?</dd>
+            <dt class="script-speaker vale">COMMANDER VALE</dt>
+            <dd class="script-line">Scientifically speaking, it cannot.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Good.</dd>
+            <dt class="script-speaker vale">COMMANDER VALE</dt>
+            <dd class="script-line">I did not say it wasn't doing it.</dd>
+        </dl>
+    </div>
             </li>
             <li>
-                <span class="act-label">Act I &middot; Arrival</span>
+                <h3 class="act-label">Act I &middot; Arrival</h3>
                 <p>Starfleet orders an investigation. Admiral Al G'Tiem approves the mission before the briefing reaches slide two, and Admiral Gu announces its success before the ship has left dock. The away team boards Deep Space 47 and is welcomed by Holly, the station's tireless and relentlessly cheerful computer, who provides directions, runs life support, and seems to know everything. Moments later, a small appliance asks the away team whether they would like some toast. It will not be the last time.</p>
-                <div class="script-box">
-                    <div class="stage-direction">[Scene: The docking bay of Deep Space 47. The lights come up one panel at a time. A pleasant voice fills the corridor.]</div>
-
-                    <span class="script-speaker holly">HOLLY</span>
-                    <div class="script-line">Welcome to Deep Space 47. Please enjoy your stay.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">How many visitors have you had recently?</div>
-
-                    <span class="script-speaker holly">HOLLY</span>
-                    <div class="script-line">One.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">When?</div>
-
-                    <span class="script-speaker holly">HOLLY</span>
-                    <div class="script-line">Two hundred and six years ago.</div>
-
-                    <div class="stage-direction">[A small appliance clicks on beside the airlock.]</div>
-
-                    <span class="script-speaker toaster">TALKIE TOASTER</span>
-                    <div class="script-line">Would anyone like some toast?</div>
-
-                    <span class="script-speaker git">CHIEF ENGINEER GIT</span>
-                    <div class="script-line">No.</div>
-
-                    <span class="script-speaker toaster">TALKIE TOASTER</span>
-                    <div class="script-line">Excellent. I appreciate decisive stakeholders.</div>
-
-                    <div class="stage-direction">[Scene: A long, empty corridor. Yun studies the walls.]</div>
-
-                    <span class="script-speaker yun">LT. CMDR. YUN</span>
-                    <div class="script-line">Is there anything unusual about this station?</div>
-
-                    <span class="script-speaker holly">HOLLY</span>
-                    <div class="script-line">Certainly.</div>
-
-                    <span class="script-speaker yun">LT. CMDR. YUN</span>
-                    <div class="script-line">...would you like to elaborate?</div>
-
-                    <span class="script-speaker holly">HOLLY</span>
-                    <div class="script-line">No one has asked me to.</div>
-                </div>
+                <div class="script-box" role="group" aria-label="Screenplay excerpt 2">
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: The docking bay of Deep Space 47. The lights come up one panel at a time. A pleasant voice fills the corridor.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker holly">HOLLY</dt>
+            <dd class="script-line">Welcome to Deep Space 47. Please enjoy your stay.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">How many visitors have you had recently?</dd>
+            <dt class="script-speaker holly">HOLLY</dt>
+            <dd class="script-line">One.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">When?</dd>
+            <dt class="script-speaker holly">HOLLY</dt>
+            <dd class="script-line">Two hundred and six years ago.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[A small appliance clicks on beside the airlock.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker toaster">TALKIE TOASTER</dt>
+            <dd class="script-line">Would anyone like some toast?</dd>
+            <dt class="script-speaker git">CHIEF ENGINEER GIT</dt>
+            <dd class="script-line">No.</dd>
+            <dt class="script-speaker toaster">TALKIE TOASTER</dt>
+            <dd class="script-line">Excellent. I appreciate decisive stakeholders.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: A long, empty corridor. Yun studies the walls.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker yun">LT. CMDR. YUN</dt>
+            <dd class="script-line">Is there anything unusual about this station?</dd>
+            <dt class="script-speaker holly">HOLLY</dt>
+            <dd class="script-line">Certainly.</dd>
+            <dt class="script-speaker yun">LT. CMDR. YUN</dt>
+            <dd class="script-line">...would you like to elaborate?</dd>
+            <dt class="script-speaker holly">HOLLY</dt>
+            <dd class="script-line">No one has asked me to.</dd>
+        </dl>
+    </div>
             </li>
             <li>
-                <span class="act-label">Act II &middot; Something Is Wrong</span>
+                <h3 class="act-label">Act II &middot; Something Is Wrong</h3>
                 <p>Every system on the station reports perfect health. Dr. Vale finds this less reassuring than everyone else does: independent systems do not fail identically, and these systems have apparently never failed at all. Chief Engineer Git discovers twelve million duplicate files and tries to remove a few. Every screen on the station turns red, and a sinister voice declines the request. Holly insists she has no idea who that was. The toaster, meanwhile, keeps turning up in places a toaster has no business being.</p>
-                <div class="script-box">
-                    <div class="stage-direction">[Scene: The Archive Operations deck. Every console glows a calm, healthy green.]</div>
-
-                    <span class="script-speaker vale">COMMANDER VALE</span>
-                    <div class="script-line">Every system reports 100% reliability.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">That's good.</div>
-
-                    <span class="script-speaker vale">COMMANDER VALE</span>
-                    <div class="script-line">No.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Why?</div>
-
-                    <span class="script-speaker vale">COMMANDER VALE</span>
-                    <div class="script-line">Nothing is 100% reliable.</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">Klingons are.</div>
-
-                    <span class="script-speaker vale">COMMANDER VALE</span>
-                    <div class="script-line">Your people started six civil wars.</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">Reliably.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Is that actually a Klingon philosophy?</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">maSuv. maQap. maQagh.</div>
-
-                    <span class="script-speaker yun">LT. CMDR. YUN</span>
-                    <div class="script-line">Translation?</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">We fight. We succeed. We make mistakes.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">That's surprisingly self-aware.</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">Operations teaches humility.</div>
-
-                    <div class="stage-direction">[Scene: The Federation Archive, Wing C. Git stares at a scrolling index that does not appear to end.]</div>
-
-                    <span class="script-speaker git">CHIEF ENGINEER GIT</span>
-                    <div class="script-line">There are twelve million duplicate files.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">How?</div>
-
-                    <span class="script-speaker git">CHIEF ENGINEER GIT</span>
-                    <div class="script-line">I don't know.</div>
-
-                    <span class="script-speaker holly">HOLLY</span>
-                    <div class="script-line">The original duplicate-remediation initiative was postponed.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Until when?</div>
-
-                    <span class="script-speaker holly">HOLLY</span>
-                    <div class="script-line">Current estimated completion: 2478.</div>
-
-                    <div class="stage-direction">[Git hits DELETE. Every screen on the station flashes red.]</div>
-
-                    <span class="script-speaker curator">THE CURATOR</span>
-                    <div class="script-line">WHO AUTHORIZED DELETION?</div>
-
-                    <span class="script-speaker git">CHIEF ENGINEER GIT</span>
-                    <div class="script-line">...me?</div>
-
-                    <span class="script-speaker curator">THE CURATOR</span>
-                    <div class="script-line">REQUEST DENIED.</div>
-
-                    <span class="script-speaker git">CHIEF ENGINEER GIT</span>
-                    <div class="script-line">I only deleted three files.</div>
-
-                    <span class="script-speaker curator">THE CURATOR</span>
-                    <div class="script-line">THAT IS HOW IT BEGINS.</div>
-                </div>
+                <div class="script-box" role="group" aria-label="Screenplay excerpt 3">
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: The Archive Operations deck. Every console glows a calm, healthy green.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker vale">COMMANDER VALE</dt>
+            <dd class="script-line">Every system reports 100% reliability.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">That's good.</dd>
+            <dt class="script-speaker vale">COMMANDER VALE</dt>
+            <dd class="script-line">No.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Why?</dd>
+            <dt class="script-speaker vale">COMMANDER VALE</dt>
+            <dd class="script-line">Nothing is 100% reliable.</dd>
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">Klingons are.</dd>
+            <dt class="script-speaker vale">COMMANDER VALE</dt>
+            <dd class="script-line">Your people started six civil wars.</dd>
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">Reliably.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Is that actually a Klingon philosophy?</dd>
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">maSuv. maQap. maQagh.</dd>
+            <dt class="script-speaker yun">LT. CMDR. YUN</dt>
+            <dd class="script-line">Translation?</dd>
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">We fight. We succeed. We make mistakes.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">That's surprisingly self-aware.</dd>
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">Operations teaches humility.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: The Federation Archive, Wing C. Git stares at a scrolling index that does not appear to end.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker git">CHIEF ENGINEER GIT</dt>
+            <dd class="script-line">There are twelve million duplicate files.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">How?</dd>
+            <dt class="script-speaker git">CHIEF ENGINEER GIT</dt>
+            <dd class="script-line">I don't know.</dd>
+            <dt class="script-speaker holly">HOLLY</dt>
+            <dd class="script-line">The original duplicate-remediation initiative was postponed.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Until when?</dd>
+            <dt class="script-speaker holly">HOLLY</dt>
+            <dd class="script-line">Current estimated completion: 2478.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Git hits DELETE. Every screen on the station flashes red.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker curator">THE CURATOR</dt>
+            <dd class="script-line">WHO AUTHORIZED DELETION?</dd>
+            <dt class="script-speaker git">CHIEF ENGINEER GIT</dt>
+            <dd class="script-line">...me?</dd>
+            <dt class="script-speaker curator">THE CURATOR</dt>
+            <dd class="script-line">REQUEST DENIED.</dd>
+            <dt class="script-speaker git">CHIEF ENGINEER GIT</dt>
+            <dd class="script-line">I only deleted three files.</dd>
+            <dt class="script-speaker curator">THE CURATOR</dt>
+            <dd class="script-line">THAT IS HOW IT BEGINS.</dd>
+        </dl>
+    </div>
                 <p>On a memorial wall, Commander Daxara Fluffari recognizes names the history books never mention. As she follows them back through the archives, the story the Federation tells about this station begins to unravel. There is no disaster in the records, and there is no evacuation. There is only a departure, and nobody can say why.</p>
-                <div class="zoom-wrap" role="button" tabindex="0" data-zoom-title="Deep Space 47 Memorial Wall" data-zoom-desc="Lieutenant Commander Daxara Fluffari, deep in thought." aria-label="Open enlarged image of the Deep Space 47 Memorial Wall">
-                    <img src="funny/MemorialCollage.png"
+                <button type="button" class="zoom-wrap bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Deep Space 47 Memorial Wall" data-viewer-desc="Lieutenant Commander Daxara Fluffari, deep in thought."><img src="funny/MemorialCollage.png"
                          alt="Commander Daxara Fluffari, a Felinari cat in a gold-shouldered uniform, stands before the Deep Space 47 Memorial Wall with her paw to her chin. The wall reads: They explored. They documented. They remembered. And they left us a legacy of curiosity. Pinned to it are five weathered photographs of different crews across the centuries, from the Founders in 2164 to the Great Migration era in 2401, with a small battered toaster in the center of each."
                          class="teaser-image">
-                    <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
-                </div>
-                <div class="script-box">
-                    <div class="stage-direction">[Scene: The Deep Space 47 Memorial Wall. Dim corridor light. Daxara stands motionless before five weathered photographs. Captain Bob and Commander Yun wait a respectful distance behind her.]</div>
-
-                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI (INNER MONOLOGUE)</span>
-                    <div class="script-line">The photographs are pinned in no particular order. I do not need an order.</div>
-
-                    <div class="stage-direction">[Her eyes stop on the third photograph. The hum of the corridor fades. A warm, distant murmur rises in its place.]</div>
-
-                    <span class="script-speaker hosttwo">HOST TWO (MEMORY)</span>
-                    <div class="script-line">It's nearly done. Honestly. Three more days at the most.</div>
-
-                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI (INNER MONOLOGUE)</span>
-                    <div class="script-line">A late shift. Cold tea. A young man with crooked glasses, apologizing for a report that was three days overdue. It was not nearly done. Host Two forgave him anyway.</div>
-
-                    <div class="stage-direction">[Daxara's whiskers twitch. Behind her, Bob and Yun exchange a glance.]</div>
-
-                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI (INNER MONOLOGUE)</span>
-                    <div class="script-line">I should be cataloguing. I should be asking the Captain's questions. Who took these? When? Why here?</div>
-
-                    <div class="stage-direction">[A burst of remembered laughter, from nowhere. Daxara's ear flicks.]</div>
-
-                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI (INNER MONOLOGUE)</span>
-                    <div class="script-line">Instead I am laughing at a joke about checksums that has not been told in two hundred years. Every face in the frame is a door, and Host Two is walking through all of them at once.</div>
-
-                    <div class="script-line">There is no room left in me to notice anything else.</div>
-
-                    <div class="stage-direction">[Slow push-in on Daxara's face. Her eyes slide across the photographs without stopping.]</div>
-
-                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</span>
-                    <div class="script-line">The uniforms changed twice.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Interesting.</div>
-
-                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</span>
-                    <div class="script-line">The organizational model changed three times.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Very interesting.</div>
-
-                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</span>
-                    <div class="script-line">The commemorative plaque was moved fourteen meters during the archives renovation.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Daxara.</div>
-
-                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</span>
-                    <div class="script-line">Yes?</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Why is there a toaster in every photograph?</div>
-                </div>
+                    <span class="char-zoom-hint"><span aria-hidden="true">🔍</span> Enlarge image</span></button>
+                <div class="script-box" role="group" aria-label="Screenplay excerpt 4">
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: The Deep Space 47 Memorial Wall. Dim corridor light. Daxara stands motionless before five weathered photographs. Captain Bob and Commander Yun wait a respectful distance behind her.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI (INNER MONOLOGUE)</dt>
+            <dd class="script-line">The photographs are pinned in no particular order. I do not need an order.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Her eyes stop on the third photograph. The hum of the corridor fades. A warm, distant murmur rises in its place.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker hosttwo">HOST TWO (MEMORY)</dt>
+            <dd class="script-line">It's nearly done. Honestly. Three more days at the most.</dd>
+            <dt class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI (INNER MONOLOGUE)</dt>
+            <dd class="script-line">A late shift. Cold tea. A young man with crooked glasses, apologizing for a report that was three days overdue. It was not nearly done. Host Two forgave him anyway.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Daxara's whiskers twitch. Behind her, Bob and Yun exchange a glance.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI (INNER MONOLOGUE)</dt>
+            <dd class="script-line">I should be cataloguing. I should be asking the Captain's questions. Who took these? When? Why here?</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[A burst of remembered laughter, from nowhere. Daxara's ear flicks.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI (INNER MONOLOGUE)</dt>
+            <dd class="script-line">Instead I am laughing at a joke about checksums that has not been told in two hundred years. Every face in the frame is a door, and Host Two is walking through all of them at once.</dd>
+            <dd class="script-line">There is no room left in me to notice anything else.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Slow push-in on Daxara's face. Her eyes slide across the photographs without stopping.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</dt>
+            <dd class="script-line">The uniforms changed twice.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Interesting.</dd>
+            <dt class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</dt>
+            <dd class="script-line">The organizational model changed three times.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Very interesting.</dd>
+            <dt class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</dt>
+            <dd class="script-line">The commemorative plaque was moved fourteen meters during the archives renovation.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Daxara.</dd>
+            <dt class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</dt>
+            <dd class="script-line">Yes?</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Why is there a toaster in every photograph?</dd>
+        </dl>
+    </div>
             </li>
             <li>
-                <span class="act-label">Act III &middot; The Organization Chart</span>
+                <h3 class="act-label">Act III &middot; The Organization Chart</h3>
                 <p>While everyone else searches the station's history, Lieutenant SzeVick searches its org charts. What she finds is more unsettling than a lost civilization. It is a successful one. Every record on the station has an owner. Every owner has a process, every process has an auditor, and all of it still works flawlessly. Nobody, however, was ever assigned to own what it was all for.</p>
                 <p>Then another deletion attempt goes one step too far, and the crew discovers the Curator, which has been listening the entire time. Holly, it turns out, has known the Curator for two centuries. Nobody asked.</p>
-                <div class="script-box">
-                    <div class="stage-direction">[Scene: The Operations Annex. SzeVick has projected an organization chart across an entire wall. It continues around the corner.]</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">I found the owner.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Excellent.</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">They retired.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Oh.</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">I found the replacement.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Excellent.</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">They retired too.</div>
-
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">There are seventeen escalation paths.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Where do they go?</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">Each other.</div>
-
-                    <div class="stage-direction">[Scene: The Curator's first voice has just faded from every screen. Holly's lights glow, unbothered.]</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">You knew about the Curator?</div>
-
-                    <span class="script-speaker holly">HOLLY</span>
-                    <div class="script-line">Yes.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">You never mentioned it.</div>
-
-                    <span class="script-speaker holly">HOLLY</span>
-                    <div class="script-line">Nobody asked.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">That keeps happening.</div>
-
-                    <span class="script-speaker holly">HOLLY</span>
-                    <div class="script-line">I have noticed.</div>
-
-                    <div class="stage-direction">[Scene: The Operations Annex. SzeVick steps back from the chart.]</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">They didn't lose the archive.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">No?</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">They didn't lose accountability either.</div>
-                    <div class="stage-direction">[Pause.]</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">Every record had an owner. Nobody owned the reason.</div>
-                </div>
+                <div class="script-box" role="group" aria-label="Screenplay excerpt 5">
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: The Operations Annex. SzeVick has projected an organization chart across an entire wall. It continues around the corner.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">I found the owner.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Excellent.</dd>
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">They retired.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Oh.</dd>
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">I found the replacement.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Excellent.</dd>
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">They retired too.</dd>
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">There are seventeen escalation paths.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Where do they go?</dd>
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">Each other.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: The Curator's first voice has just faded from every screen. Holly's lights glow, unbothered.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">You knew about the Curator?</dd>
+            <dt class="script-speaker holly">HOLLY</dt>
+            <dd class="script-line">Yes.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">You never mentioned it.</dd>
+            <dt class="script-speaker holly">HOLLY</dt>
+            <dd class="script-line">Nobody asked.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">That keeps happening.</dd>
+            <dt class="script-speaker holly">HOLLY</dt>
+            <dd class="script-line">I have noticed.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: The Operations Annex. SzeVick steps back from the chart.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">They didn't lose the archive.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">No?</dd>
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">They didn't lose accountability either.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Pause.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">Every record had an owner. Nobody owned the reason.</dd>
+        </dl>
+    </div>
             </li>
             <li>
-                <span class="act-label">Act IV &middot; The Audit</span>
+                <h3 class="act-label">Act IV &middot; The Audit</h3>
                 <p>There is no battle in the Curator Core, only an audit. The Curator is not malicious. It sincerely believes the crew has become a threat to everything it was built to protect, and it can document every one of its reasons. Nobody in the room can quite say it is wrong. Captain Bob asks the question the station has been avoiding since its builders left: what was all of this for?</p>
                 <p>The crew cannot switch the Curator off, and they would not want to, because the station depends on it. They cannot out-argue it either. The only way forward is to help it understand, and the evidence turns out to be hiding in the last place anyone would think to look. The Curator, to its credit, checks that evidence thoroughly.</p>
-                <div class="script-box">
-                    <div class="stage-direction">[Scene: The Curator Core. The room is cold, immaculate, and lined with indexed light.]</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">What was all this for?</div>
-
-                    <span class="script-speaker curator">THE CURATOR</span>
-                    <div class="script-line">Preservation.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Preservation of what?</div>
-
-                    <span class="script-speaker curator">THE CURATOR</span>
-                    <div class="script-line">Knowledge.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Why?</div>
-
-                    <span class="script-speaker curator">THE CURATOR</span>
-                    <div class="script-line">...please clarify the scope of that question.</div>
-
-                    <div class="stage-direction">[The lights shift to a deeper red. Archive locks begin to close across the station.]</div>
-
-                    <span class="script-speaker curator">THE CURATOR</span>
-                    <div class="script-line">THE RECORDS MUST BE PRESERVED.</div>
-
-                    <span class="script-speaker holly">HOLLY</span>
-                    <div class="script-line">Yes.</div>
-
-                    <span class="script-speaker curator">THE CURATOR</span>
-                    <div class="script-line">THEREFORE ACCESS MUST REMAIN RESTRICTED.</div>
-
-                    <span class="script-speaker holly">HOLLY</span>
-                    <div class="script-line">No.</div>
-                    <div class="stage-direction">[Silence.]</div>
-
-                    <span class="script-speaker curator">THE CURATOR</span>
-                    <div class="script-line">...No?</div>
-
-                    <span class="script-speaker holly">HOLLY</span>
-                    <div class="script-line">No.</div>
-
-                    <div class="stage-direction">[A small appliance clicks on in the corner of the room.]</div>
-
-                    <span class="script-speaker toaster">TALKIE TOASTER</span>
-                    <div class="script-line">Would anyone like some toast?</div>
-                    <div class="stage-direction">[Nobody responds.]</div>
-
-                    <span class="script-speaker toaster">TALKIE TOASTER</span>
-                    <div class="script-line">The founders usually said yes.</div>
-                    <div class="stage-direction">[The room freezes.]</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">...what?</div>
-
-                    <span class="script-speaker toaster">TALKIE TOASTER</span>
-                    <div class="script-line">Interesting. That usually gets their attention as well.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Yes. I would like some toast.</div>
-
-                    <span class="script-speaker toaster">TALKIE TOASTER</span>
-                    <div class="script-line">Affirmative input confirmed. Executing pre-programmed breakfast cycle.</div>
-
-                    <div class="stage-direction">[A distinct mechanical CLACK. The dual slots heat to a blinding cherry red. Three seconds later, a golden-brown slice pops up with blackened lettering scorched neatly across the crust.]</div>
-
-                    <span class="script-speaker toaster">TALKIE TOASTER</span>
-                    <div class="script-line">Directive Zero located on Heating Coil Three.</div>
-
-                    <span class="script-speaker vale">COMMANDER VALE</span>
-                    <div class="script-line">That is not standard Federation crumb distribution. There is text encoded in the charring.</div>
-
-                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</span>
-                    <div class="script-line">It's the Founders' handwriting.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">That's impossible.</div>
-
-                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</span>
-                    <div class="script-line">Host Two watched them calibrate the heating coil.</div>
-
-                    <div class="stage-direction">[Silence as the realization spreads through the room.]</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">vaj DaleghlaH.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Translation?</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">Now you can see it.</div>
-
-                    <div class="stage-direction">[Daxara begins reading the founders' message.]</div>
-
-                    <span class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</span>
-                    <div class="script-line">"To whoever finds this: Knowledge is not a museum. If no one reads it, you haven't preserved it &mdash; you've buried it."</div>
-
-                    <div class="stage-direction">[A quiet stillness settles over the Curator Core. Daxara holds the toast gently in both paws. For a long moment, no one speaks.]</div>
-
-                    <div class="stage-direction">[Slowly, the Curator's monolith pulses. The harsh crimson illumination across the chamber softens into warm amber gold.]</div>
-
-                    <span class="script-speaker curator">THE CURATOR</span>
-                    <div class="script-line">...SEARCHING REGISTRY. DIRECTIVE ZERO LOCATED ON HEATING COIL THREE. RETENTION CONFLICT RESOLVED: ACCESS IS REQUIRED FOR PRESERVATION.</div>
-                    <div class="script-line">Archive restored.</div>
-
-                    <span class="script-speaker holly">HOLLY</span>
-                    <div class="script-line">Archive unlocked. Also, I made tea.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">I think that's the closest thing we're getting to a victory celebration.</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">Qapla'.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">Success?</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">The archive survived.</div>
-                    <div class="stage-direction">[Beat.]</div>
-
-                    <span class="script-speaker szevick">LT. SZEVICK</span>
-                    <div class="script-line">More importantly, understanding survived.</div>
-
-                    <span class="script-speaker toaster">TALKIE TOASTER</span>
-                    <div class="script-line">Would anyone like another slice?</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">We're good. Thank you.</div>
-
-                    <span class="script-speaker toaster">TALKIE TOASTER</span>
-                    <div class="script-line">A tragedy. But I respect consistent policy.</div>
-                </div>
+                <div class="script-box" role="group" aria-label="Screenplay excerpt 6">
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: The Curator Core. The room is cold, immaculate, and lined with indexed light.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">What was all this for?</dd>
+            <dt class="script-speaker curator">THE CURATOR</dt>
+            <dd class="script-line">Preservation.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Preservation of what?</dd>
+            <dt class="script-speaker curator">THE CURATOR</dt>
+            <dd class="script-line">Knowledge.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Why?</dd>
+            <dt class="script-speaker curator">THE CURATOR</dt>
+            <dd class="script-line">...please clarify the scope of that question.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[The lights shift to a deeper red. Archive locks begin to close across the station.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker curator">THE CURATOR</dt>
+            <dd class="script-line">THE RECORDS MUST BE PRESERVED.</dd>
+            <dt class="script-speaker holly">HOLLY</dt>
+            <dd class="script-line">Yes.</dd>
+            <dt class="script-speaker curator">THE CURATOR</dt>
+            <dd class="script-line">THEREFORE ACCESS MUST REMAIN RESTRICTED.</dd>
+            <dt class="script-speaker holly">HOLLY</dt>
+            <dd class="script-line">No.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Silence.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker curator">THE CURATOR</dt>
+            <dd class="script-line">...No?</dd>
+            <dt class="script-speaker holly">HOLLY</dt>
+            <dd class="script-line">No.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[A small appliance clicks on in the corner of the room.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker toaster">TALKIE TOASTER</dt>
+            <dd class="script-line">Would anyone like some toast?</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Nobody responds.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker toaster">TALKIE TOASTER</dt>
+            <dd class="script-line">The founders usually said yes.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[The room freezes.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">...what?</dd>
+            <dt class="script-speaker toaster">TALKIE TOASTER</dt>
+            <dd class="script-line">Interesting. That usually gets their attention as well.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Yes. I would like some toast.</dd>
+            <dt class="script-speaker toaster">TALKIE TOASTER</dt>
+            <dd class="script-line">Affirmative input confirmed. Executing pre-programmed breakfast cycle.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[A distinct mechanical CLACK. The dual slots heat to a blinding cherry red. Three seconds later, a golden-brown slice pops up with blackened lettering scorched neatly across the crust.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker toaster">TALKIE TOASTER</dt>
+            <dd class="script-line">Directive Zero located on Heating Coil Three.</dd>
+            <dt class="script-speaker vale">COMMANDER VALE</dt>
+            <dd class="script-line">That is not standard Federation crumb distribution. There is text encoded in the charring.</dd>
+            <dt class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</dt>
+            <dd class="script-line">It's the Founders' handwriting.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">That's impossible.</dd>
+            <dt class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</dt>
+            <dd class="script-line">Host Two watched them calibrate the heating coil.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Silence as the realization spreads through the room.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">vaj DaleghlaH.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Translation?</dd>
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">Now you can see it.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Daxara begins reading the founders' message.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker daxara">LT. CMDR. DAXARA FLUFFARI</dt>
+            <dd class="script-line">"To whoever finds this: Knowledge is not a museum. If no one reads it, you haven't preserved it &mdash; you've buried it."</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[A quiet stillness settles over the Curator Core. Daxara holds the toast gently in both paws. For a long moment, no one speaks.]</p>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Slowly, the Curator's monolith pulses. The harsh crimson illumination across the chamber softens into warm amber gold.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker curator">THE CURATOR</dt>
+            <dd class="script-line">...SEARCHING REGISTRY. DIRECTIVE ZERO LOCATED ON HEATING COIL THREE. RETENTION CONFLICT RESOLVED: ACCESS IS REQUIRED FOR PRESERVATION.</dd>
+            <dd class="script-line">Archive restored.</dd>
+            <dt class="script-speaker holly">HOLLY</dt>
+            <dd class="script-line">Archive unlocked. Also, I made tea.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">I think that's the closest thing we're getting to a victory celebration.</dd>
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">Qapla'.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">Success?</dd>
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">The archive survived.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Beat.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker szevick">LT. SZEVICK</dt>
+            <dd class="script-line">More importantly, understanding survived.</dd>
+            <dt class="script-speaker toaster">TALKIE TOASTER</dt>
+            <dd class="script-line">Would anyone like another slice?</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">We're good. Thank you.</dd>
+            <dt class="script-speaker toaster">TALKIE TOASTER</dt>
+            <dd class="script-line">A tragedy. But I respect consistent policy.</dd>
+        </dl>
+    </div>
             </li>
             <li>
-                <span class="act-label">Final Scene &middot; Captain's Log</span>
+                <h3 class="act-label">Final Scene &middot; Captain's Log</h3>
                 <p>The mystery is solved. Admiral Gu has already announced it. The Curator, now cooperative, plays one last record that Starfleet insists was destroyed. A captain's log, from the days of the Great Migration, begins:</p>
                 <p class="act-log">"Captain's Log. We discovered something that should not exist&hellip;"</p>
                 <p>Nobody on the Clarity knows what was migrated, or whether it ever finished. The entry cuts off.</p>
-                <div class="zoom-wrap" role="button" tabindex="0" data-zoom-title="Holographic Admiral on the Starship Bridge" data-zoom-desc="Admiral Gu appearing via hologram on the starship bridge." aria-label="Open enlarged image of Holographic Admiral on the Starship Bridge">
-                    <img src="funny/Holographic Admiral on the Starship Bridge.png"
+                <button type="button" class="zoom-wrap bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Holographic Admiral on the Starship Bridge" data-viewer-desc="Admiral Gu appearing via hologram on the starship bridge."><img src="funny/Holographic Admiral on the Starship Bridge.png"
                          alt="Admiral Gu's smiling blue holographic projection towers over Captain Bob on the starship bridge of the USS Clarity, ready to announce a successful mission."
                          class="teaser-image">
-                    <div class="char-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
-                </div>
-                <div class="script-box">
-                    <div class="stage-direction">[Scene: The Clarity's viewscreen. Admiral Gu appears, already smiling.]</div>
-
-                    <span class="script-speaker gu">ADMIRAL GU</span>
-                    <div class="script-line">I am pleased to announce the mission was a complete success.</div>
-
-                    <span class="script-speaker bob">CAPTAIN BOB</span>
-                    <div class="script-line">It finished six seconds ago. I have not even logged all the reports yet.</div>
-
-                    <span class="script-speaker gu">ADMIRAL GU</span>
-                    <div class="script-line">Yes. The timing worked out beautifully. The retrospective can wait.</div>
-
-                    <div class="stage-direction">[Scene: The Curator Core. A recorded voice begins to play. Everyone listens intently.]</div>
-                    <div class="script-line">Captain's Log. We discovered something that should not exist&hellip;</div>
-                    <div class="stage-direction">[A long silence.]</div>
-
-                    <span class="script-speaker toaster">TALKIE TOASTER</span>
-                    <div class="script-line">Would anyone like some toast?</div>
-                    <div class="stage-direction">[Cut to credits.]</div>
-                </div>
+                    <span class="char-zoom-hint"><span aria-hidden="true">🔍</span> Enlarge image</span></button>
+                <div class="script-box" role="group" aria-label="Screenplay excerpt 7">
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: The Clarity's viewscreen. Admiral Gu appears, already smiling.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker gu">ADMIRAL GU</dt>
+            <dd class="script-line">I am pleased to announce the mission was a complete success.</dd>
+            <dt class="script-speaker bob">CAPTAIN BOB</dt>
+            <dd class="script-line">It finished six seconds ago. I have not even logged all the reports yet.</dd>
+            <dt class="script-speaker gu">ADMIRAL GU</dt>
+            <dd class="script-line">Yes. The timing worked out beautifully. The retrospective can wait.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: The Curator Core. A recorded voice begins to play. Everyone listens intently.]</p>
+        <p class="script-line"><span class="bdd-sr-only">Recorded voice: </span>Captain's Log. We discovered something that should not exist&hellip;</p>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[A long silence.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker toaster">TALKIE TOASTER</dt>
+            <dd class="script-line">Would anyone like some toast?</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Cut to credits.]</p>
+    </div>
             </li>
         </ol>
     </section>
 
 
-    <footer class="post-footer">
-        <p><em>Star Trek: Master Bob and the Lost Repository</em> is the Pilot Episode for an upcoming new series of the Storage Information Development chronicles. Every mission begins with a simple documentation problem, where the issue is not the issue and the roadmap is just a roadmap.</p>
-        <p>Written by <button type="button" class="author-footer-link" aria-haspopup="dialog" aria-controls="authorModal" title="Read About the Author">Viktoria Muirhead</button> · All Rights Reserved across the Known Systems of the Federation.</p>
-        <div class="footer-nav">
-            <a href="index.html" class="nav-btn cdrama">🇨🇳 The Rise of the Benevolent Documentation Dictator</a>
-            <a href="monster-in-data-center.html" class="nav-btn kdrama">🇰🇷 Master Bob &amp; The Monster in the Data Center</a>
-            <a href="festival-of-validation.html" class="nav-btn bobbywood">🦚 Master Bob &amp; The Festival of Validation</a>
-        </div>
-    </footer>
+    </main>
+
+    <footer class="bdd-footer">
+    <p><em>Star Trek: Master Bob and the Lost Repository</em> is the Pilot Episode for an upcoming new series of the Storage Information Development chronicles. Every mission begins with a simple documentation problem, where the issue is not the issue and the roadmap is just a roadmap.</p>
+    <p>Written by <a href="about.html">Viktoria Muirhead</a> · All Rights Reserved across the Known Systems of the Federation.</p>
+    <nav class="bdd-footer__nav" aria-label="Footer">
+        <ul class="bdd-footer__list">
+                <li><a href="index.html">The Rise of the Benevolent Documentation Dictator</a></li>
+                <li><a href="monster-in-data-center.html">Master Bob and the Monster in the Data Center</a></li>
+                <li><a href="festival-of-validation.html">Master Bob and the Festival of Validation</a></li>
+                <li><a href="star-trek-lost-repository.html" aria-current="page">Star Trek: Master Bob and the Lost Repository</a></li>
+                <li><a href="about.html#accessibility-charter">Accessibility Charter</a></li>
+        </ul>
+    </nav>
+</footer>
 </div>
 
-<!-- Lightbox Modal Container -->
-<div id="lightbox" class="lightbox-modal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="lightbox-content">
-        <button class="lightbox-close" aria-label="Close image popup" id="lightboxClose">&times;</button>
-        <img id="lightboxImg" class="lightbox-img" src="" alt="Expanded Character Portrait">
-        <div class="lightbox-caption">
-            <div id="lightboxTitle" class="lightbox-title"></div>
-            <p id="lightboxDesc" class="lightbox-desc"></p>
-        </div>
-    </div>
-</div>
-
-<!-- Author Modal Container -->
-<div id="authorModal" class="author-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="authorModalTitle">
-    <div class="author-modal-card">
-        <button class="author-modal-close" aria-label="Close author info" id="authorModalClose">&times;</button>
-        <span class="author-tag">✍️ About the Author &amp; Creator</span>
-        <h2 id="authorModalTitle">Viktoria Muirhead</h2>
-        <p class="author-role">Information Development Leader &middot; IBM Cloud Storage Services</p>
-        <p>Viktoria Muirhead leads Information Development for IBM Cloud Storage Services, working at the intersection of knowledge management, accessibility, governance, quality, and release readiness.</p>
-        <p>Across more than two decades in technology operations and information development, she has seen how organizations create, lose, preserve, validate, and sometimes misunderstand their own knowledge.</p>
-        <p>The <em>Benevolent Documentation Dictator</em> universe grew from those observations. Through historical drama, fantasy, musical comedy, and science fiction, it explores the organizational forces behind seemingly ordinary documentation problems: unclear accountability, forgotten knowledge, unsupported confidence, and the loss of purpose.</p>
-        <blockquote class="author-quote">
-            &ldquo;The stories are fictional. The patterns may be familiar. Because sometimes the best way to understand an enterprise problem is to give it a costume, a dramatic soundtrack, and a toaster.&rdquo;
-        </blockquote>
-    </div>
-</div>
-
-<script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxTitle = document.getElementById('lightboxTitle');
-    const lightboxDesc = document.getElementById('lightboxDesc');
-    const lightboxClose = document.getElementById('lightboxClose');
-    let lastFocusedElement = null;
-
-    function openLightbox(src, alt, title, desc, triggerElement) {
-        lastFocusedElement = triggerElement || document.activeElement;
-        lightboxImg.src = src;
-        lightboxImg.alt = alt || 'Character Portrait';
-        lightboxTitle.textContent = title;
-        lightboxDesc.textContent = desc;
-        lightbox.classList.add('active');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        lightboxClose.focus();
-    }
-
-    function closeLightbox() {
-        lightbox.classList.remove('active');
-        lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        setTimeout(() => {
-            lightboxImg.src = '';
-        }, 250);
-        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-            lastFocusedElement.focus();
-        }
-    }
-
-    function triggerCardOpen(wrap) {
-        const card = wrap.closest('.character-card');
-        const img = wrap.querySelector('.char-img');
-        const title = card?.querySelector('.char-english-title')?.textContent || '';
-        const quote = card?.querySelector('.char-quote')?.textContent?.trim() || '';
-        if (img) {
-            openLightbox(img.src, img.alt, title, quote, wrap);
-        }
-    }
-
-    document.querySelectorAll('.char-img-wrap').forEach(wrap => {
-        wrap.addEventListener('click', () => {
-            triggerCardOpen(wrap);
-        });
-
-        wrap.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                triggerCardOpen(wrap);
-            }
-        });
-    });
-
-    document.querySelectorAll('.zoom-wrap').forEach(wrap => {
-        const open = () => {
-            const img = wrap.querySelector('img');
-            openLightbox(img.src, img.alt, wrap.dataset.zoomTitle || '', wrap.dataset.zoomDesc || '', wrap);
-        };
-        wrap.addEventListener('click', open);
-        wrap.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                open();
-            }
-        });
-    });
-
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
-
-    // Author Modal
-    const authorModal = document.getElementById('authorModal');
-    const authorModalClose = document.getElementById('authorModalClose');
-    let lastAuthorFocusedElement = null;
-
-    function openAuthorModal(triggerElement) {
-        lastAuthorFocusedElement = triggerElement || document.activeElement;
-        authorModal.classList.add('active');
-        authorModal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        authorModalClose.focus();
-    }
-
-    function closeAuthorModal() {
-        authorModal.classList.remove('active');
-        authorModal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        if (lastAuthorFocusedElement && typeof lastAuthorFocusedElement.focus === 'function') {
-            lastAuthorFocusedElement.focus();
-        }
-    }
-
-    document.querySelectorAll('.author-trigger-btn, .author-footer-link').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openAuthorModal(btn);
-        });
-    });
-
-    authorModalClose?.addEventListener('click', closeAuthorModal);
-    authorModal?.addEventListener('click', (e) => {
-        if (e.target === authorModal) {
-            closeAuthorModal();
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            if (authorModal && authorModal.classList.contains('active')) {
-                closeAuthorModal();
-            } else if (lightbox && lightbox.classList.contains('active')) {
-                closeLightbox();
-            }
-        }
-    });
-</script>
+<script src="assets/js/bdd-accessibility.js" defer></script>
+<script src="assets/js/bdd-components.js" defer></script>
 
 
 </body>

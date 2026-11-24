@@ -19,6 +19,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&family=Rozha+One&family=Yatra+One&family=Noto+Serif+Devanagari:wght@500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bdd-design-system.css">
+    <link rel="stylesheet" href="assets/css/bdd-accessibility.css">
+    <link rel="stylesheet" href="assets/css/bdd-responsive.css">
     <style>
         :root {
             --bobbywood-marigold: #f59e0b;
@@ -67,94 +70,27 @@
         }
 
         /* Drama Universe Navigation */
-        .drama-nav {
-            max-width: 1060px;
-            margin: 0 auto 24px auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            background: rgba(30, 17, 42, 0.88);
-            backdrop-filter: blur(14px);
-            padding: 12px 24px;
-            border-radius: 50px;
-            border: 1px solid rgba(245, 158, 11, 0.35);
-            box-shadow: 0 6px 24px rgba(0,0,0,0.45);
-        }
+        
 
-        .drama-nav-brand {
-            font-size: 0.875rem;
-            font-weight: 700;
-            color: var(--bobbywood-bright-gold);
-            letter-spacing: 1px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-transform: uppercase;
-        }
+        
 
-        .drama-nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+        
 
-        .nav-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 7px 16px;
-            border-radius: 20px;
-            font-size: 0.825rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
+        
 
-        .nav-btn.cdrama {
-            background: rgba(186, 27, 27, 0.2);
-            color: #ffb3b8;
-            border: 1px solid rgba(186, 27, 27, 0.5);
-        }
+        
 
-        .nav-btn.cdrama:hover {
-            background: rgba(186, 27, 27, 0.4);
-            color: #ffffff;
-            transform: translateY(-1px);
-        }
+        
 
-        .nav-btn.kdrama {
-            background: rgba(138, 63, 252, 0.2);
-            color: #d0bfff;
-            border: 1px solid rgba(138, 63, 252, 0.5);
-        }
+        
 
-        .nav-btn.kdrama:hover {
-            background: rgba(138, 63, 252, 0.4);
-            color: #ffffff;
-            transform: translateY(-1px);
-        }
+        
 
-        .nav-btn.trek {
-            background: rgba(69, 137, 255, 0.2);
-            color: #a6c8ff;
-            border: 1px solid rgba(69, 137, 255, 0.5);
-        }
+        
 
-        .nav-btn.trek:hover {
-            background: rgba(69, 137, 255, 0.45);
-            color: #ffffff;
-            transform: translateY(-1px);
-        }
+        
 
-        .nav-btn.bobbywood-active {
-            background: linear-gradient(135deg, #db2777 0%, #ea580c 50%, #f59e0b 100%);
-            color: #ffffff;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 2px 14px rgba(245, 158, 11, 0.5);
-            font-weight: 700;
-        }
+        
 
         /* Main Container */
         .container {
@@ -282,7 +218,7 @@
             position: relative;
         }
 
-        .musical-mandate-box h4 {
+        .musical-mandate-box h2 {
             font-family: 'Cinzel', 'Rozha One', serif;
             color: var(--bobbywood-deep-pink);
             font-size: 1.15rem;
@@ -326,7 +262,7 @@
         /* Poster Showcase Cards */
         .poster-showcase-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
             gap: 24px;
             margin: 36px 0;
         }
@@ -463,6 +399,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4px 8px;
             margin-bottom: 12px;
             border-bottom: 1px solid #f2ece1;
             padding-bottom: 8px;
@@ -510,7 +448,7 @@
         /* Bobbywood Relics Showcase */
         .relics-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
             gap: 20px;
             margin: 28px 0;
         }
@@ -622,7 +560,7 @@
         .law-label {
             font-size: 0.8rem;
             text-transform: uppercase;
-            color: var(--bobbywood-saffron);
+            color: #c2410c; /* darker saffron: 5.2:1 on white (was 3.6:1) */;
             font-weight: 800;
             letter-spacing: 0.5px;
             display: block;
@@ -632,7 +570,7 @@
         /* Characters Grid */
         .character-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
             gap: 24px;
             margin: 28px 0;
         }
@@ -820,7 +758,7 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.4);
         }
 
-        .soundtrack-card h3 {
+        .soundtrack-card h2 {
             font-family: 'Cinzel', serif;
             color: var(--bobbywood-bright-gold);
             font-size: 1.45rem;
@@ -955,7 +893,7 @@
             box-shadow: var(--card-shadow);
         }
 
-        .thesis-box h3 {
+        .thesis-box h2 {
             font-family: 'Cinzel', serif;
             color: var(--bobbywood-deep-pink);
             font-size: 1.35rem;
@@ -1025,7 +963,7 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.45);
         }
 
-        .fandom-header h3 {
+        .fandom-header h2 {
             font-family: 'Cinzel', serif;
             color: var(--bobbywood-bright-gold);
             font-size: 1.45rem;
@@ -1065,7 +1003,7 @@
 
         .lgtm-interpretations-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
             gap: 16px;
             margin: 20px 0;
         }
@@ -1133,7 +1071,7 @@
         /* Awards & Reception Grid */
         .awards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
             gap: 16px;
             margin-bottom: 28px;
         }
@@ -1178,7 +1116,7 @@
         /* Trivia Grid */
         .trivia-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
             gap: 16px;
             margin-bottom: 28px;
         }
@@ -1269,7 +1207,7 @@
 
         .fan-theory-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
             gap: 16px;
             margin-top: 14px;
         }
@@ -1334,7 +1272,7 @@
 
         .quotes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
             gap: 16px;
             margin-top: 14px;
         }
@@ -1382,7 +1320,7 @@
             margin-bottom: 10px;
         }
 
-        .post-credit-card h3 {
+        .post-credit-card h2 {
             color: var(--bobbywood-bright-gold);
             font-size: 1.25rem;
             margin-bottom: 8px;
@@ -1394,298 +1332,70 @@
         }
 
         /* Author Modal Dialog */
-        .author-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(10, 16, 26, 0.88);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 99999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s ease;
-            padding: 20px;
-        }
+        
 
-        .author-modal.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        
 
-        .author-modal-card {
-            position: relative;
-            max-width: 680px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            background: linear-gradient(135deg, #0b1d16 0%, #1e112a 100%);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            border-left: 5px solid var(--bobbywood-bright-gold);
-            border-radius: 14px;
-            padding: 36px 40px;
-            color: #e2e8f0;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-            transform: scale(0.94);
-            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
+        
 
-        .author-modal.active .author-modal-card {
-            transform: scale(1);
-        }
+        
 
-        .author-modal-close {
-            position: absolute;
-            top: 14px;
-            right: 16px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            color: #ffffff;
-            border: 1px solid rgba(255,255,255,0.2);
-            font-size: 1.4rem;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-            line-height: 1;
-        }
+        
 
-        .author-modal-close:hover {
-            background: var(--bobbywood-bright-gold);
-            color: #1e112a;
-            transform: scale(1.1);
-        }
+        
 
-        .author-tag {
-            display: inline-block;
-            font-size: 0.78rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--bobbywood-bright-gold);
-            background: rgba(245, 158, 11, 0.15);
-            padding: 4px 12px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-        }
+        
 
-        .author-modal-card h2 {
-            font-size: 1.7rem;
-            color: #ffffff;
-            margin: 0 0 6px 0;
-            font-family: 'Cinzel', 'Rozha One', 'Noto Serif Devanagari', serif;
-        }
+        
 
-        .author-role {
-            font-size: 0.95rem;
-            color: #d1d5db;
-            font-weight: 500;
-            margin-bottom: 18px;
-        }
+        
 
-        .author-modal-card p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #cbd5e1;
-            margin-bottom: 14px;
-        }
+        
 
-        .author-modal-card blockquote.author-quote {
-            border-left: 3px solid var(--bobbywood-marigold);
-            background: rgba(249, 115, 22, 0.1);
-            margin: 20px 0 4px;
-            padding: 14px 20px;
-            border-radius: 0 8px 8px 0;
-            font-style: italic;
-            color: #fde68a;
-            font-size: 1.02rem;
-            line-height: 1.6;
-        }
+        
 
-        .author-trigger-btn, .author-footer-link {
-            background: none;
-            border: none;
-            padding: 0;
-            font: inherit;
-            color: inherit;
-            text-decoration: underline;
-            text-decoration-style: dotted;
-            text-underline-offset: 3px;
-            cursor: pointer;
-            display: inline;
-            transition: color 0.2s ease;
-        }
+        
 
-        .author-trigger-btn:hover, .author-footer-link:hover {
-            color: var(--bobbywood-bright-gold);
-        }
+        
 
         /* Footer */
-        .post-footer {
-            margin-top: 48px;
-            padding-top: 24px;
-            border-top: 2px solid var(--bobbywood-border);
-            text-align: center;
-            font-size: 0.875rem;
-            color: var(--text-muted);
-        }
+        
 
-        .footer-nav {
-            margin-top: 18px;
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
+        
 
         /* Footer buttons sit on a light background, so override the dark-nav colors */
-        .footer-nav .nav-btn.cdrama {
-            background: #fde8e8;
-            color: #7f1d1d;
-            border: 1px solid #b91c1c;
-        }
+        
 
-        .footer-nav .nav-btn.cdrama:hover {
-            background: #9b1c1c;
-            color: #ffffff;
-        }
+        
 
-        .footer-nav .nav-btn.kdrama {
-            background: #f6f2ff;
-            color: #4c1d95;
-            border: 1px solid #6929c4;
-        }
+        
 
-        .footer-nav .nav-btn.kdrama:hover {
-            background: #6929c4;
-            color: #ffffff;
-        }
+        
 
-        .footer-nav .nav-btn.trek {
-            background: #edf5ff;
-            color: #0043ce;
-            border: 1px solid #a6c8ff;
-        }
+        
 
-        .footer-nav .nav-btn.trek:hover {
-            background: #0f62fe;
-            color: #ffffff;
-        }
+        
 
         /* Lightbox Modal */
-        .lightbox-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(19, 9, 30, 0.92);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.25s ease;
-            padding: 24px;
-        }
+        
 
-        .lightbox-modal.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
+        
 
-        .lightbox-content {
-            position: relative;
-            max-width: 92vw;
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transform: scale(0.92);
-            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
+        
 
-        .lightbox-modal.active .lightbox-content {
-            transform: scale(1);
-        }
+        
 
-        .lightbox-img {
-            max-width: 90vw;
-            max-height: 75vh;
-            object-fit: contain;
-            border-radius: 8px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.85), 0 0 0 2px var(--bobbywood-marigold);
-            background: #1e112a;
-            padding: 8px;
-        }
+        
 
-        .lightbox-caption {
-            margin-top: 14px;
-            background: #1e112a;
-            border: 2px solid var(--bobbywood-marigold);
-            border-radius: 8px;
-            padding: 12px 24px;
-            color: #ffffff;
-            text-align: center;
-            max-width: 680px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-        }
+        
 
-        .lightbox-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--bobbywood-bright-gold);
-            margin-bottom: 4px;
-        }
+        
 
-        .lightbox-desc {
-            font-size: 0.9rem;
-            color: #e2e8f0;
-            font-style: italic;
-            margin-bottom: 0;
-        }
+        
 
-        .lightbox-close {
-            position: absolute;
-            top: -16px;
-            right: -16px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--bobbywood-rani-pink);
-            color: #ffffff;
-            border: 2px solid #ffffff;
-            font-size: 1.4rem;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.6);
-            transition: all 0.2s ease;
-            z-index: 10000;
-            line-height: 1;
-        }
+        
 
-        .lightbox-close:hover {
-            background: var(--bobbywood-marigold);
-            color: #1e112a;
-            transform: scale(1.1);
-        }
+        
 
         @media (max-width: 768px) {
             .container {
@@ -1694,45 +1404,43 @@
             h1 {
                 font-size: 1.85rem;
             }
-            .drama-nav {
-                border-radius: 12px;
-                padding: 12px 16px;
-                justify-content: center;
-            }
-            .drama-nav-brand {
-                width: 100%;
-                justify-content: center;
-            }
-            .drama-nav-links {
-                justify-content: center;
-            }
+            
+            
+            
+        }
+
+        /* Shared-component integration (BDD design system) */
+        .laws-container { list-style: none; }
+        .poster-trigger { border-radius: 8px; }
+        .alignment-table { min-width: 560px; }
+        .alignment-table tbody th {
+            background: transparent;
+            color: var(--bobbywood-palace-dark);
+            font-family: inherit;
+            font-weight: 700;
+            border-bottom: none;
         }
     </style>
 </head>
-<body>
+<body data-bdd-theme="bobbywood">
+<a class="bdd-skip-link" href="#main-content">Skip to main content</a>
 
-<!-- Drama Universe Navigation -->
-<nav class="drama-nav">
-    <div class="drama-nav-brand">
-        <span>🎬 BDD Drama Universe</span>
-    </div>
-    <div class="drama-nav-links">
-        <a href="index.html" class="nav-btn cdrama">
-            <span>🇨🇳 Imperial C-Drama</span>
-        </a>
-        <a href="monster-in-data-center.html" class="nav-btn kdrama">
-            <span>🇰🇷 Makjang K-Drama</span>
-        </a>
-        <a href="festival-of-validation.html" class="nav-btn bobbywood-active">
-            <span>🦚 Bobbywood Musical</span>
-        </a>
-        <a href="star-trek-lost-repository.html" class="nav-btn trek">
-            <span>🖖 Star Trek Pilot</span>
-        </a>
-    </div>
-</nav>
+<header class="bdd-site-header">
+    <nav class="bdd-nav" aria-label="Site">
+        <a class="bdd-nav__brand" href="about.html"><span aria-hidden="true">🎬</span> BDD Drama Universe<span class="bdd-sr-only"> – about the project</span></a>
+        <button type="button" class="bdd-nav__toggle" aria-expanded="false" aria-controls="bdd-nav-list"><span class="bdd-nav__toggle-bars" aria-hidden="true"></span>Menu</button>
+        <ul class="bdd-nav__list" id="bdd-nav-list">
+            <li><a class="bdd-nav__link bdd-nav__link--cdrama" href="index.html"><span class="bdd-nav__icon" aria-hidden="true">🇨🇳</span> Imperial C-Drama</a></li>
+            <li><a class="bdd-nav__link bdd-nav__link--kdrama" href="monster-in-data-center.html"><span class="bdd-nav__icon" aria-hidden="true">🇰🇷</span> Makjang K-Drama</a></li>
+            <li><a class="bdd-nav__link bdd-nav__link--bobbywood" href="festival-of-validation.html" aria-current="page"><span class="bdd-nav__icon" aria-hidden="true">🦚</span> Bobbywood Musical</a></li>
+            <li><a class="bdd-nav__link bdd-nav__link--trek" href="star-trek-lost-repository.html"><span class="bdd-nav__icon" aria-hidden="true">🖖</span> Star Trek Pilot</a></li>
+        </ul>
+    </nav>
+</header>
+
 
 <div class="container">
+<main id="main-content" tabindex="-1">
     <div class="decor-glow-top"></div>
 
     <header class="post-header">
@@ -1741,13 +1449,13 @@
             <span class="musical-pill">🎵 2½ Hour Feature Film</span>
         </div>
 
-        <div class="devanagari-title">मास्टर बॉब और सत्यापन का महाउत्सव</div>
+        <div class="devanagari-title"><span lang="hi">मास्टर बॉब और सत्यापन का महाउत्सव</span></div>
         <h1>Master Bob and the Festival of Validation</h1>
         <p class="subtitle">A Bobbywood Documentation Musical · Theme: Documentation is Trust</p>
 
         <div class="post-meta">
-            <span><strong>Screenplay &amp; Concept:</strong> <button type="button" class="author-trigger-btn" aria-haspopup="dialog" aria-controls="authorModal" title="Read About the Author">Viktoria Muirhead ✍️</button></span>
-            <span><strong>Starring:</strong> गुरु बॉब (Guru Bob) &amp; देवी युन (Devi Yun)</span>
+            <span><strong>Screenplay &amp; Concept:</strong> <a href="about.html">Viktoria Muirhead ✍️</a></span>
+            <span><strong>Starring:</strong> <span lang="hi">गुरु बॉब</span> (Guru Bob) &amp; <span lang="hi">देवी युन</span> (Devi Yun)</span>
             <span><strong>Genre:</strong> Bobbywood Musical Spectacle / Technical Validation Satire / Epic Romance</span>
             <span><strong>Setting:</strong> The Kingdom of Release Readiness &amp; The Sacred Hall of Evidence</span>
         </div>
@@ -1755,29 +1463,31 @@
 
     <!-- Essential Bobbywood Mandate -->
     <div class="musical-mandate-box">
-        <h4>🦚 The Essential Bobbywood Musical Mandate</h4>
+        <h2 class="bdd-h-flat">🦚 The Essential Bobbywood Musical Mandate</h2>
         <p>Because this is Bobbywood, no release readiness discussion can occur through a simple status check. It must inevitably erupt into an explosive 120-person synchronized dance sequence with dhol percussion, flying confetti, golden approval seals spinning in mid-air, a thundering Royal Enfield entrance, and at least one heartbreaking, rain-soaked ballad where Lady Yun searches abandoned review boards for missing accessibility reports.</p>
     </div>
 
     <!-- Official Promotional Posters Showcase -->
     <div class="poster-showcase-container">
-        <button class="poster-card" aria-label="Open Master Bob poster in full resolution modal">
-            <img src="funny/Master Bob’s Divine Palace Triumph.png" alt="Master Bob in majestic golden royal attire holding the golden validation seal in palace splendor" class="poster-img">
+        <div class="poster-card">
+            <button type="button" class="poster-trigger bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Master Bob’s Divine Palace Triumph" data-viewer-desc="Official Theatrical Key Art · Master Bob holding the Golden Validation Seal in the Great Hall of Evidence"><img src="funny/Master Bob’s Divine Palace Triumph.png" alt="Master Bob in majestic golden royal attire holding the golden validation seal in palace splendor" class="poster-img"><span class="bdd-sr-only">Enlarge image</span></button>
             <div class="poster-details">
                 <div class="poster-title">Master Bob’s Divine Palace Triumph</div>
                 <p class="poster-desc">Official Theatrical Key Art · Master Bob holding the Golden Validation Seal in the Great Hall of Evidence</p>
-                <div class="poster-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
+                <div class="poster-zoom-hint" aria-hidden="true">🔍 Click the image to enlarge</div>
             </div>
-        </button>
+        
+        </div>
 
-        <button class="poster-card" aria-label="Open Lady Yun poster in full resolution modal">
-            <img src="funny/Lady Yun, Divine Documentation Guardian.png" alt="Lady Yun in regal lavender and gold attire standing as the divine documentation guardian" class="poster-img">
+        <div class="poster-card">
+            <button type="button" class="poster-trigger bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Lady Yun, Divine Documentation Guardian" data-viewer-desc="Official Character Portrait · High Priestess Yun wielding the Sacred Red Pen of Review to protect verified artifacts"><img src="funny/Lady Yun, Divine Documentation Guardian.png" alt="Lady Yun in regal lavender and gold attire standing as the divine documentation guardian" class="poster-img"><span class="bdd-sr-only">Enlarge image</span></button>
             <div class="poster-details">
                 <div class="poster-title">Lady Yun, Divine Documentation Guardian</div>
                 <p class="poster-desc">Official Character Portrait · High Priestess Yun wielding the Sacred Red Pen of Review to protect verified artifacts</p>
-                <div class="poster-zoom-hint" aria-hidden="true">🔍 Click to zoom</div>
+                <div class="poster-zoom-hint" aria-hidden="true">🔍 Click the image to enlarge</div>
             </div>
-        </button>
+        
+        </div>
     </div>
 
     <!-- The Core Premise & Logline -->
@@ -1878,47 +1588,47 @@
 
     <!-- The 5 Sacred Laws of Validation -->
     <h2>The 5 Sacred Laws of Validation</h2>
-    <div class="laws-container">
-        <div class="law-item">
-            <span class="law-num">1</span>
+    <ol class="laws-container" role="list">
+        <li class="law-item">
+            <span class="law-num" aria-hidden="true">1</span>
             <div>
                 <span class="law-label">First Law</span>
                 <div class="law-text">A feature announced is not a feature validated.</div>
             </div>
-        </div>
+        </li>
 
-        <div class="law-item">
-            <span class="law-num">2</span>
+        <li class="law-item">
+            <span class="law-num" aria-hidden="true">2</span>
             <div>
                 <span class="law-label">Second Law</span>
                 <div class="law-text">Every claim of readiness requires evidence.</div>
             </div>
-        </div>
+        </li>
 
-        <div class="law-item">
-            <span class="law-num">3</span>
+        <li class="law-item">
+            <span class="law-num" aria-hidden="true">3</span>
             <div>
                 <span class="law-label">Third Law</span>
                 <div class="law-text">The louder the celebration, the closer the Verification Void.</div>
             </div>
-        </div>
+        </li>
 
-        <div class="law-item">
-            <span class="law-num">4</span>
+        <li class="law-item">
+            <span class="law-num" aria-hidden="true">4</span>
             <div>
                 <span class="law-label">Fourth Law</span>
                 <div class="law-text">Accessibility findings arrive exactly when everyone believes they are finished.</div>
             </div>
-        </div>
+        </li>
 
-        <div class="law-item">
-            <span class="law-num">5</span>
+        <li class="law-item">
+            <span class="law-num" aria-hidden="true">5</span>
             <div>
                 <span class="law-label">Fifth Law</span>
                 <div class="law-text">Trust cannot be granted. It must be earned.</div>
             </div>
-        </div>
-    </div>
+        </li>
+    </ol>
 
     <!-- Dramatis Personae: The Cast -->
     <h2>Dramatis Personae: The Cast</h2>
@@ -1927,10 +1637,10 @@
     <div class="character-grid">
         <!-- Master Bob -->
         <div class="character-card bob">
-            <img src="funny/Bobbywood-Guru-Bob.png" alt="Master Bob, a white robot in a purple helmet and ornate royal robes, holding the golden lotus validation seal and a sacred book" class="char-portrait" loading="lazy">
+            <button type="button" class="char-portrait-trigger bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Master Bob, Keeper of the Golden Validation Seal" data-viewer-native="गुरु बॉब" data-viewer-native-lang="hi"><img src="funny/Bobbywood-Guru-Bob.png" alt="Master Bob, a white robot in a purple helmet and ornate royal robes, holding the golden lotus validation seal and a sacred book" class="char-portrait" loading="lazy"><span class="bdd-sr-only">Enlarge image</span></button>
             <div class="char-header">
-                <div class="char-hindi-name">गुरु बॉब (Guru Bob)</div>
-                <div class="char-english-title">Master Bob, Keeper of the Golden Validation Seal</div>
+                <div class="char-hindi-name"><span lang="hi">गुरु बॉब</span> (Guru Bob)</div>
+                <h3 class="char-english-title bdd-h-flat">Master Bob, Keeper of the Golden Validation Seal</h3>
                 <span class="char-role-badge badge-gold">Hero · Truth Through Evidence</span>
             </div>
             <div class="char-quote">"Many have announced. Few have validated."</div>
@@ -1943,10 +1653,10 @@
 
         <!-- Lady Yun -->
         <div class="character-card yun">
-            <img src="funny/Bobbywood-Devi-Yun.png" alt="Lady Yun, High Priestess of Validation, with four arms holding a red pen and scrolls reading Requirements Review, Evidence over Assumptions, and Accessibility for All" class="char-portrait" loading="lazy">
+            <button type="button" class="char-portrait-trigger bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Lady Yun, High Priestess of Validation" data-viewer-native="देवी युन" data-viewer-native-lang="hi"><img src="funny/Bobbywood-Devi-Yun.png" alt="Lady Yun, High Priestess of Validation, with four arms holding a red pen and scrolls reading Requirements Review, Evidence over Assumptions, and Accessibility for All" class="char-portrait" loading="lazy"><span class="bdd-sr-only">Enlarge image</span></button>
             <div class="char-header">
-                <div class="char-hindi-name">देवी युन (Devi Yun)</div>
-                <div class="char-english-title">Lady Yun, High Priestess of Validation</div>
+                <div class="char-hindi-name"><span lang="hi">देवी युन</span> (Devi Yun)</div>
+                <h3 class="char-english-title bdd-h-flat">Lady Yun, High Priestess of Validation</h3>
                 <span class="char-role-badge badge-pink">Heroine · Trust Through Proof</span>
             </div>
             <div class="char-quote">"Trust begins where assumptions end."</div>
@@ -1959,10 +1669,10 @@
 
         <!-- Lord Gu Prakash Anand Malhotra (Lord Premature Announcement) -->
         <div class="character-card premature">
-            <img src="funny/Bobbywood-Lord-Gu.png" alt="Lord Gu Prakash Anand Malhotra in a jeweled turban and mustache, blowing a horn and holding a scroll that reads The Release Is Announced, with fireworks behind him" class="char-portrait" loading="lazy">
+            <button type="button" class="char-portrait-trigger bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Lord Gu Prakash Anand Malhotra" data-viewer-native="लॉर्ड प्रीमेच्योर अनाउंसमेंट" data-viewer-native-lang="hi"><img src="funny/Bobbywood-Lord-Gu.png" alt="Lord Gu Prakash Anand Malhotra in a jeweled turban and mustache, blowing a horn and holding a scroll that reads The Release Is Announced, with fireworks behind him" class="char-portrait" loading="lazy"><span class="bdd-sr-only">Enlarge image</span></button>
             <div class="char-header">
-                <div class="char-hindi-name">लॉर्ड प्रीमेच्योर अनाउंसमेंट (Lord Primachyor Anaunsment)</div>
-                <div class="char-english-title">Lord Gu Prakash Anand Malhotra</div>
+                <div class="char-hindi-name"><span lang="hi">लॉर्ड प्रीमेच्योर अनाउंसमेंट</span> (Lord Primachyor Anaunsment)</div>
+                <h3 class="char-english-title bdd-h-flat">Lord Gu Prakash Anand Malhotra</h3>
                 <span class="char-role-badge badge-saffron">Voice of the Festival · First Speaker of Release Day</span>
             </div>
             <div class="char-quote">"The release is announced! Therefore it must be ready!"</div>
@@ -1977,10 +1687,10 @@
 
         <!-- Lord Ling Govind Tiwari Malhotra (L.G.T.M.) -->
         <div class="character-card lgtm">
-            <img src="funny/Bobbywood-Lord-Ling.png" alt="Lord Ling Govind Tiwari Malhotra in sunglasses and a purple helmet, raising a green checkmark stamp among stacks of papers and stamps labeled L.G.T.M." class="char-portrait" loading="lazy">
+            <button type="button" class="char-portrait-trigger bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Lord Ling Govind Tiwari Malhotra (L.G.T.M.)" data-viewer-native="लॉर्ड एलजीटीएम" data-viewer-native-lang="hi"><img src="funny/Bobbywood-Lord-Ling.png" alt="Lord Ling Govind Tiwari Malhotra in sunglasses and a purple helmet, raising a green checkmark stamp among stacks of papers and stamps labeled L.G.T.M." class="char-portrait" loading="lazy"><span class="bdd-sr-only">Enlarge image</span></button>
             <div class="char-header">
-                <div class="char-hindi-name">लॉर्ड एलजीटीएम (Lord Eljitiem)</div>
-                <div class="char-english-title">Lord Ling Govind Tiwari Malhotra (L.G.T.M.)</div>
+                <div class="char-hindi-name"><span lang="hi">लॉर्ड एलजीटीएम</span> (Lord Eljitiem)</div>
+                <h3 class="char-english-title bdd-h-flat">Lord Ling Govind Tiwari Malhotra (L.G.T.M.)</h3>
                 <span class="char-role-badge badge-red">Patron Saint of Rubber-Stamp Reviews · Keeper of 9,000 Stamps</span>
             </div>
             <div class="char-quote">"I didn't have much time to read it. Looks good to me."</div>
@@ -1995,10 +1705,10 @@
 
         <!-- Princess Assumption -->
         <div class="character-card assumption">
-            <img src="funny/Bobbywood-Princess-Assumption.png" alt="Princess Assumption in a jeweled crown, resting her chin on her hands among sticky notes reading Everybody knows, It works in my environment, and Tribal Knowledge, beside books marked Not Documented and Probably Fine" class="char-portrait" loading="lazy">
+            <button type="button" class="char-portrait-trigger bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="Princess Assumption · Believer in Tribal Knowledge" data-viewer-native="राजकुमारी पूर्वधारणा" data-viewer-native-lang="hi"><img src="funny/Bobbywood-Princess-Assumption.png" alt="Princess Assumption in a jeweled crown, resting her chin on her hands among sticky notes reading Everybody knows, It works in my environment, and Tribal Knowledge, beside books marked Not Documented and Probably Fine" class="char-portrait" loading="lazy"><span class="bdd-sr-only">Enlarge image</span></button>
             <div class="char-header">
-                <div class="char-hindi-name">राजकुमारी पूर्वधारणा (Rajkumari Purvadharana)</div>
-                <div class="char-english-title">Princess Assumption · Believer in Tribal Knowledge</div>
+                <div class="char-hindi-name"><span lang="hi">राजकुमारी पूर्वधारणा</span> (Rajkumari Purvadharana)</div>
+                <h3 class="char-english-title bdd-h-flat">Princess Assumption · Believer in Tribal Knowledge</h3>
                 <span class="char-role-badge badge-purple">Comedic Antagonist · "Everyone Already Knows"</span>
             </div>
             <div class="char-quote">"Everybody knows that. We don't need to explain it."</div>
@@ -2010,10 +1720,10 @@
 
         <!-- The Phantom Reviewer -->
         <div class="character-card phantom">
-            <img src="funny/Bobbywood-Phantom-Approver.png" alt="The Phantom Reviewer, a ghostly hooded robot holding a glowing hourglass, surrounded by floating notes reading Review Requested, Still Pending, and In Queue" class="char-portrait" loading="lazy">
+            <button type="button" class="char-portrait-trigger bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="The Phantom Reviewer · The Invisible Approver" data-viewer-native="भूतिया समीक्षक" data-viewer-native-lang="hi"><img src="funny/Bobbywood-Phantom-Approver.png" alt="The Phantom Reviewer, a ghostly hooded robot holding a glowing hourglass, surrounded by floating notes reading Review Requested, Still Pending, and In Queue" class="char-portrait" loading="lazy"><span class="bdd-sr-only">Enlarge image</span></button>
             <div class="char-header">
-                <div class="char-hindi-name">भूतिया समीक्षक (Bhutiya Samikshak)</div>
-                <div class="char-english-title">The Phantom Reviewer · The Invisible Approver</div>
+                <div class="char-hindi-name"><span lang="hi">भूतिया समीक्षक</span> (Bhutiya Samikshak)</div>
+                <h3 class="char-english-title bdd-h-flat">The Phantom Reviewer · The Invisible Approver</h3>
                 <span class="char-role-badge badge-slate">Mythic Enigma · Waiting Forever</span>
             </div>
             <div class="char-quote">"Your review request has been placed in the queue of eternity."</div>
@@ -2025,10 +1735,10 @@
 
         <!-- The Verification Void -->
         <div class="character-card void">
-            <img src="funny/Bobbywood-Void.png" alt="The Verification Void, a looming dark figure with glowing purple eyes above a swirling vortex of notes reading Missing Requirements, Unverified Claims, Review Pending, and Accessibility Findings" class="char-portrait" loading="lazy">
+            <button type="button" class="char-portrait-trigger bdd-viewer-trigger" data-bdd-viewer aria-haspopup="dialog" data-viewer-title="The Verification Void · The Great Antagonist" data-viewer-native="सत्यापन शून्य" data-viewer-native-lang="hi"><img src="funny/Bobbywood-Void.png" alt="The Verification Void, a looming dark figure with glowing purple eyes above a swirling vortex of notes reading Missing Requirements, Unverified Claims, Review Pending, and Accessibility Findings" class="char-portrait" loading="lazy"><span class="bdd-sr-only">Enlarge image</span></button>
             <div class="char-header">
-                <div class="char-hindi-name">सत्यापन शून्य (Satyapan Shunya)</div>
-                <div class="char-english-title">The Verification Void · The Great Antagonist</div>
+                <div class="char-hindi-name"><span lang="hi">सत्यापन शून्य</span> (Satyapan Shunya)</div>
+                <h3 class="char-english-title bdd-h-flat">The Verification Void · The Great Antagonist</h3>
                 <span class="char-role-badge badge-void">Supernatural Force · Inevitable Consequence</span>
             </div>
             <div class="char-quote">"You believed. You never proved."</div>
@@ -2087,12 +1797,12 @@
 
     <!-- Official OST Section -->
     <div class="soundtrack-card">
-        <h3><span style="color:#fbbf24;">🎵</span> Official Bobbywood Soundtrack (OST) Tracklist</h3>
+        <h2 class="bdd-h-flat"><span style="color:#fbbf24;">🎵</span> Official Bobbywood Soundtrack (OST) Tracklist</h2>
         <div class="ost-track-list">
             <div class="ost-track">
                 <div class="ost-track-info">
                     <span class="ost-artist">Diljit Dosanjh &amp; Grand Festival Ensemble</span>
-                    <span class="ost-title">Track 1 · "We Are Ready!" (हम तैयार हैं!)</span>
+                    <span class="ost-title">Track 1 · "We Are Ready!" (<span lang="hi">हम तैयार हैं</span>!)</span>
                     <span class="ost-note">Opening Musical Number · High-energy festival choreography featuring release checklists &amp; premature confetti.</span>
                 </div>
                 <span class="ost-vibe">Chart-Topping Energy</span>
@@ -2101,7 +1811,7 @@
             <div class="ost-track">
                 <div class="ost-track-info">
                     <span class="ost-artist">Diljit Dosanjh</span>
-                    <span class="ost-title">Track 2 · "Many Have Announced" (घोषणा बहुतों ने की)</span>
+                    <span class="ost-title">Track 2 · "Many Have Announced" (<span lang="hi">घोषणा बहुतों ने की</span>)</span>
                     <span class="ost-note">Master Bob's Royal Enfield Swagger Anthem · Heavy dhol beats, tumbi riffs, and unrelenting validation confidence.</span>
                 </div>
                 <span class="ost-vibe">Heroic Swagger</span>
@@ -2110,7 +1820,7 @@
             <div class="ost-track">
                 <div class="ost-track-info">
                     <span class="ost-artist">Shreya Ghoshal</span>
-                    <span class="ost-title">Track 3 · "Show Me The Evidence" (मुझे प्रमाण दिखाओ)</span>
+                    <span class="ost-title">Track 3 · "Show Me The Evidence" (<span lang="hi">मुझे प्रमाण दिखाओ</span>)</span>
                     <span class="ost-note">Lady Yun's Heartbreaking Power Ballad · A tear-jerking solo walking through empty review queues and missing VPATs.</span>
                 </div>
                 <span class="ost-vibe">Emotional Masterpiece</span>
@@ -2119,7 +1829,7 @@
             <div class="ost-track">
                 <div class="ost-track-info">
                     <span class="ost-artist">Badshah</span>
-                    <span class="ost-title">Track 4 · "LGTM" (L.G.T.M. / लिंग गोविंद तिवारी मल्होत्रा)</span>
+                    <span class="ost-title">Track 4 · "LGTM" (L.G.T.M. / <span lang="hi">लिंग गोविंद तिवारी मल्होत्रा</span>)</span>
                     <span class="ost-note">Lord Malhotra's Fast-Paced Club Villain Anthem · Rubber-stamp approvals rain from the ceiling before production breaks.</span>
                 </div>
                 <span class="ost-vibe">Hip-Hop Bang</span>
@@ -2128,7 +1838,7 @@
             <div class="ost-track">
                 <div class="ost-track-info">
                     <span class="ost-artist">Sunidhi Chauhan</span>
-                    <span class="ost-title">Track 5 · "Nobody Needs Documentation" (दस्तावेज़ की किसे ज़रूरत)</span>
+                    <span class="ost-title">Track 5 · "Nobody Needs Documentation" (<span lang="hi">दस्तावेज़ की किसे ज़रूरत</span>)</span>
                     <span class="ost-note">Princess Assumption's Deceptively Cheerful Showtune · Celebrates tribal knowledge before it instantly evaporates.</span>
                 </div>
                 <span class="ost-vibe">Comic Satire</span>
@@ -2137,7 +1847,7 @@
             <div class="ost-track">
                 <div class="ost-track-info">
                     <span class="ost-artist">Mohit Chauhan</span>
-                    <span class="ost-title">Track 6 · "Calendar Invite Pending" (निमंत्रण लंबित है)</span>
+                    <span class="ost-title">Track 6 · "Calendar Invite Pending" (<span lang="hi">निमंत्रण लंबित है</span>)</span>
                     <span class="ost-note">The Phantom Reviewer's Echoing Acoustic Ballad · Sung across abandoned calendar slots and unread Slack pings.</span>
                 </div>
                 <span class="ost-vibe">Haunting &amp; Melodic</span>
@@ -2146,7 +1856,7 @@
             <div class="ost-track">
                 <div class="ost-track-info">
                     <span class="ost-artist">A.R. Rahman, Choir &amp; Symphony Orchestra</span>
-                    <span class="ost-title">Track 7 · "The Gap Between Belief and Proof" (विश्वास और प्रमाण का अंतर)</span>
+                    <span class="ost-title">Track 7 · "The Gap Between Belief and Proof" (<span lang="hi">विश्वास और प्रमाण का अंतर</span>)</span>
                     <span class="ost-note">The Verification Void's Philosophical Theme · Majestic orchestral crescendo confronting the kingdom's assumptions.</span>
                 </div>
                 <span class="ost-vibe">Epic Symphony</span>
@@ -2155,7 +1865,7 @@
             <div class="ost-track">
                 <div class="ost-track-info">
                     <span class="ost-artist">Full Ensemble Cast</span>
-                    <span class="ost-title">Track 8 · "Few Have Validated" (सत्यापन कितनों ने किया)</span>
+                    <span class="ost-title">Track 8 · "Few Have Validated" (<span lang="hi">सत्यापन कितनों ने किया</span>)</span>
                     <span class="ost-note">Grand Finale Climax Anthem · 120 dancers, fireworks, peacocks, and 3 costume changes as trust is restored!</span>
                 </div>
                 <span class="ost-vibe">Triumphant Finale</span>
@@ -2167,66 +1877,62 @@
     <h2>Iconic Screenplay Excerpts</h2>
 
     <!-- Excerpt 1: Royal Enfield Entrance -->
-    <div class="script-box">
-        <div class="stage-direction">[Scene: Act 2 — The Grand Palace Plaza. Trumpets sound, marigold petals rain over the crowd, and fireworks explode. Lord Gu Prakash Anand Malhotra stands atop the golden dais waving a banner: 'VERSION 4.0 LAUNCH CONFIRMED'.]</div>
-
-        <span class="script-speaker premature">LORD GU PRAKASH ANAND MALHOTRA (LORD PREMATURE ANNOUNCEMENT)</span>
-        <div class="script-line">Rejoice, citizens of Release Readiness! The customer blog is live! The keynote slides are polished! The release is announced, therefore it must be ready!</div>
-
-        <div class="stage-direction">[A deep, thundering roar echoes across the marble courtyard. A custom chrome Royal Enfield motorcycle tears through the golden gates. The music halts. Dhol beats begin to pulse with cinematic swagger. Master Bob steps off the motorcycle, adjusting his aviator sunglasses and holding the Golden Validation Ledger.]</div>
-
-        <span class="script-speaker bob">MASTER BOB</span>
-        <div class="script-line">An announcement is merely noise with a budget. Where is the verification?</div>
-
-        <span class="script-speaker premature">LORD GU PRAKASH ANAND MALHOTRA (LORD PREMATURE ANNOUNCEMENT)</span>
-        <div class="script-line">Master Bob! Why must you ruin the celebration? The engineers told me it worked on their laptops yesterday!</div>
-
-        <span class="script-speaker bob">MASTER BOB</span>
-        <div class="script-line">Many have announced, Lord Gu. Few have validated.</div>
-
-        <div class="stage-direction">[The dhol rhythms explode into 'Many Have Announced'. Fifty validation auditors perform synchronized footwork with clipboards and golden stamps.]</div>
+    <div class="script-box" role="group" aria-label="Screenplay excerpt 1">
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: Act 2 — The Grand Palace Plaza. Trumpets sound, marigold petals rain over the crowd, and fireworks explode. Lord Gu Prakash Anand Malhotra stands atop the golden dais waving a banner: 'VERSION 4.0 LAUNCH CONFIRMED'.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker premature">LORD GU PRAKASH ANAND MALHOTRA (LORD PREMATURE ANNOUNCEMENT)</dt>
+            <dd class="script-line">Rejoice, citizens of Release Readiness! The customer blog is live! The keynote slides are polished! The release is announced, therefore it must be ready!</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[A deep, thundering roar echoes across the marble courtyard. A custom chrome Royal Enfield motorcycle tears through the golden gates. The music halts. Dhol beats begin to pulse with cinematic swagger. Master Bob steps off the motorcycle, adjusting his aviator sunglasses and holding the Golden Validation Ledger.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker bob">MASTER BOB</dt>
+            <dd class="script-line">An announcement is merely noise with a budget. Where is the verification?</dd>
+            <dt class="script-speaker premature">LORD GU PRAKASH ANAND MALHOTRA (LORD PREMATURE ANNOUNCEMENT)</dt>
+            <dd class="script-line">Master Bob! Why must you ruin the celebration? The engineers told me it worked on their laptops yesterday!</dd>
+            <dt class="script-speaker bob">MASTER BOB</dt>
+            <dd class="script-line">Many have announced, Lord Gu. Few have validated.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[The dhol rhythms explode into 'Many Have Announced'. Fifty validation auditors perform synchronized footwork with clipboards and golden stamps.]</p>
     </div>
 
     <!-- Excerpt 2: The Red Pen & Missing Evidence -->
-    <div class="script-box">
-        <div class="stage-direction">[Scene: Act 2 — The Sacred Hall of Evidence. Midnight. Rain gently taps against the stained-glass dome. Lady Yun stands before towering shelves of empty review repositories, holding the glowing Sacred Red Pen of Review.]</div>
-
-        <span class="script-speaker lgtm">LORD LING GOVIND TIWARI MALHOTRA (L.G.T.M.)</span>
-        <div class="script-line">High Priestess Yun, why do you linger here? I already stamped every pull request with my hereditary seal: L.G.T.M.! Look at the confetti! Green checks everywhere!</div>
-
-        <span class="script-speaker yun">LADY YUN</span>
-        <div class="script-line">A stamp without scrutiny is not an approval, Lord Malhotra. It is an invitation to catastrophe.</div>
-
-        <span class="script-speaker lgtm">LORD LING GOVIND TIWARI MALHOTRA (L.G.T.M.)</span>
-        <div class="script-line">Who has time to read 4,000 lines of migration logic? The deadline is tomorrow morning and my lunch is getting cold!</div>
-
-        <div class="stage-direction">[Lady Yun slowly raises the Sacred Red Pen. Its tip illuminates the dark room with crimson light, revealing exactly 47 hidden accessibility defects and broken API references hovering in mid-air.]</div>
-
-        <span class="script-speaker yun">LADY YUN</span>
-        <div class="script-line">Trust begins where assumptions end. When the customer opens this feature in the dark, your four-initial stamp will not guide their screen reader. Show me the evidence.</div>
+    <div class="script-box" role="group" aria-label="Screenplay excerpt 2">
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: Act 2 — The Sacred Hall of Evidence. Midnight. Rain gently taps against the stained-glass dome. Lady Yun stands before towering shelves of empty review repositories, holding the glowing Sacred Red Pen of Review.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker lgtm">LORD LING GOVIND TIWARI MALHOTRA (L.G.T.M.)</dt>
+            <dd class="script-line">High Priestess Yun, why do you linger here? I already stamped every pull request with my hereditary seal: L.G.T.M.! Look at the confetti! Green checks everywhere!</dd>
+            <dt class="script-speaker yun">LADY YUN</dt>
+            <dd class="script-line">A stamp without scrutiny is not an approval, Lord Malhotra. It is an invitation to catastrophe.</dd>
+            <dt class="script-speaker lgtm">LORD LING GOVIND TIWARI MALHOTRA (L.G.T.M.)</dt>
+            <dd class="script-line">Who has time to read 4,000 lines of migration logic? The deadline is tomorrow morning and my lunch is getting cold!</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Lady Yun slowly raises the Sacred Red Pen. Its tip illuminates the dark room with crimson light, revealing exactly 47 hidden accessibility defects and broken API references hovering in mid-air.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker yun">LADY YUN</dt>
+            <dd class="script-line">Trust begins where assumptions end. When the customer opens this feature in the dark, your four-initial stamp will not guide their screen reader. Show me the evidence.</dd>
+        </dl>
     </div>
 
     <!-- Excerpt 3: The Verification Void Dissolves -->
-    <div class="script-box climax-script">
-        <div class="stage-direction">[Scene: Act 3 — The Great Validation Ceremony. Swirling purple and black mist coalesces above the throne room. The Verification Void looms like a colossal storm cloud of unaddressed GitHub comments and ignored Jira warnings.]</div>
-
-        <span class="script-speaker void">THE VERIFICATION VOID</span>
-        <div class="script-line">I am born of your shortcuts. Every skipped test, every rubber-stamped review, every assumption that 'someone else will document it' has made me invincible! You believed... but you never proved!</div>
-
-        <div class="stage-direction">[Master Bob and Lady Yun step forward side by side. Lady Yun opens the Hall of Evidence ledger. Master Bob raises the Golden Validation Seal. Pure golden light pierces through the dark storm.]</div>
-
-        <span class="script-speaker bob">MASTER BOB</span>
-        <div class="script-line">Today we do not fight you with declarations. We answer you with proof.</div>
-
-        <span class="script-speaker yun">LADY YUN</span>
-        <div class="script-line">47 GitHub comments resolved. 47 accessibility findings closed. Release notes validated across all locales. Documentation verified end-to-end.</div>
-
-        <div class="stage-direction">[The Golden Seal connects with the ledger. A blinding shockwave of golden light dissolves the Verification Void into shimmering flower petals. The entire kingdom erupts into the grand finale dance 'Few Have Validated'.]</div>
+    <div class="script-box climax-script" role="group" aria-label="Screenplay excerpt 3">
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Scene: Act 3 — The Great Validation Ceremony. Swirling purple and black mist coalesces above the throne room. The Verification Void looms like a colossal storm cloud of unaddressed GitHub comments and ignored Jira warnings.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker void">THE VERIFICATION VOID</dt>
+            <dd class="script-line">I am born of your shortcuts. Every skipped test, every rubber-stamped review, every assumption that 'someone else will document it' has made me invincible! You believed... but you never proved!</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[Master Bob and Lady Yun step forward side by side. Lady Yun opens the Hall of Evidence ledger. Master Bob raises the Golden Validation Seal. Pure golden light pierces through the dark storm.]</p>
+        <dl class="script-dialogue">
+            <dt class="script-speaker bob">MASTER BOB</dt>
+            <dd class="script-line">Today we do not fight you with declarations. We answer you with proof.</dd>
+            <dt class="script-speaker yun">LADY YUN</dt>
+            <dd class="script-line">47 GitHub comments resolved. 47 accessibility findings closed. Release notes validated across all locales. Documentation verified end-to-end.</dd>
+        </dl>
+        <p class="stage-direction"><span class="bdd-sr-only">Stage direction: </span>[The Golden Seal connects with the ledger. A blinding shockwave of golden light dissolves the Verification Void into shimmering flower petals. The entire kingdom erupts into the grand finale dance 'Few Have Validated'.]</p>
     </div>
 
     <!-- The Enterprise Philosophy & Universe Alignment -->
     <div class="thesis-box">
-        <h3>🧠 Why the Verification Void Exists: The Core Enterprise Philosophy</h3>
+        <h2 class="bdd-h-flat">🧠 Why the Verification Void Exists: The Core Enterprise Philosophy</h2>
         <p>Underneath the celebratory music, dhol percussion, and theatrical swagger lies an enduring documentation and engineering truth: <strong>Confidence is not evidence.</strong></p>
         <blockquote>
             "The Verification Void was never created by malice. It was created every time someone confused confidence with evidence. The Void grew from the gap between believing something works and proving it works."
@@ -2238,31 +1944,32 @@
     <h2>The Three Pillars of Documentation Stewardship</h2>
     <p>The musical explores the essential progression of technical documentation and organizational trust, with Lady Yun carrying the central moral truth:</p>
 
-    <div class="alignment-table-wrap">
+    <div class="alignment-table-wrap bdd-table-wrap" data-label="The Three Pillars of Documentation Stewardship">
         <table class="alignment-table">
+            <caption class="bdd-sr-only">The Three Pillars of Documentation Stewardship: core theme, what Lady Yun represents, and guiding principle</caption>
             <thead>
                 <tr>
-                    <th>Pillar</th>
-                    <th>Core Theme</th>
-                    <th>Lady Yun Represents</th>
-                    <th>Guiding Principle</th>
+                    <th scope="col">Pillar</th>
+                    <th scope="col">Core Theme</th>
+                    <th scope="col">Lady Yun Represents</th>
+                    <th scope="col">Guiding Principle</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>📜 <strong>Governance</strong></td>
+                    <th scope="row"><span aria-hidden="true">📜</span> Governance</th>
                     <td>Order</td>
                     <td>Structure</td>
                     <td>Clear standards and structured archives prevent release chaos.</td>
                 </tr>
                 <tr>
-                    <td>🧠 <strong>Memory</strong></td>
+                    <th scope="row"><span aria-hidden="true">🧠</span> Memory</th>
                     <td>Preservation</td>
                     <td>Stewardship</td>
                     <td>Preserving knowledge protects the future from forgotten legacy truths.</td>
                 </tr>
                 <tr>
-                    <td>🦚 <strong>Validation</strong></td>
+                    <th scope="row"><span aria-hidden="true">🦚</span> Validation</th>
                     <td>Trust</td>
                     <td>Proof</td>
                     <td>Readiness is not declared; trust is evidence made visible.</td>
@@ -2274,12 +1981,12 @@
     <!-- Fandom Central Section -->
     <section class="fandom-section">
         <div class="fandom-header">
-            <h3>🏆 Bobbywood Fandom Central, Awards &amp; Lore</h3>
+            <h2 class="bdd-h-flat">🏆 Bobbywood Fandom Central, Awards &amp; Lore</h2>
             <p>Official 2028 Film Awards, famous production trivia, audience polling, and most quoted lines from the Festival of Validation.</p>
         </div>
 
         <!-- 2028 Bobbywood Film Awards -->
-        <div class="fandom-subheading">🎖️ 2028 Bobbywood Film Awards (बॉबीवुड फिल्म पुरस्कार 2028)</div>
+        <div class="fandom-subheading">🎖️ 2028 Bobbywood Film Awards (<span lang="hi">बॉबीवुड फिल्म पुरस्कार</span> 2028)</div>
         <div class="awards-grid">
             <div class="award-card">
                 <span class="award-category">🏆 Best Supporting Bureaucrat</span>
@@ -2295,13 +2002,13 @@
 
             <div class="award-card">
                 <span class="award-category">🏆 Best Documentation Artifact</span>
-                <span class="award-winner">The Sacred Red Pen of Review (लाल समीक्षा कलम)</span>
+                <span class="award-winner">The Sacred Red Pen of Review (<span lang="hi">लाल समीक्षा कलम</span>)</span>
                 <p class="award-note">Held by High Priestess Yun, capable of uncovering 47 hidden blockers and unreviewed PRs in a single blinding flash.</p>
             </div>
 
             <div class="award-card">
                 <span class="award-category">🏆 Most Emotional Accessibility Scene</span>
-                <span class="award-winner">"Show Me The Evidence" (मुझे प्रमाण दिखाओ)</span>
+                <span class="award-winner">"Show Me The Evidence" (<span lang="hi">मुझे प्रमाण दिखाओ</span>)</span>
                 <p class="award-note">Lady Yun's tear-jerking solo walking through 47 abandoned review repositories with VPAT checklists in the pouring rain.</p>
             </div>
 
@@ -2313,7 +2020,7 @@
         </div>
 
         <!-- Famous Production Trivia -->
-        <div class="fandom-subheading">🎬 Famous Bobbywood Production Trivia (फिल्म निर्माण की रोचक बातें)</div>
+        <div class="fandom-subheading">🎬 Famous Bobbywood Production Trivia (<span lang="hi">फिल्म निर्माण की रोचक बातें</span>)</div>
         <div class="trivia-grid">
             <div class="trivia-card">
                 <span class="trivia-tag">Scale &amp; Choreography</span>
@@ -2358,7 +2065,7 @@
             <div class="poll-list">
                 <div class="poll-row">
                     <div class="poll-info">
-                        <span>🥇 #1 Lady Yun · देवी युन (Devi Yun)</span>
+                        <span>🥇 #1 Lady Yun · <span lang="hi">देवी युन</span> (Devi Yun)</span>
                         <span>38.6%</span>
                     </div>
                     <div class="poll-bar-bg">
@@ -2368,7 +2075,7 @@
 
                 <div class="poll-row">
                     <div class="poll-info">
-                        <span>🥈 #2 Master Bob · गुरु बॉब (Guru Bob)</span>
+                        <span>🥈 #2 Master Bob · <span lang="hi">गुरु बॉब</span> (Guru Bob)</span>
                         <span>34.2%</span>
                     </div>
                     <div class="poll-bar-bg">
@@ -2378,7 +2085,7 @@
 
                 <div class="poll-row">
                     <div class="poll-info">
-                        <span>🥉 #3 The Phantom Reviewer · भूतिया समीक्षक (Bhutiya Samikshak)</span>
+                        <span>🥉 #3 The Phantom Reviewer · <span lang="hi">भूतिया समीक्षक</span> (Bhutiya Samikshak)</span>
                         <span>14.5%</span>
                     </div>
                     <div class="poll-bar-bg">
@@ -2388,7 +2095,7 @@
 
                 <div class="poll-row">
                     <div class="poll-info">
-                        <span>4th Lord Ling Govind Tiwari Malhotra · लॉर्ड एलजीटीएम (Lord Eljitiem)</span>
+                        <span>4th Lord Ling Govind Tiwari Malhotra · <span lang="hi">लॉर्ड एलजीटीएम</span> (Lord Eljitiem)</span>
                         <span>8.4%</span>
                     </div>
                     <div class="poll-bar-bg">
@@ -2398,7 +2105,7 @@
 
                 <div class="poll-row">
                     <div class="poll-info">
-                        <span>5th Princess Assumption · राजकुमारी पूर्वधारणा (Rajkumari Purvadharana)</span>
+                        <span>5th Princess Assumption · <span lang="hi">राजकुमारी पूर्वधारणा</span> (Rajkumari Purvadharana)</span>
                         <span>4.3%</span>
                     </div>
                     <div class="poll-bar-bg">
@@ -2457,22 +2164,22 @@
         <div class="quotes-grid">
             <div class="quoted-line-card">
                 <div class="quoted-line-text">"Many have announced. Few have validated."</div>
-                <div class="quoted-line-source">— Master Bob · गुरु बॉब (Guru Bob)</div>
+                <div class="quoted-line-source">— Master Bob · <span lang="hi">गुरु बॉब</span> (Guru Bob)</div>
             </div>
 
             <div class="quoted-line-card">
                 <div class="quoted-line-text">"Trust begins where assumptions end."</div>
-                <div class="quoted-line-source">— Lady Yun · देवी युन (Devi Yun)</div>
+                <div class="quoted-line-source">— Lady Yun · <span lang="hi">देवी युन</span> (Devi Yun)</div>
             </div>
 
             <div class="quoted-line-card">
                 <div class="quoted-line-text">"I didn't have much time to read it. Looks good to me."</div>
-                <div class="quoted-line-source">— Lord Ling Govind Tiwari Malhotra · लॉर्ड एलजीटीएम (Lord Eljitiem)</div>
+                <div class="quoted-line-source">— Lord Ling Govind Tiwari Malhotra · <span lang="hi">लॉर्ड एलजीटीएम</span> (Lord Eljitiem)</div>
             </div>
 
             <div class="quoted-line-card">
                 <div class="quoted-line-text">"You believed. You never proved."</div>
-                <div class="quoted-line-source">— The Verification Void · सत्यापन शून्य (Satyapan Shunya)</div>
+                <div class="quoted-line-source">— The Verification Void · <span lang="hi">सत्यापन शून्य</span> (Satyapan Shunya)</div>
             </div>
 
             <div class="quoted-line-card">
@@ -2485,7 +2192,7 @@
     <!-- Post-Credits Stinger -->
     <div class="post-credit-card">
         <span class="post-credit-badge">Post-Credits Stinger</span>
-        <h3>🎬 Post-Credits Scene: The Golden Seal Awakens</h3>
+        <h2 class="bdd-h-flat">🎬 Post-Credits Scene: The Golden Seal Awakens</h2>
         <p>In the quiet aftermath of the Grand Validation Ceremony, Master Bob parks his Royal Enfield outside the Hall of Evidence. A gentle breeze swirls golden marigold petals and confetti across the marble stairs.</p>
         <p>Suddenly, a glowing terminal screen flickers in the darkness. A faint notification chime sounds:</p>
         <p><code style="background: rgba(255,255,255,0.1); padding: 4px 10px; border-radius: 4px; color: var(--bobbywood-bright-gold);">REPOSITORY STATUS: ALL GITHUB REVIEWS VERIFIED · 0 OPEN DEFECTS · SEAL SECURED</code></p>
@@ -2493,181 +2200,25 @@
         <p style="margin-top: 12px; font-weight: 700; color: var(--bobbywood-bright-gold);">Master Bob and Lady Yun Will Return.</p>
     </div>
 
-    <footer class="post-footer">
-        <p><em>Master Bob and the Festival of Validation</em> is a Bobbywood technical satire musical screenplay originating from the Storage Information Development chronicles.</p>
-        <p>© Bobbywood Universe · Written by <button type="button" class="author-footer-link" aria-haspopup="dialog" aria-controls="authorModal" title="Read About the Author">Viktoria Muirhead</button> · All Rights Reserved across all Repositories.</p>
+    </main>
 
-        <div class="footer-nav">
-            <a href="index.html" class="nav-btn cdrama">🇨🇳 The Rise of the Benevolent Documentation Dictator</a>
-            <a href="monster-in-data-center.html" class="nav-btn kdrama">🇰🇷 Master Bob &amp; The Monster in the Data Center</a>
-            <a href="star-trek-lost-repository.html" class="nav-btn trek">🖖 Star Trek: Master Bob and the Lost Repository</a>
-        </div>
-    </footer>
+    <footer class="bdd-footer">
+    <p><em>Master Bob and the Festival of Validation</em> is a Bobbywood technical satire musical screenplay originating from the Storage Information Development chronicles.</p>
+    <p>© Bobbywood Universe · Written by <a href="about.html">Viktoria Muirhead</a> · All Rights Reserved across all Repositories.</p>
+    <nav class="bdd-footer__nav" aria-label="Footer">
+        <ul class="bdd-footer__list">
+                <li><a href="index.html">The Rise of the Benevolent Documentation Dictator</a></li>
+                <li><a href="monster-in-data-center.html">Master Bob and the Monster in the Data Center</a></li>
+                <li><a href="festival-of-validation.html" aria-current="page">Master Bob and the Festival of Validation</a></li>
+                <li><a href="star-trek-lost-repository.html">Star Trek: Master Bob and the Lost Repository</a></li>
+                <li><a href="about.html#accessibility-charter">Accessibility Charter</a></li>
+        </ul>
+    </nav>
+</footer>
 </div>
 
-<!-- Lightbox Modal Container -->
-<div id="lightbox" class="lightbox-modal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="lightbox-content">
-        <button class="lightbox-close" aria-label="Close image popup" id="lightboxClose">&times;</button>
-        <img id="lightboxImg" class="lightbox-img" src="" alt="Expanded Promotional Poster">
-        <div class="lightbox-caption">
-            <div id="lightboxTitle" class="lightbox-title"></div>
-            <p id="lightboxDesc" class="lightbox-desc"></p>
-        </div>
-    </div>
-</div>
-
-<!-- Author Modal Container -->
-<div id="authorModal" class="author-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="authorModalTitle">
-    <div class="author-modal-card">
-        <button class="author-modal-close" aria-label="Close author info" id="authorModalClose">&times;</button>
-        <span class="author-tag">✍️ About the Author &amp; Creator</span>
-        <h2 id="authorModalTitle">Viktoria Muirhead</h2>
-        <p class="author-role">Information Development Leader &middot; IBM Cloud Storage Services</p>
-        <p>Viktoria Muirhead leads Information Development for IBM Cloud Storage Services, working at the intersection of knowledge management, accessibility, governance, quality, and release readiness.</p>
-        <p>Across more than two decades in technology operations and information development, she has seen how organizations create, lose, preserve, validate, and sometimes misunderstand their own knowledge.</p>
-        <p>The <em>Benevolent Documentation Dictator</em> universe grew from those observations. Through historical drama, fantasy, musical comedy, and science fiction, it explores the organizational forces behind seemingly ordinary documentation problems: unclear accountability, forgotten knowledge, unsupported confidence, and the loss of purpose.</p>
-        <blockquote class="author-quote">
-            &ldquo;The stories are fictional. The patterns may be familiar. Because sometimes the best way to understand an enterprise problem is to give it a costume, a dramatic soundtrack, and a toaster.&rdquo;
-        </blockquote>
-    </div>
-</div>
-
-<script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxTitle = document.getElementById('lightboxTitle');
-    const lightboxDesc = document.getElementById('lightboxDesc');
-    const lightboxClose = document.getElementById('lightboxClose');
-    let lastFocusedElement = null;
-
-    function openLightbox(src, alt, title, desc, triggerElement) {
-        lastFocusedElement = triggerElement || document.activeElement;
-        lightboxImg.src = src;
-        lightboxImg.alt = alt || 'Promotional Poster';
-        lightboxTitle.textContent = title;
-        lightboxDesc.textContent = desc;
-        lightbox.classList.add('active');
-        lightbox.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        lightboxClose.focus();
-    }
-
-    function closeLightbox() {
-        lightbox.classList.remove('active');
-        lightbox.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        setTimeout(() => {
-            lightboxImg.src = '';
-        }, 250);
-        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
-            lastFocusedElement.focus();
-        }
-    }
-
-    document.querySelectorAll('.poster-card').forEach(card => {
-        card.addEventListener('click', () => {
-            const img = card.querySelector('.poster-img');
-            const title = card.querySelector('.poster-title')?.textContent || '';
-            const desc = card.querySelector('.poster-desc')?.textContent || '';
-            if (img) {
-                openLightbox(img.src, img.alt, title, desc, card);
-            }
-        });
-    });
-
-    // Cast portrait images: click or keyboard to zoom
-    document.querySelectorAll('.char-portrait').forEach(img => {
-        const card = img.closest('.character-card');
-        const title = card.querySelector('.char-hindi-name')?.textContent || '';
-        const desc = card.querySelector('.char-english-title')?.textContent || '';
-        img.setAttribute('tabindex', '0');
-        img.setAttribute('role', 'button');
-        img.setAttribute('aria-label', 'Open enlarged version of ' + desc + ' portrait');
-        img.addEventListener('click', () => openLightbox(img.src, img.alt, title, desc, img));
-        img.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openLightbox(img.src, img.alt, title, desc, img);
-            }
-        });
-    });
-
-    lightboxClose.addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
-        }
-    });
-
-    // Author Modal
-    const authorModal = document.getElementById('authorModal');
-    const authorModalClose = document.getElementById('authorModalClose');
-    let lastAuthorFocusedElement = null;
-
-    function openAuthorModal(triggerElement) {
-        lastAuthorFocusedElement = triggerElement || document.activeElement;
-        authorModal.classList.add('active');
-        authorModal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        authorModalClose.focus();
-    }
-
-    function closeAuthorModal() {
-        authorModal.classList.remove('active');
-        authorModal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        if (lastAuthorFocusedElement && typeof lastAuthorFocusedElement.focus === 'function') {
-            lastAuthorFocusedElement.focus();
-        }
-    }
-
-    document.querySelectorAll('.author-trigger-btn, .author-footer-link').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openAuthorModal(btn);
-        });
-    });
-
-    authorModalClose?.addEventListener('click', closeAuthorModal);
-    authorModal?.addEventListener('click', (e) => {
-        if (e.target === authorModal) {
-            closeAuthorModal();
-        }
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            if (authorModal && authorModal.classList.contains('active')) {
-                closeAuthorModal();
-                return;
-            }
-            if (lightbox.classList.contains('active')) {
-                closeLightbox();
-                return;
-            }
-        }
-        if (!lightbox.classList.contains('active')) return;
-        if (e.key === 'Escape') {
-            closeLightbox();
-            return;
-        }
-        // Focus trap: keep Tab / Shift+Tab inside the dialog
-        if (e.key === 'Tab') {
-            const focusable = lightbox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-            if (focusable.length === 0) { e.preventDefault(); return; }
-            const first = focusable[0];
-            const last = focusable[focusable.length - 1];
-            if (!lightbox.contains(document.activeElement)) {
-                e.preventDefault(); first.focus();
-            } else if (e.shiftKey && document.activeElement === first) {
-                e.preventDefault(); last.focus();
-            } else if (!e.shiftKey && document.activeElement === last) {
-                e.preventDefault(); first.focus();
-            }
-        }
-    });
-</script>
+<script src="assets/js/bdd-accessibility.js" defer></script>
+<script src="assets/js/bdd-components.js" defer></script>
 
 </body>
 </html>

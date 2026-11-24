@@ -50,6 +50,8 @@ A Star Trek & Red Dwarf inspired sci-fi pilot exploring an abandoned Federation 
 
 ## ✍️ About the Author
 
+The full story of the creator, the project's philosophy, and the Accessibility Charter now live on the [About page](about.html).
+
 **Viktoria Muirhead** leads Information Development for IBM Cloud Storage Services, working at the intersection of knowledge management, accessibility, governance, quality, and release readiness.
 
 Across more than two decades in technology operations and information development, she has seen how organizations create, lose, preserve, validate, and sometimes misunderstand their own knowledge.
@@ -73,7 +75,12 @@ https://vickmuir.github.io/benevolent-documentation-dictator/
 
 ## ✨ Site Features
 
-- Click-to-zoom cast portraits with an accessible lightbox (focus trap, reduced-motion support)
+- Click-to-zoom cast portraits with an accessible image viewer (native dialog, keyboard operable, focus trap, focus returns to the opener, reduced-motion support)
+- A dedicated [About page](about.html) with the creator profile, the philosophy behind BDD, AI-assisted development, and the [Accessibility Charter](about.html#accessibility-charter)
+- Shared design system in `assets/` (CSS tokens, accessibility rules, responsive rules, shared navigation, footer, and viewer) with each story keeping its own visual identity. See [docs/design-system.md](docs/design-system.md)
+- Skip link, landmarks, logical heading hierarchy, language-tagged Chinese, Korean, and Hindi passages, and screenplay dialogue marked up as speaker and line
+- Captions and transcript for the trailer video
+- Docs for contributors: [accessibility charter](docs/accessibility-charter.md), [testing checklist and results](docs/accessibility-testing.md), [new story template](docs/new-story-template.md)
 - Open Graph and Twitter Card meta tags for social sharing thumbnails across all pages
 - Global navigation bar and footer navigation linking the four dramas
 - Embedded trailer video on the C-Drama page
@@ -87,6 +94,11 @@ https://vickmuir.github.io/benevolent-documentation-dictator/
 ├── monster-in-data-center.html      # Makjang K-Drama story & screenplay page
 ├── festival-of-validation.html      # Bobbywood Musical story & screenplay page
 ├── star-trek-lost-repository.html   # Star Trek Sci-Fi Pilot screenplay page
+├── about.html                       # About the creator, BDD philosophy, productions & Accessibility Charter
+├── assets/
+│   ├── css/                         # bdd-design-system.css, bdd-accessibility.css, bdd-responsive.css
+│   └── js/                          # bdd-accessibility.js, bdd-components.js (shared viewer)
+├── docs/                            # Charter, design system, testing, new-story template
 ├── funny/                           # Posters, cast portraits & trailer media
 │   ├── Bobbywood-*.png              # Bobbywood cast portraits, festival art & Seal of Validation
 │   ├── Kdrama-Bob.png, Kdrama-bob-profile.png
@@ -98,7 +110,7 @@ https://vickmuir.github.io/benevolent-documentation-dictator/
 │   ├── Six Portraits of a Mystic Joseon Future.png
 │   ├── MasterBob.png, LadyYun.png, LordGu.png, MarquisLing.png
 │   ├── Lt.Daxara.png, LtSzeVick.png, MemorialCollage.png, USS Clarity_*.png
-│   └── video/                       # C-Drama trailer (.mp4) and preview GIF
+│   └── video/                       # C-Drama trailer (.mp4), captions (.vtt), player page & preview GIF
 ├── .nojekyll                        # Disables Jekyll processing for pure static serving
 └── README.md
 ```

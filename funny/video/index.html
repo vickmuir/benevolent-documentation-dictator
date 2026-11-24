@@ -8,14 +8,29 @@
         body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #111; color: #eee; font-family: system-ui, sans-serif; }
         video { width: min(96vw, 1264px); height: auto; background: #000; }
         a { color: #8ab4f8; margin-top: 1rem; }
+        a:focus-visible, summary:focus-visible, video:focus-visible { outline: 3px solid #ffd666; outline-offset: 3px; }
+        details { width: min(96vw, 1264px); box-sizing: border-box; margin-top: 1rem; padding: .5rem 1rem; border: 1px solid #555; border-radius: 6px; }
+        summary { cursor: pointer; font-weight: 600; }
+        details p { margin: .5rem 0; line-height: 1.6; }
     </style>
 </head>
 <body>
-    <video controls playsinline preload="metadata">
+    <main>
+    <h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap">Master Bob trailer</h1>
+    <video controls playsinline preload="metadata" aria-label="Master Bob trailer">
         <source src="2866bce0-2cce-4c57-b22e-65015198a02b.mp4" type="video/mp4">
+        <track kind="captions" src="2866bce0-2cce-4c57-b22e-65015198a02b.en.vtt" srclang="en" label="English" default>
         Your browser does not support HTML5 video.
         <a href="2866bce0-2cce-4c57-b22e-65015198a02b.mp4">Download the video</a>
     </video>
+    <details>
+        <summary>Read the transcript</summary>
+        <p><strong>Master Bob:</strong> Requirements come and go. Architectures rise and fall. Release dates drift like leaves in the wind.</p>
+        <p><strong>Lord Ling:</strong> Excellent. We changed the architecture. Also the timeline. Also the feature scope.</p>
+        <p><strong>Master Bob:</strong> The roadmap is merely a roadmap. Some requirements are worth keeping.</p>
+        <p><em>This transcript covers spoken dialogue only. Music and visual action are not yet described.</em></p>
+    </details>
     <a href="../../index.html">← Back to the Documentation Dictator Universe</a>
+    </main>
 </body>
 </html>

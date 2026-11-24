@@ -1,0 +1,170 @@
+/*
+ * BDD accessibility layer — focus, links, buttons, motion, forced colours.
+ * Loaded after bdd-design-system.css and before page styles. See docs/design-system.md.
+ */
+
+/* ------------------------------------------------------------------ */
+/* Focus indicator                                                      */
+/* Two-tone (inner colour + white gap) so it stays visible on light and */
+/* dark surfaces, including the dark nav, dialogs and story cards.      */
+/* ------------------------------------------------------------------ */
+:where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+    outline: var(--bdd-focus-width, 3px) solid var(--bdd-focus-inner, #0f62fe) !important;
+    outline-offset: var(--bdd-focus-offset, 2px) !important;
+    box-shadow: 0 0 0 calc(var(--bdd-focus-offset, 2px) + 1px) var(--bdd-focus-outer, #ffffff) !important;
+}
+
+/* Dark surfaces: flip to a light ring so the indicator keeps >= 3:1. */
+.bdd-nav :where(a, button):focus-visible,
+dialog.bdd-dialog :where(button, a):focus-visible {
+    outline-color: #ffffff !important;
+    box-shadow: 0 0 0 calc(var(--bdd-focus-offset, 2px) + 1px) #0f62fe !important;
+}
+
+/* <main> receives programmatic focus from the skip link; it is not a control, so no ring. */
+main[tabindex="-1"]:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Keep focused controls from being hidden behind sticky UI (WCAG 2.4.11). */
+html {
+    scroll-padding-top: var(--bdd-space-6, 32px);
+}
+
+:target {
+    scroll-margin-top: var(--bdd-space-6, 32px);
+}
+
+/* ------------------------------------------------------------------ */
+/* Links: distinguishable without relying on colour alone.              */
+/* ------------------------------------------------------------------ */
+.bdd-prose a,
+.bdd-footer a,
+main p a,
+main li a {
+    color: var(--bdd-link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.bdd-prose a:hover,
+main p a:hover,
+main li a:hover {
+    color: var(--bdd-link-hover);
+    text-decoration-thickness: 2px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Buttons                                                              */
+/* ------------------------------------------------------------------ */
+.bdd-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    min-height: var(--bdd-target-min, 44px);
+    padding: 10px 20px;
+    border: 2px solid var(--bdd-link, #4c1d95);
+    border-radius: var(--bdd-radius-md, 8px);
+    background: var(--bdd-link, #4c1d95);
+    color: #ffffff;
+    font: 700 var(--bdd-text-md, 1rem)/1.2 var(--bdd-font-body, sans-serif);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bdd-button:hover {
+    background: var(--bdd-link-hover, #2e1065);
+    border-color: var(--bdd-link-hover, #2e1065);
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.bdd-button--secondary {
+    background: transparent;
+    color: var(--bdd-link, #4c1d95);
+}
+
+.bdd-button--secondary:hover {
+    background: color-mix(in srgb, var(--bdd-link, #4c1d95) 10%, transparent);
+    color: var(--bdd-link-hover, #2e1065);
+}
+
+.bdd-button[aria-disabled="true"],
+.bdd-button:disabled {
+    opacity: 1;
+    background: #e5e7eb;
+    border-color: #6b7280;
+    color: #374151;
+    cursor: not-allowed;
+}
+
+/* Controls made from images (viewer triggers): button reset only.
+   :where() keeps specificity at zero so each story's own layout rules still win. */
+:where(button.bdd-viewer-trigger) {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+}
+
+/* ------------------------------------------------------------------ */
+/* Motion                                                               */
+/* ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .bdd-skip-link,
+    .bdd-dialog__img {
+        transition: none !important;
+    }
+
+    :where(a, button, [role="button"]):hover {
+        transform: none !important;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* Forced colours (Windows High Contrast)                               */
+/* ------------------------------------------------------------------ */
+@media (forced-colors: active) {
+    .bdd-nav__link[aria-current="page"] {
+        outline: 2px solid CanvasText;
+        text-decoration: underline;
+    }
+
+    .bdd-dialog__close,
+    .bdd-button {
+        border: 2px solid ButtonText;
+        forced-color-adjust: auto;
+    }
+
+    :where(a, button, summary, [tabindex]):focus-visible {
+        outline: 3px solid Highlight !important;
+        box-shadow: none !important;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* Increased text spacing (WCAG 1.4.12): never clip text containers.    */
+/* ------------------------------------------------------------------ */
+.bdd-nav__link,
+.bdd-button,
+.bdd-dialog__caption {
+    height: auto;
+    overflow: visible;
+}

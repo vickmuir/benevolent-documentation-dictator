@@ -1,0 +1,655 @@
+/*
+ * BDD design system — tokens, per-production themes and shared components.
+ *
+ * Load order on every page:
+ *   1. bdd-design-system.css   (this file: tokens, themes, header, footer, dialog)
+ *   2. bdd-accessibility.css   (focus, links, buttons, motion, forced colors)
+ *   3. bdd-responsive.css      (breakpoints, reflow, tables)
+ *   4. the page's own <style>  (story-specific look and feel)
+ *
+ * Structure is shared. Visual identity is not: each production sets its own
+ * theme through <body data-bdd-theme="...">. See docs/design-system.md.
+ *
+ * Note: CSS custom properties cannot be used inside @media queries, so the
+ * breakpoints below are documented here and repeated in bdd-responsive.css:
+ *   --bdd-bp-nav:    860px  (navigation collapses to a menu button)
+ *   --bdd-bp-md:     768px  (container padding and grids tighten)
+ *   --bdd-bp-sm:     520px  (single column cards, tables scroll)
+ */
+
+/* ------------------------------------------------------------------ */
+/* 1. Tokens                                                           */
+/* ------------------------------------------------------------------ */
+:root {
+    /* Typography */
+    --bdd-font-body: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --bdd-font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --bdd-text-xs: 0.75rem;
+    --bdd-text-sm: 0.875rem;
+    --bdd-text-md: 1rem;
+    --bdd-text-lg: 1.125rem;
+    --bdd-text-xl: 1.25rem;
+    --bdd-text-2xl: 1.5rem;
+    --bdd-text-3xl: 2rem;
+    --bdd-leading-body: 1.7;
+    --bdd-leading-tight: 1.3;
+
+    /* Spacing scale */
+    --bdd-space-1: 4px;
+    --bdd-space-2: 8px;
+    --bdd-space-3: 12px;
+    --bdd-space-4: 16px;
+    --bdd-space-5: 24px;
+    --bdd-space-6: 32px;
+    --bdd-space-7: 48px;
+    --bdd-space-8: 64px;
+
+    /* Content widths */
+    --bdd-content-width: 1040px;
+    --bdd-prose-width: 70ch;
+
+    /* Borders and radii */
+    --bdd-border-width: 1px;
+    --bdd-radius-sm: 4px;
+    --bdd-radius-md: 8px;
+    --bdd-radius-lg: 12px;
+    --bdd-radius-pill: 999px;
+
+    /* Focus indicator (WCAG 2.4.7 / 2.4.11 / 2.4.13): inner + outer ring so the
+       indicator keeps >= 3:1 contrast on both light and dark surfaces. */
+    --bdd-focus-width: 3px;
+    --bdd-focus-offset: 2px;
+    --bdd-focus-inner: #0f62fe;
+    --bdd-focus-outer: #ffffff;
+
+    /* Minimum target size (WCAG 2.5.8 AA is 24px; we aim higher). */
+    --bdd-target-min: 44px;
+
+    /* Neutral text colours that meet 4.5:1 on white and on the story surfaces. */
+    --bdd-text: #1f2328;
+    --bdd-text-muted: #4b5563;
+
+    /* Status colours (contrast measured against #ffffff). */
+    --bdd-ok: #0e6027;
+    --bdd-warn: #8a3b00;
+    --bdd-danger: #a2191f;
+
+    /* Motion */
+    --bdd-motion-fast: 150ms;
+    --bdd-motion-base: 250ms;
+
+    /* Production accents (used for navigation pills and cards). Each pair is
+       [tint-friendly accent, deep accent that carries white text at >= 4.5:1]. */
+    --bdd-cdrama: #ba1b1b;
+    --bdd-cdrama-deep: #9b1c1c;
+    --bdd-kdrama: #8a3ffc;
+    --bdd-kdrama-deep: #6929c4;
+    --bdd-bobbywood: #db2777;
+    --bdd-bobbywood-deep: #be185d;
+    --bdd-trek: #0f62fe;
+    --bdd-trek-deep: #0043ce;
+    --bdd-gold: #c59b27;
+}
+
+/* ------------------------------------------------------------------ */
+/* 2. Production themes                                                */
+/*    Each theme only supplies values for shared component variables.  */
+/* ------------------------------------------------------------------ */
+[data-bdd-theme] {
+    --bdd-nav-bg: #ffffff;
+    --bdd-nav-border: #c9c1b0;
+    --bdd-nav-fg: #1f2328;
+    --bdd-nav-brand: #1f2328;
+    --bdd-nav-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    --bdd-link: #4c1d95;
+    --bdd-link-hover: #2e1065;
+    --bdd-footer-border: #e5e0d4;
+    --bdd-footer-fg: #4b5563;
+
+    --bdd-dialog-backdrop: rgba(10, 16, 26, 0.9);
+    --bdd-dialog-img-bg: #ffffff;
+    --bdd-dialog-img-pad: 8px;
+    --bdd-dialog-img-ring: var(--bdd-gold);
+    --bdd-dialog-caption-bg: #ffffff;
+    --bdd-dialog-caption-border: var(--bdd-gold);
+    --bdd-dialog-title-fg: #1f2328;
+    --bdd-dialog-title-font: var(--bdd-font-body);
+    --bdd-dialog-text-fg: #4b5563;
+    --bdd-dialog-close-bg: #9b1c1c;
+}
+
+/* The Rise of the Benevolent Documentation Dictator (C-Drama) */
+[data-bdd-theme="cdrama"] {
+    --bdd-content-width: 980px;
+    --bdd-nav-border: #dcd3c1;
+    --bdd-nav-fg: #1f2937;
+    --bdd-nav-brand: #1c2e4a;
+    --bdd-link: #9b1c1c;
+    --bdd-link-hover: #6f1111;
+    --bdd-footer-border: #ede7db;
+    --bdd-dialog-img-ring: #c59b27;
+    --bdd-dialog-caption-border: #c59b27;
+    --bdd-dialog-title-fg: #9b1c1c;
+    --bdd-dialog-title-font: 'Noto Serif SC', 'Cinzel', serif;
+    --bdd-dialog-close-bg: #9b1c1c;
+}
+
+/* Master Bob and the Monster in the Data Center (K-Drama) */
+[data-bdd-theme="kdrama"] {
+    --bdd-content-width: 1040px;
+    --bdd-nav-bg: #0f172a;
+    --bdd-nav-border: #6b4ab3;
+    --bdd-nav-fg: #f1f5f9;
+    --bdd-nav-brand: #d0bfff;
+    --bdd-nav-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --bdd-link: #6929c4;
+    --bdd-link-hover: #491d8b;
+    --bdd-footer-border: #edf2f7;
+    --bdd-focus-inner: #7c3aed;
+    --bdd-dialog-backdrop: rgba(5, 8, 16, 0.92);
+    --bdd-dialog-img-bg: #090d16;
+    --bdd-dialog-img-pad: 0;
+    --bdd-dialog-img-ring: rgba(168, 85, 247, 0.7);
+    --bdd-dialog-caption-bg: #0f172a;
+    --bdd-dialog-caption-border: rgba(168, 85, 247, 0.6);
+    --bdd-dialog-title-fg: #f3e8ff;
+    --bdd-dialog-text-fg: #dbe3ef;
+    --bdd-dialog-close-bg: #6929c4;
+}
+
+/* Master Bob and the Festival of Validation (Bobbywood) */
+[data-bdd-theme="bobbywood"] {
+    --bdd-content-width: 1060px;
+    --bdd-nav-bg: #1e112a;
+    --bdd-nav-border: #b7791f;
+    --bdd-nav-fg: #fdf6e3;
+    --bdd-nav-brand: #fbbf24;
+    --bdd-nav-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+    --bdd-link: #9d174d;
+    --bdd-link-hover: #701a3d;
+    --bdd-footer-border: #f3e8d2;
+    --bdd-focus-inner: #b45309;
+    --bdd-dialog-backdrop: rgba(19, 9, 30, 0.93);
+    --bdd-dialog-img-bg: #1e112a;
+    --bdd-dialog-img-ring: #f59e0b;
+    --bdd-dialog-caption-bg: #1e112a;
+    --bdd-dialog-caption-border: #f59e0b;
+    --bdd-dialog-title-fg: #fbbf24;
+    --bdd-dialog-title-font: 'Cinzel', serif;
+    --bdd-dialog-text-fg: #e7e5e4;
+    --bdd-dialog-close-bg: #be185d;
+}
+
+/* Star Trek: Master Bob and the Lost Repository */
+[data-bdd-theme="trek"] {
+    --bdd-content-width: 980px;
+    --bdd-nav-border: #c5cde0;
+    --bdd-nav-fg: #161d2e;
+    --bdd-nav-brand: #0b1a3a;
+    --bdd-link: #0043ce;
+    --bdd-link-hover: #002d9c;
+    --bdd-footer-border: #e1e5ee;
+    --bdd-dialog-img-ring: #c59b27;
+    --bdd-dialog-caption-border: #c59b27;
+    --bdd-dialog-title-fg: #a2191f;
+    --bdd-dialog-title-font: 'Orbitron', var(--bdd-font-body);
+    --bdd-dialog-close-bg: #a2191f;
+}
+
+/* About page and shared BDD pages */
+[data-bdd-theme="bdd"] {
+    --bdd-content-width: 1040px;
+    --bdd-nav-bg: #1b1030;
+    --bdd-nav-border: #c59b27;
+    --bdd-nav-fg: #f7f3ff;
+    --bdd-nav-brand: #f2d27a;
+    --bdd-nav-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+    --bdd-link: #4c1d95;
+    --bdd-link-hover: #2e1065;
+    --bdd-footer-border: #e6dfd0;
+    --bdd-focus-inner: #5b21b6;
+    --bdd-dialog-close-bg: #4c1d95;
+}
+
+/* ------------------------------------------------------------------ */
+/* 3. Skip link and visually hidden text                               */
+/* ------------------------------------------------------------------ */
+.bdd-sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+.bdd-skip-link {
+    position: fixed;
+    top: var(--bdd-space-3);
+    left: var(--bdd-space-3);
+    z-index: 10000;
+    padding: var(--bdd-space-3) var(--bdd-space-5);
+    background: #ffffff;
+    color: #111827;
+    font: 700 var(--bdd-text-md)/1.2 var(--bdd-font-body);
+    border: 3px solid #0f62fe;
+    border-radius: var(--bdd-radius-md);
+    text-decoration: underline;
+    transform: translateY(-200%);
+}
+
+.bdd-skip-link:focus,
+.bdd-skip-link:focus-visible {
+    transform: translateY(0);
+}
+
+/* ------------------------------------------------------------------ */
+/* 4. Site header and navigation                                       */
+/* ------------------------------------------------------------------ */
+.bdd-site-header {
+    max-width: var(--bdd-content-width);
+    margin: 0 auto var(--bdd-space-5);
+}
+
+.bdd-nav {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--bdd-space-3) var(--bdd-space-4);
+    padding: var(--bdd-space-3) var(--bdd-space-5);
+    background: var(--bdd-nav-bg);
+    color: var(--bdd-nav-fg);
+    border: var(--bdd-border-width) solid var(--bdd-nav-border);
+    border-radius: 50px;
+    box-shadow: var(--bdd-nav-shadow);
+}
+
+.bdd-nav__brand {
+    font-weight: 700;
+    font-size: var(--bdd-text-md);
+    color: var(--bdd-nav-brand);
+    letter-spacing: 0.02em;
+}
+
+.bdd-nav__brand > [aria-hidden="true"] {
+    margin-right: 0.35em;
+}
+
+.bdd-nav__toggle {
+    display: none;
+}
+
+.bdd-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--bdd-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bdd-nav__list > li {
+    margin: 0;
+    padding: 0;
+}
+
+.bdd-nav__link {
+    --pill: var(--bdd-nav-border);
+    --pill-deep: #4c1d95;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 36px;
+    padding: 6px 14px;
+    border: 1px solid var(--pill);
+    border-radius: var(--bdd-radius-pill);
+    background: color-mix(in srgb, var(--pill) 14%, var(--bdd-nav-bg));
+    color: var(--bdd-nav-fg);
+    font-size: var(--bdd-text-sm);
+    font-weight: 600;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+.bdd-nav__link:hover {
+    background: color-mix(in srgb, var(--pill) 30%, var(--bdd-nav-bg));
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.bdd-nav__link--cdrama { --pill: var(--bdd-cdrama); --pill-deep: var(--bdd-cdrama-deep); }
+.bdd-nav__link--kdrama { --pill: var(--bdd-kdrama); --pill-deep: var(--bdd-kdrama-deep); }
+.bdd-nav__link--bobbywood { --pill: var(--bdd-bobbywood); --pill-deep: var(--bdd-bobbywood-deep); }
+.bdd-nav__link--trek { --pill: var(--bdd-trek); --pill-deep: var(--bdd-trek-deep); }
+
+/* Current page: filled pill, bold and underlined so it is not colour-only. */
+.bdd-nav__link[aria-current="page"] {
+    background: var(--pill-deep);
+    border-color: #ffffff;
+    color: #ffffff;
+    font-weight: 800;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.bdd-nav__icon {
+    flex: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* 5. Footer                                                           */
+/* ------------------------------------------------------------------ */
+.bdd-footer {
+    margin-top: var(--bdd-space-7);
+    padding-top: var(--bdd-space-5);
+    border-top: 2px solid var(--bdd-footer-border);
+    text-align: center;
+    font-size: var(--bdd-text-sm);
+    line-height: 1.6;
+    color: var(--bdd-footer-fg);
+}
+
+.bdd-footer p {
+    margin: 0 0 var(--bdd-space-3);
+}
+
+.bdd-footer a {
+    color: var(--bdd-link);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.bdd-footer a:hover {
+    color: var(--bdd-link-hover);
+    text-decoration-thickness: 2px;
+}
+
+.bdd-footer__nav {
+    margin: var(--bdd-space-4) 0 var(--bdd-space-3);
+}
+
+.bdd-footer__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--bdd-space-2) var(--bdd-space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bdd-footer__list a {
+    display: inline-block;
+    padding-block: 0.3em;   /* keeps single-line links at least 24px tall (WCAG 2.2 SC 2.5.8) */
+}
+
+.bdd-footer__list a[aria-current="page"] {
+    color: var(--bdd-footer-fg);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+}
+
+.bdd-footer__credit {
+    font-size: var(--bdd-text-sm);
+}
+
+/* ------------------------------------------------------------------ */
+/* 6. External link indicator and LinkedIn link                        */
+/* ------------------------------------------------------------------ */
+.bdd-external::after {
+    content: "\2197";
+    display: inline-block;
+    margin-left: 0.2em;
+    font-size: 0.85em;
+    text-decoration: none;
+}
+
+.bdd-linkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+}
+
+.bdd-linkedin svg {
+    width: 1.1em;
+    height: 1.1em;
+    flex: none;
+    fill: currentColor;
+}
+
+/* ------------------------------------------------------------------ */
+/* 7. Image viewer dialog                                              */
+/*    Built by bdd-components.js. Themed with --bdd-dialog-* tokens.   */
+/* ------------------------------------------------------------------ */
+html.bdd-modal-open {
+    overflow: hidden;
+}
+
+dialog.bdd-dialog {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    padding: var(--bdd-space-5);
+    border: 0;
+    background: transparent;
+    color: inherit;
+    overflow: auto;
+}
+
+dialog.bdd-dialog:not([open]) {
+    display: none;
+}
+
+dialog.bdd-dialog[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+dialog.bdd-dialog::backdrop {
+    background: var(--bdd-dialog-backdrop, rgba(10, 16, 26, 0.9));
+}
+
+.bdd-dialog__panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--bdd-space-4);
+    width: 100%;
+    max-width: 960px;
+    margin: auto;
+}
+
+.bdd-dialog__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    width: var(--bdd-target-min);
+    height: var(--bdd-target-min);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background: var(--bdd-dialog-close-bg);
+    color: #ffffff;
+    font: 700 1.75rem/1 var(--bdd-font-body);
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+}
+
+.bdd-dialog__close:hover {
+    filter: brightness(1.15);
+}
+
+.bdd-dialog__img {
+    display: block;
+    max-width: 100%;
+    max-height: min(60vh, 900px);
+    width: auto;
+    height: auto;
+    margin-top: calc(var(--bdd-target-min) + var(--bdd-space-2));
+    object-fit: contain;
+    border-radius: var(--bdd-radius-md);
+    background: var(--bdd-dialog-img-bg);
+    padding: var(--bdd-dialog-img-pad);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 0 2px var(--bdd-dialog-img-ring);
+}
+
+.bdd-dialog__caption {
+    width: 100%;
+    max-width: 680px;
+    padding: var(--bdd-space-3) var(--bdd-space-5);
+    text-align: center;
+    background: var(--bdd-dialog-caption-bg);
+    border: 2px solid var(--bdd-dialog-caption-border);
+    border-radius: var(--bdd-radius-md);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.bdd-dialog__title {
+    margin: 0 0 4px;
+    padding: 0;
+    border: 0;
+    font-family: var(--bdd-dialog-title-font);
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: var(--bdd-leading-tight);
+    color: var(--bdd-dialog-title-fg);
+}
+
+.bdd-dialog__desc {
+    margin: 0;
+    font-size: var(--bdd-text-sm);
+    line-height: 1.5;
+    color: var(--bdd-dialog-text-fg);
+}
+
+.bdd-dialog__desc:empty {
+    display: none;
+}
+
+/* Reusable trigger for any image that opens the viewer. */
+.bdd-viewer-trigger {
+    cursor: zoom-in;
+}
+
+/* ------------------------------------------------------------------ */
+/* 8. Text alternatives (relationship list, transcripts)               */
+/* ------------------------------------------------------------------ */
+.bdd-disclosure {
+    margin: var(--bdd-space-4) 0;
+    border: 1px solid var(--bdd-footer-border);
+    border-radius: var(--bdd-radius-md);
+    background: #f8f9fb;
+    color: var(--bdd-text);
+}
+
+.bdd-disclosure > summary {
+    cursor: pointer;
+    padding: var(--bdd-space-3) var(--bdd-space-4);
+    font-weight: 700;
+    min-height: var(--bdd-target-min);
+    display: flex;
+    align-items: center;
+}
+
+.bdd-disclosure > :not(summary) {
+    padding-left: var(--bdd-space-4);
+    padding-right: var(--bdd-space-4);
+}
+
+.bdd-disclosure > :last-child {
+    padding-bottom: var(--bdd-space-4);
+}
+
+.bdd-transcript__speaker {
+    margin: var(--bdd-space-4) 0 var(--bdd-space-1);
+    font-size: var(--bdd-text-sm);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.bdd-transcript p {
+    margin: 0 0 var(--bdd-space-2);
+}
+
+/* ------------------------------------------------------------------ */
+/* 9. Structure helpers                                                */
+/* ------------------------------------------------------------------ */
+
+/* A heading whose level is chosen for document structure, not appearance.
+   Resets the section-heading decoration so the story's own component rule
+   (for example ".trope-box h2") keeps the original visual treatment. */
+.bdd-h-flat {
+    margin-top: 0;
+    padding-left: 0;
+    border-left: 0;
+}
+
+h3.char-english-title.bdd-h-flat {
+    margin: 0;
+}
+
+/* Screenplay: speaker / line pairs are a description list. */
+dl.script-dialogue {
+    margin: 0;
+}
+
+dl.script-dialogue > dd {
+    margin-inline-start: 0;
+}
+
+/* Episode jump navigation */
+.bdd-episode-nav {
+    margin: var(--bdd-space-4) 0 var(--bdd-space-5);
+}
+
+.bdd-episode-nav__label {
+    margin: 0 0 var(--bdd-space-2);
+    font-size: var(--bdd-text-sm);
+    font-weight: 700;
+}
+
+.bdd-episode-nav__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--bdd-space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.bdd-episode-nav__list a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--bdd-target-min);
+    min-height: var(--bdd-target-min);
+    padding: 0 var(--bdd-space-3);
+    border: 2px solid var(--bdd-link);
+    border-radius: var(--bdd-radius-md);
+    background: #ffffff;
+    color: var(--bdd-link);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.bdd-episode-nav__list a:hover {
+    background: var(--bdd-link);
+    color: #ffffff;
+}
